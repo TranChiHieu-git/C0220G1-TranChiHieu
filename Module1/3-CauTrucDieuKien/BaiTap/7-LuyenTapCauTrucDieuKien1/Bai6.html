@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tim hoa hong</title>
+</head>
+<body>
+<script>
+    let sales = parseInt(prompt("Nhap vao doanh so"));
+    let item = parseInt(prompt("Nhap vao gia cua san pham"));
+    let bonus;
+    if (sales<1000){
+        bonus = sales*(1*(item/100));
+    }else if (sales<2000){
+        bonus = sales*(2*(item/100));
+    }else if (sales<3000){
+        bonus = sales*(3*(item/100));
+    }else if (sales<5000){
+        bonus = sales*(5*(item/100));
+    }else if (sales<10000){
+        bonus = sales*(10*(item/100));
+    }else {
+        bonus = sales*(15*(item/100));
+    }
+    alert("Hoa hong nhan duoc la: " + bonus);
+</script>
+</body>
+</html>

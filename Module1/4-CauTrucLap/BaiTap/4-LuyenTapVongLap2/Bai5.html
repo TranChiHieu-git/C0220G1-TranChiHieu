@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tinh lai suat kep</title>
+</head>
+<body>
+<script>
+    let firstmoney = parseFloat(prompt("Nhap vao so tien goc:"));
+    let timeloan = parseFloat(prompt("So nam cho vay 1 nam:"));
+    let interestrate = parseFloat(prompt("Lai suat % :"));
+    for (let i=1;i<=timeloan;i++){
+        document.write("Tien lai nam "+i+" la: "+(firstmoney*Math.pow(1+(interestrate/100),i) +"<br>"));
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ung dung chuyen doi tien te</title>
+</head>
+<body>
+    <form>
+        <label>Amout</label>
+        <input id="amout" type="text">
+        <br>
+        <label>From Currency</label>
+        <select id="FromCurrency">
+            <option value="USD">USD</option>
+            <option value="VietNam">VietNam</option>
+        </select>
+        <br>
+        <label>To Currency</label>
+        <select id="ToCurrency">
+            <option value="VietNam">VietNam</option>
+            <option value="USD">USD</option>
+        </select>
+        <br>
+        <input type="button" value="Convert" onclick="Convert()">
+        <br>
+        <script>
+            function Convert()
+            {
+                let FCurrency = document.getElementById("FromCurrency").value;
+                let TCurrency = document.getElementById("ToCurrency").value;
+                let AMOUT = document.getElementById("amout").value;
+                let am = parseInt(AMOUT);
+                if (FCurrency == "USD" && TCurrency == "VietNam")
+                {
+                    alert("Resuilt : " + (am * 23000) + " VND");
+                }
+                else if (FCurrency == "VietNam" && TCurrency == "USD")
+                {
+                    alert("Resuilt : " + (am / 23000) + " DOLA");
+                }
+                else if (FCurrency == "VietNam" && TCurrency == "VietNam")
+                {
+                    alert("Resuilt : " + am + " VND");
+                }
+                else if (FCurrency == "USD" && TCurrency == "USD")
+                {
+                    alert("Resuilt : " + am + " DOLA");
+                }
+            }
+        </script>
+    </form>
+</body>
+</html>

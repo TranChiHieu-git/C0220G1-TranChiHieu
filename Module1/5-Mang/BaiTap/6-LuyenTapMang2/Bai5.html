@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bai 5</title>
+</head>
+<body>
+<script>
+    let chuoi1 = prompt("Nhap vao chuoi thu nhat");
+    let chuoi2 = prompt("Nhap vao chuoi thu hai");
+    let chieudai = chuoi1.length > chuoi2.length ? chuoi1.length : chuoi2.length;
+    let chose = true;
+    for (let i = 0; i < chieudai; i++) {
+        chose = true;
+        if (chuoi1[i] !== chuoi2[i]) {
+            chose = false;
+            break;
+        }
+
+    }
+    if (chose) {
+        alert("giong nhau");
+    } else {
+        alert("khong giong nhau");
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bai 4</title>
+</head>
+<body>
+<script>
+    let S = 15;
+    let n = parseFloat(prompt("Nhap vao so N: "));
+    for (let j =1;j<=n;j++){
+        S+= Math.pow((-1),j)*(1/giaithuan(j));
+    }
+    alert(S);
+    function giaithuan(a) {
+        let giaithua=1;
+        for (let i =1;i<=a;i++){
+            giaithua *= i;
+        }
+        return giaithua;
+    }
+</script>
+</body>
+</html>

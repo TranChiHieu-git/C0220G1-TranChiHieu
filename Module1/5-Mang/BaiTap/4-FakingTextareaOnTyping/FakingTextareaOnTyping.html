@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Faking Textarea on Typing</title>
+    <h2>VIET BAT CU DIEU GI VAO O TEXT</h2>
+    <textarea id="txt" onkeypress="one()" style="height: 100px;width: 400px"></textarea>
+
+</head>
+<body>
+<script>
+    let a = ['T', 'O', 'I', ' ', 'L', 'A', ' ', 'M', 'O', 'T', ' ', 'K', 'E', ' ','N','G','O','C'], n = "";
+    function one() {
+        t = document.getElementById("txt");
+        j = t.value.length;
+        for (let i = 0; i < j; i++) {
+            n += a[i];
+            if (i > 18) {
+                t.value = "";
+                n = "";
+            }
+        }
+        t.value = n;
+        n = "";
+        setTimeout("one()", 1)
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bai 4</title>
+</head>
+<body>
+<script>
+    let aray = new Array(10), i = 0;
+    document.write("Gia tri nhap <br>")
+    while (i < 10) {
+        aray[i] = parseInt(prompt("Nhap vao so nguyen"));
+        document.write(aray[i]+"<br>");
+        i++;
+    }
+    aray.reverse();
+    document.write("Gia tri dao nguoc: <br>");
+    for (let j=0;j<aray.length;j++){
+        document.write(aray[j]+"<br>");
+    }
+</script>
+</body>
+</html>

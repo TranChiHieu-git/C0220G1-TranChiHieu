@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Game Puzzle</title>
+</head>
+<body>
+<input id="pic1" onclick="change1()" type="image" src="do.jpg" style="position: relative;left: 500px ; top: 5px ; ;height: 200px ; width: 200px" ><br>
+<input id="pic2" onclick="change2()"  type="image" src="xanh.jpg" style="position: relative;left: 500px ; top: 0px ;height: 200px ; width: 200px"><br>
+<input id="pic3" onclick="change3()"  type="image" src="vang.jpg" style="position: relative;left: 500px ; top: -5px ;height: 200px ; width: 200px">
+<script>
+    let photo1 = document.getElementById("pic1");
+    let photo2 = document.getElementById("pic2");
+    let photo3 = document.getElementById("pic3");
+    function change1() {
+        if (photo1.src != photo2.src && photo1.src != photo3.src || photo2.src != photo1.src && photo2.src != photo3.src || photo3.src != photo1.src && photo2.src != photo3.src){
+            if (photo1.src == "http://localhost:63342/codegym/Module1/3-CauTrucDieuKien/BaiTap/5-Gamepuzzle/do.jpg" ){
+                photo1.src= "http://localhost:63342/codegym/Module1/3-CauTrucDieuKien/BaiTap/5-Gamepuzzle/xanh.jpg";
+                if (photo1.src == photo2.src && photo1.src == photo3.src && photo2.src == photo3.src){
+                    alert("Ban da chien thang!!! ");
+                }
+            } else if (photo1.src == "http://localhost:63342/codegym/Module1/3-CauTrucDieuKien/BaiTap/5-Gamepuzzle/xanh.jpg"){
+                photo1.src= "http://localhost:63342/codegym/Module1/3-CauTrucDieuKien/BaiTap/5-Gamepuzzle/vang.jpg";
+                if (photo1.src == photo2.src && photo1.src == photo3.src && photo2.src == photo3.src){
+                    alert("Ban da chien thang!!! ");
+                }
+            }else if ((photo1.src == "http://localhost:63342/codegym/Module1/3-CauTrucDieuKien/BaiTap/5-Gamepuzzle/vang.jpg")) {
+                photo1.src= "http://localhost:63342/codegym/Module1/3-CauTrucDieuKien/BaiTap/5-Gamepuzzle/do.jpg";
+                if (photo1.src == photo2.src && photo1.src == photo3.src && photo2.src == photo3.src){
+                    alert("Ban da chien thang!!! ");
+                }
+            }
+        }
+    }function change2() {
+        if (photo1.src != photo2.src && photo1.src != photo3.src || photo2.src != photo1.src && photo2.src != photo3.src || photo3.src != photo1.src && photo2.src != photo3.src){
+            if (photo2.src == "http://localhost:63342/codegym/Module1/3-CauTrucDieuKien/BaiTap/5-Gamepuzzle/do.jpg" ){
+                photo2.src= "http://localhost:63342/codegym/Module1/3-CauTrucDieuKien/BaiTap/5-Gamepuzzle/xanh.jpg";
+                if (photo1.src == photo2.src && photo1.src == photo3.src && photo2.src == photo3.src){
+                    alert("Ban da chien thang!!! ");
+                }
+            }
+            else if (photo2.src == "http://localhost:63342/codegym/Module1/3-CauTrucDieuKien/BaiTap/5-Gamepuzzle/xanh.jpg"){
+                photo2.src= "http://localhost:63342/codegym/Module1/3-CauTrucDieuKien/BaiTap/5-Gamepuzzle/vang.jpg";
+                if (photo1.src == photo2.src && photo1.src == photo3.src && photo2.src == photo3.src){
+                    alert("Ban da chien thang!!! ");
+                }
+            }else if ((photo2.src == "http://localhost:63342/codegym/Module1/3-CauTrucDieuKien/BaiTap/5-Gamepuzzle/vang.jpg")) {
+                photo2.src= "http://localhost:63342/codegym/Module1/3-CauTrucDieuKien/BaiTap/5-Gamepuzzle/do.jpg";
+                if (photo1.src == photo2.src && photo1.src == photo3.src && photo2.src == photo3.src){
+                    alert("Ban da chien thang!!! ");
+                }
+            }
+        }
+    }function change3() {
+        if (photo1.src != photo2.src && photo1.src != photo3.src || photo2.src != photo1.src && photo2.src != photo3.src || photo3.src != photo1.src && photo2.src != photo3.src){
+            if (photo3.src == "http://localhost:63342/codegym/Module1/3-CauTrucDieuKien/BaiTap/5-Gamepuzzle/do.jpg" ){
+                photo3.src= "http://localhost:63342/codegym/Module1/3-CauTrucDieuKien/BaiTap/5-Gamepuzzle/xanh.jpg";
+                if (photo1.src == photo2.src && photo1.src == photo3.src && photo2.src == photo3.src){
+                    alert("Ban da chien thang!!! ");
+                }
+            }
+            else if (photo3.src == "http://localhost:63342/codegym/Module1/3-CauTrucDieuKien/BaiTap/5-Gamepuzzle/xanh.jpg"){
+                photo3.src= "http://localhost:63342/codegym/Module1/3-CauTrucDieuKien/BaiTap/5-Gamepuzzle/vang.jpg";
+            }else if ((photo3.src == "http://localhost:63342/codegym/Module1/3-CauTrucDieuKien/BaiTap/5-Gamepuzzle/vang.jpg")) {
+                photo3.src= "http://localhost:63342/codegym/Module1/3-CauTrucDieuKien/BaiTap/5-Gamepuzzle/do.jpg";
+                if (photo1.src == photo2.src && photo1.src == photo3.src && photo2.src == photo3.src){
+                    alert("Ban da chien thang!!! ");
+                }
+            }
+        }
+    }
+</script>
+</body>
+</html>

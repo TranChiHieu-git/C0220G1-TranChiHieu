@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>dãy fibonacci</title>
+</head>
+<body>
+<script>
+    let n=parseInt(prompt("Nhap vao so luong so hien thi trong day fibonacci"));
+    let i1=0;
+    let i2=1;
+    let iN=1;
+     if (n==1){
+        document.write("0 ");
+    }else if (n==2) {
+         document.write("0 1");
+     } else if (n>2){
+        document.write("0 1 ");
+        for (let i = 2; i < (n ); i++) {
+            iN = i1 + i2;
+            i1 = i2;
+            i2 = iN;
+            document.write(iN+" ");
+        }
+    }
+</script>
+</body>
+</html>

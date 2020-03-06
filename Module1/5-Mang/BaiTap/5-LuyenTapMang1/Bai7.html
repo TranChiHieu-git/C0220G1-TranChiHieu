@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bai 7</title>
+</head>
+<body>
+<script>
+    let aray = new Array(10), i = 0;
+    while (i < 10) {
+        aray[i] = parseInt(prompt("Nhap vao so nguyen"));
+        i++;
+    }
+    let V = parseInt(prompt("Nhap vao so V"));
+    while (aray.indexOf(V) >= 0) {
+        if (aray.indexOf(V) >= 0) {
+            for (let x = (aray.indexOf(V) + 1); x < aray.length; x++) {
+                aray[x - 1] = aray[x];
+            }
+            aray.pop();
+        }
+    }
+    for (let j = 0; j < aray.length; j++) {
+        document.write("aray[" + j + "] = " + aray[j] + "<br>");
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculator</title>
+</head>
+<body>
+<table style="width: 190px">
+    <th></th><input id="input" type="text" style="text-align: right")></th>
+    <script>
+        let input = document.getElementById("input");
+    </script>
+    <tr>
+        <th><button onclick="input.value += 1">1</button></th>
+        <th><button onclick="input.value += 2">2</button></th>
+        <th><button onclick="input.value += 3">3</button></th>
+        <th><button onclick="input.value += '+'">+</button></th>
+    </tr>
+    <tr>
+        <th><button onclick="input.value += 4">4</button></th>
+        <th><button onclick="input.value += 5">5</button></th>
+        <th><button onclick="input.value += 6">6</button></th>
+        <th><button onclick="input.value += '-'">-</button></th>
+    </tr>
+    <tr>
+        <th><button onclick="input.value += 7">7</button></th>
+        <th><button onclick="input.value += 8">8</button></th>
+        <th><button onclick="input.value += 9">9</button></th>
+        <th><button onclick="input.value += '*'">x</button></th>
+    </tr>
+        <th><button onclick="input.value ='' ">C</button></th>
+        <th><button onclick="input.value += '0'">0</button></th>
+        <th><button onclick="calcu()">=</button></th>
+        <th><button onclick="input.value += '/'">/</button></th>
+</table>
+<script>
+    function calcu() {
+        let output = document.getElementById("input").value;
+        input.value = eval(output);
+    }
+</script>
+</body>
+</html>

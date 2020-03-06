@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ung Dung May Tinh</title>
+</head>
+<body>
+    <h1>Caculator</h1>
+    <form>
+        <input id="num1" type="text">
+        <input id="num2" type="text">
+    </form>
+    <br>
+    <form>
+        <button onclick="add(); return false;">Addition(+)</button>
+        <button onclick="sub(); return false;">Subtraction(-)</button>
+        <button onclick="mul(); return false;">Multiplication(X)</button>
+        <button onclick="divi(); return false;">Division(/)</button>
+    </form>
+    <h2 id="end"></h2>
+    <script>
+        function add()
+        {
+            let NUM1 = document.getElementById("num1").value;
+            let n1 = parseInt(NUM1);
+            let NUM2 = document.getElementById("num2").value;
+            let n2 = parseInt(NUM2);
+            let resuilt = n1 + n2;
+            document.getElementById("end").innerText = "resuilt addition: " + resuilt ;
+            //alert("resuilt addition: " + resuilt);
+        }
+        function sub()
+        {
+            let NUM1 = document.getElementById("num1").value;
+            let n1 = parseInt(NUM1);
+            let NUM2 = document.getElementById("num2").value;
+            let n2 = parseInt(NUM2);
+            let resuilt = n1 - n2;
+            document.getElementById("end").innerHTML = "resuilt subtraction: " + resuilt;
+            //alert("resuilt subtraction: " + resuilt);
+        }
+        function mul()
+        {
+            let NUM1 = document.getElementById("num1").value;
+            let n1 = parseInt(NUM1);
+            let NUM2 = document.getElementById("num2").value;
+            let n2 = parseInt(NUM2);
+            let resuilt = n1 * n2;
+            document.getElementById("end").innerHTML = "resuilt multiplication: " + resuilt;
+            //alert("resuilt multiplication: " + resuilt);
+        }
+        function divi()
+        {
+            let NUM1 = document.getElementById("num1").value;
+            let n1 = parseInt(NUM1);
+            let NUM2 = document.getElementById("num2").value;
+            let n2 = parseInt(NUM2);
+            let resuilt = n1 / n2;
+            document.getElementById("end").innerHTML = "resuilt division: " + resuilt;
+            //alert("resuilt division: " + resuilt);
+        }
+    </script>
+</body>
+</html>

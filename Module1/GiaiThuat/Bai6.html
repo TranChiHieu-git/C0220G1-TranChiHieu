@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bai6</title>
+</head>
+<body>
+<script>
+    let num = parseInt(prompt("Nhap vao so n"));
+    let chan;
+    if (num % 2 == 0) {
+       alert(giaithuachan(num));
+    } else if (num % 2 != 0) {
+        alert(giaithuale(num));
+    }
+    function giaithuachan(a) {
+        let gtchan = 1;
+        for (let i = 2; i <= a; i+= 2) {
+            gtchan *= i;
+        }
+        return gtchan;
+    }
+    function giaithuale(b) {
+        let giaithuale = 1;
+        for (let i = 1; i <= b; i += 2) {
+            giaithuale *= i;
+        }
+        return giaithuale;
+    }
+</script>
+</body>
+</html>

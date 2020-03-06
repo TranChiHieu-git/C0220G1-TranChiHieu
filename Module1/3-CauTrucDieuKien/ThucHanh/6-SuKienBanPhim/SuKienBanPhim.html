@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Su Kien Ban Phim</title>
+</head>
+<body onload="docReady()">
+    <img id="ball" src="quabong.jpg" height="150" width="250" style="position:absolute ; left: 0 ; top: 0"/>
+    <script>
+        let image = document.getElementById("ball");
+        function pressup() {
+            image.style.top = parseInt(image.style.top) - 5 +'px';
+        }function pressdown() {
+            image.style.top = parseInt(image.style.top) + 5 +'px';
+        }function pressleft() {
+            image.style.left = parseInt(image.style.left) - 5 +'px';
+        }function pressright() {
+            image.style.left = parseInt(image.style.left) + 5 +'px';
+        }function moveSelection(evt) {
+            switch (evt.keyCode) {
+                case 37:
+                    pressleft();
+                    break;
+                case 39:
+                    pressright();
+                    break;
+                case 38:
+                    pressup();
+                    break;
+                case 40:
+                    pressdown();
+                    break;
+            }
+        }function docReady() {
+            window.addEventListener('keydown', moveSelection);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tinh lai suat ngan hang</title>
+</head>
+<body>
+<script>
+    let firstMoney = parseInt(prompt("Nhap vao so tien vay"));
+    let endMoney = parseInt(prompt("Nhap vao thoi gian vay(Thang)"));
+    let burnMoney = parseFloat(prompt("Nhap lai suat hang thang:"));
+    let secondMoney = (firstMoney/endMoney)+(firstMoney*(burnMoney/100)/endMoney);
+    alert("Tien lai ngan hang phai tra hang thang la: "+secondMoney);
+</script>
+</body>
+</html>

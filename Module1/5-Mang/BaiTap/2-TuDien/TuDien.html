@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tu Dien</title>
+</head>
+<body>
+<p>Nhap vao tu tieng anh:</p>
+<input type="text" id="eng" style="width: 300px">
+<button onclick="translale()">Translate</button>
+<br>
+<hr width="400" style="position:absolute;left: 0">
+<br>
+<label id="VN" ></label>
+<script>
+    function translale() {
+        let status =false;
+        let ENG = ["Read", "Write", "Eat", "Sleep", "Cry", "Smile", "Wake up", "Talk", "Run", "Walk", "Play","Listen"];
+        let VIET = ["Doc", "Viet", "An", "Ngu", "Khoc", "Cuoi", "Thuc Day", "Noi", "Chay", "Di Bo", "Choi","Nghe"];
+        let eng = document.getElementById("eng");
+        for (let i = 0; i < 11; i++) {
+            status =false;
+            if (eng.value == ENG[i]) {
+                document.getElementById("VN").innerText = VIET[i];
+                status =true;
+                break;
+            }
+        }if (status==false){
+            document.getElementById("VN").innerText = "Khong tim thay";
+        }
+    }
+</script>
+</body>
+</html>

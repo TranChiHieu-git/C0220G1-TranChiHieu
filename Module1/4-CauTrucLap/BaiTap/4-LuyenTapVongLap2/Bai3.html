@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>VeTamGiac</title>
+</head>
+<body>
+<script>
+    for (let i=0;i<10;i++){
+        for (let j=0;j<i;j++){
+           document.write("*");
+        }document.write("<br>");
+    }
+
+    document.write("<br>");
+    document.write("<br>");
+
+    var n = 5;
+    for (let a=0;a < n;a++){
+        for (let b=0; b < n;b++){
+            if(a + b > n-2){
+                document.write("*");
+            }else{
+                document.write("_");
+            }
+        }
+        document.write("<br>");
+    }
+
+    document.write("<br>");
+    document.write("<br>");
+
+    for (let a=n;a > 0;a--){
+        for (let b=n; b > 0; b--){
+            if(a + b > n){
+                document.write("*");
+            }else{
+                document.write("_");
+            }
+        }
+        document.write("<br>");
+    }
+
+    document.write("<br>");
+    document.write("<br>");
+
+
+    for (let a=0;a < n;a++){
+        for (let b=0; b <n ; b++){
+            if(a - b <= 0){
+                document.write("*");
+            }else{
+                document.write("_");
+            }
+        }
+        document.write("<br>");
+    }
+
+</script>
+</body>
+</html>

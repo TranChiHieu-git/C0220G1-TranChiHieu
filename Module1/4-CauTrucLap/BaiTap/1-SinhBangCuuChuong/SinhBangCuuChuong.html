@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sinh Bang Cuu Chuong</title>
+</head>
+<body>
+Su dung for
+<script>
+    let bang = "<table border='1' width='1000' cellspacing='0'>";
+    let tich;
+    for (let i=1;i<11;i++){
+        for (let j=2;j<10;j++){
+            tich = i*j;
+            bang+="<th>"+(j +"x"+i+"="+tich)+"</th>";
+        }
+        bang+=("<tr></tr>");
+    }document.write(bang);
+</script>
+Su dung while
+<script>
+    let Bang = "<table border='1' width='1000' cellspacing='0'>";
+    let nhan,x=1,y=2;
+    while (x<11){
+        while (y<10){
+            nhan = x*y;
+            Bang +="<th>"+(y +"x"+x+"="+nhan)+"</th>";
+            y++;
+        }
+        Bang+="<tr>";
+        x++;
+        y=2;
+    }document.write(Bang);
+</script>
+</body>
+</html>

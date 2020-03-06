@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tinh Chi So Can Nang Cua Co The</title>
+</head>
+<body>
+<script>
+    let weight = parseFloat(prompt("Nhap Can Nang: "));
+    let height = parseFloat(prompt("Nhap Chieu Cao: "));
+    let bmi = weight /(height*height);
+    if (bmi < 18.0 ){
+        alert("Om");
+    }else if (bmi < 25.0){
+        alert("Binh Thuong");
+    }else if (bmi < 30.0){
+        alert("Beo");
+    }else {
+        alert("Beo phi");
+    }
+</script>
+</body>
+</html>

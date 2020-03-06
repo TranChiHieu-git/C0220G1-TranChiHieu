@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Xep hang hoc sinh</title>
+</head>
+<body>
+<h2>Diem Kiem Tra:</h2><input type="text" id="kiemtra"><br>
+<h2>Diem Giua Ky :</h2><input type="text" id="giuaky"><br>
+<h2>Diem Cuoi Ky :</h2><input type="text" id="cuoiky"><br>
+<button onclick="xepHang()">Xep Loai</button>
+<h2>Xep Hang     :</h2><label id="xephang"></label><br>
+<script>
+    function xepHang() {
+        let d1 = document.getElementById("kiemtra");
+        let d2 = document.getElementById("giuaky");
+        let d3 = document.getElementById("cuoiky");
+        let tt = (parseInt(d1.value)*(20/100) + (parseInt(d2.value)*(30/100))) + (parseInt(d3.value)*(50/100));
+        if (tt > 8.0 ){
+            document.getElementById("xephang").innerHTML = "Gioi";
+        }else if (tt > 6.5 ){
+            document.getElementById("xephang").innerHTML = "Kha";
+        }else if (tt > 5.0 ){
+            document.getElementById("xephang").innerHTML = "Trung Binh";
+        }else if (tt > 3.5 ){
+            document.getElementById("xephang").innerHTML = "Yeu";
+        }else {
+            document.getElementById("xephang").innerHTML = "Kem";
+        }
+    }
+</script>
+</body>
+</html>

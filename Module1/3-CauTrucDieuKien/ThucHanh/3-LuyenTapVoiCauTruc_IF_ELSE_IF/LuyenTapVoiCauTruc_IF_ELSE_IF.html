@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Luyen tap voi cau truc if...else...if</title>
+</head>
+<body>
+<script>
+    let user = prompt("Ten Dang Nhap: ");
+    if (user == "Admin"){
+        let pass = prompt("Nhap Password: ");
+        if (pass == "TheMaster"){
+            alert("Welcome!!! ");
+        }else if (pass == null){
+            alert("Canceled");
+        }else {
+            alert("Wrong password");
+        }
+    } else if (user == null){
+        alert("Canceled");
+    } else {
+        alert("I don't know you");
+    }
+</script>
+</body>
+</html>

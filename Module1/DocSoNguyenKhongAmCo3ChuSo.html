@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>đọc các số nguyên không âm có tối đa 3 chữ số</title>
+</head>
+<body>
+<script>
+    let num = parseInt(prompt("Nhap vao 1 so nguyen duong co 3 chu su vd 261"));
+    let donvi = num%10;
+    let chuc = parseInt((num%100)/10);
+    let tram = parseInt(num/100);
+    let numtram="";
+    let numchuc="";
+    let numdonvi="";
+    switch (tram) {
+        case 1: numtram += "one ";break;
+        case 2: numtram += "two ";break;
+        case 3: numtram += "three ";break;
+        case 4: numtram += "four ";break;
+        case 5: numtram += "five ";break;
+        case 6: numtram += "six ";break;
+        case 7: numtram += "seven ";break;
+        case 8: numtram += "eight ";break;
+        case 9: numtram += "nine ";break;
+    }
+    if (chuc >= 2){
+        switch (chuc) {
+            case 2: numchuc += "twenty ";break;
+            case 3: numchuc += "thirty ";break;
+            case 4: numchuc += "fourty ";break;
+            case 5: numchuc += "fifity ";break;
+            case 6: numchuc += "sixty ";break;
+            case 7: numchuc += "seventy ";break;
+            case 8: numchuc += "eighty ";break;
+            case 9: numchuc += "ninety ";break;
+        }
+        switch (donvi) {
+            case 1: numdonvi += "one ";break;
+            case 2: numdonvi += "two ";break;
+            case 3: numdonvi+= "three ";break;
+            case 4: numdonvi += "four ";break;
+            case 5: numdonvi += "five ";break;
+            case 6: numdonvi += "six ";break;
+            case 7: numdonvi += "seven ";break;
+            case 8: numdonvi += "eight ";break;
+            case 9: numdonvi += "nine ";break;
+        }
+    }else if (chuc==1){
+        switch (donvi) {
+            case 0: numdonvi +="ten ";break;
+            case 1: numdonvi += "eleventeen ";break;
+            case 2: numdonvi += "twelve ";break;
+            case 3: numdonvi += "thirteen";break;
+            case 4: numdonvi += "fourteen ";break;
+            case 5: numdonvi += "fiveteen ";break;
+            case 6: numdonvi += "sixteen";break;
+            case 7: numdonvi += "seventeen ";break;
+            case 8: numdonvi += "eighteen ";break;
+            case 9: numdonvi += "nineteen ";break;
+        }
+    }else if (chuc==0)
+    {
+        switch (donvi) {
+            case 1: numdonvi += "one ";break;
+            case 2: numdonvi += "two ";break;
+            case 3: numdonvi += "three";break;
+            case 4: numdonvi += "four ";break;
+            case 5: numdonvi += "five ";break;
+            case 6: numdonvi += "six";break;
+            case 7: numdonvi += "seven ";break;
+            case 8: numdonvi += "eight ";break;
+            case 9: numdonvi += "nine ";break;
+        }
+    }
+    if (numchuc==0 && numdonvi==0 ){
+        document.write(numtram +" hundred");
+    }else {
+        document.write(numtram +" hundred and "+ numchuc +" "+numdonvi);
+    }
+
+</script>
+</body>
+</html>

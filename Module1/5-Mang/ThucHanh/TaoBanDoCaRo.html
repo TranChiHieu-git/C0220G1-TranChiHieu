@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<button onclick="changexy()" style="position: absolute ;top: 540px ; left: 200px">Change Value</button>
+<p id="tet">
+<script>
+    let x, y;
+    let caro =
+        [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],];
+    let bang = "<table id='banG' width='500' border='2' cellspacing='0' cellpadding='15'>";
+        for (let i = 0; i < 10; i++) {
+            for (let j = 0; j < 10; j++) {
+                bang += "<th>"+ caro[i][j] +"</th>";
+            }
+            bang+="<tr></tr>";
+        }
+        document.getElementById("tet").innerHTML=bang;
+    function changexy() {
+        y = parseInt(prompt("Nhap vao gai tri truc ngang"));
+        x = parseInt(prompt("Nhap vao gia tri truc doc"));
+        caro[x][y] = "x";
+        let bang = "<table id='banG' width='500' border='2' cellspacing='0' cellpadding='15'>";
+        for (let i = 0; i < 10; i++) {
+            for (let j = 0; j < 10; j++) {
+                bang += "<th>"+ caro[i][j] +"</th>";
+            }
+            bang+="<tr></tr>";
+        }
+        document.getElementById("tet").innerHTML=bang;
+    }
+</script>
+</body>
+</html>

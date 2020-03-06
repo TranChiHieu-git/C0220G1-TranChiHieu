@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiem tra xem 3 so co phai la canh cua 1 tam giac</title>
+</head>
+<body>
+<script>
+    let a = parseFloat(prompt("Nhap vao canh 1"));
+    let b = parseFloat(prompt("Nhap vao canh 2"));
+    let c = parseFloat(prompt("Nhap vao canh 3"));
+    if (a>0 && b>0 && c>0){
+        if (a+b>c && b+c>a && a+c>b){
+            alert("3 so nhap vao la 3 canh cua 1 tam giac");
+        }else {
+            alert("3 so nhap vao khong phai la 3 canh cua 1 tam giac");
+        }
+    }
+</script>
+</body>
+</html>

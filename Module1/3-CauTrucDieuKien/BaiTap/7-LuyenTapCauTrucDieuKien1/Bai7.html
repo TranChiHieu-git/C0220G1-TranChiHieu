@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tim tien phi dien thoai</title>
+</head>
+<body>
+<script>
+    let minCall = parseInt(prompt("Nhap vao so phut goi"));
+    let costCall;
+    if (minCall<51){
+        costCall = 25000 + (600*minCall);
+    }else if (minCall<201){
+        costCall = 25000 + (600*50) + ((minCall-50)*400);
+    }else {
+        costCall = 25000 + (600*50) + (400*150) + ((minCall-200)*200);
+    }
+    alert("Tien cuoc dien thoai la: " + costCall + " vnd");
+</script>
+</body>
+</html>

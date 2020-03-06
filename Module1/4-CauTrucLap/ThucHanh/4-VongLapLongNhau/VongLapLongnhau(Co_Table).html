@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vong lap long nhau</title>
+</head>
+<body>
+Dung for:
+<script>
+       let Table = "<table width='1000'border='2'  cellpadding='2' cellspacing='0' >";
+       for (let i=1;i<11;i++){
+           for (let j=1;j<11;j++){
+               Table += "<th>"+i * j+"</th>";
+           }
+           Table += "<tr></tr>";
+       }
+       document.write(Table);
+</script>
+<br>
+Dung while:
+<script>
+    let Bang = "<table width='1000' border='2' cellspacing='0' cellpadding='2'>";
+    let x=1,y=1;
+    while (x <11){
+        while (y<11){
+
+            Bang += "<th>"+ x*y +"</th>";
+            y++;
+        }
+        y=1;
+        x++;
+        Bang += "<tr></tr>";
+    }
+    document.write(Bang);
+</script>
+</body>
+</html>

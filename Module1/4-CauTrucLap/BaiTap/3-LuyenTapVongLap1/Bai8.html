@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Game doan so</title>
+</head>
+<body>
+<input type="button" value="Start" onclick="play()">
+<script>
+    function play(){
+        let min = parseInt(prompt("Nhap vao khoang gia tri \n Min:"));
+        let max = parseInt(prompt("Nhap vao khoang gia tri \n Max:"));
+        if (min>max){
+            alert("Khoang gia tri sai");
+        }
+        else {
+        let num = Math.floor(Math.random() * (max - min) ) + min;
+        let xacnhan=0;
+        while (xacnhan!=1){
+            let numdoan = parseInt(prompt("Nhap vao so ban doan"));
+            if (numdoan==num){
+                alert("Ban Da Doan Dung");
+                xacnhan=1;
+            }else if (numdoan<num){
+                alert("Hay doan cao hon");
+            }else if (numdoan>num){
+                alert("Hay doan thap hon");
+            }
+        }
+        }
+    }
+</script>
+</body>
+</html>

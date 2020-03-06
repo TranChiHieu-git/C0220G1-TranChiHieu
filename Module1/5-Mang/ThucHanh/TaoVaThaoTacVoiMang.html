@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tao va thao tac voi mang</title>
+</head>
+<body>
+<input type="text" id="vaLue"></input>
+<button onclick="Add()">Add</button>
+<button onclick="Display()">Display</button>
+<br>
+<hr width="320" style="position:absolute;left: 0">
+<br>
+<label id="print" value=""></label>
+<script>
+    let vaLue = document.getElementById("vaLue");
+    let print = document.getElementById("print");
+    let Mang = [];
+    function Add() {
+        Mang.push(vaLue.value);
+        vaLue.value="";
+    }
+    function Display() {
+        print.innerHTML = Mang;
+    }
+</script>
+</body>
+</html>

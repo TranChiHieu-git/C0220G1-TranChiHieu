@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>tinh gia dien</title>
+</head>
+<body>
+<script>
+    let bill = parseInt(prompt("Nhap vao so chu"));
+    let costelectric = parseInt(prompt("Nhap vao gia dien"));
+    let moneyElectric;
+    if (bill<50){
+        moneyElectric = costelectric*bill;
+        alert("TienDien Phai Tra la: "+moneyElectric);
+    }else if (bill<100) {
+        moneyElectric = (50 * costelectric) + ((bill - 50) * ((costelectric) + (costelectric * (3 / 100))));
+    }else if (bill<200){
+        moneyElectric = (50*costelectric)+(50*((costelectric) + (costelectric * (3 / 100))))+((bill-100)*((costelectric) + (costelectric * (5 / 100))))
+    }else{
+        moneyElectric= (50*costelectric) + (50*((costelectric) + (costelectric * (3 / 100)))) + (100*((costelectric) + (costelectric * (5 / 100)))) + ((bill-200)*((costelectric) + (costelectric * (3 / 100))));
+    }
+    alert("Tien dien phai tra la: " + moneyElectric+" vnd");
+</script>
+</body>
+</html>

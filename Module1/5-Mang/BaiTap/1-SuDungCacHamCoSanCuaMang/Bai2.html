@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bai 2</title>
+</head>
+<body>
+<script>
+    let num = prompt("Nhap vao mot so duong(Nhap -1 hoac chu bat ki de ket thuc)");
+    let Tong = [];
+    let i=0;
+    while (parseInt(num)!=-1 && (parseInt(num)==num)){
+        Tong[i]=num;
+        i++;
+        num = parseInt(prompt("Nhap vao mot so duong(Nhap -1 hoac chu bat ki de ket thuc)"));
+    }for (let j=0;j<Tong.length;j++){
+        if (Tong[j-1]%2==0 && Tong[j]%2==0){
+            Tong[j]=(-Tong[j]);
+        }
+    }
+    alert(Tong.join(''));
+</script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tim so chia het ho 5 dau tien trong day</title>
+</head>
+<body>
+<script>
+    let xacnhan=0;
+    let a1=0;
+    let a2=1;
+    let an=1;
+    while (xacnhan==0){
+        an=a1+a2;
+        if (an % 5 == 0){
+            xacnhan=1;
+            alert("So dau tien trong day fibonacci chia het cho 5 la: "+an);
+        }
+        a1=a2;
+        a2=an;
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ung Dung May Tinh</title>
+</head>
+<body>
+    <input id="result" type="text" style="font-size: larger" value="" ><br>
+    <script>
+        let result = document.getElementById("result");
+    </script>
+    <button  onclick="result.value +=7"><h3>7</h3></button>
+    <button  onclick="result.value +=8"><h3>8</h3></button>
+    <button  onclick="result.value +=9"><h3>9</h3></button>
+    <button  onclick="result.value +='+'"><h3>+</h3></button><br>
+    <button  onclick="result.value +=4"><h3>4</h3></button>
+    <button  onclick="result.value +=5"><h3>5</h3></button>
+    <button  onclick="result.value +=6"><h3>6</h3></button>
+    <button  onclick="result.value +='-'"><h3>-</h3></button><br>
+    <button  onclick="result.value +=1"><h3>1</h3></button>
+    <button  onclick="result.value +=2"><h3>2</h3></button>
+    <button  onclick="result.value +=3"><h3>3</h3></button>
+    <button  onclick="result.value +='*'"><h3>*</h3></button><br>
+    <button  onclick="result.value +=0"><h3>0</h3></button>
+    <button  onclick="calculator()"><h3>=</h3></button>
+    <button onclick="result.value = ''"><h3>C</h3></button>
+    <button  onclick="result.value +='/'"><h3>/</h3></button>
+    <script>
+        function calculator() {
+            let numResult = eval(result.value);
+            result.value = numResult;
+        }
+    </script>
+</body>
+</html>

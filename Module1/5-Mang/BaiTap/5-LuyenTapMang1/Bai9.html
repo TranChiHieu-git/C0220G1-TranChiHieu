@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bai 9</title>
+</head>
+<body>
+<script>
+    let aray = new Array(10), j=0,i = 0,x=0,y=0, bray = new Array(10),cray = new Array(20);
+    while (i < 10) {
+        aray[i] = parseInt(prompt("Nhap vao so nguyen cho mang A"));
+        i++;
+    }
+    while (j < 10) {
+        bray[j] = parseInt(prompt("Nhap vao so nguyen cho mang B"));
+        j++;
+    }
+    cray = aray.concat(bray);
+    while (x<20){
+        document.write(cray[x]+"<br>");
+        x++;
+    }
+</script>
+</body>
+</html>

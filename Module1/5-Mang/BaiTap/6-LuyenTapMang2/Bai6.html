@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bai 6</title>
+</head>
+<body>
+<script>
+    let varindex = parseInt(prompt("Nhap so phan tu cua mang"));
+    let mang = new Array(varindex);
+    for (let i=0;i<varindex;i++){
+        mang[i]=prompt("Nhap gia tri cua mang");
+    }
+    for (let j=0;j<mang.length;j++){
+        if(mang[j]=="-"){
+            mang[j]="_";
+        }
+    }
+        document.write(mang.join(""));
+</script>
+</body>
+</html>

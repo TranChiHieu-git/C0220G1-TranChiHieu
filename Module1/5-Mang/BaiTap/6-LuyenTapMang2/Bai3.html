@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bai 3</title>
+</head>
+<body>
+<script>
+    let varindex = parseInt(prompt("Nhap so phan tu cua mang"));
+    let mang = new Array(varindex);
+    for (let i=0;i<varindex;i++){
+        mang[i]=prompt("Nhap gia tri cua mang");
+    }
+    let chuoi = mang.join("");
+    let count=0;
+    for (let j=0;j<chuoi.length;j++){
+        if (chuoi[j]!=" "){
+            count++;
+        }
+    }
+    alert("So ki tu cua mang la: "+count);
+</script>
+</body>
+</html>

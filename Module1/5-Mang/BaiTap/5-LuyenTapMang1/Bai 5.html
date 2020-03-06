@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bai 5</title>
+</head>
+<body>
+<script>
+    let aray = new Array(10),i=0,count=0;
+    while (i<10){
+        aray[i] = parseInt(prompt("Nhap vao so nguyen"));
+        i++;
+    }
+    for (let j=0;j<aray.length;j++){
+        if (aray[j]<0){
+            count++;
+            document.write("aray["+j+"] = "+aray[j]+"<br>  ");
+        }
+    }document.write("Co "+count+" Phan tu am trong mang");
+</script>
+</body>
+</html>

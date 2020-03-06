@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hien Thi N So Nguyen To Dau Tien</title>
+</head>
+<body>
+<script>
+    let N = parseInt(prompt("Nhap vao so luon so nguyen to muon hien thi"));
+    let count=0;
+    let D=1;
+    while(count<N){
+        if (timsonguyento(D)){
+            count++;
+            document.write("so nguyen to la: "+D+"<br>");
+        }
+        D++;
+    }
+    function timsonguyento(a) {
+        if (a < 2){
+            return false;
+        }
+        for (let j = 2; j < (a - 1); j++){
+            if (a % j == 0){
+                return false;
+            }
+        }
+        return true;
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+let name = prompt("Ho va Ten: ");
+let id = prompt("So CMND: ");
+let birthday = prompt("Ngay thang nam sinh (dd/mm/yyyy): ");
+let email = prompt("Email: ");
+let address = prompt("Dia chi: ");
+let kindCustomer = prompt("Loai khach hang (Diamond, Platinum, Gold, Silver, Member): ");
+let discount = prompt("Giam gia: ");
+let soluongdikem = prompt("So luong di kem: ");
+let rentDay = prompt("So ngay thue: ");
+let kindService = prompt("Loai dich vu (Villa, House, Room): ");
+let kindRoom = prompt("Loai phong thue (Vip, Business,  Normal): ");

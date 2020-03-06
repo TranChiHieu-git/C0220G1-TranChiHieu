@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>In hinh trai tim</title>
+</head>
+<body>
+<script>
+    for (let i =1;i<=2;i++){
+        for (let j=1;j<=7;j++){
+            if(i==2 && j!=4){
+                document.write(" * ");
+            }else if (i==1 && (j== 2 ||j==6)){
+                document.write(" * ");
+            }else {
+                document.write(" _ ");
+            }
+        }
+        document.write("<br>");
+    }
+    for (let x =1;x<=2;x++){
+        for (let y=1;y<=7;y++) {
+            document.write(" * ");
+        }
+        document.write("<br>");
+    }
+    for (let a =1;a<=3;a++){
+        for (let b=1;b<=7;b++){
+            if(a==1 && (b==1 || b==7)){
+                document.write(" _ ");
+            }else if (a==2 && (b==1 || b==2 || b==6 ||b==7)){
+               document.write(" _ ");
+            }else if (a==3 && b!=4){
+                document.write(" _ ");
+            } else {
+                document.write(" * ");
+            }
+        }
+        document.write("<br>");
+    }
+</script>
+</body>
+</html>

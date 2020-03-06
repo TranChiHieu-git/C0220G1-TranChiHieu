@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bai 3</title>
+</head>
+<body>
+<script>
+    let aray = new Array(10), i = 0;
+    let Max,pos=0,TB,Tong=0.0;
+    while (i < 10) {
+        aray[i] = parseInt(prompt("Nhap vao so nguyen"));
+        i++;
+    }
+    Max=aray[0];
+    for (let j = 1; j < aray.length; j++) {
+        if (Max<aray[j]){
+            Max=aray[j];
+            pos=j;
+        }
+    }
+    document.write("So lon nhat trong mang la: "+Max+" o vi tri "+pos+" cua mang");
+    for (let x=0;x<aray.length;x++){
+        Tong+=aray[x];
+    }
+    TB=(Tong/aray.length);
+    document.write("Trung binh cac phan tu trong mang la: "+TB);
+</script>
+</body>
+</html>

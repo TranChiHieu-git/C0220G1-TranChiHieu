@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tic Tac Toe</title>
+</head>
+<body onload="display()">
+<p id="table"></p>
+<script>
+    let caro = [[" ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " "," "," "," "," ", " "," "," "," "," ", " "," "," "," "],
+        [" ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " "," "," "," "," ", " "," "," "," "," ", " "," "," "," "],
+        [" ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " "," "," "," "," ", " "," "," "," "," ", " "," "," "," "],
+        [" ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " "," "," "," "," ", " "," "," "," "," ", " "," "," "," "],
+        [" ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " "," "," "," "," ", " "," "," "," "," ", " "," "," "," "],
+        [" ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " "," "," "," "," ", " "," "," "," "," ", " "," "," "," "],
+        [" ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " "," "," "," "," ", " "," "," "," "," ", " "," "," "," "],
+        [" ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " "," "," "," "," ", " "," "," "," "," ", " "," "," "," "],
+        [" ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " "," "," "," "," ", " "," "," "," "," ", " "," "," "," "],
+        [" ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " "," "," "," "," ", " "," "," "," "," ", " "," "," "," "],
+        [" ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " "," "," "," "," ", " "," "," "," "," ", " "," "," "," "],
+        [" ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " "," "," "," "," ", " "," "," "," "," ", " "," "," "," "],
+        [" ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " "," "," "," "," ", " "," "," "," "," ", " "," "," "," "],
+        [" ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " "," "," "," "," ", " "," "," "," "," ", " "," "," "," "]];
+    let i, j, count = 0, bang;
+    function display() {
+        bang = "<table style='position: absolute; left: 30px; top: 58px ' width='1300' border='2' cellpadding='8' cellspacing='2' >";
+        for (let i = 1; i < 13; i++) {
+            for (let j = 1; j < 29; j++) {
+                bang += "<td style='width:20px;height:20px ' onclick='player(" + i + "," + j + ");'>" + caro[i][j] + "</td>";
+            }
+            bang += "<tr></tr>";
+        }
+        document.getElementById("table").innerHTML = bang;
+    }
+    function player(X, Y) {
+        if (checkwin1()) {
+            alert("Nguoi choi 1 chien thang");
+            location.reload();
+        } else if (checkwin2()) {
+            alert("Nguoi choi 2 chien thang");
+            location.reload();
+        } else if (checkwin1() == false && checkwin2() == false) {
+            if (caro[X][Y] != " ") {
+                alert("Vi tri ban chon da duoc chon.Hay chon vi tri khac")
+            } else if (caro[X][Y] == " ") {
+                if (count % 2 == 0) {
+                    caro[X][Y] = "x";
+                } else {
+                    caro[X][Y] = "o";
+                }
+                display();
+                count++;
+                if (checkwin1()) {
+                    alert("Nguoi choi 1 chien thang");
+                    location.reload();
+                } else if (checkwin2()) {
+                    alert("Nguoi choi 2 chien thang");
+                    location.reload();
+                }
+            }
+        }
+    }
+    function checkwin1() {
+        for (i = 0; i < 13; i++) {
+            for (j = 0; j < 29; j++) {
+                if (caro[i][j] == "x") {
+                    if (caro[i][j + 1] == "x" && caro[i][j + 2] == "x" && caro[i][j + 3] == "x") {
+                        return true;
+                        break;
+                    } else if (caro[i + 1][j + 1] == "x" && caro[i + 2][j + 2] == "x" && caro[i + 3][j + 3] == "x") {
+                        return true;
+                        break;
+                    } else if (caro[i + 1][j] == "x" && caro[i + 2][j] == "x" && caro[i + 3][j] == "x") {
+                        return true;
+                        break;
+                    }else if (caro[i + 1][j-1] == "x" && caro[i + 2][j-2] == "x" && caro[i + 3][j - 3] == "x") {
+                        return true;
+                        break;
+                    }
+                    else if (caro[i - 1][j+1] == "x" && caro[i - 2][j+2] == "x" && caro[i - 3][j + 3] == "x") {
+                        return true;
+                        break;
+                    }
+                }
+            }
+        }
+        return false;
+    }
+    function checkwin2() {
+        for (i = 0; i < 13; i++) {
+            for (j = 0; j < 29; j++) {
+                if (caro[i][j] == "o") {
+                    if (caro[i][j + 1] == "o" && caro[i][j + 2] == "o" && caro[i][j + 3] == "o") {
+                        return true;
+                        break;
+                    } else if (caro[i + 1][j + 1] == "o" && caro[i + 2][j + 2] == "o" && caro[i + 3][j + 3] == "o") {
+                        return true;
+                        break;
+                    } else if (caro[i + 1][j] == "o" && caro[i + 2][j] == "o" && caro[i + 3][j] == "o") {
+                        return true;
+                        break;
+                    }else if (caro[i + 1][j-1] == "o" && caro[i + 2][j-2] == "o" && caro[i + 3][j - 3] == "o") {
+                        return true;
+                        break;
+                    }
+                    else if (caro[i - 1][j+1] == "o" && caro[i - 2][j+2] == "o" && caro[i - 3][j + 3] == "o") {
+                        return true;
+                        break;
+                    }
+                }
+            }
+        }
+        return false;
+    }
+</script>
+</body>
+</html>

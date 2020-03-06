@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bai 8</title>
+</head>
+<body>
+<script>
+    let a = parseInt(prompt("Nhap vao so nguyen a"));
+    let b = parseInt(prompt("Nhap vao so nguyen b"));
+    let counta=0,countb=0,max=0,min=0,k=1;
+    let numa = new Array();
+    let numb = new Array();
+    for (let i=1;i<a;i++){
+        if (a%i==0){
+            numa[counta]=i;
+            counta++;
+        }
+    }for (let j=1;j<b;j++){
+        if (b%j==0){
+            numb[countb]=j;
+            countb++;
+        }
+    }
+    for (let x=0;x<numa.length;x++){
+        for (let y=0;y<numb.length;y++){
+            if (numa[x]==numb[y]){
+                max = max>numa[x]?max:numa[x];
+            }
+        }
+    }
+    min=(Math.abs(a*b))/max;
+    document.write("UCLN: "+max+"<br>");
+    document.write("BCNN: "+min);
+</script>
+</body>
+</html>

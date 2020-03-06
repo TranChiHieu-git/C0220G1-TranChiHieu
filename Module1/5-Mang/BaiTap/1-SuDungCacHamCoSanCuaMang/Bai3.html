@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>UPDER LOWER</title>
+</head>
+<body>
+<script>
+    let UPPER = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    let LOWER = 'abcdefghijklmnopqrstuvwxyz';
+    let i=0;
+    let CHUOI=[];
+    let chuoi = prompt("Nhap Vao mot ki tu(Nhap vao 1 so de ket thuc)");
+    for (i=0;i<chuoi.length;i++){
+        if (LOWER.indexOf(chuoi[i])== -1){
+            CHUOI[i]=chuoi[i].toLowerCase();
+        }else if (UPPER.indexOf(chuoi[i])== -1){
+            CHUOI[i]=chuoi[i].toUpperCase();
+        }
+    }
+    alert(CHUOI.join(""));
+</script>
+</body>
+</html>

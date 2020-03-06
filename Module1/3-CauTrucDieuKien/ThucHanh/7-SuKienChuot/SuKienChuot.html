@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Su Kien Chuot</title>
+</head>
+<body>
+    <img id="ball" src="quabong.jpg" style="position:relative ; left: 0; top: 0; width: 250px; height: 200px"><br>
+    <button onclick="move()">Move</button>
+    <script>
+        let ball = document.getElementById("ball");
+        function move() {
+            ball.style.left = parseInt(ball.style.left) + 100 +'px';
+        }
+    </script>
+</body>
+</html>
