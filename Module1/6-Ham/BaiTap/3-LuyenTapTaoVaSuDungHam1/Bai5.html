@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bai 5</title>
+</head>
+<body>
+<script>
+    let superStar = ['Polaris', 'Aldebaran', 'Deneb', 'Vega', 'Altair', 'Dubhe', 'Regulus'];
+    let Star =["Ursa Minor", "Tarurus", "Cygnus", "Lyra", "Aquila", "Ursa Major", "Leo"];
+    let name = prompt("Nhap vao ten sieu sao");
+    alert(receive(name));
+    function receive(name) {
+        if (superStar.indexOf(name)>=0){
+            return Star[superStar.indexOf(name)];
+        }else if (superStar.indexOf(name)== -1) {
+            alert("Khong tim thay ten ngoi sao ban vua nhap");
+        }
+    }
+</script>
+</body>
+</html>

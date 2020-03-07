@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bai 7</title>
+</head>
+<body>
+<script>
+    let num1=parseInt(prompt("Nhap vao so 1"));
+    let num2=parseInt(prompt("Nhap vao so 2"));
+    replace(num1,num2);
+    function replace(num1,num2) {
+        let temp;
+        temp=num1;
+        num1=num2;
+        num2=temp;
+        alert("num1= "+num1+"\n"+"num2= "+num2);
+    }
+</script>
+</body>
+</html>

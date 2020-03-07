@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bai 5</title>
+</head>
+<body onload="receiveAndFindMin()">
+<script>
+    function receiveAndFindMin() {
+        let num1 =parseInt(prompt("Nhap vao 1 so nguyen"));
+        let num2 =parseInt(prompt("Nhap vao 1 so nguyen"));
+        let num3 =parseInt(prompt("Nhap vao 1 so nguyen"));
+        let Min=num1;
+        Min = Min<num2?Min:num2;
+        Min = Min<num3?Min:num3;
+        alert(Min);
+    }
+</script>
+</body>
+</html>

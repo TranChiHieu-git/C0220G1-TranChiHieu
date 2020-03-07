@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chuyen doi giua feet va met</title>
+</head>
+<body>
+<h1>Feet <--> Met</h1><br>
+<input type="text" id="input">&#160;<select id="donVi">
+    <option value="met">Met</option>
+    <option value="feet">Feet</option>
+</select>&#160;<button onclick="show()">Convert</button>
+<br>
+<hr width="315px" style="position: absolute;left: 0">
+<br>
+<p id="result"></p>
+<script>
+    function show(){
+        let val = document.getElementById("input");
+        let donVi = document.getElementById("donVi");
+
+        let result = convert(val.value,donVi.value);
+        if (donVi.value=="met"){
+            document.getElementById("result").innerHTML = result+" feet";
+        }else if (donVi.value=="feet"){
+            document.getElementById("result").innerHTML = result+" met";
+        }
+    }
+    function convert(val, donvi) {
+        let result;
+        if (donvi == "met") {
+            result = 3.279 * val;
+            return result;
+        } else if (donvi == "feet") {
+            result = 0.305 * val;
+            return result;
+        }
+    }
+</script>
+</body>
+</html>

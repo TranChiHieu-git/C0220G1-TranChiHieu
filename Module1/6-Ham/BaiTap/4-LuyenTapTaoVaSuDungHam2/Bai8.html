@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bai 8</title>
+</head>
+<body>
+<script>
+    let arr1 = ['0','1','2','3','4','5','6'];
+    alert(Dao(arr1));
+    function Dao(arr) {
+        let arr2 = new Array(arr.length);
+        for (let i=0;i<arr.length;i++){
+            arr2[arr.length-i]=arr[i];
+        }
+        return arr2;
+    }
+</script>
+</body>
+</html>

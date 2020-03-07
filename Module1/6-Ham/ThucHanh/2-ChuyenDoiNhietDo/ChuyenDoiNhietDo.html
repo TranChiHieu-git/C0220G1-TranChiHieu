@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chuyen doi nhiet do</title>
+</head>
+<body>
+<h1>TEMPERATURE CONVERTER</h1>
+<p>Fahrenheit: </p><input type="number" id="temperature" onchange="convert(TempF.value)">
+<br>
+<p id="result"></p>
+<script>
+    let TempF = document.getElementById("temperature");
+function convert(F) {
+    let C = (F - 32)/(1.8);
+    document.getElementById("result").innerHTML = C;
+}
+</script>
+</body>
+</html>
