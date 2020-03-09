@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bai 10</title>
+</head>
+<body>
+<script>
+    let stringReceive = prompt("Nhap vao mot chuoi");
+    let stringArr = new Array();
+    let upcase = "QWERTYUIOPLKJHGFDSAZXCVBNM";
+    let x = 0;
+    let idau, icuoi, i = 0;
+    while (i <= stringReceive.length) {
+        for (let j = 0; j < upcase.length; j++) {
+            if (stringReceive.charAt(i) == upcase.charAt(j)) {
+                idau = i;
+            }
+            else if (stringReceive.charAt(i) == " ") {
+                icuoi = i;
+            }
+            if (idau>=0 && icuoi>idau){
+                stringArr[x] = stringReceive.substring(idau, icuoi);
+
+            }
+
+        }
+        x++;
+        i++;
+    }
+    alert(stringArr);
+</script>
+</body>
+</html>

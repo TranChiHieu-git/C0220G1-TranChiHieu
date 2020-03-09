@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Yeu cau 4</title>
+</head>
+<body>
+<script>
+    let choose;
+    let arrNameCustomers = new Array();
+    let numCustomer;
+    let nameDelete;
+    while (1) {
+        choose = parseInt(prompt("1.Add name customer \n" +
+            "2.Delete customer"));
+        if (choose == 1) {
+            numCustomer = parseInt(prompt("Hay nhap so luong khach hang muon them"));
+            for (let i = 0; i < numCustomer; i++) {
+                arrNameCustomers[i] = prompt("Nhap khach hang thu " + (i + 1));
+
+            }
+            let arrTemp = new Array(arrNameCustomers.length);
+            for (let j = 0; j < arrNameCustomers.length; j++) {
+                arrTemp[j] = (j + 1) + "." + arrNameCustomers[j];
+            }
+            alert(arrTemp.join("\n"));
+            let arrSort = new Array();
+            arrSort = arrNameCustomers.sort();
+            for (let x = 0; x < arrSort.length; x++) {
+                arrTemp[x] = (x + 1) + "." + arrSort[x];
+            }
+            alert(arrTemp.join("\n"));
+
+        } else if (choose == 2) {
+            nameDelete = prompt("Nhap vao ten khach hang muon xoa");
+            if (arrNameCustomers.indexOf(nameDelete) >= 0) {
+                for (let i = arrNameCustomers.indexOf(nameDelete); i < arrNameCustomers.length; i++) {
+                    arrNameCustomers[i] = arrNameCustomers[i + 1];
+                }
+                arrNameCustomers.pop();
+                let arrTemp = new Array(arrNameCustomers.length);
+                for (let j = 0; j < arrNameCustomers.length; j++) {
+                    arrTemp[j] = (j + 1) + "." + arrNameCustomers[j];
+                }
+                alert(arrTemp.join("\n"));
+            } else if (arrNameCustomers.indexOf(nameDelete) == -1) {
+                alert("Ten khach hang ban nhap khong co trong danh sach");
+            }
+        }
+    }
+</script>
+</body>
+</html>

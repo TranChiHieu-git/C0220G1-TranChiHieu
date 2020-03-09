@@ -6,7 +6,52 @@
 </head>
 <body>
 <script>
-    
+    let upcase = "QWERTYUIOPLKJHGFDSAZXCVBNM ";
+    let lowcase = "qwertyuioplkjhgfdsazxcvbnm ";
+    let stringReceive = prompt("Nhap vao mot chuoi ki tu bat ky");
+    //in chuoi dao nguoc
+    let stringtemp = "";
+    for (let i = 0; i < stringReceive.length; i++) {
+        stringtemp += stringReceive[(stringReceive.length - 1) - i];
+    }
+    //doi sang chu hoa
+    let stringUpCase = "";
+    for (let i = 0; i < stringReceive.length; i++) {
+        for (let j = 0; j < upcase.length; j++) {
+            if (stringReceive.charAt(i) == lowcase.charAt(j)) {
+                stringUpCase += upcase.charAt(j);
+            } else if (stringReceive.charAt(i) == upcase.charAt(j)) {
+                stringUpCase += upcase.charAt(j);
+            }
+        }
+    }
+    //doi sang chu thuong
+    let stringLowCase = "";
+    for (let i = 0; i < stringReceive.length; i++) {
+        for (let j = 0; j < lowcase.length; j++) {
+            if (stringReceive.charAt(i) == upcase.charAt(j)) {
+                stringLowCase += lowcase.charAt(j);
+            } else if (stringReceive.charAt(i) == lowcase.charAt(j)) {
+                stringLowCase += lowcase.charAt(j);
+            }
+        }
+    }
+    //doi vua chu hoa thanh chu thuong
+    let stringLowUpCase = "";
+    for (let i = 0; i < stringReceive.length; i++) {
+        for (let j = 0; j < lowcase.length; j++) {
+            if (stringReceive.charAt(i) == upcase.charAt(j)) {
+                stringLowUpCase += lowcase.charAt(j);
+            } else if (stringReceive.charAt(i) == lowcase.charAt(j)) {
+                stringLowUpCase += upcase.charAt(j);
+            }
+        }
+    }
+    //in ra
+    alert("1. " + stringtemp + "\n" +
+        "2. " + stringUpCase + "\n" +
+        "3. " + stringLowCase + "\n"+
+        "4. " + stringLowUpCase + "\n");
 </script>
 </body>
 </html>

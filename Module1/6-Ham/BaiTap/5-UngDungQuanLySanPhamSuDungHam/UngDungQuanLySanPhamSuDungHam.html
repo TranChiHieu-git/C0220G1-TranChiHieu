@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quan ly san pham su dung ham</title>
+</head>
+<body>
+<h3>Add new product</h3>
+<input type="text" id="product">
+<button onclick="addProduct()">Add</button>
+<h3>Display All Product</h3>
+<p id="displayProduct"></p>
+<script>
+    let arrProduct = new Array();
+    let newProduct = document.getElementById("product");
+    let bang;
+
+    function addProduct() {
+        for (i = 0; i <= arrProduct.length; i++) {
+            if (typeof arrProduct[i] !== "") {
+                arrProduct.push(newProduct.value);
+                break;
+            }
+        }
+        newProduct.value="";
+        displayProduct();
+    }
+
+    function displayProduct() {
+        bang = "<table width='500px'>";
+        for (let i = 0; i < arrProduct.length; i++) {
+            bang +="<tr>"+ "<td>"+arrProduct[i]+"</td>"+"<th><button onclick='editProduct("+i+")'>Edit</button></th>"+"<th><button onclick='deleteProduct("+i+")'>Delete</button></th>"+"</tr>";
+        }
+        document.getElementById("displayProduct").innerHTML = bang;
+    }
+    function editProduct(num) {
+        let editProduct = prompt("Thong tin edit");
+        arrProduct[num]=editProduct;
+        displayProduct();
+    }
+
+    function deleteProduct(num) {
+        for (let i=num;i<arrProduct.length;i++){
+            arrProduct[i]=arrProduct[i+1];
+        }
+        arrProduct.pop();
+        displayProduct();
+    }
+
+</script>
+</body>
+</html>
