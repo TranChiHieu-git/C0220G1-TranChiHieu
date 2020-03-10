@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>xay dung lop mo ta hinh chu nhat</title>
+</head>
+<body>
+<h3>Xay dung lop mo ta hinh chu nhat</h3>
+<canvas id="rectangle" height="480px" width="1080px" style="border: 1px solid #e20912 "></canvas>
+<br>
+<button onclick="changValueAndPrint()">Chang value</button>
+<button onclick="cal()">Calculator</button>
+<script>
+
+    let rectangle = function (height, width) {
+        this.height = height;
+        this.width = width;
+        this.Area = function () {
+            return this.height * this.width;
+        }
+        this.perimeter = function () {
+            return (this.height + this.width) * 2;
+        }
+        this.paintRectangle = function () {
+            let paint = document.getElementById("rectangle").getContext("2d");
+            paint.strokeStyle = "rgb(83,54,255)";
+            paint.beginPath();
+            paint.strokeRect(0, 0, this.width, this.height);
+            paint.stroke();
+        }
+    }
+    let h = parseInt(prompt("Nhap chieu dai hinh chu nhat"));
+    let w = parseInt(prompt("Nhap chieu rong hinh chu nhat"));
+    let recTangle = new rectangle(h, w);
+    recTangle.paintRectangle();
+    function changValueAndPrint() {
+        recTangle.height = parseInt(prompt("Nhap chieu dai hinh chu nhat"));
+        recTangle.width = parseInt(prompt("Nhap chieu rong hinh chu nhat"));
+        let paint = document.getElementById("rectangle").getContext("2d");
+        paint.clearRect(0, 0, 1080, 480);
+        recTangle.paintRectangle();
+    }
+    function cal() {
+        alert("Area = " + recTangle.Area() + " Perimeter = " + recTangle.perimeter());
+    }
+</script>
+</body>
+</html>

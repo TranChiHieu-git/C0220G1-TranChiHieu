@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Xay dung lop hinh tron</title>
+</head>
+<body>
+<script>
+    let Circle = function (rad ) {
+        this.radi = rad;
+
+        this.getRadian = function () {
+            return this.radi;
+        }
+
+        this.getArea = function () {
+            return (Math.PI*this.radi*this.radi);
+        }
+    }
+
+    let circle = new Circle(1);
+    alert(circle.getRadian() +"  "+ circle.getArea());
+</script>
+</body>
+</html>

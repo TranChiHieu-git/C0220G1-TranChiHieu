@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Xay Dung Lop Date</title>
+</head>
+<body>
+<script>
+    let myDate = function (ngay, thang, nam) {
+        this.day = ngay;
+        this.month = thang;
+        this.year = nam;
+
+        this.getDay = function () {
+            return this.day;
+        }
+        this.getMonth = function () {
+            return this.month;
+        }
+        this.getYear = function () {
+            return this.year;
+        }
+
+        this.setDay = function(day) {
+            this.day  = day;
+        }
+        this.setMonth = function(month) {
+            this.month  = month;
+        }
+        this.setYear = function(year) {
+            this.year  = year;
+        }
+    }
+    let date = new myDate(10, 3, 2020);
+    alert(date.getDay()+"/"+date.getMonth()+"/"+date.getYear());
+    date.setDay(11);
+    date.setMonth(10);
+    date.setYear(2010);
+    alert(date.getDay()+"/"+date.getMonth()+"/"+date.getYear());
+</script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Xay dung lop mo ta nhiet do</title>
+</head>
+<body>
+<script>
+    let temperature = function (temp) {
+        this.temPeraTure = temp;
+        this.convertToF = function () {
+            return (1.8 * this.temPeraTure + 32);
+        }
+        this.convertToK = function () {
+            return this.temPeraTure + 273;
+        }
+    }
+
+    let Temperature = new temperature(25);
+    alert("F= " + Temperature.convertToF() + "\n" + "K= " + Temperature.convertToK());
+</script>
+</body>
+</html>

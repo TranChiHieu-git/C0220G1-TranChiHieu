@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Funny Circle</title>
+</head>
+<h3>Funny Circle</h3>
+<canvas id="funny circle" width="1350px" height="530px" style="border: 4px solid #40b21d"></canvas>
+<body>
+<script>
+    let cirCle = function (x, y, radius) {
+        this.x = x;
+        this.y = y;
+        this.radius = radius;
+    }
+
+    function getRandomColor() {
+        let red = Math.floor(Math.random() * 255);
+        let green = Math.floor(Math.random() * 255);
+        let blue = Math.floor(Math.random() * 255);
+        return "rgb(" + red + "," + blue + "," + green + ")";
+    }
+    function getRandomRadius(){
+        return Math.floor(Math.random() * 90);
+    }
+    function getRandomx(){
+        return Math.floor(Math.random() * 1350);
+    }
+    function getRandomy(){
+        return Math.floor(Math.random() * 530);
+    }
+    function paintCirCle(){
+        let paint = document.getElementById("funny circle").getContext("2d");
+        let radius = getRandomRadius();
+        let x = getRandomx();
+        let y = getRandomy();
+        let color = getRandomColor();
+        let circle = new cirCle(x, y, radius);
+        paint.beginPath();
+        paint.arc(circle.x, circle.y, circle.radius, 0, 2 * Math.PI);
+        paint.fillStyle = color;
+        paint.fill();
+    }
+    for (let i=0;i<50;i++){
+        paintCirCle();
+    }
+
+
+
+
+</script>
+</body>
+</html>

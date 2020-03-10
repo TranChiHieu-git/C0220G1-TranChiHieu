@@ -6,11 +6,16 @@
 </head>
 <body>
 <script>
-    let num = prompt("Nhap vao mot so tu nhien bat ky");
-    alert(isPrime(num));
-    function isPrime(number){
-        for (let j=2;j<number;j++){
-            if (number % j == 0){
+    for (let i = 2; i < 10000; i++) {
+        if (isPrime(i)) {
+            document.write(i);
+        }
+        document.write("\n");
+    }
+
+    function isPrime(number) {
+        for (let j = 2; j < number; j++) {
+            if (number % j == 0) {
                 return false;
             }
         }
