@@ -77,7 +77,7 @@
     let Creep = new gameCreep();
     setInterval(function () {
 
-            crepx+=3;
+            crepx+=2;
 
         if (crepx > 720) {
             diem++;
@@ -91,7 +91,6 @@
                     crepy = 120;
                     break;
             }
-            ;
             Creep = new gameCreep();
         } else if (crepx <= 720) {
             Creep.beginCreep(crepy, crepx);
