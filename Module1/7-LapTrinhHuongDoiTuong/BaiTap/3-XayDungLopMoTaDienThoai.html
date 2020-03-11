@@ -4,76 +4,73 @@
     <meta charset="UTF-8">
     <title>xay dung lop mo ta dien thoai</title>
 </head>
-<body>
 <script>
     let Office = " ";
-    let Mobile = function (mobileStatus, baterry, baterryStatus) {
+    let Mobile = function (mobileStatus, baterry) {
         this.mobileOn = mobileStatus;
         this.Baterry = baterry;
-        this.BaterryStatus = baterryStatus;
         this.smsing = " ";
-        this.receiveSms = new Array();
-        this.transSms = new Array();
+        this.receiveSms = new Array(0);
+        this.transSms = new Array(0);
         this.getMobileStatus = function () {
             if (this.mobileOn && this.Baterry > 0) {
                 return true;
             } else if (this.mobileOn === false || this.Baterry === 0) {
                 return false;
             }
-        }
+        };
         this.setMobileStatus = function (status) {
-            if (this.Baterry == 0) {
+            if (this.Baterry === 0) {
                 this.mobileOn = false;
             } else {
                 this.mobileOn = status;
             }
-        }
-        this.addBaterry = function () {
-            if (this.BaterryStatus == true && this.Baterry < 100) {
-                setInterval(function () {
-                    baterry++;
-                    this.Baterry = baterry
-                    console.log(this.Baterry);
-                }, 5000);
+        };
+        this.addBaterry = function (bateryStatus) {
+            if (bateryStatus === true && this.Baterry < 100) {
+                this.Baterry++;
             }
-        }
+        };
         this.writeSms = function (writing) {
             if (this.mobileOn) {
                 this.smsing = writing;
                 this.Baterry--;
             }
-        }
+        };
         this.tranSms = function () {
             if (this.mobileOn) {
                 Office = this.smsing;
                 this.transSms.push(this.smsing);
                 this.Baterry--;
             }
-        }
+        };
         this.receiSms = function () {
             if (this.mobileOn) {
                 this.receiveSms.push(Office);
                 this.Baterry--;
             }
         }
-    }
-    let iphone = new Mobile(true, 40, true);
-    let nokia = new Mobile(true, 40, true);
-   // nokia.addBaterry();
-    /* nokia.writeSms("xin chao!!");
-     nokia.tranSms();
-     iphone.receiSms();
-     alert(iphone.receiveSms[0]);
-     iphone.writeSms("Hello friend");
-     iphone.tranSms();
-     nokia.receiSms();
-     alert(nokia.receiveSms[0]);
-*/
+    };
+    let iphone = new Mobile(true, 54);
+    let nokia = new Mobile(true, 60);
+    nokia.writeSms("xin chao!!");
+    nokia.tranSms();
+    iphone.receiSms();
+    alert(iphone.receiveSms[0]);
+    iphone.writeSms("Hello friend");
+    iphone.tranSms();
+    nokia.receiSms();
+    alert(nokia.receiveSms[0]);
+    setInterval(function () {
+        nokia.addBaterry(true);
+    }, 1000);
+    setInterval(function () {
+        iphone.addBaterry(false);
+    }, 1000);
     setInterval(function () {
         console.log(nokia.Baterry);
-    }, 5000);
-
-
+        console.log(iphone.Baterry);
+    }, 1000);
 </script>
 </body>
 </html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Phat trien game lai xe</title>
+</head>
+<body>
+<h2 style="position: absolute ; left: 320px; top: 0 ;color: #e20606">Car Game</h2>
+<canvas id="carGame" height="240px" width="720px"
+        style="border:5px solid #40b21d ;position: absolute ;top: 50px"></canvas>
+<h2>SCORE:</h2> <h2 style="position: absolute ; top: 0;left: 110px" id="diem"></h2>
+<script>
+    let gameCreep = function () {
+        this.beginCreep = function (crepy, crepx) {
+            this.creepY = crepy;
+            this.creepX = crepx;
+            this.img1 = new Image();
+            this.img1.src = "https://www.vippng.com/png/detail/50-503550_police-car-top-blue-png-image-police-car.png";
+            this.drawcreep = document.getElementById("carGame").getContext("2d");
+            this.drawcreep.drawImage(this.img1, this.creepX, this.creepY, 140, 90);
+        }
+    }
+    let gameCar = function () {
+        this.speed = 7;
+        this.paintBegin = function () {
+            this.paintCar(500, 80);
+        }
+        this.paintEnd = function () {
+            this.drawcar.clearRect(0, 0, 720, 240);
+            this.paintCar(500, 80);
+        }
+        this.paintCar = function (carleft, carright) {
+            this.img = new Image();
+            this.carX = carleft;
+            this.carY = carright;
+            this.img.src = "https://pngimage.net/wp-content/uploads/2018/05/car-top-view-png-2.png";
+            this.drawcar = document.getElementById("carGame").getContext("2d");
+            this.drawcar.drawImage(this.img, this.carX, this.carY, 100, 80);
+        }
+        this.moveCarTo = function () {
+
+            this.carY = this.carY - this.speed;
+            this.drawcar.clearRect(this.carX - 10, this.carY, 120, 80);
+            this.paintCar(this.carX, this.carY);
+        }
+        this.moveCarBack = function () {
+            this.carY = this.carY + this.speed;
+            this.drawcar.clearRect(this.carX - 10, this.carY, 120, 80);
+            this.paintCar(this.carX, this.carY);
+
+        }
+        this.moveCarLeft = function () {
+            this.carX = this.carX - this.speed;
+            this.drawcar.clearRect(this.carX - 10, this.carY, 120, 80);
+            this.paintCar(this.carX, this.carY);
+        }
+        this.moveCarRight = function () {
+            this.carX = this.carX + this.speed;
+            this.drawcar.clearRect(this.carX - 10, this.carY, 120, 80);
+            this.paintCar(this.carX, this.carY);
+        }
+    };
+    let gamestart = new gameCar();
+    let crepy;
+    let diem =0;
+    document.getElementById("diem").innerHTML = diem;
+    switch (Math.floor(Math.random() * 2) + 1) {
+        case 1:
+            crepy = 10;
+            break;
+        case 2:
+            crepy = 120;
+            break;
+    }
+    ;
+    let crepx = -150;
+    let Creep = new gameCreep();
+    setInterval(function () {
+
+            crepx+=3;
+
+        if (crepx > 720) {
+            diem++;
+            document.getElementById("diem").innerHTML = diem;
+            crepx = -150;
+            switch (Math.floor(Math.random() * 2) + 1) {
+                case 1:
+                    crepy = 10;
+                    break;
+                case 2:
+                    crepy = 120;
+                    break;
+            }
+            ;
+            Creep = new gameCreep();
+        } else if (crepx <= 720) {
+            Creep.beginCreep(crepy, crepx);
+            if (gamestart.carX < 5 || gamestart.carX > 610 || gamestart.carY < 0 || gamestart.carY > 170) {
+                alert("ban da thua cuoc");
+                gamestart.paintEnd();
+                location.reload();
+            }
+            if (crepy === 10 ){
+                if (crepx+120===gamestart.carX && gamestart.carY < 87){
+                    alert("ban da thua cuoc");
+                    gamestart.paintEnd();
+                    location.reload();
+                }
+            }
+           else if (crepy === 120 ){
+                if (crepx+120===gamestart.carX && gamestart.carY > 52){
+                    alert("ban da thua cuoc");
+                    gamestart.paintEnd();
+                    location.reload();
+                }
+            }
+        }
+    }, 10);
+    gamestart.paintBegin();
+    docReady();
+    function moveSelection(evt) {
+        switch (evt.keyCode) {
+            case 37:
+                gamestart.moveCarLeft();
+                break;
+            case 39:
+                gamestart.moveCarRight();
+                break;
+            case 38:
+                gamestart.moveCarTo();
+                break;
+            case 40:
+                gamestart.moveCarBack();
+                break;
+        }
+    }
+
+    function docReady() {
+        window.addEventListener('keydown', moveSelection);
+    }
+
+</script>
+</body>
+</html>
