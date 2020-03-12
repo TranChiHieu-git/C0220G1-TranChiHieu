@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Di chuyen doi tuong</title>
+</head>
+<canvas id="superman" width="1346" height="500"/>
+<body>
+<script>
+    class hero {
+        constructor(cordx, cordy) {
+            this.cordX = cordx;
+            this.cordY = cordy;
+            this.speedHero = 1;
+        }
+
+        paintHeroBegin() {
+            this.heroImg = new Image();
+            this.heroImg.src = 'https://lazi.vn/files/large/3e2756f9498b72e';
+            this.drawhero = document.getElementById("superman").getContext("2d");
+            this.drawhero.drawImage(this.heroImg, this.cordX, this.cordY, 200, 200);
+        }
+
+        paintHero() {
+
+            this.drawhero1 = document.getElementById("superman").getContext("2d");
+            this.drawhero1.drawImage(this.heroImg1, this.cordX, this.cordY, 200, 200);
+        }
+
+        goLeft() {
+            this.heroImg1 = new Image();
+            this.heroImg1.src = 'https://lazi.vn/files/large/3e2756f9498b72e';
+            this.cordX += this.speedHero;
+            this.paintHero();
+        }
+
+        goRight() {
+            this.heroImg1 = new Image();
+            this.heroImg1.src = 'https://lazi.vn/files/large/3e2756f9498b72e';
+            this.cordX -= this.speedHero;
+            this.paintHero();
+        }
+    }
+
+    let superman = new hero(150, 150);
+    superman.paintHeroBegin();
+
+    let count = 0;
+    setInterval(function () {
+        docReady();
+        if (superman.cordX > 100 && count % 2 === 0) {
+            superman.drawhero.clearRect(superman.cordX, superman.cordY, 210, 210);
+            superman.goLeft();
+            if (superman.cordX > 1146) {
+                count++;
+            }
+
+        } else {
+            superman.drawhero.clearRect(superman.cordX, superman.cordY, 210, 210);
+            superman.goRight();
+            if (superman.cordX < 150) {
+                count++;
+            }
+        }
+    }, 1);
+    function moveSelection(evt) {
+        switch (evt.keyCode) {
+            case 38:
+                superman.speedHero += 1;
+                break;
+            case 40:
+                superman.speedHero -= 1;
+                break;
+        }
+    }
+
+    function docReady() {
+        window.addEventListener('keydown', moveSelection);
+    }
+
+</script>
+</body>
+</html>
