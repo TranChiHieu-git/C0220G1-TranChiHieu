@@ -21,22 +21,32 @@
             return this.year;
         }
 
-        this.setDay = function(day) {
-            this.day  = day;
+        this.setDay = function (day) {
+            this.day = day;
         }
-        this.setMonth = function(month) {
-            this.month  = month;
+        this.setMonth = function (month) {
+            this.month = month;
         }
-        this.setYear = function(year) {
-            this.year  = year;
+        this.setYear = function (year) {
+            this.year = year;
+        }
+        this.setDate = function (day, month, year) {
+            this.setDay(day);
+            this.setMonth(month);
+            this.setYear(year);
+        }
+        this.tostring = function () {
+            return this.getDay()+"/"+this.getMonth()+"/"+this.getYear();
         }
     }
     let date = new myDate(10, 3, 2020);
-    alert(date.getDay()+"/"+date.getMonth()+"/"+date.getYear());
+    alert(date.tostring());
     date.setDay(11);
     date.setMonth(10);
     date.setYear(2010);
-    alert(date.getDay()+"/"+date.getMonth()+"/"+date.getYear());
+    alert(date.tostring());
+    date.setDate(13,3,2020);
+    alert(date.tostring());
 </script>
 </body>
 </html>

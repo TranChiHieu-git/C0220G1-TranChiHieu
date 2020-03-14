@@ -5,7 +5,129 @@
     <title>Game Caro</title>
 </head>
 <body>
+<div id="carotable"></div>
 <script>
+    class caro {
+        constructor(x, y) {
+            this.x = x;
+            this.y = y;
+        }
+
+        drawO() {
+            let cordx = this.x * 40;
+            let cordy = this.y * 40;
+            let draw = "<div id='O-" + this.x + "-" + this.y + "' onclick='play(" + this.x + "," + this.y + ")' style='position: absolute;" +
+                "width: " + 40 + "px; height: " + 40 + "px; left: " + cordx + "px;top:" + cordy + "px; border: 1px solid #21e22d;text-align: center" +
+                ";cursor: pointer;color: #ff0a09'></div>";
+            return draw;
+        }
+
+        drawXO(play) {
+            this.Player = play;
+            let xo = document.getElementById("O-" + this.x + "-" + this.y);
+            switch (this.Player) {
+                case "X":
+                    xo.innerHTML = "X";
+                    break;
+                case "O":
+                    xo.innerHTML = "O";
+                    break;
+                default:
+                    xo.innerHTML = "";
+                    break;
+            }
+        }
+    }
+
+    class gameCaro {
+        constructor(hang, cot, divId) {
+            this.hang = hang;
+            this.cot = cot;
+            this.div = divId;
+            this.caro = new Array(this.hang);
+            this.count = 0;
+        }
+
+        drawcarotable() {
+            let gameboardiv = document.getElementById(this.div);
+
+            for (let i = 0; i < this.hang; i++) {
+                this.caro[i] = new Array(this.cot);
+                for (let j = 0; j < this.cot; j++) {
+                    let cell = new caro(i, j);
+                    this.caro[i][j] = " ";
+                    gameboardiv.innerHTML += cell.drawO() + this.caro[i][j];
+                }
+                gameboardiv.innerHTML += "<br>";
+            }
+        }
+
+        play(x, y) {
+            let cell = new caro(x, y);
+            if (this.caro[x][y] === " ") {
+                if (this.count % 2 === 0) {
+                    cell.drawXO("X");
+                    this.caro[x][y] = "X";
+                    this.count++;
+                } else if (this.count % 2 !== 0) {
+                    cell.drawXO("O");
+                    this.caro[x][y] = "O";
+                    this.count++;
+                }
+            } else {
+                alert("Vi tri ban chon da duoc chon.vui long chon vi tri khac");
+            }
+        }
+
+        check() {
+
+            for (let i = 0; i < this.caro.length; i++) {
+                for (let j = 0; j < this.caro[i].length; j++) {
+                    if (this.caro[i][j] === "X" && this.caro[i + 1][j] === "X" && this.caro[i + 2][j] === "X" && this.caro[i + 3][j] === "X") {
+                        alert("Nguoi choi X da chien thang");
+                        location.reload();
+                    } else if (this.caro[i][j] === "O" && this.caro[i + 1][j] === "O" && this.caro[i + 2][j] === "O" && this.caro[i + 3][j] === "O") {
+                        alert("Nguoi choi O da chien thang");
+                        location.reload();
+                    } else if (this.caro[i][j] === "O" && this.caro[i][j + 1] === "O" && this.caro[i][j + 2] === "O" && this.caro[i][j + 3] === "O") {
+                        alert("Nguoi choi O da chien thang");
+                        location.reload();
+                    } else if (this.caro[i][j] === "X" && this.caro[i][j + 1] === "X" && this.caro[i][j + 2] === "X" && this.caro[i][j + 3] === "X") {
+                        alert("Nguoi choi X da chien thang");
+                        location.reload();
+                    } else if (this.caro[i][j] === "X" && this.caro[i + 1][j + 1] === "X" && this.caro[i + 2][j + 2] === "X" && this.caro[i + 3][j + 3] === "X") {
+                        alert("Nguoi choi X da chien thang");
+                        location.reload();
+                    } else if (this.caro[i][j] === "O" && this.caro[i + 1][j + 1] === "O" && this.caro[i + 2][j + 2] === "O" && this.caro[i + 3][j + 3] === "O") {
+                        alert("Nguoi choi O da chien thang");
+                        location.reload();
+                    } else if (this.caro[i][j] === "O" && this.caro[i + 1][j - 1] === "O" && this.caro[i + 2][j - 2] === "O" && this.caro[i + 3][j - 3] === "O") {
+                        alert("Nguoi choi O da chien thang");
+                        location.reload();
+                    } else if (this.caro[i][j] === "X" && this.caro[i + 1][j - 1] === "X" && this.caro[i + 2][j - 2] === "X" && this.caro[i + 3][j - 3] === "X") {
+                        alert("Nguoi choi X da chien thang");
+                        location.reload();
+                    } else if (this.caro[i][j] === "O" && this.caro[i - 1][j + 1] === "O" && this.caro[i - 2][j + 2] === "O" && this.caro[i - 3][j + 3] === "O") {
+                        alert("Nguoi choi O da chien thang");
+                        location.reload();
+                    } else if (this.caro[i][j] === "X" && this.caro[i - 1][j + 1] === "X" && this.caro[i - 2][j + 2] === "X" && this.caro[i - 3][j + 3] === "X") {
+                        alert("Nguoi choi X da chien thang");
+                        location.reload();
+                    }
+                }
+            }
+
+        }
+    }
+
+    let test = new gameCaro(20, 20, "carotable");
+    test.drawcarotable();
+    test.check();
+
+    function play(x, y) {
+        test.play(x, y);
+        test.check();
+    }
 </script>
 </body>
 </html>

@@ -4,61 +4,39 @@
     <meta charset="UTF-8">
     <title>Cong tac va bong den</title>
 </head>
+<button onclick="BATTAT()">BatTatBongDen</button>
+<h1 id="statuslamp">Bong den dang tat</h1>
 <body>
 <script>
-    class electricLamp {
-        constructor(idlamp , idbutton) {
-            this.idLamp = idlamp;
-            this.idButton = idbutton;
+    class Switch {
+        constructor(status) {
+            this.status=status;
         }
-
-        control(statusbutton) {
-            this.statusSwitch =statusbutton;
-            if (this.statusSwitch && this.idLamp===this.idButton) {
-                this.statusLamp = true;
-                this.electricStatus();
-            }
-            else if (this.statusSwitch === false && this.idLamp===this.idButton) {
-                this.statusLamp = false;
-                this.electricStatus();
-            }
+        switchButton(){
+            return this.status;
         }
-
-        electricStatus() {
-            return this.statusLamp;
+        On_Off(){
+            this.status = !this.status;
         }
     }
-
-    class SwitchButton {
-        constructor( idbutton) {
-            this.idButton = idbutton;
-
+    class Lamp{
+        constructor(button) {
+            this.Button = button;
         }
-        returnID() {
-            return this.idButton;
-        }
-        control(butonstatus) {
-            this.ButtonStatus = butonstatus;
-            this.getbuttonStatus();
-        }
-        getbuttonStatus(){
-            return this.ButtonStatus;
+        onoff(){
+            if (this.Button.switchButton()===true){
+                document.getElementById("statuslamp").innerHTML = " Bong den dang bat";
+            }
+            else {
+                document.getElementById("statuslamp").innerHTML = " Bong den dang tat";
+            }
         }
     }
-    let congtac = new SwitchButton("001");
-    let bongden = new electricLamp("001",congtac.returnID());
-    let bongden2 = new electricLamp("002",congtac.returnID());
-    for (let i = 0; i < 5; i++) {
-        congtac.control(true);
-        bongden.control(congtac.getbuttonStatus());
-        bongden2.control(congtac.getbuttonStatus());
-        console.log(bongden.electricStatus());
-        console.log(bongden2.electricStatus());
-        congtac.control(false);
-        bongden.control(congtac.getbuttonStatus());
-        bongden2.control(congtac.getbuttonStatus());
-        console.log(bongden.electricStatus());
-        console.log(bongden2.electricStatus());
+    let congtac = new Switch(false);
+    let bongden = new Lamp(congtac);
+    function BATTAT() {
+        congtac.On_Off();
+        bongden.onoff();
     }
 </script>
 </body>
