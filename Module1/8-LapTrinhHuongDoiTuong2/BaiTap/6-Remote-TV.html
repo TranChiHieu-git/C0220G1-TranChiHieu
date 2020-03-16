@@ -51,8 +51,10 @@
             if (this.isOn === false) {
                 location.reload();
             }
+            else if (this.isOn){
+                this.changeChanel("vtv1.mp4")
+            }
         }
-
         changeChanel(chanel) {
             if (this.isOn) {
                 this.chanel = chanel;
@@ -89,6 +91,7 @@
 
     function onoff() {
         dieukhien.setonof();
+        kenh.src = tv.getchanel();
     }
 
     function chanel1() {

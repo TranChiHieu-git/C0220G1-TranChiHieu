@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>dem so lan xuat hien cua phan tu</title>
+</head>
+<body>
+<script>
+    let nums = new Array(100);
+    for (let i = 0; i < 100; i++) {
+        nums[i] = Math.floor(Math.random() * 100);
+    }
+    for (let i = 0; i < 100; i++) {
+        document.write(" _ " + nums[i] + " _ ");
+        if (i % 10 === 0 && i !== 0) {
+            document.write("<br><br>");
+        }
+    }
+
+    var n = parseInt(prompt("Enter a value to count: "));
+    let foundn = count(nums, n);
+
+    document.write("<br><br>");
+    document.write("found : " + foundn);
+
+    function count(arr, n) {
+        let dem = 0;
+        for (let j = 0; j < arr.length; j++) {
+            if (arr[j] === n) {
+                dem++;
+            }
+        }
+        return dem;
+    }
+</script>
+</body>
+</html>

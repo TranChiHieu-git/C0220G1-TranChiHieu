@@ -17,7 +17,6 @@
         }
 
         decrease() {
-            let appWe = this.getWeight();
             this.appleWeight--;
             if (this.appleWeight<0){
                 this.empty();
@@ -68,7 +67,7 @@
         Eva.humanEat(apple.decrease());
         console.log("kg adam: " + Adam.getWeight());
         console.log("kg eva: " + Eva.getWeight());
-        console.log("kg tao': " + apple.appleWeight);
+        console.log("kg tao': " + apple.getWeight());
     }
 </script>
 </body>

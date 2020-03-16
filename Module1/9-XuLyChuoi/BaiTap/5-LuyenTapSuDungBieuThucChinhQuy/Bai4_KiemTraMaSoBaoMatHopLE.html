@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>kiem tra ma so bao mat hop le</title>
+</head>
+<body>
+<script>
+    let flag =false;
+    do {
+        let pass = prompt("Nhap vao mat ma");
+        let patt = /^[\*\@\$\^\&\%]+[0-9]{6}\#$/;
+        if (patt.test(pass)){
+            flag=true;
+        }
+    }while (flag==false)
+
+
+</script>
+</body>
+</html>

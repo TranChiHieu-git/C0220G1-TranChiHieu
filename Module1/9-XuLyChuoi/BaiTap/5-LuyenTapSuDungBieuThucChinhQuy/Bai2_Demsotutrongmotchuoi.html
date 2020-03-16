@@ -6,7 +6,19 @@
 </head>
 <body>
 <script>
-    
+    let str = "Đếm số từ trong một chuỗi";
+    let word = /^\D/;
+    let space = /^\s/;
+    let count = 0;
+    for (let i = 0; i < str.length; i++) {
+        if (i === 0) {
+            count++;
+        }
+        if (space.test(str.charAt(i - 1)) && word.test(str.charAt(i)) ) {
+            count++;
+        }
+    }
+    alert(count);
 </script>
 </body>
 </html>

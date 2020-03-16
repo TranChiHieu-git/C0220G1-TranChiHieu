@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>diem so nguyen am phu am</title>
+</head>
+<body>
+<script>
+    let chuoi ="hEllo cOdegym";
+    let pattnguyenam = /[ueoaiy]$/i;
+    let countnguyenam = 0;
+    let pattphuam = /[bcdghklmnpqrstvx]$/i;
+    let countphuam = 0;
+    for (let i=0;i<chuoi.length;i++){
+        if (pattnguyenam.test(chuoi.charAt(i))){
+            countnguyenam++;
+        }
+        else if (pattphuam.test(chuoi.charAt(i))){
+            countphuam++;
+        }
+    }
+    console.log("So luong nguyen am: "+ countnguyenam);
+    console.log("So luong nguyen am: "+ countphuam);
+</script>
+</body>
+</html>

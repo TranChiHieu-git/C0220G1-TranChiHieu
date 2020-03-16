@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>string</title>
+</head>
+<body>
+<script>
+    let str = "Tôi yêu ngôn ngữ lập trình Javascript";
+    let counta=0;
+    for (let i=0;i<str.length;i++){
+        if (str.charAt(i)==="a"){
+            counta++;
+        }
+    }
+    document.write(counta+"<br>");
+    let arrStr = str.split("")
+    document.write(arrStr+"<br>");
+    let patt = /^[\d\s]$/;
+    let count=0;
+    for (let i=0;i<str.length;i++){
+        if (patt.test(str.charAt(i))){
+            count++;
+        }
+    }
+    document.write(str.length-count+"<br>");
+    document.write(str.replace("Javascript","Typescript"));
+</script>
+</body>
+</html>

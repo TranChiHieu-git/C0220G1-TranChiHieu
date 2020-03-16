@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>tim gia tri lon nhat hoac nho nhat</title>
+</head>
+<body>
+<script>
+    let nums = new Array(29);
+    for (let i = 0; i < 30; i++) {
+        nums[i] = Math.floor(Math.random() * 200);
+    }
+    for (let i = 0; i < 30; i++) {
+        document.write(" _ "+nums[i] + " _ ");
+        if (i % 5 === 0 && i !== 0) {
+            document.write("<br>");
+        }
+    }
+    let minValue = findMin(nums);
+    let maxValue = findMax(nums);
+
+    document.write("<br/>");
+    document.write("The minimum value is: " + minValue);
+    document.write("<br/>");
+    document.write("The minimum value is: " + maxValue);
+    function findMin(arr) {
+        let min = arr[0];
+        for (let j = 1; j < arr.length; j++) {
+            if (arr[j] < min) {
+                min = arr[j];
+            }
+        }
+        return min;
+    }
+
+    function findMax(arr) {
+        let max = arr[0];
+        for (let j = 1; j < arr.length; j++) {
+            if (arr[j] > max) {
+                max = arr[j];
+            }
+        }
+        return max;
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Math</title>
+</head>
+<body>
+<p id="result"></p>
+<script>
+    let p = document.getElementById("result");
+    setInterval(function () {
+        p.innerHTML="Làm việc với Math<br>";
+        p.innerHTML+="<br>";
+        p.innerHTML+="<br>";
+        p.innerHTML+="Sinh số ngẫu nhiên từ 0-10<br>";
+        p.innerHTML+=Math.floor(Math.random()*10)+"<br>";
+        p.innerHTML+="<br>";
+        p.innerHTML+="Sinh số ngẫu nhiên từ 0-400<br>";
+        p.innerHTML+=Math.floor(Math.random()*400)+"<br>";
+        p.innerHTML+="<br>";
+        p.innerHTML+="Sinh số ngẫu nhiên từ 50-100<br>";
+        p.innerHTML+=Math.floor((Math.random()*51)+50)+"<br>";
+        p.innerHTML+="<br>";
+        n1=Math.floor(Math.random()*10);
+        n2=Math.floor(Math.random()*10);
+        n3=Math.floor(Math.random()*10);
+        n4=Math.floor(Math.random()*10);
+        p.innerHTML+="Tìm giá trị nhỏ nhất trong các số"+n1+","+n2+","+n3+","+n4+"<br>";
+        p.innerHTML+=Math.max(n1,n2,n3,n4)+"<br>";
+        p.innerHTML+="<br>";
+        n=Math.floor(Math.random()*10);
+        p.innerHTML+="Tìm "+n+" luỹ thừa 53<br>";
+        p.innerHTML+=Math.pow(n,53)+"<br>";
+        p.innerHTML+="<br>";
+        r=Math.floor(Math.random()*10);
+        p.innerHTML+="Tính diện tích của hình tròn có bán kính là "+r+" cm<br>";
+        p.innerHTML+= (Math.pow(r,2)*Math.PI)+"<br>";
+    },2000);
+
+
+</script>
+</body>
+</html>

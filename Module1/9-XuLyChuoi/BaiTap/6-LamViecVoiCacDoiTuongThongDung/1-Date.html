@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>date</title>
+</head>
+<body>
+<script>
+    class date {
+        constructor(day, month, year) {
+            this.day = day;
+            this.month = month;
+            this.year = year;
+        }
+
+        getday() {
+            return this.day;
+        }
+
+        getmonth() {
+            return this.month;
+        }
+
+        getyear() {
+            return this.year;
+        }
+    }
+
+    let birthday = new date(28, 8, 1997);
+    let nowdate = new Date();
+    let monthbefor = 12 - birthday.getmonth();
+    let monthafter = nowdate.getMonth() ;
+    let daybirthday = birthday.getday();
+    let nam = nowdate.getFullYear() - birthday.getyear();
+    document.write("Toi da song: " + nam + " nam");
+    document.write("<br>");
+
+    let thang = (nam * 12) + monthbefor + monthafter;
+    document.write("Toi da song: " + thang + " thang");
+    document.write("<br>");
+
+    let ngay = thang * 30 + daybirthday;
+    document.write("Toi da song: " + ngay + " ngay");
+    document.write("<br>");
+
+    let gio = ngay * 24;
+    document.write("Toi da song: " + gio + " gio");
+    document.write("<br>");
+
+    let phut = gio * 60;
+    document.write("Toi da song: " + phut + " phut");
+    document.write("<br>");
+
+    let giay = phut * 60;
+    document.write("Toi da song: " + giay + " giay");
+    document.write("<br>");
+</script>
+</body>
+</html>
