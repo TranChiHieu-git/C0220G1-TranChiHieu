@@ -6,29 +6,50 @@
 </head>
 <body>
 <script>
-    let stringReceive = prompt("Nhap vao mot chuoi");
-    let stringArr = new Array();
-    let upcase = "QWERTYUIOPLKJHGFDSAZXCVBNM";
-    let x = 0;
-    let idau, icuoi, i = 0;
-    while (i <= stringReceive.length) {
-        for (let j = 0; j < upcase.length; j++) {
-            if (stringReceive.charAt(i) == upcase.charAt(j)) {
-                idau = i;
-            }
-            else if (stringReceive.charAt(i) == " ") {
-                icuoi = i;
-            }
-            if (idau>=0 && icuoi>idau){
-                stringArr[x] = stringReceive.substring(idau, icuoi);
-
-            }
-
+    let strReceive = prompt("Nhap vao mot chuoi");
+    let mottumotdong = new Array(0);
+    let dem = 0;
+    for (let i = 0; i < strReceive.length; i++) {
+        if (i === 0) {
+            dem++;
         }
-        x++;
-        i++;
+        if (strReceive[i - 1] !== " " && strReceive[i] === " ") {
+            dem++;
+        }
     }
-    alert(stringArr);
+    for (let i = 0; i < dem; i++) {
+        mottumotdong[i] = "";
+    }
+    //-------------------------------------------------------------------in tung tu
+    let temp = 0;
+    for (let i = 0; i < strReceive.length; i++) {
+        if (strReceive[i - 1] !== " " && strReceive[i] === " ") {
+            temp++;
+            continue;
+        }
+        mottumotdong[temp] += strReceive[i];
+    }
+    //-------------------------------------------------------------------so tu
+    for (let i = 0; i < dem; i++) {
+        document.write(mottumotdong[i] + "<br>");
+    }
+    document.write(dem + "<br>");
+    //-------------------------------------------------------------------tan suat
+    for (let i = 0; i < dem; i++) {
+        let tansuat = 1;
+        for (let j = 0; j < dem; j++) {
+            if ((mottumotdong[i] === mottumotdong[j]) && i !== j) {
+                tansuat += 1;
+                for (let x = j; x < dem; x++) {
+                    mottumotdong[x] = mottumotdong[x + 1];
+                }
+                dem--;
+            }
+        }
+        if (typeof mottumotdong[i] !== undefined){
+            document.write(mottumotdong[i] + " co tan suat xuat hien la: " + tansuat + "<br>");
+        }
+    }
 </script>
 </body>
 </html>
