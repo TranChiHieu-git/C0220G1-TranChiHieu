@@ -5,6 +5,103 @@
     <title>Title</title>
 </head>
 <body>
+<script>
+    class Chuot {
+        constructor(name, weight, speed) {
+            this.name = name;
+            this.weight = weight;
+            this.speed = speed;
+            this.live = true;
+            this.catch = false;
+        }
+        setName(name) {
+            this.name = name;
+            return this.name;
+        }
+        getName() {
+            return this.name;
+        }
+        getspeed() {
+            return this.speed;
+        }
+        getweight() {
+            return this.weight;
+        }
+        decrease() {
+            if (this.mouseStatus() === true && this.catched()) {
+                this.weight--;
+                this.getweight();
+            } else {
+                this.mouseStatus();
+            }
+        }
+        getcatch() {
+            return this.catch;
+        }
+        catched() {
+            this.catch = true;
+            return this.catch;
+        }
+        mouseStatus() {
+            if (this.getweight() <= 0) {
+                this.weight = 0;
+                this.live = false;
+                return this.live;
+            } else {
+                this.live = true;
+                return this.live;
+            }
+        }
+        voice() {
+            console.log("chit chit !!!");
+        }
+    }
+    class Meo {
+        constructor(name, weight, maxspeed) {
+            this.name = name;
+            this.weight = weight;
+            this.maxspeed = maxspeed;
+            this.speed = 1;
+        }
+        catchmouse(chuot) {
+            if (this.speed >= chuot.getspeed() && this.speed < this.maxspeed) {
+                chuot.catched();
+            } else if (this.speed < chuot.getspeed() && this.speed < this.maxspeed) {
+                this.speed++;
+                return this.speed;
+            }
+        }
+        eatmmouse(chuot) {
+            if (chuot.catched()) {
+                if (chuot.getweight() > 0) {
+                    this.weight++;
+                    chuot.decrease();
+                } else {
+                    chuot.decrease();
+                }
 
+            }
+        }
+        voice() {
+            console.log("meo meo!!!");
+        }
+    }
+    let Rat = new Chuot("Rat", 10, 5);
+    let Cat = new Meo("Cat", 5, 10);
+    console.log("Bat chuot: \n");
+    while (Rat.getcatch()===false){
+        console.log("toc do meo "+Cat.speed);
+        Cat.catchmouse(Rat);
+        console.log("chuot bi bat: "+Rat.getcatch());
+
+
+   }
+    console.log("An chuot: \n");
+    while (Rat.mouseStatus()){
+        Cat.eatmmouse(Rat);
+        console.log("Khoi luong chuot: "+Rat.weight);
+        console.log("Khoi luong meo: "+Cat.weight);
+    }
+</script>
 </body>
 </html>

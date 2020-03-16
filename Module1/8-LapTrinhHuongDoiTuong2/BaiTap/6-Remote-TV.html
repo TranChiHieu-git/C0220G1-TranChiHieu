@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Remote va TV</title>
+</head>
+<body>
+<video id="tv" width="320" height="176" controls>
+    <source src="" type="video/mp4">
+</video>
+<br>
+<button onclick="onoff()">On/Off</button>
+<br>
+<button onclick="chanel1()">Chanel 1</button>
+<button onclick="chanel2()">Chanel 2</button>
+<button onclick="chanel3()">Chanel 3</button>
+<br>
+<button onclick="volup()">Vol+</button>
+<button onclick="voldown()">Vol-</button>
+<script>
+    class remote {
+        constructor(television) {
+            this.tv = television;
+        }
+
+        setonof() {
+            this.tv.onoff();
+        }
+
+        setchanel(chanel) {
+            this.tv.changeChanel(chanel);
+        }
+
+        setvolup() {
+            this.tv.volup();
+        }
+
+        setvoldown() {
+            this.tv.voldown();
+        }
+    }
+
+    class television {
+        constructor(isOn) {
+            this.isOn = isOn;
+            this.volume = 0.0;
+        }
+
+        onoff() {
+            this.isOn = !this.isOn;
+            if (this.isOn === false) {
+                location.reload();
+            }
+        }
+
+        changeChanel(chanel) {
+            if (this.isOn) {
+                this.chanel = chanel;
+            }
+        }
+
+        getchanel() {
+            return this.chanel;
+        }
+
+        volup() {
+            if (this.isOn) {
+                this.volume += 0.1;
+                return this.volume;
+            }
+        }
+
+        voldown() {
+            if (this.isOn) {
+                this.volume -= 0.1;
+                return this.volume;
+            }
+        }
+
+        getvolume() {
+            return this.volume;
+        }
+    }
+
+    let tv = new television(false);
+    let dieukhien = new remote(tv);
+    let kenh = document.getElementById("tv");
+    kenh.volume = 0.0;
+
+    function onoff() {
+        dieukhien.setonof();
+    }
+
+    function chanel1() {
+        dieukhien.setchanel("vtv1.mp4");
+        kenh.src = tv.getchanel();
+    }
+
+    function chanel2() {
+        dieukhien.setchanel("vtv3.mp4");
+        kenh.src = tv.getchanel();
+    }
+
+    function chanel3() {
+        dieukhien.setchanel("edu.mp4");
+        kenh.src = tv.getchanel();
+    }
+
+    function volup() {
+        dieukhien.setvolup();
+        kenh.volume = tv.getvolume();
+    }
+
+    function voldown() {
+        dieukhien.setvoldown();
+        kenh.volume = tv.getvolume();
+    }
+
+</script>
+</body>
+</html>

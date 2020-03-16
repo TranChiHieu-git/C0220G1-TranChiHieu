@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiem tra ky tu dau tien cua chuoi co phai chu hoa hay khong</title>
+</head>
+<body>
+<script>
+    let patt = /^[A-Z]/;
+    let str1 = "Nguyen van Nam";
+    let str2 = "NGUYEN VAN NAM";
+    let str3 = "nguyen van Nam";
+    let result1 = patt.test(str1);
+    console.log("chuoi1 : "+result1);
+    let result2 = patt.test(str2);
+    console.log("chuoi2 : "+result2);
+    let result3 = patt.test(str3);
+    console.log("chuoi3 : "+result3);
+</script>
+</body>
+</html>

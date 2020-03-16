@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Validate email</title>
+</head>
+<body>
+<script>
+    let receive_email = prompt("Nhap vao email");
+    let patt = /^[a-zA-Z0-9]+[a-zA-Z0-9]*@+([a-z])+\.([a-z])+$/;
+    console.log(patt.test(receive_email));
+    if (patt.test(receive_email)){
+        alert("email hop le");
+    }else {
+        alert("email khong hop le");
+    }
+</script>
+</body>
+</html>
