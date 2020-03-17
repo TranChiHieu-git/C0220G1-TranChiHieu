@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>su dung thuat toan tim kiem</title>
+</head>
+<body>
+<script>
+    let arrSDT = ['0383896105', '0373793242', '0971234568', '0897898521', '0771593578', '0811032465', '0927789956'];
+    let viettel = /(098|096|097|098|032|033|034|035|036|037|038|039)+[0-9]{7}$/;
+    for (let i = 0; i < arrSDT.length; i++) {
+        if (viettel.test(arrSDT[i])) {
+            document.write(arrSDT[i] + "<br>");
+        }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bai 11</title>
+</head>
+<body>
+<script>
+    let n = parseInt(prompt("nhap vao so phan tu cua mang"));
+    let arr = new Array(n);
+    for (let i = 0; i < arr.length; i++) {
+        arr[i] = parseInt(prompt("Nhap vao phan tu " + i + " cua mang"));
+    }
+    //--------------------------------------------------------------------------------------
+     let tongle = 0;
+     for (let i = 0; i < arr.length; i++) {
+         if (arr[i] % 2 !== 0 && arr[i] >= 0) {
+             tongle += arr[i];
+         }
+     }
+     document.write("tong cac so le trong chuoi la: " + tongle + "<br>");
+     //--------------------------------------------------------------------------------------
+     let a = parseInt(prompt("Nhap vao so a"));
+     for (let i = 0; i < arr.length; i++) {
+         if (arr[i] === a) {
+             document.write("vi tri " + a + " trong chuoi la: " + i + "<br>");
+             break;
+         }
+     }
+     //--------------------------------------------------------------------------------------
+     let temp;
+     for (let i = 0; i < arr.length; i++) {
+         for (let j = 0; j < arr.length; j++) {
+             if (arr[i] < arr[j]) {
+                 temp = arr[j];
+                 arr[j] = arr[i];
+                 arr[i] = temp;
+             }
+         }
+     }
+     document.write("mang sau khi sap xep: " + arr);
+    //----------------------------------------------------------------------------------------
+    let b = parseInt(prompt("nhap vao so b"));
+    for (let i = 0; i < arr.length; i++) {
+        if ((arr[i] === b || arr[i] < b) && arr[i + 1] > b) {
+            for (let j = arr.length; j > i; j--) {
+                arr[j] = arr[j - 1];
+            }
+            arr[i + 1] = b;
+            break;
+        }
+    }
+    document.write("mang sau khi chen : " + arr);
+</script>
+</body>
+</html>

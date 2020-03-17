@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>game doan so</title>
+</head>
+<body>
+<script>
+    let arr = new Array(100)
+    for (let i = 0; i < arr.length; i++) {
+        arr[i] = i;
+    }
+    let tt = 0;
+    tt = tuyentinh(arr, 21);
+    let np = 0;
+    np = nhiphan(arr, 21);
+    console.log(tt);
+    console.log(np);
+    function tuyentinh(arr, n) {
+        for (let i = 0; i < arr.length; i++) {
+            if (n === arr[i]) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    function nhiphan(arr, n) {
+        let left = 0;
+        let right = arr.length - 1;
+        while (left <= right) {
+            let mid = parseInt((left + right) / 2);
+            if (arr[mid] === n) {
+                return mid;
+            } else if (n < arr[mid]) {
+                right = mid - 1;
+            } else if (n > arr[mid]) {
+                left = mid + 1;
+            }
+        }
+        return -1;
+    }
+</script>
+</body>
+</html>

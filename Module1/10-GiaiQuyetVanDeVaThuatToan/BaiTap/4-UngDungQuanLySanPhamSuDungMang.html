@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ung dung quan ly san pham su dung mang</title>
+</head>
+<body>
+<h2>Add new Product</h2><br>
+<input id="newproduct" type="text" value="New product">
+<button onclick="addproduct()">Add</button>
+<h2>Display All Product</h2>
+<h3>Product Name</h3>
+<p id="print"></p>
+<p id="edit"></p>
+<script>
+    let arrProduct = new Array();
+    let strProduct = document.getElementById("newproduct");
+
+    function display() {
+        let bang = "<table width='400px'>";
+        for (let i = 0; i < arrProduct.length; i++) {
+            bang += "<tr><td>"+arrProduct[i]+"</td>"+"<th><button onclick='edit("+i+")'>Edit</button></th>"+"<th><button onclick='del("+i+")'>Delete</button></th></tr>"
+        }
+        document.getElementById("print").innerHTML = bang;
+    }
+    function addproduct() {
+        arrProduct.push(strProduct.value);
+        display();
+    }
+    function edit(i) {
+        document.getElementById("edit").innerHTML = "<input id='editvalue'><button onclick='change("+i+")'>change</button><button onclick='exit()'>exit</button>";
+    }
+    function change(i) {
+        arrProduct[i]=document.getElementById("editvalue").value;
+        display();
+        exit();
+    }
+    function exit() {
+        document.getElementById("edit").innerHTML ="";
+    }
+    function del(i) {
+        arrProduct.splice(i,1);
+        display();
+    }
+</script>
+</body>
+</html>

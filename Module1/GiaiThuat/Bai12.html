@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bai12</title>
+</head>
+<body>
+<script>
+    let m = parseInt(prompt("nhap vao m"));
+    let n = parseInt(prompt("nhap vao n"));
+    let arr = new Array(m);
+    for (i = 0; i < m; i++) {
+        arr[i] = new Array(n);
+    }
+    for (let i = 0; i < m; i++) {
+        for (let j = 0; j < n; j++) {
+            arr[i][j] = parseInt(prompt("arr[" + i + "][" + j + "] = "));
+        }
+    }
+    console.log("mang arr:<br>");
+    console.log(arr);
+    let tong = 0;
+    for (let i = 0; i < n;i++) {
+        if (arr[0][i] % 3 === 0) {
+            tong += arr[0][i];
+        }
+    }
+    console.log("tong cac so la boi so cua 3: " + tong);
+
+    let X = new Array(m);
+    for (let i = 0; i < m; i++) {
+        X[i]=arr[i][0];
+        for (let j = 0; j < n; j++) {
+            if (X[i]<arr[i][j]){
+                X[i]=arr[i][j];
+            }
+        }
+    }
+    console.log(X);
+
+    for (let i=0;i<X.length;i++){
+        X[i]=X[i+1]
+    }
+    X.length=X.length-1;
+    console.log("mang X: <br>");
+    console.log(X);
+</script>
+</body>
+</html>
