@@ -43,30 +43,30 @@
         for (let i = 0; i <= arrListCustomer.length; i++) {
             if (arrListCustomer[i] === undefined) {
                 arrListCustomer[i] = new Array();
-                let ten = false, memory = "";
+                let ten = false, memory = "", patt = /^[a-zA-Z]+[a-zA-Z\s]{1,}[a-z]$/;
                 do {
                     let name = prompt("Ho va Ten: ").trim();
                     for (let i = 0; i < name.length; i++) {
-                        if (name[i] === " " && name[i + 1] === " ") {
+                        if (name.charAt(i) === " " && name.charAt(i + 1) === " ") {
                             continue;
                         } else {
                             if (i === 0) {
-                                memory += name[i].toUpperCase()
-                            } else if (name[i - 1] === " " && name[i] !== " ") {
-                                memory += name[i].toUpperCase();
+                                memory += name.charAt(i).toUpperCase()
+                            } else if (name.charAt(i - 1) === " " && name.charAt(i) !== " ") {
+                                memory += name.charAt(i).toUpperCase();
                             } else {
-                                memory += name[i].toLowerCase();
+                                memory += name.charAt(i).toLowerCase();
                             }
-
                         }
                     }
-                    if (memory !== "") {
+                    if (patt.test(memory)) {
                         ten = false;
-                    }
-                    if (ten === true) {
+                        return memory;
+                    } else if (patt.test(memory) === false) {
                         alert("Ban da nhap sai. Vui long nhap lai");
+                        memory="";
+                        ten = true;
                     }
-                    arrListCustomer[i][0] = name;
                 } while (ten);
 
                 let id, cmnd;
@@ -536,6 +536,9 @@
                 arrnameid[i] = (i + 1) + "." + "Name: " + arrListCustomer[i][0] + " CMND: " + arrListCustomer[i][1];
             }
             alert(arrnameid.join("\n"));
+        }else {
+            alert("Gia tri nhap vao khong dung. Vui long nhap lai");
+            deleteCustomer();
         }
     }
 </script>

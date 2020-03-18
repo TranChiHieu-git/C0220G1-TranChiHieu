@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Yeu cau 6</title>
+</head>
+<body>
+<script>
+    class Customer {
+        constructor(name, id, birthday, email, address, typeCustomer, discount, numberofaccompanying, rentday, typeservice, typeroom) {
+            this.name = name;
+            this.id = id;
+            this.birthday = birthday;
+            this.email = email;
+            this.address = address;
+            this.typeCustomer = typeCustomer;
+            this.discount = discount;
+            this.numberofaccompanying = numberofaccompanying;
+            this.rentday = rentday;
+            this.typeservice = typeservice;
+            this.typeroom = typeroom;
+        }
+
+        getname() {
+            return this.name;
+        }
+
+        getid() {
+            return this.id;
+        }
+
+        getbirthday() {
+            return this.birthday;
+        }
+
+        getemail() {
+            return this.email;
+        }
+
+        getaddress() {
+            return this.address;
+        }
+
+        gettypecustomer() {
+            return this.typeCustomer;
+        }
+
+        getdiscount() {
+            return this.discount;
+        }
+
+        getnumberofaccompanying() {
+            return this.numberofaccompanying;
+        }
+
+        getrentday() {
+            return this.rentday;
+        }
+
+        gettypeservice() {
+            return this.typeservice;
+        }
+
+        gettyperoom() {
+            return this.typeroom;
+        }
+
+        setname(value) {
+            this.name = value;
+        }
+
+        setid(value) {
+            this.id = value;
+        }
+
+        setbirthday(value) {
+            this.birthday = value;
+        }
+
+        setemail(value) {
+            this.email = value;
+        }
+
+        setaddress(value) {
+            this.address = value;
+        }
+
+        settypecustomer(value) {
+            this.typeCustomer = value;
+        }
+
+        setdiscount(value) {
+            this.discount = value;
+        }
+
+        setnumberofaccompanying(value) {
+            this.numberofaccompanying = value;
+        }
+
+        setrentday(value) {
+            this.rentday = value;
+        }
+
+        settypeservice(value) {
+            this.typeservice = value;
+        }
+
+        settyperoom(value) {
+            this.typeroom = value;
+        }
+
+        getcostservice() {
+            switch (this.gettypeservice()) {
+                case "Villa":
+                    return 500;
+                    break;
+                case "House":
+                    return 300;
+                    break;
+                case "Room":
+                    return 100;
+                    break;
+            }
+        }
+
+        getpaymoney() {
+
+            this.paymoney = this.getcostservice() * this.getrentday() * (1 - this.getdiscount() / 100);
+            return this.paymoney;
+        }
+    }
+
+    class Employee {
+        constructor(name, birthday, id, numberphone, email, level, position) {
+            this.name = name;
+            this.birthday = birthday;
+            this.id = id;
+            this.numberphone = numberphone;
+            this.email = email;
+            this.level = level;
+            this.position = position;
+            this.salary = 1000;
+        }
+
+        getname() {
+            return this.name;
+        }
+
+        getbirthday() {
+            return this.birthday;
+        }
+
+        getid() {
+            return this.id;
+        }
+
+        getnumberphone() {
+            return this.numberphone;
+        }
+
+        getemail() {
+            return this.email;
+        }
+
+        getlevel() {
+            return this.level;
+        }
+
+        getposition() {
+            return this.position;
+        }
+
+        setname(value) {
+            this.name = value;
+        }
+
+        setbirthday(value) {
+            this.birthday = value;
+        }
+
+        setid(value) {
+            this.id = value;
+        }
+
+        setnumberphone(value) {
+            this.numberphone = value;
+        }
+
+        setemail(value) {
+            this.email = value;
+        }
+
+        setlevel(value) {
+            this.level = value;
+        }
+
+        setposition(value) {
+            this.position = value;
+        }
+
+        getsalary() {
+            switch (this.getposition()) {
+                case "Manager":
+                    this.salary = this.salary + 500;
+                    break;
+                case "Sale":
+                    this.salary = this.salary + 300;
+                    break;
+                case "Marketing":
+                    this.salary = this.salary + 200;
+                    break;
+            }
+            return this.salary;
+        }
+    }
+
+    let ListCustomer = new Array();
+    let ListEmployee = new Array();
+    let choose_MainMenu;
+    displayMainMenu();
+
+    function displayMainMenu() {
+        do {
+            choose_MainMenu = parseInt(prompt("1.Add new Customer \n" +
+                "2.Display Information Customer \n" +
+                "3.Display Total Pay of Customer \n" +
+                "4.Edit Information Customer \n" +
+                "5.Delete Customer \n" +
+                "6.Add new Employee \n" +
+                "7.Display information Employee \n" +
+                "8.Salary of Employee \n" +
+                "9.Exit"));
+            switch (choose_MainMenu) {
+                case 1:
+                    addNewCustomer();
+                    break;
+                case 2:
+                    displayInformationCustomer();
+                    break;
+                case 3:
+                    displayTotalPayOfCustomer();
+                    break;
+                case 4:
+                    editInformationCustomer();
+                    break;
+                case 5:
+                    deleteCustomer();
+                    break;
+                case 6:
+                    addNewEmployee();
+                    break;
+                case 7:
+                    displayInformationEmployee();
+                    break;
+                case 8:
+                    salaryOfEmployee();
+                    break;
+                case 9:
+                    break;
+                default:
+                    alert("Gia tri nhap vao khong chinh xac. Vui long nhap lai!!");
+            }
+        } while (choose_MainMenu !== 9);
+    }
+
+    function addNewCustomer() {
+        for (let i = 0; i <= ListCustomer.length; i++) {
+            if (ListCustomer[i] === undefined) {
+                ListCustomer[i] = new Customer(addname(), addid(), addbirthday(), addemail(), addaddress(), addtypecustomer(), adddiscount(), addnumberofaccompany(),
+                    addrentday(), addtypeservice(), addtyperoom());
+                break;
+            }
+        }
+    }
+
+    function displayInformationCustomer() {
+        let arrName_ID = new Array();
+        let i;
+        for (i = 0; i < ListCustomer.length; i++) {
+            arrName_ID[i] = (i + 1) + "." + "Name: " + ListCustomer[i].getname() + " CMND: " + ListCustomer[i].getid();
+        }
+
+        let chose_display = parseInt(prompt(arrName_ID.join("\n") + "\n" + (i + 1) + ".Back"));
+        if (chose_display === ListCustomer.length + 1) {
+            displayMainMenu();
+        } else if (chose_display < ListCustomer.length + 1 && chose_display > 0) {
+            let index = chose_display - 1;
+            alert("1.Ho va ten: " + ListCustomer[index].getname() + "\n" +
+                "2.So CMND: " + ListCustomer[index].getid() + "\n" +
+                "3.Ngay Sinh: " + ListCustomer[index].getbirthday() + "\n" +
+                "4.Email: " + ListCustomer[index].getemail() + "\n" +
+                "5.Dia chi: " + ListCustomer[index].getaddress() + "\n" +
+                "6.Loai khach hang: " + ListCustomer[index].gettypecustomer() + "\n" +
+                "7.Giam gia: " + ListCustomer[index].getdiscount() + "\n" +
+                "8.So luong di kem: " + ListCustomer[index].getnumberofaccompanying() + "\n" +
+                "9.So ngay thue: " + ListCustomer[index].getrentday() + "\n" +
+                "10.Loai dich vu: " + ListCustomer[index].gettypeservice() + "\n" +
+                "11.Loai phong: " + ListCustomer[index].gettyperoom() + "\n");
+            displayInformationCustomer();
+        } else {
+            alert("Gia tri nhap vao khong dung. Vui long nhap lai");
+            displayInformationCustomer();
+        }
+    }
+
+    function editInformationCustomer() {
+        let arrName_ID = new Array();
+        let i;
+        for (i = 0; i < ListCustomer.length; i++) {
+            arrName_ID[i] = (i + 1) + "." + "Name: " + ListCustomer[i].getname() + " CMND: " + ListCustomer[i].getid();
+        }
+        let chose_edit = parseInt(prompt(arrName_ID.join("\n") + "\n" + (i + 1) + ".Back"));
+        if (chose_edit === ListCustomer.length + 1) {
+            displayMainMenu();
+        } else if (chose_edit < ListCustomer.length + 1 && chose_edit > 0) {
+            let index = chose_edit - 1;
+            let editChose = parseInt(prompt("1.Ho va ten: " + ListCustomer[index].getname() + "\n" +
+                "2.So CMND: " + ListCustomer[index].getid() + "\n" +
+                "3.Ngay Sinh: " + ListCustomer[index].getbirthday() + "\n" +
+                "4.Email: " + ListCustomer[index].getemail() + "\n" +
+                "5.Dia chi: " + ListCustomer[index].getaddress() + "\n" +
+                "6.Loai khach hang: " + ListCustomer[index].gettypecustomer() + "\n" +
+                "7.Giam gia: " + ListCustomer[index].getdiscount() + "\n" +
+                "8.So luong di kem: " + ListCustomer[index].getnumberofaccompanying() + "\n" +
+                "9.So ngay thue: " + ListCustomer[index].getrentday() + "\n" +
+                "10.Loai dich vu: " + ListCustomer[index].gettypeservice() + "\n" +
+                "11.Loai phong: " + ListCustomer[index].gettyperoom() + "\n" +
+                "12.Back."));
+            switch (editChose) {
+                case 1:
+                    ListCustomer[index].setname(addname());
+                    editInformationCustomer();
+                    break;
+                case 2:
+                    ListCustomer[index].setid(addid());
+                    editInformationCustomer();
+                    break;
+                case 3:
+                    ListCustomer[index].setbirthday(addbirthday());
+                    editInformationCustomer();
+                    break;
+                case 4:
+                    ListCustomer[index].setemail(addemail());
+                    editInformationCustomer();
+                    break;
+                case 5:
+                    ListCustomer[index].setaddress(addaddress());
+                    editInformationCustomer();
+                    break;
+                case 6:
+                    ListCustomer[index].settypecustomer(addtypecustomer());
+                    editInformationCustomer();
+                    break;
+                case 7:
+                    ListCustomer[index].setdiscount(adddiscount());
+                    editInformationCustomer();
+                    break;
+                case 8:
+                    ListCustomer[index].setnumberofaccompanying(addnumberofaccompany());
+                    editInformationCustomer();
+                    break;
+                case 9:
+                    ListCustomer[index].setrentday(addrentday());
+                    editInformationCustomer();
+                    break;
+                case 10:
+                    ListCustomer[index].settypeservice(addtypeservice());
+                    editInformationCustomer();
+                    break;
+                case 11:
+                    ListCustomer[index].settyperoom(addtyperoom());
+                    editInformationCustomer();
+                    break;
+                case 12:
+                    editInformationCustomer();
+                    break;
+                default:
+                    alert("Gia tri nhap vao khong chinh xac. Vui long nhap lai!!");
+                    editInformationCustomer();
+                    break;
+            }
+        } else {
+            alert("Gia tri nhap vao khong dung. Vui long nhap lai");
+            editInformationCustomer();
+        }
+    }
+
+    function displayTotalPayOfCustomer() {
+        let arrName_ID = new Array();
+        let i;
+        for (i = 0; i < ListCustomer.length; i++) {
+            arrName_ID[i] = (i + 1) + "." + "Name: " + ListCustomer[i].getname() + " CMND: " + ListCustomer[i].getid();
+        }
+        let chose_pay = parseInt(prompt(arrName_ID.join("\n") + "\n" + (i + 1) + ".Back"));
+        if (chose_pay === ListCustomer.length + 1) {
+            displayMainMenu();
+        } else if (chose_pay < ListCustomer.length + 1 && chose_pay > 0) {
+            let index = chose_pay - 1;
+            alert("Total Pay of " + ListCustomer[index].getname() + " is: " + ListCustomer[index].getpaymoney() + " USD");
+            displayTotalPayOfCustomer();
+        } else {
+            alert("Gia tri nhap vao khong dung. Vui long nhap lai");
+            displayTotalPayOfCustomer();
+        }
+    }
+
+    function deleteCustomer() {
+        let arrName_ID = new Array();
+        let i;
+        for (i = 0; i < ListCustomer.length; i++) {
+            arrName_ID[i] = (i + 1) + "." + "Name: " + ListCustomer[i].getname() + " CMND: " + ListCustomer[i].getid();
+        }
+        let chose_delete = parseInt(prompt(arrName_ID.join("\n") + "\n" + (i + 1) + ".Back"));
+        if (chose_delete === ListCustomer.length + 1) {
+            displayMainMenu();
+        } else if (chose_delete < ListCustomer.length + 1 && chose_delete > 0) {
+            let index = chose_delete - 1;
+            ListCustomer.splice(index, 1);
+            let arrnameid = new Array();
+            for (i = 0; i < ListCustomer.length; i++) {
+                arrnameid[i] = (i + 1) + "." + "Name: " + ListCustomer[i].getname() + " CMND: " + ListCustomer[i].getid();
+            }
+            alert(arrnameid.join("\n"));
+        } else {
+            alert("Gia tri nhap vao khong dung. Vui long nhap lai");
+            deleteCustomer();
+        }
+    }
+
+    function addname() {
+        let ten = false, memory = "", patt = /^[a-zA-Z]+[a-zA-Z\s]{1,}[a-z]$/;
+        do {
+            let name = prompt("Ho va Ten: ").trim();
+            for (let i = 0; i < name.length; i++) {
+                if (name.charAt(i) === " " && name.charAt(i + 1) === " ") {
+                    continue;
+                } else {
+                    if (i === 0) {
+                        memory += name.charAt(i).toUpperCase()
+                    } else if (name.charAt(i - 1) === " " && name.charAt(i) !== " ") {
+                        memory += name.charAt(i).toUpperCase();
+                    } else {
+                        memory += name.charAt(i).toLowerCase();
+                    }
+                }
+            }
+            if (patt.test(memory)) {
+                ten = false;
+                return memory;
+            } else if (patt.test(memory) === false) {
+                alert("Ban da nhap sai. Vui long nhap lai");
+                memory = "";
+                ten = true;
+            }
+        } while (ten);
+    }
+
+    function addid() {
+        let id, cmnd = true;
+        do {
+            id = prompt("So CMND(gom 9 so nguyen duong): ");
+            if (id.trim().length === 9) {
+                if (isNaN(id.trim()) === false) {
+                    if (Number.isInteger(parseInt(id.trim())) === true) {
+                        if (Number(id.trim()) >= 100000000 && Number(id.trim()) <= 999999999) {
+                            cmnd = false;
+                            return id;
+                        }
+                    }
+                }
+            }
+            if (cmnd === true) {
+                alert("Ban da nhap sai. Vui long nhap lai");
+            }
+        } while (cmnd);
+    }
+
+    function addbirthday() {
+        let birthday, sinhnhat, day, month, year;
+        do {
+            sinhnhat = true;
+            birthday = prompt("Ngay thang nam sinh (dd/mm/yyyy): ");
+            let patt = /^[0-9]{2}\/+[0-9]{2}\/+[0-9]{4}$/;
+            if (patt.test(birthday)) {
+                day = birthday.substring(0, 2);
+                month = birthday.substring(3, 5);
+                year = birthday.substring(6, 10);
+                if (birthday.length === 10) {
+                    if ((birthday.substring(2, 3) === "/") && (birthday.substring(5, 6) === "/")) {
+                        if (isNaN(day) === false && isNaN(month) === false && isNaN(year) === false) {
+                            if (Number.isInteger(parseInt(day)) && Number.isInteger(parseInt(month)) && Number.isInteger(parseInt(year))) {
+                                if ((day > 0 && day < 32) && (month > 0 && month < 13) && (year > 1000 && year < 2021)) {
+                                    sinhnhat = false;
+                                    return birthday;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            if (sinhnhat === true) {
+                alert("Ban da nhap sai. Vui long nhap lai");
+            }
+        } while (sinhnhat);
+    }
+
+    function addemail() {
+        let thu = true, email;
+        do {
+            email = prompt("Email(abc@abc.abc): ");
+            let testmail = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-]))+\.([a-zA-Z0-9]{2,4})+$/;
+            if (testmail.test(email)) {
+                thu = false;
+                return email;
+            }
+            if (thu === true) {
+                alert("Ban da nhap sai. Vui long nhap lai");
+            }
+        } while (thu);
+    }
+
+    function addaddress() {
+        let diachi = true, temp = "";
+        do {
+            let address = prompt("Dia chi: ");
+            for (let i = 0; i < address.length; i++) {
+                if (address.charAt(i) === " " && address.charAt(i + 1) === " ") {
+                    continue;
+                } else {
+                    if (i === 0) {
+                        temp += address.charAt(i).toUpperCase()
+                    } else if (address.charAt(i - 1) === " " && address.charAt(i) !== " ") {
+                        temp += address.charAt(i).toUpperCase();
+                    } else {
+                        temp += address.charAt(i).toLowerCase();
+                    }
+                }
+            }
+            if (temp !== "") {
+                diachi = false;
+            }
+            if (diachi === true) {
+                alert("Ban da nhap sai. Vui long nhap lai");
+            }
+            return temp;
+        }
+        while (diachi);
+    }
+
+    function addtypecustomer() {
+        let loaikhachhang = true, kindCustomer;
+        do {
+            kindCustomer = prompt("Loai khach hang (Diamond, Platinum, Gold, Silver, Member): ");
+            if (kindCustomer.trim() === "Diamond" || kindCustomer.trim() === "Platinum" || kindCustomer.trim() === "Gold" || kindCustomer.trim() === "Silver" || kindCustomer.trim() === "Member") {
+                loaikhachhang = false;
+                return kindCustomer;
+            }
+            if (loaikhachhang === true) {
+                alert("Ban da nhap sai. Vui long nhap lai");
+            }
+
+        } while (loaikhachhang);
+    }
+
+    function adddiscount() {
+        let giamgia = true, discount;
+        do {
+            discount = prompt("Giam gia(vd:1,5): ");
+            if (isNaN(discount.trim()) === false) {
+                if (Number.isInteger(parseInt(discount.trim())) === true) {
+                    if (discount.trim() >= 0) {
+                        giamgia = false;
+                        return discount;
+                    }
+                }
+            }
+            if (giamgia === true) {
+                alert("Ban da nhap sai. Vui long nhap lai");
+            }
+        } while (giamgia);
+    }
+
+    function addnumberofaccompany() {
+        let numpeople = true, soluongdikem;
+        do {
+            soluongdikem = prompt("So luong nguoi di kem: ");
+            if (isNaN(soluongdikem.trim()) === false) {
+                if (Number.isInteger(parseInt(soluongdikem.trim())) === true) {
+                    if (soluongdikem.trim() >= 0) {
+                        numpeople = false;
+                        return soluongdikem;
+                    }
+                }
+            }
+            if (numpeople === true) {
+                alert("Ban da nhap sai. Vui long nhap lai");
+            }
+        } while (numpeople);
+    }
+
+    function addrentday() {
+        let ngaythue = true, rentDay;
+        do {
+            rentDay = prompt("So ngay thue: ");
+            if (isNaN(rentDay.trim()) === false) {
+                if (Number.isInteger(parseInt(rentDay.trim())) === true) {
+                    if (rentDay.trim() > 0) {
+                        ngaythue = false;
+                        return rentDay;
+                    }
+                }
+            }
+            if (ngaythue === true) {
+                alert("Ban da nhap sai. Vui long nhap lai");
+            }
+        } while (ngaythue);
+    }
+
+    function addtypeservice() {
+        let loaidichvu = true, kindService;
+        do {
+            kindService = prompt("Loai dich vu (Villa, House, Room): ");
+            if (kindService.trim() === "Villa" || kindService.trim() === "House" || kindService.trim() === "Room") {
+                loaidichvu = false;
+                return kindService;
+            }
+            if (loaidichvu === true) {
+                alert("Ban da nhap sai. Vui long nhap lai");
+            }
+
+        } while (loaidichvu);
+    }
+
+    function addtyperoom() {
+        let loaiphongthue = true, kindRoom;
+        do {
+            kindRoom = prompt("Loai phong thue (Vip, Business,  Normal): ");
+            if (kindRoom.trim() === "Vip" || kindRoom.trim() === "Business" || kindRoom.trim() === "Normal") {
+                loaiphongthue = false;
+                return kindRoom;
+            }
+            if (loaiphongthue === true) {
+                alert("Ban da nhap sai. Vui long nhap lai");
+            }
+        } while (loaiphongthue);
+    }
+
+    function addNewEmployee() {
+        for (let i = 0; i <= ListEmployee.length; i++) {
+            if (ListEmployee[i] === undefined) {
+                ListEmployee[i] = new Employee(addname(), addbirthday(), addid(), addnumberphone(), addemail(), addlevel(), addposition());
+                displayMainMenu();
+                break;
+            }
+        }
+    }
+
+    function displayInformationEmployee() {
+        let arrName_ID = new Array();
+        let i;
+        for (i = 0; i < ListEmployee.length; i++) {
+            arrName_ID[i] = (i + 1) + "." + "Name: " + ListEmployee[i].getname() + " CMND: " + ListEmployee[i].getid();
+        }
+        let chose_displayemployee = parseInt(prompt(arrName_ID.join("\n") + "\n" + (i + 1) + ".Back"));
+        if (chose_displayemployee === ListEmployee.length + 1) {
+            displayMainMenu();
+        } else if (chose_displayemployee < ListEmployee.length + 1 && chose_displayemployee > 0) {
+            let index = chose_displayemployee - 1;
+            alert("1.Ho va ten: " + ListEmployee[index].getname() + "\n" +
+                "2.Ngay Sinh: " + ListEmployee[index].getbirthday() + "\n" +
+                "3.So CMND: " + ListEmployee[index].getid() + "\n" +
+                "4.So Dien Thoai: " + ListEmployee[index].getnumberphone() + "\n" +
+                "5.Email: " + ListEmployee[index].getemail() + "\n" +
+                "6.Trinh Do: " + ListEmployee[index].getlevel() + "\n" +
+                "7.Vi Tri: " + ListEmployee[index].getposition() + "\n");
+            displayInformationEmployee();
+        } else {
+            alert("Gia tri nhap vao khong dung. Vui long nhap lai");
+            displayInformationEmployee();
+        }
+    }
+
+    function salaryOfEmployee() {
+        let arrName_ID = new Array();
+        let i;
+        for (i = 0; i < ListEmployee.length; i++) {
+            arrName_ID[i] = (i + 1) + "." + "Name: " + ListEmployee[i].getname() + " CMND: " + ListEmployee[i].getid();
+        }
+        let chose_salaryemployee = parseInt(prompt(arrName_ID.join("\n") + "\n" + (i + 1) + ".Back"));
+        if (chose_salaryemployee === ListEmployee.length + 1) {
+            displayMainMenu();
+        } else if (chose_salaryemployee < ListEmployee.length + 1 && chose_salaryemployee > 0) {
+            let index = chose_salaryemployee - 1;
+            alert("Luong cua " + ListEmployee[index].getname() + " la: " + ListEmployee[index].getsalary());
+            salaryOfEmployee();
+        } else {
+            alert("Gia tri nhap vao khong dung. Vui long nhap lai");
+            salaryOfEmployee();
+        }
+    }
+
+    function addnumberphone() {
+        let sdt = true;
+        do {
+            let patt = /^[0]+[0-9]{9}$/;
+            let numberphone = prompt("Enter Phone number");
+            if (patt.test(numberphone)) {
+                sdt = false;
+                return numberphone;
+            }
+        } while (sdt);
+    }
+
+    function addlevel() {
+        let trinhdo = true;
+        do {
+            let level = prompt("Enter level(Intermediate,Colleges,University,After University)");
+            if (level === "Intermediate" || level === "Colleges" || level === "University" || level === "After University") {
+                trinhdo = false;
+                return level;
+            }
+        } while (trinhdo);
+    }
+
+    function addposition() {
+        let vitri = true;
+        do {
+            let position = prompt("Enter your position(Sale,Marketing,Official,Staff,Manager)");
+            if (position === "Sale" || position === "Staff" || position === "Marketing" ||
+                position === "Official" || position === "Manager") {
+                vitri = false;
+                return position;
+            }
+        } while (vitri);
+    }
+</script>
+</body>
+</html>
