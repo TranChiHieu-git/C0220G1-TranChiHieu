@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>doi tuong phan so</title>
+</head>
+<body>
+<script>
+    class Phanso {
+        constructor(tuso, mauso) {
+            this.tuso = tuso;
+            this.mauso = mauso;
+        }
+
+        cong(phanso) {
+
+            this.phanso = phanso;
+            if (this.mauso === 0 || this.phanso.mauso === 0) {
+                return "Mau so phai khac 0";
+            } else {
+                if (this.mauso === this.phanso.mauso) {
+                    this.tongtuso = (this.tuso + this.phanso.tuso);
+                    this.tongmauso = this.mauso;
+                    if (rutgon(this.tongtuso, this.tongmauso) === -1) {
+                        console.log("Tong= " + this.tongtuso + "/" + this.tongmauso);
+                    } else if (rutgon(this.tongtuso, this.tongmauso) !== -1) {
+                        console.log(rutgon(this.tongtuso, this.tongmauso));
+                        console.log(this.tongtuso);
+                        console.log(this.tongmauso);
+                        this.tongmauso = this.tongmauso / rutgon(this.tongtuso, this.tongmauso);
+                        this.tongtuso = this.tongtuso / rutgon(this.tongtuso, this.tongmauso);
+                        console.log("Tong= " + this.tongtuso + "/" + this.tongmauso);
+                    }
+                }
+            }
+        }
+    }
+
+    let ps1 = new Phanso(5, 7);
+    let ps2 = new Phanso(9, 7);
+    ps1.cong(ps2);
+
+    function rutgon(a, b) {
+        let max = a > b ? a : b;
+        for (let i = max; i > 2; i--) {
+            if (a % i === 0 && b % i === 0) {
+                return i;
+            }
+        }
+        return -1;
+    }
+</script>
+</body>
+</html>
