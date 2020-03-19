@@ -6,8 +6,8 @@
 </head>
 <body>
 <script>
-    let patt = /^[0-9]{5}(?:-[0-9]{4})?$/;
-    let str1 = "03201-2150";
+    let patt = /^[0-9]{5}(\-[0-9]{4})$/;
+    let str1 = "03201-2170";
     let str2 = "7892";
     let result1 = patt.test(str1);
     let result2 = patt.test(str2);

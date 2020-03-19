@@ -5,8 +5,121 @@
     <title>bouncing ball game</title>
 </head>
 <body>
+<h2 style="position: absolute;left: 560px">Bouncing Ball Game</h2>
+<h2 id="score" style="position: absolute ;left: 800px">0 Diem</h2>
+<p id="gameboard"> </p>
 <script>
+    class Gameboard {
+        constructor(wid, hei, id) {
+            this.width = wid;
+            this.height = hei;
+            this.id = id;
+        }
+        drawgameboard() {
+            document.getElementById("gameboard").innerHTML = "<canvas id=" + this.id + " width=" + this.width + " height=" + this.height + " style='position:absolute;left: 410px;top:60px; border: 2px solid #e20606 '></canvas>"
+        }
+        getid() {
+            return this.id;
+        }
+    }
 
+    class Rect {
+        constructor(cordX, cordY, gameboard) {
+            this.cordX = cordX;
+            this.cordY = cordY;
+            this.gameboard = gameboard;
+        }
+
+        drawrect() {
+            this.rect = document.getElementById(this.gameboard.getid()).getContext("2d");
+            this.rect.beginPath();
+            this.rect.fillRect(this.cordX, this.cordY, 100, 10);
+            this.rect.fill();
+        }
+
+        Left() {
+            this.rect.clearRect(this.cordX, this.cordY, 100, 10);
+            this.cordX -= 10;
+            this.drawrect();
+        }
+
+        Right() {
+            this.rect.clearRect(this.cordX, this.cordY, 100, 10);
+            this.cordX += 10;
+            this.drawrect();
+        }
+    }
+
+    class Ball {
+        constructor(cordX, cordY, gameboard) {
+            this.cordX = cordX;
+            this.cordY = cordY;
+            this.gameboard = gameboard;
+            this.X = Math.floor((Math.random() * 5) + 5);
+            this.Y = Math.floor((Math.random() * 5) + 5);
+        }
+
+        drawball() {
+            this.ball = document.getElementById(this.gameboard.getid()).getContext("2d");
+            this.ball.beginPath();
+            this.ball.arc(this.cordX, this.cordY, 10, 0, 2 * Math.PI);
+            this.ball.fillStyle = "rgb(105,255,15)";
+            this.ball.fill();
+        }
+
+        move() {
+            this.cordX += this.X;
+            this.cordY += -this.Y;
+            if (this.cordY > 400) {
+                alert("Ban da thua cuoc");
+                this.cordX = 250;
+                this.cordY = 150;
+                this.drawball();
+                location.reload();
+            }
+            this.drawball();
+        }
+    }
+
+    let score = 0;
+    let gboard = new Gameboard(500, 400, "game");
+    gboard.drawgameboard();
+    let gach = new Rect(230, 300, gboard);
+    let bong = new Ball(250, 150, gboard);
+    bong.drawball();
+    setInterval(function () {
+        bong.ball.clearRect(0, 0, 500, 400);
+        gach.drawrect();
+        if (bong.cordX < 0 || bong.cordX > 500) {
+            bong.X = -bong.X;
+            score++;
+        }
+        if (bong.cordY < 0 || ((bong.cordY >= 295 && bong.cordY <= 315) && (bong.cordX > (gach.cordX - 5) && bong.cordX < (gach.cordX + 105)))) {
+            bong.Y = -bong.Y;
+            score++;
+        }
+        bong.move();
+
+    }, 40);
+    setInterval(function () {
+        docReady();
+        document.getElementById("score").innerText = score + " Diem";
+    }, 1);
+
+    function moveSelection(evt) {
+        switch (evt.keyCode) {
+            case 37:
+                gach.Left();
+                break;
+            case 39:
+                gach.Right();
+                break;
+        }
+    }
+
+    function docReady() {
+        window.addEventListener('keydown', moveSelection);
+    }
 </script>
 </body>
 </html>
