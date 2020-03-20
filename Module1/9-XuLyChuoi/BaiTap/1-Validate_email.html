@@ -7,7 +7,7 @@
 <body>
 <script>
     let receive_email = prompt("Nhap vao email");
-    let patt = /^[a-zA-Z0-9]+[a-zA-Z0-9]*@+([a-z])+\.([a-z])+$/;
+    let patt = /^[a-zA-Z0-9]+[a-zA-Z0-9]\@+([a-z])+\.([a-z])+$/;
     console.log(patt.test(receive_email));
     if (patt.test(receive_email)){
         alert("email hop le");

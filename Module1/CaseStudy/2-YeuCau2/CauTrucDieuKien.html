@@ -6,98 +6,139 @@
 </head>
 <body>
 <script>
-    let name ="Nguyen Van A";
-    let email ="abc123@gmail.com";
-    let id ="123456789";
-    let birthday ="01/01/2000";
-    let address ="Da Nang";
-    let typeCustomer ="Gold";
-    let discount ="5";
-    let numberofaccompanying ="0";
-    let typeroom ="Vip";
-    let rentday ="10";
-    let typeservice ="House";
+    let name = "Nguyen Van A";
+    let email = "abc123@gmail.com";
+    let id = "123456789";
+    let birthday = "01/01/2000";
+    let address = "Da Nang";
+    let typeCustomer = "Gold";
+    let discount = "5";
+    let numberofaccompanying = "0";
+    let typeroom = "Vip";
+    let rentday = "10";
+    let typeservice = "House";
     let moneyservice;
     let discountaddress;
     let discountrentday;
     let discounttypecustomer;
     let edit;
-    while(1) {
-        let receive = prompt("1.Show information customer \n" +
+    while (1) {
+        let receive = parseInt(prompt("1.Show information customer \n" +
             "2.Edit information customer \n" +
-            "3.Show the amount to be paid after discount");
-        if ((parseInt(receive) == 1 || parseInt(receive) == 2 || parseInt(receive) == 3) && parseInt(receive) == parseFloat(receive)) {
-            if (parseInt(receive) == 1) {
-                alert("1.Ho va ten: " + name + "\n" +
-                    "2.So CMND: " + id + "\n" +
-                    "3.Ngay Sinh: " + birthday + "\n" +
-                    "4.Email: " + email + "\n" +
-                    "5.Dia chi: " + address + "\n" +
-                    "6.Loai khach hang: " + typeCustomer + "\n" +
-                    "7.Giam gia: " + discount + "\n" +
-                    "8.So luong di kem: " + numberofaccompanying + "\n" +
-                    "9.So ngay thue: " + rentday + "\n" +
-                    "10.Loai dich vu: " + typeservice + "\n" +
-                    "11.Loai phong: " + typeroom);
-            } else if (parseInt(receive) == 2) {
-                edit = prompt("Chon thong tin muon thay doi: \n" +
-                    "1.Ho va ten: " + name + "\n" +
-                    "2.So CMND: " + id + "\n" +
-                    "3.Ngay Sinh: " + birthday + "\n" +
-                    "4.Email: " + email + "\n" +
-                    "5.Dia chi: " + address + "\n" +
-                    "6.Loai khach hang: " + typeCustomer + "\n" +
-                    "7.Giam gia: " + discount + "\n" +
-                    "8.So luong di kem: " + numberofaccompanying + "\n" +
-                    "9.So ngay thue: " + rentday + "\n" +
-                    "10.Loai dich vu: " + typeservice + "\n" +
-                    "11.Loai phong: " + typeroom);
-                if ((parseInt(edit) == 1 || parseInt(edit) == 2 || parseInt(edit) == 3 || parseInt(edit) == 4 ||
-                    parseInt(edit) == 5 || parseInt(edit) == 6 || parseInt(edit) == 7 || parseInt(edit) == 8 ||
-                    parseInt(edit) == 9 || parseInt(edit) == 10 || parseInt(edit) == 11) && parseInt(edit) == parseFloat(edit)){
-                        switch (parseInt(edit)) {
-                            case 1: name = prompt("Nhap Vao Ten Khach Hang:");break;
-                            case 2: id = prompt("Nhap Vao CMND Khach Hang:");break;
-                            case 3: birthday = prompt("Nhap Vao Sinh Nhat Khach Hang:");break;
-                            case 4: email = prompt("Nhap Vao Email Khach Hang:");break;
-                            case 5: address = prompt("Nhap Vao Dia Chi Khach Hang:");break;
-                            case 6: typeCustomer = prompt("Nhap Vao Hang Khach Hang:");break;
-                            case 7: discount = prompt("Nhap Vao % Giam Gia:");break;
-                            case 8: numberofaccompanying = prompt("Nhap Vao So Nguoi Di Kem:");break;
-                            case 9: rentday = prompt("Nhap Vao So Ngay Thue:");break;
-                            case 10: typeservice = prompt("Nhap Vao Loai Dich Vu:");break;
-                            case 11: typeroom = prompt("Nhap Vao Loai Phong:");break;
-                        }
-                }else {
+            "3.Show the amount to be paid after discount"));
+        if (receive === 1) {
+            alert("1.Ho va ten: " + name + "\n" +
+                "2.So CMND: " + id + "\n" +
+                "3.Ngay Sinh: " + birthday + "\n" +
+                "4.Email: " + email + "\n" +
+                "5.Dia chi: " + address + "\n" +
+                "6.Loai khach hang: " + typeCustomer + "\n" +
+                "7.Giam gia: " + discount + "\n" +
+                "8.So luong di kem: " + numberofaccompanying + "\n" +
+                "9.So ngay thue: " + rentday + "\n" +
+                "10.Loai dich vu: " + typeservice + "\n" +
+                "11.Loai phong: " + typeroom);
+        } else if (receive === 2) {
+            edit = parseInt(prompt("Chon thong tin muon thay doi: \n" +
+                "1.Ho va ten: " + name + "\n" +
+                "2.So CMND: " + id + "\n" +
+                "3.Ngay Sinh: " + birthday + "\n" +
+                "4.Email: " + email + "\n" +
+                "5.Dia chi: " + address + "\n" +
+                "6.Loai khach hang: " + typeCustomer + "\n" +
+                "7.Giam gia: " + discount + "\n" +
+                "8.So luong di kem: " + numberofaccompanying + "\n" +
+                "9.So ngay thue: " + rentday + "\n" +
+                "10.Loai dich vu: " + typeservice + "\n" +
+                "11.Loai phong: " + typeroom));
+            switch (edit) {
+                case 1:
+                    name = prompt("Nhap Vao Ten Khach Hang:");
+                    break;
+                case 2:
+                    id = prompt("Nhap Vao CMND Khach Hang:");
+                    break;
+                case 3:
+                    birthday = prompt("Nhap Vao Sinh Nhat Khach Hang:");
+                    break;
+                case 4:
+                    email = prompt("Nhap Vao Email Khach Hang:");
+                    break;
+                case 5:
+                    address = prompt("Nhap Vao Dia Chi Khach Hang:");
+                    break;
+                case 6:
+                    typeCustomer = prompt("Nhap Vao Hang Khach Hang:");
+                    break;
+                case 7:
+                    discount = prompt("Nhap Vao % Giam Gia:");
+                    break;
+                case 8:
+                    numberofaccompanying = prompt("Nhap Vao So Nguoi Di Kem:");
+                    break;
+                case 9:
+                    rentday = prompt("Nhap Vao So Ngay Thue:");
+                    break;
+                case 10:
+                    typeservice = prompt("Nhap Vao Loai Dich Vu:");
+                    break;
+                case 11:
+                    typeroom = prompt("Nhap Vao Loai Phong:");
+                    break;
+                default:
                     alert("Faild");
-                }
-            }else if (parseInt(receive) == 3){
-                switch (typeservice) {
-                    case "House": moneyservice=300;break;
-                    case "Villa": moneyservice=500;break;
-                    case  "Room": moneyservice=100;break;
-                }switch (address) {
-                    case "Da Nang":discountaddress=20;break;
-                    case "Hue":discountaddress=10;break;
-                    case "Quang Nam":discountaddress=5;break;
-                }switch (typeCustomer) {
-                    case "Diamond":discounttypecustomer=15;break;
-                    case "Platium":discounttypecustomer=10;break;
-                    case "Gold":discounttypecustomer=5;break;
-                    case "Silver":discounttypecustomer=2;break;
-                    case "Member":discounttypecustomer=0;break;
-                }
-                if (rentday>=2 && rentday<=4){
-                    discountrentday=10;
-                }else if (rentday>=5 && rentday<=7){
-                    discountrentday=20;
-                }else if (rentday>7){
-                    discountrentday=30;
-                }
-                let discountmoney = discountaddress+discountrentday+discounttypecustomer;
-                let paymoney = (moneyservice*rentday)-discountmoney;
-                alert("the amount to be paid after discount: "+paymoney);
+                    break;
             }
+        } else if (receive === 3) {
+            switch (typeservice) {
+                case "House":
+                    moneyservice = 300;
+                    break;
+                case "Villa":
+                    moneyservice = 500;
+                    break;
+                case  "Room":
+                    moneyservice = 100;
+                    break;
+            }
+            switch (address) {
+                case "Da Nang":
+                    discountaddress = 20;
+                    break;
+                case "Hue":
+                    discountaddress = 10;
+                    break;
+                case "Quang Nam":
+                    discountaddress = 5;
+                    break;
+            }
+            switch (typeCustomer) {
+                case "Diamond":
+                    discounttypecustomer = 15;
+                    break;
+                case "Platium":
+                    discounttypecustomer = 10;
+                    break;
+                case "Gold":
+                    discounttypecustomer = 5;
+                    break;
+                case "Silver":
+                    discounttypecustomer = 2;
+                    break;
+                case "Member":
+                    discounttypecustomer = 0;
+                    break;
+            }
+            if (rentday >= 2 && rentday <= 4) {
+                discountrentday = 10;
+            } else if (rentday >= 5 && rentday <= 7) {
+                discountrentday = 20;
+            } else if (rentday > 7) {
+                discountrentday = 30;
+            }
+            let discountmoney = discountaddress + discountrentday + discounttypecustomer;
+            let paymoney = (moneyservice * rentday) - discountmoney;
+            alert("the amount to be paid after discount: " + paymoney);
         } else {
             alert("Bạn hãy chọn các chức năng có trong trình đơn ");
         }

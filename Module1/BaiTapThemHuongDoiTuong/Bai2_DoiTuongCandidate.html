@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Candidate</title>
+</head>
+<body>
+<script>
+    class Candidate {
+        constructor(id, name, birthday, math, literature, english) {
+            this.id = id;
+            this.name = name;
+            this.birthday = birthday;
+            this.math = math;
+            this.literature = literature;
+            this.english = english;
+        }
+
+        getid() {
+            return this.id;
+        }
+
+        getname() {
+            return this.name;
+        }
+
+        getbirthday() {
+            return this.birthday;
+        }
+
+        getmath() {
+            return this.math;
+        }
+
+        getliterature() {
+            return this.literature;
+        }
+
+        getenglish() {
+            return this.english;
+        }
+
+        setid(value) {
+            this.id = value;
+        }
+
+        setname(value) {
+            this.name = value;
+        }
+
+        setbirthday(value) {
+            this.birthday = value;
+        }
+
+        setmath(value) {
+            this.math = value;
+        }
+
+        setliterature(value) {
+            this.literature = value;
+        }
+
+        setenglish(value) {
+            this.english = value;
+        }
+    }
+
+    class testcandidate {
+        constructor(candidate) {
+            this.candidate = candidate;
+        }
+
+        test() {
+            this.sum = this.candidate.getmath() + this.candidate.getliterature() + this.candidate.getenglish();
+            if (this.sum >= 15) {
+                alert("1.Ten: "+this.candidate.getname()+"\n"+
+                    "2.MSSV: "+this.candidate.getid()+"\n"+
+                    "3.Ngay Sinh: "+this.candidate.getbirthday()+"\n"+
+                    "4.Diem Toan: "+this.candidate.getmath()+"\n"+
+                    "5.Diem Van: "+this.candidate.getliterature()+"\n"+
+                    "6.Diem Tieng Anh: "+this.candidate.getenglish()+"\n");
+            }
+        }
+    }
+    let num = parseInt(prompt("nhap vao so luong hoc sinh"));
+    let student=new Array(0);
+    for (let i=0;i<num;i++){
+        let id=prompt("nhap vao mssv "+i);
+        let name=prompt("nhap vao ten sinh vien "+i);
+        let birthday=prompt("nhap vao ngay sinh sinh vien "+i);
+        let math=prompt("nhap vao diem toan sinh vien "+i);
+        let literature=prompt("nhap vao diem van sinh vien "+i);
+        let english=prompt("nhap vao diem anh sinh vien "+i);
+        student[i] = new Candidate(id,name,birthday,math,literature,english);
+    }
+    for (let i=0;i<num;i++){
+        let test = new testcandidate(student[i]);
+        test.test();
+    }
+</script>
+</body>
+</html>

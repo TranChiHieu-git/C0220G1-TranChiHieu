@@ -11,23 +11,22 @@
     do {
         let name = prompt("Ho va Ten: ").trim();
         for (let i = 0; i < name.length; i++) {
-            if (name[i] == " " && name[i + 1] == " ") {
+            if (name[i] === " " && name[i + 1] === " ") {
                 continue;
             } else {
-                if (i == 0) {
+                if (i === 0) {
                     memory += name[i].toUpperCase()
-                } else if (name[i - 1] == " " && name[i] != " ") {
+                } else if (name[i - 1] === " " && name[i] !== " ") {
                     memory += name[i].toUpperCase();
                 } else {
                     memory += name[i].toLowerCase();
                 }
-
             }
         }
-        if (memory != "") {
+        if (memory !== "") {
             ten = false;
         }
-        if (ten == true) {
+        if (ten === true) {
             alert("Ban da nhap sai. Vui long nhap lai");
         }
     } while (ten);
@@ -35,17 +34,17 @@
     let id, cmnd;
     do {
         cmnd = true;
-        id = prompt("So CMND(gom 9 so nguyen duong): ");
-        if (id.trim().length == 9) {
-            if (isNaN(id.trim()) == false) {
-                if (Number.isInteger(parseInt(id.trim())) == true) {
-                    if (Number(id.trim()) >= 100000000 && Number(id.trim()) <= 999999999) {
+        id = prompt("So CMND(gom 9 so nguyen duong): ").trim();
+        if (id.length === 9) {
+            if (!isNaN(id)) {
+                if (Number.isInteger(parseInt(id))) {
+                    if (Number(id) >= 100000000 && Number(id) <= 999999999) {
                         cmnd = false;
                     }
                 }
             }
         }
-        if (cmnd == true) {
+        if (cmnd === true) {
             alert("Ban da nhap sai. Vui long nhap lai");
         }
     } while (cmnd);
@@ -54,13 +53,13 @@
     do {
         sinhnhat = true;
         birthday = prompt("Ngay thang nam sinh (dd/mm/yyyy): ");
-        day = birthday.substring(0, 2);
-        month = birthday.substring(3, 5);
-        year = birthday.substring(6, 10);
-        if (birthday.length == 10) {
-            if ((birthday.substring(2, 3) == "/") && (birthday.substring(5, 6) == "/")) {
-                if (isNaN(day) == false && isNaN(month) == false && isNaN(year) == false) {
-                    if (Number.isInteger(parseInt(day)) && Number.isInteger(parseInt(month)) && Number.isInteger(parseInt(year))) {
+        day = parseInt(birthday.substring(0, 2));
+        month = parseInt(birthday.substring(3, 5));
+        year = parseInt(birthday.substring(6, 10));
+        if (birthday.length === 10) {
+            if ((birthday.substring(2, 3) === "/") && (birthday.substring(5, 6) === "/")) {
+                if (!isNaN(day) && !isNaN(month) && !isNaN(year)) {
+                    if (Number.isInteger(day) && Number.isInteger(month) && Number.isInteger(year)) {
                         if ((day > 0 && day < 32) && (month > 0 && month < 13) && (year > 1000 && year < 2021)) {
                             sinhnhat = false;
                         }
@@ -69,7 +68,7 @@
             }
 
         }
-        if (sinhnhat == true) {
+        if (sinhnhat) {
             alert("Ban da nhap sai. Vui long nhap lai");
         }
     } while (sinhnhat)
@@ -77,11 +76,11 @@
     let thu = true, email;
     do {
         email = prompt("Email(abc@abc.abc): ");
-        let testmail = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-]))+\.([a-zA-Z0-9]{2,4})+$/;
+        let testmail = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-]))+\.([a-zA-Z0-9]{2,4})$/;
         if (testmail.test(email)) {
             thu = false;
         }
-        if (thu == true) {
+        if (thu) {
             alert("Ban da nhap sai. Vui long nhap lai");
         }
     } while (thu);
@@ -89,97 +88,101 @@
     do {
         let address = prompt("Dia chi: ");
         for (let i = 0; i < address.length; i++) {
-            if (address[i] == " " && address[i + 1] == " ") {
+            if (address[i] === " " && address[i + 1] === " ") {
                 continue;
             } else {
-                if (i == 0) {
+                if (i === 0) {
                     temp += address[i].toUpperCase()
-                } else if (address[i - 1] == " " && address[i] != " ") {
+                } else if (address[i - 1] === " " && address[i] !== " ") {
                     temp += address[i].toUpperCase();
                 } else {
                     temp += address[i].toLowerCase();
                 }
-
             }
         }
-        if (temp != "") {
+        if (temp !== "") {
             diachi = false;
         }
-        if (diachi == true) {
+        if (diachi) {
             alert("Ban da nhap sai. Vui long nhap lai");
         }
     }
-    while (diachi)
+    while (diachi);
 
     let loaikhachhang = true, kindCustomer;
     do {
-        kindCustomer = prompt("Loai khach hang (Diamond, Platinum, Gold, Silver, Member): ");
-        if (kindCustomer.trim() === "Diamond" || kindCustomer.trim() === "Platinum" || kindCustomer.trim() === "Gold" || kindCustomer.trim() === "Silver" || kindCustomer.trim() === "Member") {
+        kindCustomer = prompt("Loai khach hang (Diamond, Platinum, Gold, Silver, Member): ").trim();
+        if (kindCustomer === "Diamond" || kindCustomer === "Platinum" || kindCustomer === "Gold" || kindCustomer === "Silver" || kindCustomer === "Member") {
             loaikhachhang = false;
         }
-        if (loaikhachhang == true) {
+        if (loaikhachhang) {
             alert("Ban da nhap sai. Vui long nhap lai");
         }
     } while (loaikhachhang);
+
     let giamgia = true, discount;
     do {
-        discount = prompt("Giam gia(vd:1,5): ");
-        if (isNaN(discount.trim()) == false) {
-            if (Number.isInteger(parseInt(discount.trim())) == true) {
-                if (discount.trim() >= 0) {
+        discount = prompt("Giam gia(vd:1,5): ").trim();
+        if (isNaN(discount) === false) {
+            if (Number.isInteger(parseInt(discount))) {
+                if (discount>= 0) {
                     giamgia = false;
                 }
             }
         }
-        if (giamgia == true) {
+        if (giamgia) {
             alert("Ban da nhap sai. Vui long nhap lai");
         }
     } while (giamgia);
+
     let numpeople = true, soluongdikem;
     do {
-        soluongdikem = prompt("So luong nguoi di kem: ");
-        if (isNaN(soluongdikem.trim()) == false) {
-            if (Number.isInteger(parseInt(soluongdikem.trim())) == true) {
-                if (soluongdikem.trim() >= 0) {
+        soluongdikem = prompt("So luong nguoi di kem: ").trim();
+        if (isNaN(soluongdikem) === false) {
+            if (Number.isInteger(parseInt(soluongdikem))) {
+                if (soluongdikem >= 0) {
                     numpeople = false;
                 }
             }
         }
-        if (numpeople == true) {
+        if (numpeople) {
             alert("Ban da nhap sai. Vui long nhap lai");
         }
     } while (numpeople);
+
     let ngaythue = true, rentDay;
     do {
-        rentDay = prompt("So ngay thue: ");
-        if (isNaN(rentDay.trim()) == false) {
-            if (Number.isInteger(parseInt(rentDay.trim())) == true) {
-                if (rentDay.trim() > 0) {
+        rentDay = prompt("So ngay thue: ").trim();
+        if (isNaN(rentDay) === false) {
+            if (Number.isInteger(parseInt(rentDay))) {
+                if (rentDay > 0) {
                     ngaythue = false;
                 }
             }
         }
-        if (ngaythue == true) {
+        if (ngaythue) {
             alert("Ban da nhap sai. Vui long nhap lai");
         }
     } while (ngaythue);
+
     let loaidichvu = true, kindService;
     do {
-        kindService = prompt("Loai dich vu (Villa, House, Room): ");
-        if (kindService.trim() === "Villa" || kindService.trim() === "House" || kindService.trim() === "Room") {
+        kindService = prompt("Loai dich vu (Villa, House, Room): ").trim();
+        if (kindService === "Villa" || kindService === "House" || kindService === "Room") {
             loaidichvu = false;
         }
-        if (loaidichvu == true) {
+        if (loaidichvu) {
             alert("Ban da nhap sai. Vui long nhap lai");
         }
     } while (loaidichvu);
+
     let loaiphongthue = true, kindRoom;
     do {
-        kindRoom = prompt("Loai phong thue (Vip, Business,  Normal): ");
-        if (kindRoom.trim() === "Vip" || kindRoom.trim() === "Business" || kindRoom.trim() === "Normal") {
+        kindRoom = prompt("Loai phong thue (Vip, Business,  Normal): ").trim();
+        if (kindRoom === "Vip" || kindRoom=== "Business" || kindRoom === "Normal") {
             loaiphongthue = false;
         }
-        if (loaiphongthue == true) {
+        if (loaiphongthue) {
             alert("Ban da nhap sai. Vui long nhap lai");
         }
     } while (loaiphongthue);

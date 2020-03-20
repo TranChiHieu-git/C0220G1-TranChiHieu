@@ -11,38 +11,120 @@
             this.tuso = tuso;
             this.mauso = mauso;
         }
-
         cong(phanso) {
-
             this.phanso = phanso;
+
             if (this.mauso === 0 || this.phanso.mauso === 0) {
-                return "Mau so phai khac 0";
+                console.log("Mau so phai khac 0");
             } else {
+
                 if (this.mauso === this.phanso.mauso) {
                     this.tongtuso = (this.tuso + this.phanso.tuso);
                     this.tongmauso = this.mauso;
-                    if (rutgon(this.tongtuso, this.tongmauso) === -1) {
+                    let x = rutgon(this.tongtuso, this.tongmauso);
+                    if (x === -1) {
                         console.log("Tong= " + this.tongtuso + "/" + this.tongmauso);
-                    } else if (rutgon(this.tongtuso, this.tongmauso) !== -1) {
-                        console.log(rutgon(this.tongtuso, this.tongmauso));
-                        console.log(this.tongtuso);
-                        console.log(this.tongmauso);
-                        this.tongmauso = this.tongmauso / rutgon(this.tongtuso, this.tongmauso);
-                        this.tongtuso = this.tongtuso / rutgon(this.tongtuso, this.tongmauso);
+                    } else if (x!== -1) {
+                        this.tongmauso = this.tongmauso / x;
+                        this.tongtuso = this.tongtuso / x;
+                        console.log("Tong= " + this.tongtuso + "/" + this.tongmauso);
+                    }
+                } else if (this.mauso !== this.phanso.mauso) {
+                    this.tongtuso = (this.tuso * this.phanso.mauso) + (this.phanso.tuso * this.mauso);
+                    this.tongmauso = this.mauso * this.phanso.mauso;
+                    let x = rutgon(this.tongtuso, this.tongmauso);
+                    if (x === -1) {
+                        console.log("Tong= " + this.tongtuso + "/" + this.tongmauso);
+                    } else if (x !== -1) {
+
+                        this.tongmauso = this.tongmauso / x;
+                        this.tongtuso = this.tongtuso / x;
                         console.log("Tong= " + this.tongtuso + "/" + this.tongmauso);
                     }
                 }
             }
         }
-    }
 
-    let ps1 = new Phanso(5, 7);
-    let ps2 = new Phanso(9, 7);
+        tru(phanso) {
+            this.phanso = phanso;
+            let x = rutgon(this.tongtuso, this.tongmauso);
+            if (this.mauso === 0 || this.phanso.mauso === 0) {
+                console.log("Mau so phai khac 0");
+            } else {
+                if (this.mauso === this.phanso.mauso) {
+                    this.tongtuso = (this.tuso - this.phanso.tuso);
+                    this.tongmauso = this.mauso;
+                    if (x === -1) {
+                        console.log("Hieu= " + this.tongtuso + "/" + this.tongmauso);
+                    } else if (x!== -1) {
+                        this.tongmauso = this.tongmauso / x;
+                        this.tongtuso = this.tongtuso / x;
+                        console.log("Hieu= " + this.tongtuso + "/" + this.tongmauso);
+                    }
+                } else if (this.mauso !== this.phanso.mauso) {
+                    this.tongtuso = (this.tuso * this.phanso.mauso) - (this.phanso.tuso * this.mauso);
+                    this.tongmauso = this.mauso * this.phanso.mauso;
+                    if (x === -1) {
+                        console.log("Hieu= " + this.tongtuso + "/" + this.tongmauso);
+                    } else if (x !== -1) {
+                        this.tongmauso = this.tongmauso / x;
+                        this.tongtuso = this.tongtuso / x;
+                        console.log("Hieu= " + this.tongtuso + "/" + this.tongmauso);
+                    }
+                }
+            }
+        }
+
+        nhan(phanso) {
+            this.phanso = phanso;
+            if (this.mauso === 0 || this.phanso.mauso === 0||this.tuso === 0|| this.phanso.tuso===0) {
+                console.log("Mau so phai khac 0");
+            } else {
+                this.tongtuso = this.tuso * this.phanso.tuso;
+                this.tongmauso = this.mauso*this.phanso.mauso;
+                if (rutgon(this.tongtuso, this.tongmauso) === -1) {
+                    console.log("Tich= " + this.tongtuso + "/" + this.tongmauso);
+                } else if (rutgon(this.tongtuso, this.tongmauso) !== -1) {
+                    let x = rutgon(this.tongtuso, this.tongmauso);
+                    this.tongmauso = this.tongmauso / x;
+                    this.tongtuso = this.tongtuso / x;
+                    console.log("Tich= " + this.tongtuso + "/" + this.tongmauso);
+                }
+            }
+        }
+        chia(phanso) {
+            this.phanso = phanso;
+            if (this.mauso === 0 || this.phanso.mauso === 0||this.tuso === 0|| this.phanso.tuso===0) {
+                console.log("Mau so phai khac 0");
+            } else {
+                this.tongtuso = this.tuso * this.phanso.mauso;
+                this.tongmauso = this.mauso*this.phanso.tuso;
+                if (rutgon(this.tongtuso, this.tongmauso) === -1) {
+                    console.log("Thuong= " + this.tongtuso + "/" + this.tongmauso);
+
+                } else if (rutgon(this.tongtuso, this.tongmauso) !== -1) {
+                    let x = rutgon(this.tongtuso, this.tongmauso);
+                    this.tongmauso = this.tongmauso / x;
+                    this.tongtuso = this.tongtuso / x;
+                    console.log("Thuong= " + this.tongtuso + "/" + this.tongmauso);
+                }
+            }
+        }
+    }
+    let tu1=parseInt(prompt("Nhap vao tu so phan so thu nhat"));
+    let mau1=parseInt(prompt("Nhap vao mau so phan so thu nhat"));
+    let tu2=parseInt(prompt("Nhap vao tu so phan so thu hai"));
+    let mau2=parseInt(prompt("Nhap vao mau so phan so thu hai"));
+    let ps1 = new Phanso(tu1, mau1);
+    let ps2 = new Phanso(tu2, mau2);
     ps1.cong(ps2);
+    ps1.tru(ps2);
+    ps1.nhan(ps2);
+    ps1.chia(ps2);
 
     function rutgon(a, b) {
         let max = a > b ? a : b;
-        for (let i = max; i > 2; i--) {
+        for (let i = max; i>=2; i--) {
             if (a % i === 0 && b % i === 0) {
                 return i;
             }
