@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quan Ly Can Bo</title>
+</head>
+<body>
+<script>
+    class Canbo {
+        constructor(id, name, male, address, birthday, qualification, level, coefficientsalary, allowance) {
+            this.id = id;
+            this.name = name;
+            this.male = male;
+            this.address = address;
+            this.birthday = birthday;
+            this.qualification = qualification;
+            this.level = level;
+            this.coefficientsalary = coefficientsalary;
+            this.allowance = allowance;
+        }
+
+        getid() {
+            return this.id;
+        }
+
+        getname() {
+            return this.name;
+        }
+
+        getmale() {
+            return this.male;
+        }
+
+        getaddress() {
+            return this.address;
+        }
+
+        getbirthday() {
+            return this.birthday;
+        }
+
+        getqualification() {
+            return this.qualification;
+        }
+
+        getlevel() {
+            return this.level;
+        }
+
+        getcoefficientsalary() {
+            return this.coefficientsalary;
+        }
+
+        getallowance() {
+            return this.allowance;
+        }
+
+        setid(value) {
+            this.id = value;
+        }
+
+        setname(value) {
+            this.name = value;
+        }
+
+        setmale(value) {
+            this.male = value;
+        }
+
+        setaddress(value) {
+            this.address = value;
+        }
+
+        setbirthday(value) {
+            this.birthday = value;
+        }
+
+        setqualification(value) {
+            this.qualification = value;
+        }
+
+        setlevel(value) {
+            this.level = value;
+        }
+
+        setcoefficientsalary(value) {
+            this.coefficientsalary = value;
+        }
+
+        setallowance(value) {
+            this.allowance = value;
+        }
+
+        actually_received(value) {
+            return (this.coefficientsalary + this.allowance) * 450000;
+        }
+    }
+</script>
+</body>
+</html>

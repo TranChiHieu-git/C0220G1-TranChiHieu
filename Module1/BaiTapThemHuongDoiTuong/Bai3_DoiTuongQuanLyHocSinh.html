@@ -20,6 +20,10 @@
             return this.id;
         }
 
+        setid(value) {
+            this.id = value;
+        }
+
         getname() {
             return this.name;
         }
@@ -76,38 +80,66 @@
                     break;
                 default:
                     alert("Gia tri ban nhap vao khong chinh xac. Vui long nhap lai!!!");
+                    menu();
                     break;
             }
-        } while (chose!==7);
+        } while (chose !== 7);
     }
+
+    function Soft() {
+        for (let i = 0; i < student.length; i++) {
+            let temp1 = 0;
+            let temp2 = 0;
+            for (let j = 0; j < student.length; j++) {
+                if (parseInt(student[i].getid()) < parseInt(student[j].getid())) {
+                    temp1 = student[i].getid();
+                    temp2 = student[j].getid();
+                    student[i].setid(temp2);
+                    student[j].setid(temp1);
+                }
+            }
+        }
+        for (let i = 0; i < student.length; i++) {
+            alert("1.Ten: " + student[i].getname() + "\n" +
+                "2.MSSV: " + student[i].getid() + "\n" +
+                "3.Ngay Sinh: " + student[i].getbirthday() + "\n" +
+                "4.Gioi Tinh: " + student[i].getmale() + "\n" +
+                "5.Ten Lop: " + student[i].getnameclass() + "\n" +
+                "6.Nien Khoa: " + student[i].getschoolyear() + "\n");
+        }
+        menu();
+    }
+
     function Search() {
-        let text=prompt("Nhap vao MSSV hoac ten ban muon tim kiem");
-        for (let i=0;i<student.length;i++){
-            if (text===student[i].getname()|| text===student[i].getid()){
-                alert("1.Ten: "+student[i].getname()+"\n"+
-                    "2.MSSV: "+student[i].getid()+"\n"+
-                    "3.Ngay Sinh: "+student[i].getbirthday()+"\n"+
-                    "4.Gioi Tinh: "+student[i].getmale()+"\n"+
-                    "5.Ten Lop: "+student[i].getnameclass()+"\n"+
-                    "6.Nien Khoa: "+student[i].getschoolyear()+"\n");
+        let text = prompt("Nhap vao MSSV hoac ten ban muon tim kiem");
+        for (let i = 0; i < student.length; i++) {
+            if (text === student[i].getname() || text === student[i].getid()) {
+                alert("1.Ten: " + student[i].getname() + "\n" +
+                    "2.MSSV: " + student[i].getid() + "\n" +
+                    "3.Ngay Sinh: " + student[i].getbirthday() + "\n" +
+                    "4.Gioi Tinh: " + student[i].getmale() + "\n" +
+                    "5.Ten Lop: " + student[i].getnameclass() + "\n" +
+                    "6.Nien Khoa: " + student[i].getschoolyear() + "\n");
             }
         }
         alert("Gia tri ban nhap vao khong chinh xac. Vui long nhap lai!!!");
         menu();
     }
+
     function RemovePosition() {
         let chose = parseInt(prompt("Nhap vao vi tri ban muon xoa sinh vien"));
-        student.splice(chose-1,1);
+        student.splice(chose - 1, 1);
         menu();
     }
+
     function Print() {
-        for (let i=0;i<student.length;i++){
-            alert("1.Ten: "+student[i].getname()+"\n"+
-                "2.MSSV: "+student[i].getid()+"\n"+
-                "3.Ngay Sinh: "+student[i].getbirthday()+"\n"+
-                "4.Gioi Tinh: "+student[i].getmale()+"\n"+
-                "5.Ten Lop: "+student[i].getnameclass()+"\n"+
-                "6.Nien Khoa: "+student[i].getschoolyear()+"\n");
+        for (let i = 0; i < student.length; i++) {
+            alert("1.Ten: " + student[i].getname() + "\n" +
+                "2.MSSV: " + student[i].getid() + "\n" +
+                "3.Ngay Sinh: " + student[i].getbirthday() + "\n" +
+                "4.Gioi Tinh: " + student[i].getmale() + "\n" +
+                "5.Ten Lop: " + student[i].getnameclass() + "\n" +
+                "6.Nien Khoa: " + student[i].getschoolyear() + "\n");
         }
         menu();
     }
