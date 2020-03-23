@@ -91,10 +91,164 @@
             this.allowance = value;
         }
 
-        actually_received(value) {
-            return (this.coefficientsalary + this.allowance) * 450000;
+        actually_received() {
+            return ((parseInt(this.getcoefficientsalary()) + parseInt(this.getallowance())) * 450000);
         }
     }
+
+    class Process {
+        constructor() {
+            this.arr = new Array(0);
+        }
+
+        main() {
+            do {
+                this.chose = parseInt(prompt("1.add \n" +
+                    "2.display \n" +
+                    "3.display up salary \n" +
+                    "4.count female \n" +
+                    "5.total salary \n" +
+                    "6.have IT \n" +
+                    "7.exit"));
+                switch (this.chose) {
+                    case 1:
+                        this.addcanbo();
+                        break;
+                    case 2:
+                        this.displaycanbo();
+                        break;
+                    case 3:
+                        this.increasesalary();
+                        break;
+                    case 4:
+                        this.countfemale();
+                        break;
+                    case 5:
+                        this.counttotal();
+                        break;
+                    case 6:
+                        this.haveIT();
+                        break;
+                    case 7:
+                        break;
+                    default:
+                        alert("Gia tri nhap vao sai. Vui long nhap lai!!!");
+                        break;
+                }
+            } while (this.chose !== 7);
+        }
+
+        addcanbo() {
+            for (let i = 0; i <= this.arr.length; i++) {
+                if (this.arr[i] === undefined) {
+                    let id = prompt("Nhap vao ma so can bo " + (i + 1) + ": ");
+                    let name = prompt("Nhap vao ten can bo " + (i + 1) + ": ");
+                    let male = prompt("Nhap vao gioi tinh " + (i + 1) + ": ");
+                    let address = prompt("Nhap vao que quan " + (i + 1) + ": ");
+                    let birthday = prompt("Nhap vao ngay sinh " + (i + 1) + ": ");
+                    let qualification = prompt("Nhap vao chuyen mon " + (i + 1) + ": ");
+                    let level = prompt("Nhap vao trinh do " + (i + 1) + ": ");
+                    let coefficientsalary = prompt("Nhap vao he so luong " + (i + 1) + ": ");
+                    let allowance = prompt("Nhap vao phu cap " + (i + 1) + ": ");
+                    this.arr[i] = new Canbo(id, name, male, address, birthday, qualification, level, coefficientsalary, allowance);
+                    this.main();
+                    break;
+                }
+            }
+        }
+
+        displaycanbo() {
+            this.arrname_id = new Array();
+            for (let i = 0; i < this.arr.length; i++) {
+                if (this.arrname_id[i] === undefined) {
+                    this.arrname_id[i] = (i + 1) + ".Ten: " + this.arr[i].getname() + "  " + "Ma so can bo: " + this.arr[i].getid();
+                }
+            }
+            let displaychose = prompt(this.arrname_id.join("\n") + "\n" + (this.arrname_id.length + 1) + ".Back");
+            if (displaychose - 1 < this.arrname_id.length && displaychose - 1 >= 0) {
+                alert("1.ten: " + this.arr[(displaychose - 1)].getname() + "\n" +
+                    "2.ma so: " + this.arr[(displaychose - 1)].getid() + "\n" +
+                    "3.gioi tinh: " + this.arr[(displaychose - 1)].getmale() + "\n" +
+                    "4.dia chi: " + this.arr[(displaychose - 1)].getaddress() + "\n" +
+                    "5.ngay sinh: " + this.arr[(displaychose - 1)].getbirthday() + "\n" +
+                    "6.chuyen mon: " + this.arr[(displaychose - 1)].getqualification() + "\n" +
+                    "7.trinh do " + this.arr[(displaychose - 1)].getlevel() + "\n" +
+                    "8.he so luon " + this.arr[(displaychose - 1)].getcoefficientsalary() + "\n" +
+                    "9.phu cap: " + this.arr[(displaychose - 1)].getallowance() + "\n");
+                this.displaycanbo();
+            } else if (displaychose - 1 === this.arrname_id.length - 1) {
+                this.main();
+            } else if (displaychose - 1 > this.arrname_id.length || displaychose - 1 < 0) {
+                alert("Gia tri nhap vao khong dung. Vui long nhap lai !!!");
+                this.displaycanbo();
+            }
+        }
+
+        countfemale() {
+            let count = 0;
+            for (let i = 0; i < this.arr.length; i++) {
+                if (this.arr[i].getmale().trim() === "nu" || this.arr[i].getmale().trim() === "Nu") {
+                    count++;
+                }
+            }
+            alert("Co quan co " + count + " can bo nu");
+            this.main();
+        }
+
+        counttotal() {
+            let total = 0;
+            for (let i = 0; i < this.arr.length; i++) {
+                total += this.arr[i].actually_received();
+            }
+            alert("Tong thu nhap cua cac can bo trong co quan la: " + total);
+            this.main();
+        }
+
+        haveIT() {
+            let count = 0;
+            let arrtemp = new Array();
+            for (let i = 0; i < this.arr.length; i++) {
+                if (this.arr[i].getqualification().trim() === "CNTT" || this.arr[i].getqualification().trim() === "cntt" || this.arr[i].getqualification().trim() === "Cntt") {
+                    for (let j = 0; j <= arrtemp.length; j++) {
+                        if (arrtemp[j] === undefined) {
+                            arrtemp[j] = this.arr[i];
+                            break;
+                        }
+                    }
+                }
+            }
+            for (let j = 0; j < arrtemp.length; j++) {
+                alert("1.ten: " + arrtemp[j].getname() + "\n" +
+                    "2.ma so: " + arrtemp[j].getid() + "\n" +
+                    "3.gioi tinh: " + arrtemp[j].getmale() + "\n" +
+                    "4.dia chi: " + arrtemp[j].getaddress() + "\n" +
+                    "5.ngay sinh: " + arrtemp[j].getbirthday() + "\n" +
+                    "6.chuyen mon: " + arrtemp[j].getqualification() + "\n" +
+                    "7.trinh do " + arrtemp[j].getlevel() + "\n" +
+                    "8.phu cap: " + arrtemp[j].getallowance() + "\n");
+            }
+            this.main();
+        }
+
+        increasesalary() {
+            let temparr = new Array();
+            for (let j = 0; j < this.arr.length; j++) {
+                if (this.arr[j].getid() < 1000 && this.arr[j].getid() > 0) {
+                    for (let i = 0; i < this.arr.length; i++) {
+                        if (temparr[i] === undefined) {
+                            temparr[i] = (i + 1) + ".Ten: " + this.arr[j].getname() + "  " + "Ma so can bo: " + this.arr[j].getid();
+                            break;
+                        }
+                    }
+                }
+            }
+            alert(temparr.join("\n"));
+            this.main();
+        }
+    }
+
+    let thucthi = new Process();
+    thucthi.main();
 </script>
 </body>
 </html>
