@@ -34,6 +34,7 @@
             this.rect = document.getElementById(this.gameboard.getid()).getContext("2d");
             this.rect.beginPath();
             this.rect.fillRect(this.cordX, this.cordY, 100, 10);
+            this.rect.fillStyle = "rgb(30,255,42)";
             this.rect.fill();
         }
 
@@ -63,7 +64,7 @@
             this.ball = document.getElementById(this.gameboard.getid()).getContext("2d");
             this.ball.beginPath();
             this.ball.arc(this.cordX, this.cordY, 10, 0, 2 * Math.PI);
-            this.ball.fillStyle = "rgb(105,255,15)";
+            this.ball.fillStyle = "rgb(66,111,255)";
             this.ball.fill();
         }
 

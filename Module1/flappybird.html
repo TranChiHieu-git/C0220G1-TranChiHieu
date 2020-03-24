@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Flappy bird game</title>
+</head>
+<body>
+<img src="https://pngimage.net/wp-content/uploads/2018/06/flappy-bird-background-png-2.png" height="403" width="1163"
+     style="position: absolute;left:100px;top:100px"/>
+<canvas id="gameboard" width="1160" height="400"
+        style="border: 2px solid darkblue;position: absolute;left:100px;top:100px;"></canvas>
+<h1 id="score" style="position:absolute;left: 1100px;top:100px ">0 Điểm</h1>
+<script>
+    class pole {
+        constructor() {
+
+        }
+
+        drawpole(X, Y, Z) {
+            this.X = X;
+            this.Y = Y;
+            this.Z = Z;
+            this.draw = document.getElementById("gameboard").getContext("2d");
+            this.img = new Image();
+            this.img.src = "https://pngimage.net/wp-content/uploads/2018/05/cano-super-mario-png-1.png";
+            this.draw.drawImage(this.img, this.X, this.Y, 100, this.Z);
+        }
+
+        drawpole2(X, Y, Z) {
+            this.X2 = X;
+            this.Y2 = Y;
+            this.Z2 = Z;
+            this.draw2 = document.getElementById("gameboard").getContext("2d");
+            this.img2 = new Image();
+            this.img2.src = "cano-super-mario-png-1.png";
+            this.draw2.drawImage(this.img2, this.X2, this.Y2, 100, this.Z2);
+        }
+
+        left() {
+            this.draw.clearRect(this.X, this.Y, 100, this.Z);
+            this.X -= 4;
+            this.drawpole(this.X, this.Y, this.Z);
+        }
+
+        left2() {
+            this.draw2.clearRect(this.X2, this.Y2, 100, this.Z2);
+            this.X2 -= 4;
+            this.drawpole2(this.X2, this.Y2, this.Z2);
+        }
+    }
+
+    class superman {
+        constructor(cordx, cordy) {
+            this.cordX = cordx;
+            this.cordY = cordy;
+        }
+
+        drawsuperman() {
+            this.draw = document.getElementById("gameboard").getContext("2d");
+            this.img = new Image();
+            this.img.src = "https://24.media.tumblr.com/0843bd3a76e38ea60e1e926529382dc2/tumblr_n0bz5nRgp81svwlszo1_r1_250.gif";
+            this.draw.drawImage(this.img, this.cordX, this.cordY, 120, 70);
+        }
+
+        up() {
+            this.draw.clearRect(this.cordX, this.cordY, 98, 55);
+            this.cordY -= 2;
+            this.drawsuperman();
+        }
+
+        down() {
+            this.draw.clearRect(this.cordX, this.cordY, 98, 55);
+            this.cordY += 2;
+            if (this.cordY > 350) {
+                this.cordY = 350;
+            }
+            this.drawsuperman();
+        }
+    }
+
+    let flappybird = new superman(50, 150);
+    let score = 0;
+    flappybird.drawsuperman();
+    setInterval(function () {
+        let Pole = new pole();
+        Pole.Y = Math.floor((Math.random() * 200) + 200);
+        Pole.Z = 400 - Pole.Y;
+        let z2 = 290 - Pole.Z;
+        Pole.drawpole(1160, Pole.Y, Pole.Z);
+        Pole.drawpole2(1160, 0, z2);
+        setInterval(function () {
+            Pole.left2();
+            Pole.left();
+            if (Pole.X === -8) {
+                score++;
+                document.getElementById("score").innerHTML = score + " Điểm";
+            }
+        }, 30);
+        setInterval(function () {
+            if ((Pole.X > 0 && Pole.X < 120) && (flappybird.cordY+15 < z2 ||flappybird.cordY+60 > Pole.Y)){
+               alert("Ban dan thua cuoc (-_-). Diem so cua ban la : " + score);
+               Pole.X=-10;
+                location.reload();
+
+            }
+        }, 1);
+    }, 3000);
+
+    setInterval(function () {
+        docReady();
+        flappybird.down();
+    }, 30);
+
+    function moveSelection(evt) {
+        if (evt.keyCode === 32) {
+            let num = flappybird.cordY - 40;
+            let timer1 = setInterval(function () {
+                flappybird.up();
+            }, 1);
+            setInterval(function () {
+                if (flappybird.cordY <= num || flappybird.cordY < -30) {
+                    clearInterval(timer1);
+                }
+            }, 1);
+        }
+    }
+
+    function docReady() {
+        window.addEventListener('keypress', moveSelection);
+    }
+</script>
+</body>
+</html>
