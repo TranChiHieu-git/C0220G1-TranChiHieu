@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>kiểm tra xem một mảng bất kì có phải là một mảng "đẹp" hay không</title>
+</head>
+<body>
+<script>
+    let arr=[1,2,3,3];
+    alert(beautifulArray(arr));
+    function beautifulArray(arr) {
+        if (arr.length < 2) {
+            return false;
+        }
+        for (let i = 1; i < arr.length - 1; i++) {
+            let sumL = 0;
+            let sumR = 0;
+            for (let j = 0; j < i; j++) {
+                sumL += arr[j];
+            }
+            for (let k = i + 1; k < arr.length; k++) {
+                sumR += arr[k];
+            }
+            if (sumL === sumR) {
+                return true;
+            }
+
+        }
+        return false;
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>sort</title>
+</head>
+<body>
+<script>
+    let arr = [4, 3, 2, 10, 12, 1, 5, 6];
+    n = arr.length;
+    alert(insertSort(arr, n));
+    alert(bubbleSort(arr, n));
+    alert(selectSort(arr, n));
+
+    function bubbleSort(arr, n) {
+        for (let i = 0; i < n - 1; i++) {
+            for (let j = 0; j < n - i - 1; j++) {
+                if (arr[j] > arr[j + 1]) {
+                    let temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
+                }
+            }
+        }
+        return arr;
+    }
+
+    function insertSort(arr, n) {
+        for (let i = 1; i < n; i++) {
+            for (let j = 0; j < i; j++) {
+                if (arr[i] < arr[j]) {
+                    let temp = arr[i];
+                    for (let k = i; k > j; k--) {
+                        arr[k] = arr[k - 1];
+                    }
+                    arr[j] = temp;
+                }
+
+            }
+        }
+        return arr;
+    }
+
+    function selectSort(arr, n) {
+        for (let i = 0; i < n; i++) {
+            let min = arr[i];
+            let temp;
+            for (let j = i + 1; j < n; j++) {
+                if (min > arr[j]) {
+                    min = arr[j];
+                    temp = j;
+                }
+            }
+            arr[temp] = arr[i];
+            arr[i] = min;
+        }
+        return arr;
+    }
+
+</script>
+</body>
+</html>

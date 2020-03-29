@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Viết chương trình tìm phần tử nhỏ thứ k</title>
+</head>
+<body>
+<script>
+    let a = [[1,3,8], [2,4,10], [2,5,12]];
+    let k = parseInt(prompt("Nhap vao so k"));
+    alert(searchElement02(a, k));
+
+    function searchElement02(a, k) {
+        let A = sortarr(a);
+        alert(A);
+        if (k > A.length) {
+            return -1;
+        }
+        return A[k-1];
+    }
+
+    function sortarr(a) {
+        let b = new Array(0);
+        for (let i = 0; i < a.length; i++) {
+            for (let j = 0; j < a.length; j++) {
+                b.push(a[i][j]);
+            }
+        }
+        for (let i = 0; i < b.length; i++)
+            for (let j = 1; j < i; j++) {
+                if (b[i] < b[j]) {
+                    let temp = b[i];
+                    b[i] = b[j];
+                    b[j] = temp;
+                }
+            }
+        for (let i=0;i<b.length;i++){
+            if (b[i]===b[i+1]){
+                for (let j = i; j < b.length; j++){
+                    b[j]=b[j+1];
+                }
+                b.length=b.length-1;
+            }
+        }
+        return b;
+    }
+</script>
+</body>
+</html>

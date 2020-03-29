@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tìm ra một mảng đã được sắp xếp chứa các phần tử xuất hiện trong mảng B nhưng lại không xuất hiện A</title>
+</head>
+<body>
+<script>
+    let A = [7, 2, 5, 3, 5, 3];
+    let B = [7, 2, 5, 4, 6, 3, 5, 3];
+    alert(missingValue(A, B));
+
+    function missingValue(a, b) {
+        let arr = new Array(0);
+        let A=selectSort(a, a.length);
+        let B=selectSort(b, b.length);
+
+        for (let i = 0; i < B.length; i++) {
+            if (haveInArray(B[i], A)) {
+                arr.push(B[i]);
+            }
+        }
+        return arr;
+    }
+
+    function haveInArray(a, arr) {
+        for (let j = 0; j < arr.length; j++) {
+            if (a === arr[j]) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    function selectSort(arr, n) {
+        for (let i = 0; i < n; i++) {
+            let min = arr[i];
+            let temp;
+            for (let j = i + 1; j < n; j++) {
+                if (min > arr[j]) {
+                    min = arr[j];
+                    temp = j;
+                }
+            }
+            arr[temp] = arr[i];
+            arr[i] = min;
+        }
+        return arr;
+    }
+</script>
+</body>
+</html>
