@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Viết hàm isMainNumber() để kiểm tra một số nguyên có phải là số chính phương hay không? </title>
+</head>
+<body>
+<script>
+    let n = parseInt(prompt("Nhap vao mot so"));
+    alert(isMainNumber(n));
+
+    function isMainNumber(n) {
+        let flag = false;
+        if (n > 0) {
+            if (n === Math.pow(Math.sqrt(n), 2)) {
+                flag = true;
+            }
+        }
+        return flag;
+    }
+</script>
+</body>
+</html>

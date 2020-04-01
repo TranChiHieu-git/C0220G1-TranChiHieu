@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tạo một mảng rỗng, nhận 5 giá trị thuộc kiểu số nguyên được nhập bàn phím. Yêu cầu hiển thị mảng đã được sắp
+        xếp theo thứ tự tăng dần ra màn hình.</title>
+</head>
+<body>
+<script>
+    let arr = new Array(0);
+    for (let i = 0; i < 5; i++) {
+        arr[i] = parseInt(prompt("Nhap vao mot so nguyen"));
+    }
+    arr = arr.sort(function (a, b) {
+        return a - b;
+    });
+    document.write(arr);
+</script>
+</body>
+</html>
