@@ -1,0 +1,1534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/codemirror.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="js/codemirror.js"></script>
+    <script src="js/xml-hint.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <style>
+        .a {
+            background-color: rgb(178, 73, 38);
+        }
+
+        .b {
+            background-color: rgb(149, 51, 17);
+        }
+
+        .code {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<div class="container-fluid a">
+    <div class="card-header row border-0">
+        <div class="col-md-8">
+            <a href=#"">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSkJrxKuOYhh68a4PyGy82WGN8rfYKj8wYM6SivT5VMkGThEZvm&usqp=CAU"
+                     height="auto" width="300"/>
+            </a>
+        </div>
+        <div class="col-md-4 mt-4">
+            <a href="#">
+                <img src="https://jqueryui.com/jquery-wp-content/themes/jquery/content/donate.png">
+            </a>
+        </div>
+    </div>
+    <div class="row ml-5 mr-5">
+        <div class="col-md-12 b">
+            <nav class="navbar navbar-expand-lg  ">
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto nav-pills">
+                        <li class="nav-item">
+                            <button type="button" class="btn btninfo text-white font-weight-bold">Demos</button>
+                        </li>
+                        <li class="nav-item">
+                            <button type="button" class="btn btninfo text-white font-weight-bold">Download
+                            </button>
+                        </li>
+                        <li class="nav-item">
+                            <button type="button" class="btn btninfo text-white font-weight-bold">API Documentation
+                            </button>
+                        </li>
+                        <li class="nav-item">
+                            <button type="button" class="btn btninfo text-white font-weight-bold">Themes</button>
+                        </li>
+                        <li class="nav-item">
+                            <button type="button" class="btn btninfo text-white font-weight-bold">Development
+                            </button>
+                        </li>
+                        <li class="nav-item">
+                            <button type="button" class="btn btninfo text-white font-weight-bold">Support
+                            </button>
+                        </li>
+                        <li class="nav-item">
+                            <button type="button" class="btn btninfo text-white font-weight-bold">Blog
+                            </button>
+                        </li>
+                        <li class="nav-item">
+                            <button type="button" class="btn btninfo text-white font-weight-bold">About
+                            </button>
+                        </li>
+                    </ul>
+                    <form class="form-inline">
+                        <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn my-2 my-sm-0" type="submit">
+                            <img src="https://cdn4.iconfinder.com/data/icons/pictype-free-vector-icons/16/search-512.png"
+                                 width="15" height="15">
+                        </button>
+                    </form>
+                </div>
+            </nav>
+        </div>
+        <div class="col ">
+            <div class="row ">
+                <nav class="col-sm-3 col-4 bg-light " id="myScrollspy">
+                    <ul class="nav nav-pills flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link mt-3" href="#">Draggable</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Droppable</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Resizable</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Selectable</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Sortable</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Accordion</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Autocomplete</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Datepicker</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Dialog</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Slider</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Progressbar</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Spinner</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Tabs</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Add class</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Remove class</a>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="col-sm-9 col-8 bg-white">
+                    <div class="accordion" id="accordionExample">
+                        <div class=" mt-3 border">
+                            <div class="card">
+                                <div class="card-header" id="headingOne">
+                                    <h2 class="mb-0">
+                                        <button class="btn btn-link btn-block text-left" type="button"
+                                                data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
+                                                aria-controls="collapseOne">
+                                            Draggable
+                                        </button>
+                                    </h2>
+                                </div>
+                                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
+                                     data-parent="#accordionExample">
+                                    <div class="card-body">
+                                        <p class="font-weight-bold">Description:</p>
+                                        <p> Allow elements to be moved using the mouse.</p>
+                                        <article>
+                                            <textarea id=code class=code>
+<!doctype html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>jQuery UI Draggable - Default functionality</title>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <style>
+  #draggable {
+      width: 150px;
+      height: 150px;
+      padding: 0.5em;
+  }
+  </style>
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+  $(function () {
+      $("#draggable").draggable();
+  });
+  </script>
+</head>
+<body>
+
+<div id="draggable" class="ui-widget-content">
+  <p>Drag me around</p>
+</div>
+
+
+</body>
+</html>
+                                            </textarea>
+                                            <div class="border mt-2 mb-2"></div>
+                                            <h3>Demo:</h3>
+                                            <iframe id=preview width="842" height="500"></iframe>
+                                            <script>
+                                                let delay;
+                                                let editor = CodeMirror.fromTextArea(document.getElementById('code'), {
+                                                    mode: 'text/html',
+                                                    lineNumbers: true,
+                                                });
+                                                editor.on("change", function () {
+                                                    clearTimeout(delay);
+                                                    delay = setTimeout(updatePreview, 300);
+                                                });
+
+                                                function updatePreview() {
+                                                    let previewFrame = document.getElementById('preview');
+                                                    let preview = previewFrame.contentDocument || previewFrame.contentWindow.document;
+                                                    preview.open();
+                                                    preview.write(editor.getValue());
+                                                    preview.close();
+                                                }
+
+                                                setTimeout(updatePreview, 300);
+                                            </script>
+                                        </article>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="border">
+                            <div class="card">
+                                <div class="card-header" id="headingTwo">
+                                    <h2 class="mb-0">
+                                        <button class="btn btn-link btn-block text-left collapsed " type="button"
+                                                data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
+                                                aria-controls="collapseTwo">
+                                            Droppable
+                                        </button>
+                                    </h2>
+                                </div>
+                                <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo"
+                                     data-parent="#accordionExample">
+                                    <div class="card-body">
+                                        <p class="font-weight-bold">Description:</p>
+                                        <p> Create targets for draggable elements.</p>
+                                        <textarea class=code id=code2>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>jQuery UI Droppable - Default functionality</title>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <style>
+  #draggable1 {
+      width: 100px;
+      height: 100px;
+      padding: 0.5em;
+      float: left;
+      margin: 10px 10px 10px 0;
+  }
+
+  #droppable {
+      width: 150px;
+      height: 150px;
+      padding: 0.5em;
+      float: left;
+      margin: 10px;
+  }
+  </style>
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+  $(function () {
+      $("#draggable1").draggable();
+      $("#droppable").droppable({
+          drop: function (event, ui) {
+              $(this)
+                  .addClass("ui-state-highlight")
+                  .find("p")
+                  .html("Dropped!");
+          }
+      });
+  });
+  </script>
+</head>
+<body>
+
+<div id="draggable1" class="ui-widget-content">
+  <p>Drag me to my target</p>
+</div>
+
+<div id="droppable" class="ui-widget-header">
+  <p>Drop here</p>
+</div>
+
+
+</body>
+</html>
+</textarea>
+                                        <div class="border mt-2 mb-2"></div>
+                                        <h3>Demo:</h3>
+                                        <iframe id=preview2 width="842" height="500"></iframe>
+                                        <script>
+                                            let delay2;
+                                            let editor2 = CodeMirror.fromTextArea(document.getElementById('code2'), {
+                                                mode: 'text/html',
+                                                lineNumbers: true,
+                                            });
+                                            editor2.on("change", function () {
+                                                clearTimeout(delay2);
+                                                delay2 = setTimeout(updatePreview, 300);
+                                            });
+
+                                            function updatePreview() {
+                                                let previewFrame = document.getElementById('preview2');
+                                                let preview = previewFrame.contentDocument || previewFrame.contentWindow.document;
+                                                preview.open();
+                                                preview.write(editor2.getValue());
+                                                preview.close();
+                                            }
+
+                                            setTimeout(updatePreview, 300);
+                                        </script>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="border">
+                            <div class="card">
+                                <div class="card-header" id="headingThree">
+                                    <h2 class="mb-0">
+                                        <button class="btn btn-link btn-block text-left collapsed" type="button"
+                                                data-toggle="collapse" data-target="#collapseThree"
+                                                aria-expanded="false"
+                                                aria-controls="collapseThree">
+                                            Resizable
+                                        </button>
+                                    </h2>
+                                </div>
+                                <div id="collapseThree" class="collapse show" aria-labelledby="headingThree"
+                                     data-parent="#accordionExample">
+                                    <div class="card-body">
+                                        <p class="font-weight-bold">Description:</p>
+                                        <p> Change the size of an element using the mouse.</p>
+                                        <textarea class=code id=code3>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>jQuery UI Resizable - Default functionality</title>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <style>
+  #resizable {
+      width: 150px;
+      height: 150px;
+      padding: 0.5em;
+  }
+
+  #resizable h3 {
+      text-align: center;
+      margin: 0;
+  }
+  </style>
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+  $(function () {
+      $("#resizable").resizable();
+  });
+  </script>
+</head>
+<body>
+
+<div id="resizable" class="ui-widget-content">
+  <h3 class="ui-widget-header">Resizable</h3>
+</div>
+
+
+</body>
+</html>
+</textarea>
+                                        <div class="border mt-2 mb-2"></div>
+                                        <h3>Demo:</h3>
+                                        <iframe id=preview3 width="842" height="500"></iframe>
+                                        <script>
+                                            let delay3;
+                                            let editor3 = CodeMirror.fromTextArea(document.getElementById('code3'), {
+                                                mode: 'text/html',
+                                                lineNumbers: true,
+                                            });
+                                            editor3.on("change", function () {
+                                                clearTimeout(delay3);
+                                                delay3 = setTimeout(updatePreview, 300);
+                                            });
+
+                                            function updatePreview() {
+                                                let previewFrame = document.getElementById('preview3');
+                                                let preview = previewFrame.contentDocument || previewFrame.contentWindow.document;
+                                                preview.open();
+                                                preview.write(editor3.getValue());
+                                                preview.close();
+                                            }
+
+                                            setTimeout(updatePreview, 300);
+                                        </script>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="border">
+                            <div class="card">
+                                <div class="card-header" id="headingFour">
+                                    <h2 class="mb-0">
+                                        <button class="btn btn-link btn-block text-left collapsed" type="button"
+                                                data-toggle="collapse" data-target="#collapseFour"
+                                                aria-expanded="false"
+                                                aria-controls="collapseThree">
+                                            Selectable
+                                        </button>
+                                    </h2>
+                                </div>
+                                <div id="collapseFour" class="collapse show" aria-labelledby="headingFour"
+                                     data-parent="#accordionExample">
+                                    <div class="card-body">
+                                        <p class="font-weight-bold">Description:</p>
+                                        <p>Use the mouse to select elements, individually or in a group.</p>
+                                        <textarea class=code id=code4>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>jQuery UI Selectable - Default functionality</title>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+
+  <style>
+  #feedback {
+      font-size: 1.4em;
+  }
+
+  #selectable .ui-selecting {
+      background: #FECA40;
+  }
+
+  #selectable .ui-selected {
+      background: #F39814;
+      color: white;
+  }
+
+  #selectable {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      width: 60%;
+  }
+
+  #selectable li {
+      margin: 3px;
+      padding: 0.4em;
+      font-size: 1.4em;
+      height: 18px;
+  }
+  </style>
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+  $(function () {
+      $("#selectable").selectable();
+  });
+  </script>
+</head>
+<body>
+
+<ol id="selectable">
+  <li class="ui-widget-content">Item 1</li>
+  <li class="ui-widget-content">Item 2</li>
+  <li class="ui-widget-content">Item 3</li>
+  <li class="ui-widget-content">Item 4</li>
+  <li class="ui-widget-content">Item 5</li>
+  <li class="ui-widget-content">Item 6</li>
+  <li class="ui-widget-content">Item 7</li>
+</ol>
+</body>
+</html>
+</textarea>
+                                        <div class="border mt-2"></div>
+                                        <h3>Demo:</h3>
+                                        <iframe id=preview4 class="pb-3" width="842" height="500"></iframe>
+                                        <script>
+                                            let delay4;
+                                            let editor4 = CodeMirror.fromTextArea(document.getElementById('code4'), {
+                                                mode: 'text/html',
+                                                lineNumbers: true,
+                                            });
+                                            editor4.on("change", function () {
+                                                clearTimeout(delay4);
+                                                delay4 = setTimeout(updatePreview, 300);
+                                            });
+
+                                            function updatePreview() {
+                                                let previewFrame = document.getElementById('preview4');
+                                                let preview = previewFrame.contentDocument || previewFrame.contentWindow.document;
+                                                preview.open();
+                                                preview.write(editor4.getValue());
+                                                preview.close();
+                                            }
+
+                                            setTimeout(updatePreview, 300);
+                                        </script>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="border">
+                            <div class="card">
+                                <div class="card-header" id="headingFive">
+                                    <h2 class="mb-0">
+                                        <button class="btn btn-link btn-block text-left collapsed" type="button"
+                                                data-toggle="collapse" data-target="#collapseFive"
+                                                aria-expanded="false"
+                                                aria-controls="collapseFive">
+                                            Sortable
+                                        </button>
+                                    </h2>
+                                </div>
+                                <div id="collapseFive" class="collapse show" aria-labelledby="headingFive"
+                                     data-parent="#accordionExample">
+                                    <div class="card-body">
+                                        <p class="font-weight-bold">Description:</p>
+                                        <p>Reorder elements in a list or grid using the mouse.</p>
+                                        <textarea class=code id=code5>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>jQuery UI Sortable - Default functionality</title>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <style>
+  #sortable {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      width: 60%;
+  }
+
+  #sortable li {
+      margin: 0 3px 3px 3px;
+      padding: 0.4em;
+      padding-left: 1.5em;
+      font-size: 1.4em;
+      height: 18px;
+  }
+
+  #sortable li span {
+      position: absolute;
+      margin-left: -1.3em;
+  }
+  </style>
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+  $(function () {
+      $("#sortable").sortable();
+      $("#sortable").disableSelection();
+  });
+  </script>
+</head>
+<body>
+
+<ul id="sortable">
+  <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 1</li>
+  <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 2</li>
+  <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 3</li>
+  <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 4</li>
+  <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 5</li>
+  <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 6</li>
+  <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span>Item 7</li>
+</ul>
+
+
+</body>
+</html>
+</textarea>
+                                        <div class="border mt-2 mb-2"></div>
+                                        <h3>Demo:</h3>
+                                        <iframe id=preview5 width="842" height="500"></iframe>
+                                        <script>
+                                            let delay5;
+                                            let editor5 = CodeMirror.fromTextArea(document.getElementById('code5'), {
+                                                mode: 'text/html',
+                                                lineNumbers: true,
+                                            });
+                                            editor5.on("change", function () {
+                                                clearTimeout(delay5);
+                                                delay5 = setTimeout(updatePreview, 300);
+                                            });
+
+                                            function updatePreview() {
+                                                let previewFrame = document.getElementById('preview5');
+                                                let preview = previewFrame.contentDocument || previewFrame.contentWindow.document;
+                                                preview.open();
+                                                preview.write(editor5.getValue());
+                                                preview.close();
+                                            }
+
+                                            setTimeout(updatePreview, 300);
+                                        </script>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="border">
+                            <div class="card">
+                                <div class="card-header" id="headingSix">
+                                    <h2 class="mb-0">
+                                        <button class="btn btn-link btn-block text-left collapsed" type="button"
+                                                data-toggle="collapse" data-target="#collapseSix"
+                                                aria-expanded="false"
+                                                aria-controls="collapseSix">
+                                            Accordion
+                                        </button>
+                                    </h2>
+                                </div>
+                                <div id="collapseSix" class="collapse show" aria-labelledby="headingSix"
+                                     data-parent="#accordionExample">
+                                    <div class="card-body">
+                                        <p class="font-weight-bold">Description:</p>
+                                        <p>Displays collapsible content panels for presenting information in a limited
+                                            amount of space.</p>
+                                        <textarea class=code id=code6>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>jQuery UI Accordion - Default functionality</title>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+  $(function () {
+      $("#accordion").accordion();
+  });
+  </script>
+</head>
+<body>
+
+<div id="accordion">
+  <h3>Section 1</h3>
+  <div>
+    <p>
+    Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
+    ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
+    amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
+    odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
+    </p>
+  </div>
+  <h3>Section 2</h3>
+  <div>
+    <p>
+    Sed non urna. Donec et ante. Phasellus eu ligula. Vestibulum sit amet
+    purus. Vivamus hendrerit, dolor at aliquet laoreet, mauris turpis porttitor
+    velit, faucibus interdum tellus libero ac justo. Vivamus non quam. In
+    suscipit faucibus urna.
+    </p>
+  </div>
+  <h3>Section 3</h3>
+  <div>
+    <p>
+    Nam enim risus, molestie et, porta ac, aliquam ac, risus. Quisque lobortis.
+    Phasellus pellentesque purus in massa. Aenean in pede. Phasellus ac libero
+    ac tellus pellentesque semper. Sed ac felis. Sed commodo, magna quis
+    lacinia ornare, quam ante aliquam nisi, eu iaculis leo purus venenatis dui.
+    </p>
+    <ul>
+      <li>List item one</li>
+      <li>List item two</li>
+      <li>List item three</li>
+    </ul>
+  </div>
+  <h3>Section 4</h3>
+  <div>
+    <p>
+    Cras dictum. Pellentesque habitant morbi tristique senectus et netus
+    et malesuada fames ac turpis egestas. Vestibulum ante ipsum primis in
+    faucibus orci luctus et ultrices posuere cubilia Curae; Aenean lacinia
+    mauris vel est.
+    </p>
+    <p>
+    Suspendisse eu nisl. Nullam ut libero. Integer dignissim consequat lectus.
+    Class aptent taciti sociosqu ad litora torquent per conubia nostra, per
+    inceptos himenaeos.
+    </p>
+  </div>
+</div>
+
+
+</body>
+</html>
+</textarea>
+                                        <div class="border mt-2 mb-2"></div>
+                                        <h3>Demo:</h3>
+                                        <iframe id=preview6 width="842" height="500"></iframe>
+                                        <script>
+                                            let delay6;
+                                            let editor6 = CodeMirror.fromTextArea(document.getElementById('code6'), {
+                                                mode: 'text/html',
+                                                lineNumbers: true,
+                                            });
+                                            editor6.on("change", function () {
+                                                clearTimeout(delay6);
+                                                delay6 = setTimeout(updatePreview, 300);
+                                            });
+
+                                            function updatePreview() {
+                                                let previewFrame = document.getElementById('preview6');
+                                                let preview = previewFrame.contentDocument || previewFrame.contentWindow.document;
+                                                preview.open();
+                                                preview.write(editor6.getValue());
+                                                preview.close();
+                                            }
+
+                                            setTimeout(updatePreview, 300);
+                                        </script>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="border">
+                            <div class="card">
+                                <div class="card-header" id="headingSeven">
+                                    <h2 class="mb-0">
+                                        <button class="btn btn-link btn-block text-left collapsed" type="button"
+                                                data-toggle="collapse" data-target="#collapseSeven"
+                                                aria-expanded="false"
+                                                aria-controls="collapseSeven">
+                                            Autocomplete
+                                        </button>
+                                    </h2>
+                                </div>
+                                <div id="collapseSeven" class="collapse show" aria-labelledby="headingSeven"
+                                     data-parent="#accordionExample">
+                                    <div class="card-body">
+                                        <p class="font-weight-bold">Description:</p>
+                                        <p>Enables users to quickly find and select from a pre-populated list of values
+                                            as they type, leveraging searching and filtering.</p>
+                                        <textarea class=code id=code7>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>jQuery UI Autocomplete - Default functionality</title>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+  $(function () {
+      var availableTags = [
+          "ActionScript",
+          "AppleScript",
+          "Asp",
+          "BASIC",
+          "C",
+          "C++",
+          "Clojure",
+          "COBOL",
+          "ColdFusion",
+          "Erlang",
+          "Fortran",
+          "Groovy",
+          "Haskell",
+          "Java",
+          "JavaScript",
+          "Lisp",
+          "Perl",
+          "PHP",
+          "Python",
+          "Ruby",
+          "Scala",
+          "Scheme"
+      ];
+      $("#tags").autocomplete({
+          source: availableTags
+      });
+  });
+  </script>
+</head>
+<body>
+<div class="ui-widget">
+  <label for="tags">Tags: </label>
+  <input id="tags">
+</div>
+</body>
+</html>
+</textarea>
+                                        <div class="border mt-2 mb-2"></div>
+                                        <h3>Demo:</h3>
+                                        <iframe id=preview7 width="842" height="500"></iframe>
+                                        <script>
+                                            let delay7;
+                                            let editor7 = CodeMirror.fromTextArea(document.getElementById('code7'), {
+                                                mode: 'text/html',
+                                                lineNumbers: true,
+                                            });
+                                            editor7.on("change", function () {
+                                                clearTimeout(delay7);
+                                                delay7 = setTimeout(updatePreview, 300);
+                                            });
+
+                                            function updatePreview() {
+                                                let previewFrame = document.getElementById('preview7');
+                                                let preview = previewFrame.contentDocument || previewFrame.contentWindow.document;
+                                                preview.open();
+                                                preview.write(editor7.getValue());
+                                                preview.close();
+                                            }
+
+                                            setTimeout(updatePreview, 300);
+                                        </script>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="border">
+                            <div class="card">
+                                <div class="card-header" id="headingEight">
+                                    <h2 class="mb-0">
+                                        <button class="btn btn-link btn-block text-left collapsed" type="button"
+                                                data-toggle="collapse" data-target="#collapseEight"
+                                                aria-expanded="false"
+                                                aria-controls="collapseEight">
+                                            Datepicker
+                                        </button>
+                                    </h2>
+                                </div>
+                                <div id="collapseEight" class="collapse show" aria-labelledby="headingEight"
+                                     data-parent="#accordionExample">
+                                    <div class="card-body">
+                                        <p class="font-weight-bold">Description:</p>
+                                        <p>Select a date from a popup or inline calendar.</p>
+                                        <textarea class=code id=code8>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>jQuery UI Datepicker - Default functionality</title>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+  $( function() {
+      $( "#datepicker" ).datepicker();
+  } );
+  </script>
+</head>
+<body>
+<p>Date: <input type="text" id="datepicker"></p>
+</body>
+</html>
+</textarea>
+                                        <div class="border mt-2 mb-2"></div>
+                                        <h3>Demo:</h3>
+                                        <iframe id=preview8 width="842" height="500"></iframe>
+                                        <script>
+                                            let delay8;
+                                            let editor8 = CodeMirror.fromTextArea(document.getElementById('code8'), {
+                                                mode: 'text/html',
+                                                lineNumbers: true,
+                                            });
+                                            editor8.on("change", function () {
+                                                clearTimeout(delay8);
+                                                delay8 = setTimeout(updatePreview, 300);
+                                            });
+
+                                            function updatePreview() {
+                                                let previewFrame = document.getElementById('preview8');
+                                                let preview = previewFrame.contentDocument || previewFrame.contentWindow.document;
+                                                preview.open();
+                                                preview.write(editor8.getValue());
+                                                preview.close();
+                                            }
+
+                                            setTimeout(updatePreview, 300);
+                                        </script>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="border">
+                            <div class="card">
+                                <div class="card-header" id="headingNine">
+                                    <h2 class="mb-0">
+                                        <button class="btn btn-link btn-block text-left collapsed" type="button"
+                                                data-toggle="collapse" data-target="#collapseNine"
+                                                aria-expanded="false"
+                                                aria-controls="collapseNine">
+                                            Dialog
+                                        </button>
+                                    </h2>
+                                </div>
+                                <div id="collapseNine" class="collapse show" aria-labelledby="headingNine"
+                                     data-parent="#accordionExample">
+                                    <div class="card-body">
+                                        <p class="font-weight-bold">Description:</p>
+                                        <p>Open content in an interactive overlay.</p>
+                                        <textarea class=code id=code9>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>jQuery UI Dialog - Default functionality</title>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+  $( function() {
+      $( "#dialog" ).dialog();
+  } );
+  </script>
+</head>
+<body>
+
+<div id="dialog" title="Basic dialog">
+  <p>This is the default dialog which is useful for displaying information. The dialog window can be moved, resized and closed with the 'x' icon.</p>
+</div>
+
+
+</body>
+</html>
+</textarea>
+                                        <div class="border mt-2 mb-2"></div>
+                                        <h3>Demo:</h3>
+                                        <iframe id=preview9 width="842" height="500"></iframe>
+                                        <script>
+                                            let delay9;
+                                            let editor9 = CodeMirror.fromTextArea(document.getElementById('code9'), {
+                                                mode: 'text/html',
+                                                lineNumbers: true,
+                                            });
+                                            editor9.on("change", function () {
+                                                clearTimeout(delay9);
+                                                delay9 = setTimeout(updatePreview, 300);
+                                            });
+
+                                            function updatePreview() {
+                                                let previewFrame = document.getElementById('preview9');
+                                                let preview = previewFrame.contentDocument || previewFrame.contentWindow.document;
+                                                preview.open();
+                                                preview.write(editor9.getValue());
+                                                preview.close();
+                                            }
+
+                                            setTimeout(updatePreview, 300);
+                                        </script>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="border">
+                            <div class="card">
+                                <div class="card-header" id="headingTen">
+                                    <h2 class="mb-0">
+                                        <button class="btn btn-link btn-block text-left collapsed" type="button"
+                                                data-toggle="collapse" data-target="#collapseTen"
+                                                aria-expanded="false"
+                                                aria-controls="collapseTen">
+                                            Slider
+                                        </button>
+                                    </h2>
+                                </div>
+                                <div id="collapseTen" class="collapse show" aria-labelledby="headingTen"
+                                     data-parent="#accordionExample">
+                                    <div class="card-body">
+                                        <p class="font-weight-bold">Description:</p>
+                                        <p>Drag a handle to select a numeric value.</p>
+                                        <textarea class=code id=code10>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>jQuery UI Slider - Default functionality</title>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+  $( function() {
+      $( "#slider" ).slider();
+  } );
+  </script>
+</head>
+<body>
+<div id="slider"></div>
+</body>
+</html>
+</textarea>
+                                        <div class="border mt-2 mb-2"></div>
+                                        <h3>Demo:</h3>
+                                        <iframe id=preview10 width="842" height="500"></iframe>
+                                        <script>
+                                            let delay10;
+                                            let editor10 = CodeMirror.fromTextArea(document.getElementById('code10'), {
+                                                mode: 'text/html',
+                                                lineNumbers: true,
+                                            });
+                                            editor10.on("change", function () {
+                                                clearTimeout(delay10);
+                                                delay10 = setTimeout(updatePreview, 300);
+                                            });
+                                            function updatePreview() {
+                                                let previewFrame = document.getElementById('preview10');
+                                                let preview = previewFrame.contentDocument || previewFrame.contentWindow.document;
+                                                preview.open();
+                                                preview.write(editor10.getValue());
+                                                preview.close();
+                                            }
+                                            setTimeout(updatePreview, 300);
+                                        </script>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="border">
+                            <div class="card">
+                                <div class="card-header" id="headingElement">
+                                    <h2 class="mb-0">
+                                        <button class="btn btn-link btn-block text-left collapsed" type="button"
+                                                data-toggle="collapse" data-target="#collapseElement"
+                                                aria-expanded="false"
+                                                aria-controls="collapseElement">
+                                            Progressbar
+                                        </button>
+                                    </h2>
+                                </div>
+                                <div id="collapseElement" class="collapse show" aria-labelledby="headingElement"
+                                     data-parent="#accordionExample">
+                                    <div class="card-body">
+                                        <p class="font-weight-bold">Description:</p>
+                                        <p>Display status of a determinate or indeterminate process.</p>
+                                        <textarea class=code id=code11>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>jQuery UI Progressbar - Default functionality</title>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+  $( function() {
+      $( "#progressbar" ).progressbar({
+          value: 37
+      });
+  } );
+  </script>
+</head>
+<body>
+
+<div id="progressbar"></div>
+
+
+</body>
+</html>
+</textarea>
+                                        <div class="border mt-2 mb-2"></div>
+                                        <h3>Demo:</h3>
+                                        <iframe id=preview11 width="842" height="500"></iframe>
+                                        <script>
+                                            let delay11;
+                                            let editor11 = CodeMirror.fromTextArea(document.getElementById('code11'), {
+                                                mode: 'text/html',
+                                                lineNumbers: true,
+                                            });
+                                            editor11.on("change", function () {
+                                                clearTimeout(delay11);
+                                                delay11 = setTimeout(updatePreview, 300);
+                                            });
+                                            function updatePreview() {
+                                                let previewFrame = document.getElementById('preview11');
+                                                let preview = previewFrame.contentDocument || previewFrame.contentWindow.document;
+                                                preview.open();
+                                                preview.write(editor11.getValue());
+                                                preview.close();
+                                            }
+                                            setTimeout(updatePreview, 300);
+                                        </script>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="border">
+                            <div class="card">
+                                <div class="card-header" id="headingTwelve">
+                                    <h2 class="mb-0">
+                                        <button class="btn btn-link btn-block text-left collapsed" type="button"
+                                                data-toggle="collapse" data-target="#collapseTwelve"
+                                                aria-expanded="false"
+                                                aria-controls="collapseTwelve">
+                                            Spinner
+                                        </button>
+                                    </h2>
+                                </div>
+                                <div id="collapseTwelve" class="collapse show" aria-labelledby="headingTwelve"
+                                     data-parent="#accordionExample">
+                                    <div class="card-body">
+                                        <p class="font-weight-bold">Description:</p>
+                                        <p>Enhance a text input for entering numeric values, with up/down buttons and arrow key handling.</p>
+                                        <textarea class=code id=code12>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>jQuery UI Spinner - Default functionality</title>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script src="/resources/demos/external/jquery-mousewheel/jquery.mousewheel.js"></script>
+  <script>
+  $( function() {
+      var spinner = $( "#spinner" ).spinner();
+
+      $( "#disable" ).on( "click", function() {
+          if ( spinner.spinner( "option", "disabled" ) ) {
+              spinner.spinner( "enable" );
+          } else {
+              spinner.spinner( "disable" );
+          }
+      });
+      $( "#destroy" ).on( "click", function() {
+          if ( spinner.spinner( "instance" ) ) {
+              spinner.spinner( "destroy" );
+          } else {
+              spinner.spinner();
+          }
+      });
+      $( "#getvalue" ).on( "click", function() {
+          alert( spinner.spinner( "value" ) );
+      });
+      $( "#setvalue" ).on( "click", function() {
+          spinner.spinner( "value", 5 );
+      });
+
+      $( "button" ).button();
+  } );
+  </script>
+</head>
+<body>
+
+<p>
+  <label for="spinner">Select a value:</label>
+  <input id="spinner" name="value">
+</p>
+
+<p>
+  <button id="disable">Toggle disable/enable</button>
+  <button id="destroy">Toggle widget</button>
+</p>
+
+<p>
+  <button id="getvalue">Get value</button>
+  <button id="setvalue">Set value to 5</button>
+</p>
+
+
+</body>
+</html>
+</textarea>
+                                        <div class="border mt-2 mb-2"></div>
+                                        <h3>Demo:</h3>
+                                        <iframe id=preview12 width="842" height="500"></iframe>
+                                        <script>
+                                            let delay12;
+                                            let editor12 = CodeMirror.fromTextArea(document.getElementById('code12'), {
+                                                mode: 'text/html',
+                                                lineNumbers: true,
+                                            });
+                                            editor12.on("change", function () {
+                                                clearTimeout(delay12);
+                                                delay12 = setTimeout(updatePreview, 300);
+                                            });
+                                            function updatePreview() {
+                                                let previewFrame = document.getElementById('preview12');
+                                                let preview = previewFrame.contentDocument || previewFrame.contentWindow.document;
+                                                preview.open();
+                                                preview.write(editor12.getValue());
+                                                preview.close();
+                                            }
+                                            setTimeout(updatePreview, 300);
+                                        </script>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="border">
+                            <div class="card">
+                                <div class="card-header" id="headingThirteen">
+                                    <h2 class="mb-0">
+                                        <button class="btn btn-link btn-block text-left collapsed" type="button"
+                                                data-toggle="collapse" data-target="#collapseThirteen"
+                                                aria-expanded="false"
+                                                aria-controls="collapseThirteen">
+                                            Tabs
+                                        </button>
+                                    </h2>
+                                </div>
+                                <div id="collapseThirteen" class="collapse show" aria-labelledby="headingThirteen"
+                                     data-parent="#accordionExample">
+                                    <div class="card-body">
+                                        <p class="font-weight-bold">Description:</p>
+                                        <p>A single content area with multiple panels, each associated with a header in a list.</p>
+                                        <textarea class=code id=code13>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>jQuery UI Tabs - Default functionality</title>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+  $( function() {
+      $( "#tabs" ).tabs();
+  } );
+  </script>
+</head>
+<body>
+<div id="tabs">
+  <ul>
+    <li><a href="#tabs-1">Nunc tincidunt</a></li>
+    <li><a href="#tabs-2">Proin dolor</a></li>
+    <li><a href="#tabs-3">Aenean lacinia</a></li>
+  </ul>
+  <div id="tabs-1">
+    <p>Proin elit arcu, rutrum commodo, vehicula tempus, commodo a, risus. Curabitur nec arcu. Donec sollicitudin mi sit amet mauris. Nam elementum quam ullamcorper ante. Etiam aliquet massa et lorem. Mauris dapibus lacus auctor risus. Aenean tempor ullamcorper leo. Vivamus sed magna quis ligula eleifend adipiscing. Duis orci. Aliquam sodales tortor vitae ipsum. Aliquam nulla. Duis aliquam molestie erat. Ut et mauris vel pede varius sollicitudin. Sed ut dolor nec orci tincidunt interdum. Phasellus ipsum. Nunc tristique tempus lectus.</p>
+  </div>
+  <div id="tabs-2">
+    <p>Morbi tincidunt, dui sit amet facilisis feugiat, odio metus gravida ante, ut pharetra massa metus id nunc. Duis scelerisque molestie turpis. Sed fringilla, massa eget luctus malesuada, metus eros molestie lectus, ut tempus eros massa ut dolor. Aenean aliquet fringilla sem. Suspendisse sed ligula in ligula suscipit aliquam. Praesent in eros vestibulum mi adipiscing adipiscing. Morbi facilisis. Curabitur ornare consequat nunc. Aenean vel metus. Ut posuere viverra nulla. Aliquam erat volutpat. Pellentesque convallis. Maecenas feugiat, tellus pellentesque pretium posuere, felis lorem euismod felis, eu ornare leo nisi vel felis. Mauris consectetur tortor et purus.</p>
+  </div>
+  <div id="tabs-3">
+    <p>Mauris eleifend est et turpis. Duis id erat. Suspendisse potenti. Aliquam vulputate, pede vel vehicula accumsan, mi neque rutrum erat, eu congue orci lorem eget lorem. Vestibulum non ante. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce sodales. Quisque eu urna vel enim commodo pellentesque. Praesent eu risus hendrerit ligula tempus pretium. Curabitur lorem enim, pretium nec, feugiat nec, luctus a, lacus.</p>
+    <p>Duis cursus. Maecenas ligula eros, blandit nec, pharetra at, semper at, magna. Nullam ac lacus. Nulla facilisi. Praesent viverra justo vitae neque. Praesent blandit adipiscing velit. Suspendisse potenti. Donec mattis, pede vel pharetra blandit, magna ligula faucibus eros, id euismod lacus dolor eget odio. Nam scelerisque. Donec non libero sed nulla mattis commodo. Ut sagittis. Donec nisi lectus, feugiat porttitor, tempor ac, tempor vitae, pede. Aenean vehicula velit eu tellus interdum rutrum. Maecenas commodo. Pellentesque nec elit. Fusce in lacus. Vivamus a libero vitae lectus hendrerit hendrerit.</p>
+  </div>
+</div>
+</body>
+</html>
+</textarea>
+                                        <div class="border mt-2 mb-2"></div>
+                                        <h3>Demo:</h3>
+                                        <iframe id=preview13 width="842" height="500"></iframe>
+                                        <script>
+                                            let delay13;
+                                            let editor13 = CodeMirror.fromTextArea(document.getElementById('code13'), {
+                                                mode: 'text/html',
+                                                lineNumbers: true,
+                                            });
+                                            editor13.on("change", function () {
+                                                clearTimeout(delay13);
+                                                delay13 = setTimeout(updatePreview, 300);
+                                            });
+                                            function updatePreview() {
+                                                let previewFrame = document.getElementById('preview13');
+                                                let preview = previewFrame.contentDocument || previewFrame.contentWindow.document;
+                                                preview.open();
+                                                preview.write(editor13.getValue());
+                                                preview.close();
+                                            }
+                                            setTimeout(updatePreview, 300);
+                                        </script>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="border">
+                            <div class="card">
+                                <div class="card-header" id="headingFourteen">
+                                    <h2 class="mb-0">
+                                        <button class="btn btn-link btn-block text-left collapsed" type="button"
+                                                data-toggle="collapse" data-target="#collapseFourteen"
+                                                aria-expanded="false"
+                                                aria-controls="collapseFourteen">
+                                            Add Class
+                                        </button>
+                                    </h2>
+                                </div>
+                                <div id="collapseFourteen" class="collapse show" aria-labelledby="headingFourteen"
+                                     data-parent="#accordionExample">
+                                    <div class="card-body">
+                                        <p class="font-weight-bold">Description:</p>
+                                        <p>A single content area with multiple panels, each associated with a header in a list.</p>
+                                        <textarea class=code id=code14>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>jQuery UI Effects - addClass demo</title>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <style>
+    .toggler { width: 500px; height: 200px; position: relative; }
+    #button { padding: .5em 1em; text-decoration: none; }
+    #effect { width: 240px;  padding: 1em; border: 1px solid #000; background: #eee; color: #333; }
+    .newClass { text-indent: 40px; letter-spacing: .4em; width: 410px; height: 120px; padding: 30px; margin: 10px; font-size: 1.1em; }
+  </style>
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+  $( function() {
+      $( "#button" ).on( "click", function() {
+          $( "#effect" ).addClass( "newClass", 1000, callback );
+      });
+
+      function callback() {
+          setTimeout(function() {
+              $( "#effect" ).removeClass( "newClass" );
+          }, 1500 );
+      }
+  } );
+  </script>
+</head>
+<body>
+<div class="toggler">
+  <div id="effect" class="ui-corner-all">
+      Etiam libero neque, luctus a, eleifend nec, semper at, lorem. Sed pede.
+  </div>
+</div>
+<button id="button" class="ui-state-default ui-corner-all">Run Effect</button>
+</body>
+</html>
+</textarea>
+                                        <div class="border mt-2 mb-2"></div>
+                                        <h3>Demo:</h3>
+                                        <iframe id=preview14 width="842" height="500"></iframe>
+                                        <script>
+                                            let delay14;
+                                            let editor14 = CodeMirror.fromTextArea(document.getElementById('code14'), {
+                                                mode: 'text/html',
+                                                lineNumbers: true,
+                                            });
+                                            editor14.on("change", function () {
+                                                clearTimeout(delay14);
+                                                delay14 = setTimeout(updatePreview, 300);
+                                            });
+                                            function updatePreview() {
+                                                let previewFrame = document.getElementById('preview14');
+                                                let preview = previewFrame.contentDocument || previewFrame.contentWindow.document;
+                                                preview.open();
+                                                preview.write(editor14.getValue());
+                                                preview.close();
+                                            }
+                                            setTimeout(updatePreview, 300);
+                                        </script>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="border">
+                            <div class="card">
+                                <div class="card-header" id="headingFiveteen">
+                                    <h2 class="mb-0">
+                                        <button class="btn btn-link btn-block text-left collapsed" type="button"
+                                                data-toggle="collapse" data-target="#collapseFiveteen"
+                                                aria-expanded="false"
+                                                aria-controls="collapseFiveteen">
+                                            Remove Class
+                                        </button>
+                                    </h2>
+                                </div>
+                                <div id="collapseFiveteen" class="collapse show" aria-labelledby="headingFiveteen"
+                                     data-parent="#accordionExample">
+                                    <div class="card-body">
+                                        <p class="font-weight-bold">Description:</p>
+                                        <p>Removes class(es) from elements while animating all style changes.</p>
+                                        <textarea class=code id=code15>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>jQuery UI Effects - removeClass Demo</title>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <script src="../../external/jquery/jquery.js"></script>
+  <script src="../../ui/effect.js"></script>
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <style>
+  .toggler { width: 500px; height: 200px; position: relative; }
+  #button { padding: .5em 1em; text-decoration: none; }
+  #effect { position: relative;  width: 240px;  padding: 1em;  letter-spacing: 0; font-size: 1.2em; border: 1px solid #000; background: #eee; color: #333; }
+  .newClass { text-indent: 40px; letter-spacing: .4em; width: 410px; height: 100px; padding: 30px; margin: 10px; font-size: 1.6em; }
+  </style>
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+  $( function() {
+      $( "#button" ).on( "click", function() {
+          $( "#effect" ).removeClass( "newClass", 1000, callback );
+      });
+
+      function callback() {
+          setTimeout(function() {
+              $( "#effect" ).addClass( "newClass" );
+          }, 1500 );
+      }
+  } );
+  </script>
+</head>
+<body>
+
+<div class="toggler">
+  <div id="effect" class="newClass ui-corner-all">
+    Etiam libero neque, luctus a, eleifend nec, semper at, lorem. Sed pede.
+  </div>
+</div>
+
+<button id="button" class="ui-state-default ui-corner-all">Run Effect</button>
+
+
+</body>
+</html>
+</textarea>
+                                        <div class="border mt-2 mb-2"></div>
+                                        <h3>Demo:</h3>
+                                        <iframe id=preview15 width="842" height="500"></iframe>
+                                        <script>
+                                            let delay15;
+                                            let editor15 = CodeMirror.fromTextArea(document.getElementById('code15'), {
+                                                mode: 'text/html',
+                                                lineNumbers: true,
+                                            });
+                                            editor15.on("change", function () {
+                                                clearTimeout(delay15);
+                                                delay15 = setTimeout(updatePreview, 300);
+                                            });
+                                            function updatePreview() {
+                                                let previewFrame = document.getElementById('preview15');
+                                                let preview = previewFrame.contentDocument || previewFrame.contentWindow.document;
+                                                preview.open();
+                                                preview.write(editor15.getValue());
+                                                preview.close();
+                                            }
+                                            setTimeout(updatePreview, 300);
+                                        </script>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="mt-3"></div>
+    <div class="row bg-dark">
+        <div class="col-md-4">
+            <div class="footer-copyright text-center text-white py-3  col-md-12">© 2020 Copyright:
+                <a href="https://mdbootstrap.com/" class="text-light"> Microsoft.com</a>
+            </div>
+        </div>
+        <div class="col-md-4"></div>
+        <div class="col-md-4 pt-2">
+            <div>
+                <a href="#" class="pl-2 pr-2">
+                    <img src="https://cdn2.iconfinder.com/data/icons/education-training-flat-version/33/books_2-512.png"
+                         width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
+                </a><a href="#" class="pl-2 pr-2">
+                <img src="https://cdn4.iconfinder.com/data/icons/modern-material-flat-social-media-and-network/64/Forum-512.png"
+                     width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
+            </a>
+                <a href="#" class="pl-2 pr-2">
+                    <img src="https://cdn1.iconfinder.com/data/icons/30-seo-web-development-flat-icons-part-1/218/API-512.png"
+                         width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
+                </a>
+                <a href="#" class="pl-2 pr-2">
+                    <img src="https://cdn3.iconfinder.com/data/icons/capsocial-round/500/twitter-128.png"
+                         width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
+                </a>
+                <a href="#" class="pl-2 pr-2">
+                    <img src="https://cdn2.iconfinder.com/data/icons/crystalproject/128x128/apps/irc_protocol.png"
+                         width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
+                </a>
+                <a href="#" class="pl-2 pr-2">
+                    <img src="https://cdn4.iconfinder.com/data/icons/social-media-logos-6/512/71-github-512.png"
+                         width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    var nonEmpty = false;
+    var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
+        mode: "application/xml",
+        styleActiveLine: true,
+        lineNumbers: true,
+        lineWrapping: true
+    });
+
+    function toggleSelProp() {
+        nonEmpty = !nonEmpty;
+        editor.setOption("styleActiveLine", {nonEmpty: nonEmpty});
+        var label = nonEmpty ? 'Disable nonEmpty option' : 'Enable nonEmpty option';
+        document.getElementById('toggleButton').innerText = label;
+    }
+</script>
+</body>
+</html>

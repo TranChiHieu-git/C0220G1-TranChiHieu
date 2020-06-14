@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-2">
+            <button type="button" class="btn btn-primary" onclick="render()" style="position: fixed">In dữ liệu</button>
+        </div>
+        <div class="col-md-10">
+            <table class="table table-striped">
+                <tr>
+                    <td class="table-info">Id</td>
+                    <td class="table-primary">Họ Và Tên</td>
+                    <td class="table-dark">Giới Tính</td>
+                    <td class="table-success">Ngày Sinh</td>
+                    <td class="table-danger">Số điện thoại</td>
+                    <td class="table-warning">Địa chỉ</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+<script>
+    function ajax_get(url, callback) {
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function () {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                console.log('responseText:' + xmlhttp.responseText);
+                try {
+                    var data = JSON.parse(xmlhttp.responseText);
+                } catch (err) {
+                    console.log(err.message + " in " + xmlhttp.responseText);
+                    return;
+                }
+                callback(data);
+            }
+        };
+        xmlhttp.open("GET", url, true);
+        xmlhttp.send();
+    }
+    let i = 0;
+    function render() {
+        i++;
+        ajax_get('https://spring-student-api.herokuapp.com/info?apiKey=eaf118ab-babf-43ed-a788-b66d2f0ca00c', function (data) {
+            if (i < data.length) {
+                $("table").append('<tr>'
+                    + '<th>' + data[i]["id"] + '</th>'
+                    + '<th>' + data[i]["fullName"] + '</th>'
+                    + '<th>' + data[i]["gender"] + '</th>'
+                    + '<th>' + data[i]["birthDate"] + '</th>'
+                    + '<th>' + data[i]["phoneNumber"] + '</th>'
+                    + '<th>' + data[i]["address"] + '</th>'
+                    + '</tr>');
+            } else {
+                alert("đã in tất cả ra màn hình");
+            }
+        });
+    }
+</script>
+</html>
