@@ -15,31 +15,13 @@
 <body>
 <div class="container-fluid">
     <div class="row">
-        <div class="col-md-4"></div>
+        <div class="col-md-4">
+        </div>
         <div class="col-md-4">
             <h1>MP3 WEB PLAYER</h1>
         </div>
-        <div class="col-md-4"></div>
-    </div>
-    <div class="row">
-        <div class="col-md-3"></div>
-        <div class="col-md-6">
-            <div class="song1 equalizer"></div>
+        <div class="col-md-4">
         </div>
-        <div class="col-md-3"></div>
-    </div>
-    <div class="row">
-        <div class="col-md-3"></div>
-        <div class="col-md-6">
-            <div class="relative_left">
-                <audio controls loop id="song1">
-                    <source id="linkmp3"
-                            src="https://aredir.nixcdn.com/NhacCuaTui995/SoRangEmBietAnhConYeuEm-JuunDangDung-6217224.mp3?st=vihqMTPwAKFhy_1OEVUE3A&e=1592196759"
-                            type='audio/ogg'>
-                </audio>
-            </div>
-        </div>
-        <div class="col-md-3"></div>
     </div>
     <div class="row">
         <div class="col-md-3"></div>
@@ -47,7 +29,6 @@
             <h3>Thông tin bài hát: </h3>
         </div>
     </div>
-
     <div class="row">
         <div class="col-md-4"></div>
         <div class="col-md-4">
@@ -55,60 +36,104 @@
             <img id="imgsong" src="">
         </div>
     </div>
-
     <div class="row-md-12">
         <div id="waveform" class="border">
-            <progress id="progress" class="progress progress-striped" value="0" max="100"></progress>
+            <progress id="progress" class="progress progress-striped " value="0" max="100"></progress>
         </div>
     </div>
     <div class="row">
-        <div class="col-md-4"></div>
-        <div class="col-md-5">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
             <div class="controls">
+                <button class="btn btn-primary" onclick="back()">bài trước</button>
                 <button class="btn btn-primary" onclick="wavesurfer.skipBackward()">
                     <i class="fa fa-step-backward"></i>
-                    Backward
+                    Tua lui
                 </button>
-
                 <button class="btn btn-primary" onclick="wavesurfer.playPause()">
                     <i class="fa fa-play"></i>
-                    Play
+                    Phát nhạc
                     /
                     <i class="fa fa-pause"></i>
-                    Pause
+                    Dừng
                 </button>
 
                 <button class="btn btn-primary" onclick="wavesurfer.skipForward()">
                     <i class="fa fa-step-forward"></i>
-                    Forward
+                    Tua tới
                 </button>
-
                 <button class="btn btn-primary" onclick="wavesurfer.toggleMute()">
                     <i class="fa fa-volume-off"></i>
-                    Toggle Mute
+                    Tắt tiếng
                 </button>
+                <button class="btn btn-primary" onclick="next()">bài tiếp</button>
             </div>
         </div>
     </div>
 </div>
-<!--Jquery plugin-->
 <script>
-    $(document).ready(function () {
-        $('#song1').equalizer({
-            color1: '#42a994',
-            color2: '#00f218'
-        });
-    });
-</script>
-<script>
+    let list = ["mp3.xml", "mp32.xml", "mp33.xml", "mp34.xml",];
     $(document).ready(function () {
         showFoodMenu();
     });
+    let i = 0;
+
+    function back() {
+        if (i >= 0) {
+            i--;
+            $.ajax({
+                type: "GET",
+                url: list[i],
+                dataType: "xml",
+                error: function (e) {
+                    alert("An error occurred while processing XML file");
+                    console.log("XML reading Failed: ", e);
+                },
+                success: function (response) {
+                    $(response).find("tracklist").each(function () {
+                        $("ul").children().remove();
+                        let _name = 'Tên Bài Hát: ' + $(this).find('title').text();
+                        let _price = 'Ca sĩ: ' + $(this).find('creator').text();
+                        $("ul").append('<li>' + _name + '</li>');
+                        $("ul").append('<li>' + _price + '</li>');
+                        $("#imgsong").attr('src', $(this).find('avatar').text());
+                        wavesurfer.load($(this).find('location').text());
+                    });
+                }
+            });
+        }
+    }
+
+    function next() {
+        if (i < list.length) {
+            i++;
+            $.ajax({
+                type: "GET",
+                url: list[i],
+                dataType: "xml",
+                error: function (e) {
+                    alert("An error occurred while processing XML file");
+                    console.log("XML reading Failed: ", e);
+                },
+                success: function (response) {
+                    $(response).find("tracklist").each(function () {
+                        $("ul").children().remove();
+                        let _name = 'Tên Bài Hát: ' + $(this).find('title').text();
+                        let _price = 'Ca sĩ: ' + $(this).find('creator').text();
+                        $("ul").append('<li>' + _name + '</li>');
+                        $("ul").append('<li>' + _price + '</li>');
+                        $("#imgsong").attr('src', $(this).find('avatar').text());
+                        wavesurfer.load($(this).find('location').text());
+                    });
+                }
+            });
+        }
+    }
 
     function showFoodMenu() {
         $.ajax({
             type: "GET",
-            url: "mp3.xml",
+            url: list[0],
             dataType: "xml",
             error: function (e) {
                 alert("An error occurred while processing XML file");
@@ -121,7 +146,7 @@
                     $("ul").append('<li>' + _name + '</li>');
                     $("ul").append('<li>' + _price + '</li>');
                     $("#imgsong").attr('src', $(this).find('avatar').text());
-                    $("#linkmp3").attr('src', $(this).find('location').text());
+                    wavesurfer.load($(this).find('location').text());
                 });
             }
         });
@@ -129,13 +154,13 @@
 
     var ctx = document.createElement('canvas').getContext('2d');
     var linGrad = ctx.createLinearGradient(0, 64, 0, 200);
-    linGrad.addColorStop(0.5, 'rgba(255, 255, 255, 1.000)');
-    linGrad.addColorStop(0.5, 'rgba(183, 183, 183, 1.000)');
+    linGrad.addColorStop(0.5, 'rgb(253,253,253)');
+    linGrad.addColorStop(0.5, 'rgb(31,208,173)');
     var wavesurfer = WaveSurfer.create({
         container: '#waveform',
         waveColor: linGrad,
-        progressColor: 'hsla(200, 100%, 30%, 0.5)',
-        cursorColor: '#fff',
+        progressColor: 'hsla(296,100%,30%,0.5)',
+        cursorColor: '#24c91f',
         barWidth: 3
     });
     wavesurfer.on('loading', function (percents) {
@@ -144,8 +169,6 @@
     wavesurfer.on('ready', function (percents) {
         document.getElementById('progress').style.display = 'none';
     });
-    wavesurfer.load('https://aredir.nixcdn.com/NhacCuaTui995/SoRangEmBietAnhConYeuEm-JuunDangDung-6217224.mp3?st=vihqMTPwAKFhy_1OEVUE3A&e=1592196759');
-
 </script>
 </body>
 </html>

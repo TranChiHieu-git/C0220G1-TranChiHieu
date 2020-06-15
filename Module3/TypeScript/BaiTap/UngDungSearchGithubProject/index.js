@@ -34,46 +34,61 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-function fetchRepo() {
-    return __awaiter(this, void 0, void 0, function () {
-        var res;
-        return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0: return [4 /*yield*/, fetch('https://api.github.com/search/repositories?q=angular')];
-                case 1:
-                    res = _a.sent();
-                    return [4 /*yield*/, res.json()];
-                case 2:
-                    res = (_a.sent());
-                    return [2 /*return*/, res.items];
-            }
+function search(key) {
+    var keyword = 'https://api.github.com/search/repositories?q=' + key;
+    function fetchRepo() {
+        return __awaiter(this, void 0, void 0, function () {
+            var res;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, fetch(keyword)];
+                    case 1:
+                        res = _a.sent();
+                        return [4 /*yield*/, res.json()];
+                    case 2:
+                        res = (_a.sent());
+                        return [2 /*return*/, res.items];
+                }
+            });
         });
-    });
-}
-function createItem(text) {
-    var item = document.createElement('li');
-    item.textContent = text;
-    return item;
-}
-var container = document.querySelector('.app .list');
-function main() {
-    return __awaiter(this, void 0, void 0, function () {
-        var res;
-        return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0: return [4 /*yield*/, fetchRepo()];
-                case 1:
-                    res = _a.sent();
-                    // step 2: lặp qua mảng các item trả về
-                    // step 3: call hàm createItem sau đó truyền vào name của từng item ở mỗi vòng lặp
-                    // step 4: call hàm container.appendChild(item mà hàm createItem trả về)
-                    res.forEach(function (item) {
-                        var li = createItem(item.name);
-                        container.appendChild(li);
-                    });
-                    return [2 /*return*/];
-            }
+    }
+    function createItem(text) {
+        var item = document.createElement('li');
+        item.textContent = text;
+        return item;
+    }
+    var container = document.querySelector('.app .list');
+    function main() {
+        return __awaiter(this, void 0, void 0, function () {
+            var res;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        $("table").children().remove();
+                        return [4 /*yield*/, fetchRepo()];
+                    case 1:
+                        res = _a.sent();
+                        $("table").append('<tr style="background-color: grey">\n'
+                            + '<td>Tên project</td>\n'
+                            + '<td>Mô tả</td>\n'
+                            + '<td>Ngôn ngữ</td>\n'
+                            + '<td>Đường dẫn</td>\n'
+                            + '<td>Lượt xem</td>\n'
+                            + '</tr>');
+                        res.forEach(function (item) {
+                            console.log(item);
+                            $("table").append('<tr>'
+                                + '<td>' + item.name + '</td>'
+                                + '<td>' + item.description + '</td>'
+                                + '<td>' + item.language + '</td>'
+                                + '<td><a href="' + item.html_url + '">' + item.html_url + '</a></td>'
+                                + '<td>' + item.watchers + '</td>'
+                                + '</tr>');
+                        });
+                        return [2 /*return*/];
+                }
+            });
         });
-    });
+    }
+    main();
 }
-main();

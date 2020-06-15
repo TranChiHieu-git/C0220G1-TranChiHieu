@@ -1,34 +1,50 @@
-interface ISingleRepo {
-    name: string;
-}
-interface IRepos {
-    items: Array<ISingleRepo>;
-}
-async function fetchRepo(): Promise<Array<ISingleRepo>> {
-    let res: Response | IRepos = await fetch('https://api.github.com/search/repositories?q=angular');
-    res = await res.json() as IRepos;
-    return res.items;
+function search(key) {
+    interface ISingleRepo {
+        name: string;
+    }
+
+    interface IRepos {
+        items: Array<ISingleRepo>;
+    }
+
+    let keyword: String = 'https://api.github.com/search/repositories?q=' + key;
+
+    async function fetchRepo(): Promise<Array<ISingleRepo>> {
+        let res: Response | IRepos = await fetch(keyword);
+        res = await res.json() as IRepos;
+        return res.items;
+    }
+
+    function createItem(text: string): HTMLLIElement {
+        const item = document.createElement('li') as HTMLLIElement;
+        item.textContent = text;
+        return item;
+    }
+
+    const container = document.querySelector('.app .list');
+
+    async function main() {
+        $("table").children().remove();
+        const res = await fetchRepo();
+        $("table").append('<tr style="background-color: grey">\n'
+            + '<td>Tên project</td>\n'
+            + '<td>Mô tả</td>\n'
+            + '<td>Ngôn ngữ</td>\n'
+            + '<td>Đường dẫn</td>\n'
+            + '<td>Lượt xem</td>\n'
+            + '</tr>')
+        res.forEach((item: any) => {
+            console.log(item)
+            $("table").append('<tr>'
+                + '<td>' + item.name + '</td>'
+                + '<td>' + item.description + '</td>'
+                + '<td>' + item.language + '</td>'
+                + '<td><a href="' + item.html_url + '">' + item.html_url + '</a></td>'
+                + '<td>' + item.watchers + '</td>'
+                + '</tr>');
+        });
+    }
+
+    main();
 }
 
-function createItem(text: string): HTMLLIElement {
-    const item = document.createElement('li') as HTMLLIElement;
-    item.textContent = text;
-    return item;
-}
-
-const container = document.querySelector('.app .list');
-
-async function main() {
-    // step 1: fetch repo
-    const res = await fetchRepo();
-    // step 2: lặp qua mảng các item trả về
-    // step 3: call hàm createItem sau đó truyền vào name của từng item ở mỗi vòng lặp
-    // step 4: call hàm container.appendChild(item mà hàm createItem trả về)
-    res.forEach((item: any) => {
-        const li = createItem(item.name);
-        document.createElement('li') as HTMLLIElement;
-        container.appendChild(li);
-    });
-}
-
-main();

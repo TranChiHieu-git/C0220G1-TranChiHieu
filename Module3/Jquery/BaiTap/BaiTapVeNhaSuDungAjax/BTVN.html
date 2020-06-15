@@ -93,19 +93,22 @@
             success: function (data) {
                 i++;
                 if (i < data.length) {
-                    $("table").append('<tr>'
-                        + '<th>' + data[i]["id"] + '</th>'
-                        + '<th>' + data[i]["fullName"] + '</th>'
-                        + '<th>' + data[i]["gender"] + '</th>'
-                        + '<th>' + data[i]["birthDate"] + '</th>'
-                        + '<th>' + data[i]["phoneNumber"] + '</th>'
-                        + '<th>' + data[i]["address"] + '</th>'
-                        + '</tr>');
+                    for (let i=0;i < data.length;i++) {
+                        $("table").append('<tr>'
+                            + '<th>' + data[i]["id"] + '</th>'
+                            + '<th>' + data[i]["fullName"] + '</th>'
+                            + '<th>' + data[i]["gender"] + '</th>'
+                            + '<th>' + data[i]["birthDate"] + '</th>'
+                            + '<th>' + data[i]["phoneNumber"] + '</th>'
+                            + '<th>' + data[i]["address"] + '</th>'
+                            + '</tr>');
+                    }
                 } else {
                     alert("đã in tất cả ra màn hình");
                 }
             }
         });
     }
+
 </script>
 </html>
