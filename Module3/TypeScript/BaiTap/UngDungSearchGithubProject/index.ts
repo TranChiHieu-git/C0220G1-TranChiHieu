@@ -15,14 +15,6 @@ function search(key) {
         return res.items;
     }
 
-    function createItem(text: string): HTMLLIElement {
-        const item = document.createElement('li') as HTMLLIElement;
-        item.textContent = text;
-        return item;
-    }
-
-    const container = document.querySelector('.app .list');
-
     async function main() {
         $("table").children().remove();
         const res = await fetchRepo();
