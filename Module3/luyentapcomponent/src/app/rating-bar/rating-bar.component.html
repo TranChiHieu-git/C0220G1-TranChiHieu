@@ -1,0 +1,26 @@
+<h2>Rating Bar</h2>{{vote}}
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-2">
+      <div class="row">
+        <div class="col-md-1 shape ml-2" [style.background]=rate1 (click)=Rate1() (mouseleave)=ClearRate()
+             (mouseover)=vote1()>1
+        </div>
+        <div class="col-md-1 shape ml-2" [style.background]=rate2 (click)=Rate2() (mouseleave)=ClearRate()
+             (mouseover)=vote2()>2
+        </div>
+        <div class="col-md-1 shape ml-2" [style.background]=rate3 (click)=Rate3() (mouseleave)=ClearRate()
+             (mouseover)=vote3()>3
+        </div>
+        <div class="col-md-1 shape ml-2" [style.background]=rate4 (click)=Rate4() (mouseleave)=ClearRate()
+             (mouseover)=vote4()>4
+        </div>
+        <div class="col-md-1 shape ml-2" [style.background]=rate5 (click)=Rate5() (mouseleave)=ClearRate()
+             (mouseover)=vote5()>5
+        </div>
+      </div>
+    </div>
+    <div class="col-md-7"></div>
+  </div>
+</div>
+

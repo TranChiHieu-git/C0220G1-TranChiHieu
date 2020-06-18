@@ -1,0 +1,12 @@
+<meta charset="utf-8"/>
+<h2>Máy tính</h2>
+<input placeholder="Số thứ nhất" [(ngModel)]="fNum" (change)="changeFNum($event.target.value)">
+<select [(ngModel)]="opera" (change)="changeOpera($event.target.value)">
+  <option value="+">+</option>
+  <option value="-">-</option>
+  <option value="*">x</option>
+  <option value="/">:</option>
+</select>
+<input placeholder="Số thứ hai" [(ngModel)]="sNum" (change)="changeSNum($event.target.value)">
+<p>{{result}}</p>
+<h3>Đánh giá ứng dụng</h3>
