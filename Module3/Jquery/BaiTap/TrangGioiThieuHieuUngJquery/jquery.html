@@ -856,9 +856,9 @@
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <script>
-  $( function() {
-      $( "#datepicker" ).datepicker();
-  } );
+  $(function () {
+      $("#datepicker").datepicker();
+  });
   </script>
 </head>
 <body>
@@ -924,9 +924,9 @@
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <script>
-  $( function() {
-      $( "#dialog" ).dialog();
-  } );
+  $(function () {
+      $("#dialog").dialog();
+  });
   </script>
 </head>
 <body>
@@ -997,9 +997,9 @@
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <script>
-  $( function() {
-      $( "#slider" ).slider();
-  } );
+  $(function () {
+      $("#slider").slider();
+  });
   </script>
 </head>
 <body>
@@ -1020,6 +1020,7 @@
                                                 clearTimeout(delay10);
                                                 delay10 = setTimeout(updatePreview, 300);
                                             });
+
                                             function updatePreview() {
                                                 let previewFrame = document.getElementById('preview10');
                                                 let preview = previewFrame.contentDocument || previewFrame.contentWindow.document;
@@ -1027,6 +1028,7 @@
                                                 preview.write(editor10.getValue());
                                                 preview.close();
                                             }
+
                                             setTimeout(updatePreview, 300);
                                         </script>
                                     </div>
@@ -1063,11 +1065,11 @@
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <script>
-  $( function() {
-      $( "#progressbar" ).progressbar({
+  $(function () {
+      $("#progressbar").progressbar({
           value: 37
       });
-  } );
+  });
   </script>
 </head>
 <body>
@@ -1091,6 +1093,7 @@
                                                 clearTimeout(delay11);
                                                 delay11 = setTimeout(updatePreview, 300);
                                             });
+
                                             function updatePreview() {
                                                 let previewFrame = document.getElementById('preview11');
                                                 let preview = previewFrame.contentDocument || previewFrame.contentWindow.document;
@@ -1098,6 +1101,7 @@
                                                 preview.write(editor11.getValue());
                                                 preview.close();
                                             }
+
                                             setTimeout(updatePreview, 300);
                                         </script>
                                     </div>
@@ -1121,7 +1125,8 @@
                                      data-parent="#accordionExample">
                                     <div class="card-body">
                                         <p class="font-weight-bold">Description:</p>
-                                        <p>Enhance a text input for entering numeric values, with up/down buttons and arrow key handling.</p>
+                                        <p>Enhance a text input for entering numeric values, with up/down buttons and
+                                            arrow key handling.</p>
                                         <textarea class=code id=code12>
 <!doctype html>
 <html lang="en">
@@ -1135,32 +1140,32 @@
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <script src="/resources/demos/external/jquery-mousewheel/jquery.mousewheel.js"></script>
   <script>
-  $( function() {
-      var spinner = $( "#spinner" ).spinner();
+  $(function () {
+      var spinner = $("#spinner").spinner();
 
-      $( "#disable" ).on( "click", function() {
-          if ( spinner.spinner( "option", "disabled" ) ) {
-              spinner.spinner( "enable" );
+      $("#disable").on("click", function () {
+          if (spinner.spinner("option", "disabled")) {
+              spinner.spinner("enable");
           } else {
-              spinner.spinner( "disable" );
+              spinner.spinner("disable");
           }
       });
-      $( "#destroy" ).on( "click", function() {
-          if ( spinner.spinner( "instance" ) ) {
-              spinner.spinner( "destroy" );
+      $("#destroy").on("click", function () {
+          if (spinner.spinner("instance")) {
+              spinner.spinner("destroy");
           } else {
               spinner.spinner();
           }
       });
-      $( "#getvalue" ).on( "click", function() {
-          alert( spinner.spinner( "value" ) );
+      $("#getvalue").on("click", function () {
+          alert(spinner.spinner("value"));
       });
-      $( "#setvalue" ).on( "click", function() {
-          spinner.spinner( "value", 5 );
+      $("#setvalue").on("click", function () {
+          spinner.spinner("value", 5);
       });
 
-      $( "button" ).button();
-  } );
+      $("button").button();
+  });
   </script>
 </head>
 <body>
@@ -1197,6 +1202,7 @@
                                                 clearTimeout(delay12);
                                                 delay12 = setTimeout(updatePreview, 300);
                                             });
+
                                             function updatePreview() {
                                                 let previewFrame = document.getElementById('preview12');
                                                 let preview = previewFrame.contentDocument || previewFrame.contentWindow.document;
@@ -1204,6 +1210,7 @@
                                                 preview.write(editor12.getValue());
                                                 preview.close();
                                             }
+
                                             setTimeout(updatePreview, 300);
                                         </script>
                                     </div>
@@ -1227,7 +1234,8 @@
                                      data-parent="#accordionExample">
                                     <div class="card-body">
                                         <p class="font-weight-bold">Description:</p>
-                                        <p>A single content area with multiple panels, each associated with a header in a list.</p>
+                                        <p>A single content area with multiple panels, each associated with a header in
+                                            a list.</p>
                                         <textarea class=code id=code13>
 <!doctype html>
 <html lang="en">
@@ -1240,9 +1248,9 @@
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <script>
-  $( function() {
-      $( "#tabs" ).tabs();
-  } );
+  $(function () {
+      $("#tabs").tabs();
+  });
   </script>
 </head>
 <body>
@@ -1279,6 +1287,7 @@
                                                 clearTimeout(delay13);
                                                 delay13 = setTimeout(updatePreview, 300);
                                             });
+
                                             function updatePreview() {
                                                 let previewFrame = document.getElementById('preview13');
                                                 let preview = previewFrame.contentDocument || previewFrame.contentWindow.document;
@@ -1286,6 +1295,7 @@
                                                 preview.write(editor13.getValue());
                                                 preview.close();
                                             }
+
                                             setTimeout(updatePreview, 300);
                                         </script>
                                     </div>
@@ -1309,7 +1319,8 @@
                                      data-parent="#accordionExample">
                                     <div class="card-body">
                                         <p class="font-weight-bold">Description:</p>
-                                        <p>A single content area with multiple panels, each associated with a header in a list.</p>
+                                        <p>A single content area with multiple panels, each associated with a header in
+                                            a list.</p>
                                         <textarea class=code id=code14>
 <!doctype html>
 <html lang="en">
@@ -1320,25 +1331,49 @@
   <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
   <link rel="stylesheet" href="/resources/demos/style.css">
   <style>
-    .toggler { width: 500px; height: 200px; position: relative; }
-    #button { padding: .5em 1em; text-decoration: none; }
-    #effect { width: 240px;  padding: 1em; border: 1px solid #000; background: #eee; color: #333; }
-    .newClass { text-indent: 40px; letter-spacing: .4em; width: 410px; height: 120px; padding: 30px; margin: 10px; font-size: 1.1em; }
+    .toggler {
+        width: 500px;
+        height: 200px;
+        position: relative;
+    }
+
+    #button {
+        padding: .5em 1em;
+        text-decoration: none;
+    }
+
+    #effect {
+        width: 240px;
+        padding: 1em;
+        border: 1px solid #000;
+        background: #eee;
+        color: #333;
+    }
+
+    .newClass {
+        text-indent: 40px;
+        letter-spacing: .4em;
+        width: 410px;
+        height: 120px;
+        padding: 30px;
+        margin: 10px;
+        font-size: 1.1em;
+    }
   </style>
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <script>
-  $( function() {
-      $( "#button" ).on( "click", function() {
-          $( "#effect" ).addClass( "newClass", 1000, callback );
+  $(function () {
+      $("#button").on("click", function () {
+          $("#effect").addClass("newClass", 1000, callback);
       });
 
       function callback() {
-          setTimeout(function() {
-              $( "#effect" ).removeClass( "newClass" );
-          }, 1500 );
+          setTimeout(function () {
+              $("#effect").removeClass("newClass");
+          }, 1500);
       }
-  } );
+  });
   </script>
 </head>
 <body>
@@ -1364,6 +1399,7 @@
                                                 clearTimeout(delay14);
                                                 delay14 = setTimeout(updatePreview, 300);
                                             });
+
                                             function updatePreview() {
                                                 let previewFrame = document.getElementById('preview14');
                                                 let preview = previewFrame.contentDocument || previewFrame.contentWindow.document;
@@ -1371,6 +1407,7 @@
                                                 preview.write(editor14.getValue());
                                                 preview.close();
                                             }
+
                                             setTimeout(updatePreview, 300);
                                         </script>
                                     </div>
@@ -1407,25 +1444,52 @@
   <script src="../../ui/effect.js"></script>
   <link rel="stylesheet" href="/resources/demos/style.css">
   <style>
-  .toggler { width: 500px; height: 200px; position: relative; }
-  #button { padding: .5em 1em; text-decoration: none; }
-  #effect { position: relative;  width: 240px;  padding: 1em;  letter-spacing: 0; font-size: 1.2em; border: 1px solid #000; background: #eee; color: #333; }
-  .newClass { text-indent: 40px; letter-spacing: .4em; width: 410px; height: 100px; padding: 30px; margin: 10px; font-size: 1.6em; }
+  .toggler {
+      width: 500px;
+      height: 200px;
+      position: relative;
+  }
+
+  #button {
+      padding: .5em 1em;
+      text-decoration: none;
+  }
+
+  #effect {
+      position: relative;
+      width: 240px;
+      padding: 1em;
+      letter-spacing: 0;
+      font-size: 1.2em;
+      border: 1px solid #000;
+      background: #eee;
+      color: #333;
+  }
+
+  .newClass {
+      text-indent: 40px;
+      letter-spacing: .4em;
+      width: 410px;
+      height: 100px;
+      padding: 30px;
+      margin: 10px;
+      font-size: 1.6em;
+  }
   </style>
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <script>
-  $( function() {
-      $( "#button" ).on( "click", function() {
-          $( "#effect" ).removeClass( "newClass", 1000, callback );
+  $(function () {
+      $("#button").on("click", function () {
+          $("#effect").removeClass("newClass", 1000, callback);
       });
 
       function callback() {
-          setTimeout(function() {
-              $( "#effect" ).addClass( "newClass" );
-          }, 1500 );
+          setTimeout(function () {
+              $("#effect").addClass("newClass");
+          }, 1500);
       }
-  } );
+  });
   </script>
 </head>
 <body>
@@ -1455,6 +1519,7 @@
                                                 clearTimeout(delay15);
                                                 delay15 = setTimeout(updatePreview, 300);
                                             });
+
                                             function updatePreview() {
                                                 let previewFrame = document.getElementById('preview15');
                                                 let preview = previewFrame.contentDocument || previewFrame.contentWindow.document;
@@ -1462,14 +1527,13 @@
                                                 preview.write(editor15.getValue());
                                                 preview.close();
                                             }
+
                                             setTimeout(updatePreview, 300);
                                         </script>
                                     </div>
                                 </div>
                             </div>
                         </div>
-
-
 
 
                     </div>
