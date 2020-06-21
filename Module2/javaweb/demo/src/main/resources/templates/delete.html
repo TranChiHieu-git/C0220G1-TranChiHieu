@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete</title>
+</head>
+<body>
+<h1>Xóa Mặt Hàng</h1>
+<h2>Bạn Có muốn xóa mặt hàng <span th:text="${productById.nameProduct}"></span> ?</h2>
+
+<form th:action="@{/deleted}" th:object="${productById}" method="post">
+    <input th:type="hidden" name="id" th:field="*{id}">
+    <table>
+        <tr>
+            <td></td>
+            <td><input type="submit" value="Xóa Mặt hàng"></td>
+            <td><a th:href="@{/}">Thoát</a></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

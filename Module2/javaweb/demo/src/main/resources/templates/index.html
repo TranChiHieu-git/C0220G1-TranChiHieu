@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Danh sách mặt hàng</title>
+</head>
+<body>
+<h1>Danh sách mặt hàng</h1>
+<form th:action="@{/}">
+    <input th:name="keyword" placeholder="Tìm kiếm sản phẩm"/>
+    <input type="submit" value="Tìm kiếm"/>
+</form>
+<a href="/addProduct">Thêm mặt hàng</a>
+<table border="2" cellpadding="1" cellspacing="0">
+    <tr>
+        <th width="50">ID</th>
+        <th width="300">Tên hàng</th>
+        <th width="300">Loại Hàng</th>
+    </tr>
+    <tr th:each="p:${listProduct}">
+        <th th:text="${p.getId()}"></th>
+        <th th:text="${p.getNameProduct()}"></th>
+        <th th:text="${p.getTypeProduct().getNameTypeProduct()}"></th>
+        <th><a th:href="@{/edit/__${p.id}__}">Chỉnh Sửa</a></th>
+        <th><a th:href="@{/delete/__${p.id}__}">Xóa</a></th>
+
+    </tr>
+
+</table>
+<div style="position: absolute;bottom: 10px;right: 20px">
+    <a th:href="@{/(page=${0}, keyword=${keyword})}"
+       th:if="${listProduct.hasPrevious()}"> Trang Đầu | </a>
+    <a th:href="@{/(page=${listProduct.number - 1}, keyword=${keyword})}"
+       th:if="${listProduct.hasPrevious()}"> Trang Trước |</a>
+    <span th:text="${listProduct.number + 1}"></span> - <span
+        th:text="${listProduct.totalPages}"></span>
+    <a th:href="@{/(page=${listProduct.number + 1}, keyword=${keyword})}"
+       th:if="${listProduct.hasNext()}">| Trang sau </a>
+    <a th:href="@{/(page=${listProduct.totalPages - 1}, keyword=${keyword})}"
+       th:if="${listProduct.hasNext()}">| Trang Cuối </a>
+</div>
+</body>
+</html>

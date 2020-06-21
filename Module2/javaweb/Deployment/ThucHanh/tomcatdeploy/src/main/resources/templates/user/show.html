@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Danh sach Truyen</title>
+</head>
+<body>
+<a href="/">Trở về trang chủ</a>
+<table border="1">
+    <tr>
+        <th>Tên Truyện</th>
+        <th>Tác giả</th>
+        <th>Thể Loại</th>
+    </tr>
+    <th:block th:each="p : ${post}">
+        <tr>
+            <td><a th:href="@{/read/__${p.id}__ }">
+                <p th:text="${p.title}"></p>
+            </a></td>
+            <td th:text="${p.author}"></td>
+            <td th:text="${p.category.name}"></td>
+        </tr>
+    </th:block>
+</table>
+<div th:switch="${type}">
+    <div th:case="1">
+        <a th:href="@{'/tienhiep/'(page=${post.number - 1})}" th:if="${post.hasPrevious()}">Previous</a>
+        <span th:text="${post.number + 1}"></span>/<span th:text="${post.totalPages}"></span>
+        <a th:href="@{'/tienhiep/'(page=${post.number + 1})}" th:if="${post.hasNext()}">Next</a>
+    </div>
+    <div th:case="2">
+        <a th:href="@{'/trinhtham/'(page=${post.number - 1})}" th:if="${post.hasPrevious()}">Previous</a>
+        <span th:text="${post.number + 1}"></span>/<span th:text="${post.totalPages}"></span>
+        <a th:href="@{'/trinhtham/'(page=${post.number + 1})}" th:if="${post.hasNext()}">Next</a>
+    </div>
+    <div th:case="3">
+        <a th:href="@{'/lichsu/'(page=${post.number - 1})}" th:if="${post.hasPrevious()}">Previous</a>
+        <span th:text="${post.number + 1}"></span>/<span th:text="${post.totalPages}"></span>
+        <a th:href="@{'/lichsu/'(page=${post.number + 1})}" th:if="${post.hasNext()}">Next</a>
+    </div>
+    <div th:case="4">
+        <a th:href="@{'/khvt/'(page=${post.number - 1})}" th:if="${post.hasPrevious()}">Previous</a>
+        <span th:text="${post.number + 1}"></span>/<span th:text="${post.totalPages}"></span>
+        <a th:href="@{'/khvt/'(page=${post.number + 1})}" th:if="${post.hasNext()}">Next</a>
+    </div>
+    <div th:case="5">
+        <a th:href="@{'/thieunhi/'(page=${post.number - 1})}" th:if="${post.hasPrevious()}">Previous</a>
+        <span th:text="${post.number + 1}"></span>/<span th:text="${post.totalPages}"></span>
+        <a th:href="@{'/thieunhi/'(page=${post.number + 1})}" th:if="${post.hasNext()}">Next</a>
+    </div>
+    <div th:case="6">
+        <a th:href="@{'/truyencuoi/'(page=${post.number - 1})}" th:if="${post.hasPrevious()}">Previous</a>
+        <span th:text="${post.number + 1}"></span>/<span th:text="${post.totalPages}"></span>
+        <a th:href="@{'/truyencuoi/'(page=${post.number + 1})}" th:if="${post.hasNext()}">Next</a>
+    </div>
+    <div th:case="7">
+        <a th:href="@{'/truyenma/'(page=${post.number - 1})}" th:if="${post.hasPrevious()}">Previous</a>
+        <span th:text="${post.number + 1}"></span>/<span th:text="${post.totalPages}"></span>
+        <a th:href="@{'/truyenma/'(page=${post.number + 1})}" th:if="${post.hasNext()}">Next</a>
+    </div>
+    <div th:case="8">
+        <a th:href="@{'/truyenvohiep/'(page=${post.number - 1})}" th:if="${post.hasPrevious()}">Previous</a>
+        <span th:text="${post.number + 1}"></span>/<span th:text="${post.totalPages}"></span>
+        <a th:href="@{'/truyenvohiep/'(page=${post.number + 1})}" th:if="${post.hasNext()}">Next</a>
+    </div>
+    <div th:case="9">
+        <a th:href="@{'/tienhiep/find/'(page=${post.number - 1},keyword=${key})}"
+           th:if="${post.hasPrevious()}">Previous</a>
+        <span th:text="${post.number + 1}"></span>/<span th:text="${post.totalPages}"></span>
+        <a th:href="@{'/tienhiep/find/'(page=${post.number + 1},keyword=${key})}" th:if="${post.hasNext()}">Next</a>
+    </div>
+    <div th:case="10">
+        <a th:href="@{'/trinhtham/find/'(page=${post.number - 1},keyword=${key})}"
+           th:if="${post.hasPrevious()}">Previous</a>
+        <span th:text="${post.number + 1}"></span>/<span th:text="${post.totalPages}"></span>
+        <a th:href="@{'/trinhtham/find/'(page=${post.number + 1},keyword=${key})}" th:if="${post.hasNext()}">Next</a>
+    </div>
+    <div th:case="11">
+        <a th:href="@{'/lichsu/find/'(page=${post.number - 1},keyword=${key})}"
+           th:if="${post.hasPrevious()}">Previous</a>
+        <span th:text="${post.number + 1}"></span>/<span th:text="${post.totalPages}"></span>
+        <a th:href="@{'/lichsu/find/'(page=${post.number + 1},keyword=${key})}" th:if="${post.hasNext()}">Next</a>
+    </div>
+    <div th:case="12">
+        <a th:href="@{'/khkt/find/'(page=${post.number - 1},keyword=${key})}"
+           th:if="${post.hasPrevious()}">Previous</a>
+        <span th:text="${post.number + 1}"></span>/<span th:text="${post.totalPages}"></span>
+        <a th:href="@{'/khkt/find/'(page=${post.number + 1},keyword=${key})}" th:if="${post.hasNext()}">Next</a>
+    </div>
+    <div th:case="13">
+        <a th:href="@{'/thieunhi/find/'(page=${post.number - 1},keyword=${key})}"
+           th:if="${post.hasPrevious()}">Previous</a>
+        <span th:text="${post.number + 1}"></span>/<span th:text="${post.totalPages}"></span>
+        <a th:href="@{'/thieunhi/find/'(page=${post.number + 1},keyword=${key})}" th:if="${post.hasNext()}">Next</a>
+    </div>
+    <div th:case="14">
+        <a th:href="@{'/truyencuoi/find/'(page=${post.number - 1},keyword=${key})}"
+           th:if="${post.hasPrevious()}">Previous</a>
+        <span th:text="${post.number + 1}"></span>/<span th:text="${post.totalPages}"></span>
+        <a th:href="@{'/truyencuoi/find/'(page=${post.number + 1},keyword=${key})}" th:if="${post.hasNext()}">Next</a>
+    </div>
+    <div th:case="15">
+        <a th:href="@{'/truyenma/find/'(page=${post.number - 1},keyword=${key})}"
+           th:if="${post.hasPrevious()}">Previous</a>
+        <span th:text="${post.number + 1}"></span>/<span th:text="${post.totalPages}"></span>
+        <a th:href="@{'/truyenma/find/'(page=${post.number + 1},keyword=${key})}" th:if="${post.hasNext()}">Next</a>
+    </div>
+    <div th:case="16">
+        <a th:href="@{'/truyenvohiep/find/'(page=${post.number - 1},keyword=${key})}"
+           th:if="${post.hasPrevious()}">Previous</a>
+        <span th:text="${post.number + 1}"></span>/<span th:text="${post.totalPages}"></span>
+        <a th:href="@{'/truyenvohiep/find/'(page=${post.number + 1},keyword=${key})}" th:if="${post.hasNext()}">Next</a>
+    </div>
+</div>
+<br>
+<fieldset>
+    <legend>Tìm kiếm truyện theo thể loại</legend>
+    <div th:switch="${type}">
+        <div th:case="1">
+            <form th:action="@{/tienhiep/find}">
+                <input type="text" th:name="keyword"/>
+                <input type="submit" value="Tìm Kiếm"/>
+            </form>
+        </div>
+        <div th:case="9">
+            <form th:action="@{/tienhiep/find}">
+                <input type="text" th:name="keyword"/>
+                <input type="submit" value="Tìm Kiếm"/>
+            </form>
+        </div>
+        <div th:case="2">
+            <form th:action="@{/trinhtham/find}">
+                <input type="text" th:name="keyword"/>
+                <input type="submit" value="Tìm Kiếm"/>
+            </form>
+        </div>
+        <div th:case="10">
+            <form th:action="@{/trinhtham/find}">
+                <input type="text" th:name="keyword"/>
+                <input type="submit" value="Tìm Kiếm"/>
+            </form>
+        </div>
+        <div th:case="3">
+            <form th:action="@{/lichsu/find}">
+                <input type="text" th:name="keyword"/>
+                <input type="submit" value="Tìm Kiếm"/>
+            </form>
+        </div>
+        <div th:case="11">
+            <form th:action="@{/lichsu/find}">
+                <input type="text" th:name="keyword"/>
+                <input type="submit" value="Tìm Kiếm"/>
+            </form>
+        </div>
+        <div th:case="4">
+            <form th:action="@{/khkt/find}">
+                <input type="text" th:name="keyword"/>
+                <input type="submit" value="Tìm Kiếm"/>
+            </form>
+        </div>
+        <div th:case="12">
+            <form th:action="@{/khkt/find}">
+                <input type="text" th:name="keyword"/>
+                <input type="submit" value="Tìm Kiếm"/>
+            </form>
+        </div>
+        <div th:case="5">
+            <form th:action="@{/thieunhi/find}">
+                <input type="text" th:name="keyword"/>
+                <input type="submit" value="Tìm Kiếm"/>
+            </form>
+        </div>
+        <div th:case="13">
+            <form th:action="@{/thieunhi/find}">
+                <input type="text" th:name="keyword"/>
+                <input type="submit" value="Tìm Kiếm"/>
+            </form>
+        </div>
+        <div th:case="6">
+            <form th:action="@{/truyencuoi/find}">
+                <input type="text" th:name="keyword"/>
+                <input type="submit" value="Tìm Kiếm"/>
+            </form>
+        </div>
+        <div th:case="14">
+            <form th:action="@{/truyencuoi/find}">
+                <input type="text" th:name="keyword"/>
+                <input type="submit" value="Tìm Kiếm"/>
+            </form>
+        </div>
+        <div th:case="7">
+            <form th:action="@{/truyenma/find}">
+                <input type="text" th:name="keyword"/>
+                <input type="submit" value="Tìm Kiếm"/>
+            </form>
+        </div>
+        <div th:case="15">
+            <form th:action="@{/truyenma/find}">
+                <input type="text" th:name="keyword"/>
+                <input type="submit" value="Tìm Kiếm"/>
+            </form>
+        </div>
+        <div th:case="8">
+            <form th:action="@{/truyenvohiep/find}">
+                <input type="text" th:name="keyword"/>
+                <input type="submit" value="Tìm Kiếm"/>
+            </form>
+        </div>
+        <div th:case="16">
+            <form th:action="@{/truyenvohiep/find}">
+                <input type="text" th:name="keyword"/>
+                <input type="submit" value="Tìm Kiếm"/>
+            </form>
+        </div>
+    </div>
+
+</fieldset>
+</body>
+</html>

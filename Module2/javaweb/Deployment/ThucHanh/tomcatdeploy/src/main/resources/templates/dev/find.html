@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Show list post</title>
+</head>
+<body>
+<a href="/dev/index">Trở về trang chủ</a>
+<table border="1">
+    <tr>
+        <th>Tên Truyện</th>
+        <th>Thể Loại</th>
+        <th>Tác giả</th>
+        <th>Chỉnh sửa</th>
+        <th>Xóa</th>
+    </tr>
+    <th:block th:each="p : ${postt}">
+        <tr>
+            <td th:text="${p.title}"></td>
+            <td th:text="${p.category.name}"></td>
+            <td th:text="${p.author}"></td>
+            <td><a th:href="@{/edit/__${p.id}__ }">Chỉnh sửa</a></td>
+            <td><a th:href="@{/delete/__${p.id}__ }">Xóa</a></td>
+        </tr>
+    </th:block>
+</table>
+<a th:href="@{'/dev/find'(page=${postt.number - 1},keyword=${key})}" th:if="${postt.hasPrevious()}">Previous</a>
+<span th:text="${postt.number + 1}"></span>/<span th:text="${postt.totalPages}"></span>
+<a th:href="@{'/dev/find'(page=${postt.number + 1},keyword=${key})}" th:if="${postt.hasNext()}">Next</a>
+</body>
+</html>
