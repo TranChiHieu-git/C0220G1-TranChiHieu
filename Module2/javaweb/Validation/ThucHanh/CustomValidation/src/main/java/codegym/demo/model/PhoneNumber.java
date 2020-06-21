@@ -1,0 +1,53 @@
+package codegym.demo.model;
+
+import org.springframework.stereotype.Component;
+import org.springframework.validation.Errors;
+import org.springframework.validation.ValidationUtils;
+import org.springframework.validation.Validator;
+
+import javax.validation.constraints.NotEmpty;
+
+@Component
+public class PhoneNumber implements Validator {
+    @NotEmpty(message = "Không dược để trống")
+    private String number;
+    private String number2;
+
+    public String getNumber2() {
+        return number2;
+    }
+
+    public void setNumber2(String number2) {
+        this.number2 = number2;
+    }
+
+    public String getNumber() {
+        return number;
+    }
+
+    public void setNumber(String number) {
+        this.number = number;
+    }
+
+    @Override
+    public boolean supports(Class<?> clazz) {
+        return PhoneNumber.class.isAssignableFrom(clazz);
+    }
+
+    @Override
+    public void validate(Object target, Errors errors) {
+
+        PhoneNumber phoneNumber = (PhoneNumber) target;
+        String number = phoneNumber.getNumber();
+        ValidationUtils.rejectIfEmpty(errors, "number", "number.empty");
+        if (number.length() > 11 || number.length() < 10) {
+            errors.rejectValue("number", "number.length");
+        }
+        if (!number.startsWith("0")) {
+            errors.rejectValue("number", "number.startsWith");
+        }
+        if (!number.matches("(^$|[0-9]*$)")) {
+            errors.rejectValue("number", "number.matches");
+        }
+    }
+}

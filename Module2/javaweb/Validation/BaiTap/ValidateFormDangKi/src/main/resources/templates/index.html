@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Form register</title>
+</head>
+<body>
+<fieldset>
+    <legend>Đăng kí thành viên</legend>
+    <form th:object="${member}" th:action="@{/result}" method="post">
+        <table>
+            <tr>
+                <td>Họ:</td>
+                <td><input th:field="*{firstName}">
+                    <p th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"></p></td>
+            </tr>
+            <tr>
+                <td>Tên:</td>
+                <td><input th:field="*{lastName}">
+                    <p th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"></p></td>
+            </tr>
+            <tr>
+                <td>Tài khoản:</td>
+                <td><input th:field="*{account}">
+                    <p th:if="${#fields.hasErrors('account')}" th:errors="*{account}"></p></td>
+            </tr>
+            <tr>
+                <td>Mật khẩu:</td>
+                <td><input type="password" th:field="*{password}">
+                    <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></p></td>
+            </tr>
+            <tr>
+                <td>Số điện thoại:</td>
+                <td><input th:field="*{phoneNumber}">
+                    <p th:if="${#fields.hasErrors('phoneNumber')}" th:errors="*{phoneNumber}"></p></td>
+            </tr>
+            <tr>
+                <td>Tuổi:</td>
+                <td><input th:field="*{age}">
+                    <p th:if="${#fields.hasErrors('age')}" th:errors="*{age}"></p></td>
+            </tr>
+            <tr>
+                <td>Email:</td>
+                <td><input th:field="*{email}">
+                    <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></p></td>
+            </tr>
+            <tr>
+                <td><input type="submit" value="Đăng kí"></td>
+            </tr>
+        </table>
+    </form>
+</fieldset>
+</body>
+</html>
