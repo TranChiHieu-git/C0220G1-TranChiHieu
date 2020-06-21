@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Form</title>
+</head>
+<body>
+<form th:object="${acc}" th:action="@{/validateUser}" method="post">
+    <table>
+        <tr>
+            <td>Name:</td>
+            <td><input th:field="*{acc}"></td>
+            <td th:if="${#fields.hasErrors('acc')}" th:errors="*{acc}">Name Error</td>
+        </tr>
+        <tr>
+            <td>Pass:</td>
+            <td><input th:field="*{pass}"></td>
+            <td th:if="${#fields.hasErrors('pass')}" th:errors="*{pass}"></td>
+            <td th:if="${#fields.hasGlobalErrors()}" th:each="error : ${#fields.errors('global')}"
+                th:text="${error}"></td>
+        </tr>
+        <tr>
+            <td>Check Pass:</td>
+            <td><input th:field="*{checkpass}"></td>
+            <td th:if="${#fields.hasErrors('checkpass')}" th:errors="*{checkpass}"></td>
+
+        </tr>
+        <tr>
+            <td>
+                <button type="submit">Submit</button>
+            </td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
