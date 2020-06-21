@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a th:href="@{/}">Back to index</a>
+<h1>List content</h1>
+<table>
+    <tr th:each="l : ${list}">
+        <td><a th:href="@{/content/__${l.getId()}__}"><span th:text="${l.getTitle()}"></span></a></td>
+    </tr>
+</table>
+</body>
+</html>
+</body>
+</html>

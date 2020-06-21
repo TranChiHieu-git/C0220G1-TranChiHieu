@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Content</title>
+</head>
+<body>
+<a th:href="@{/}">Back to index</a>
+<br>
+<a th:href="@{/show}">Back to list</a>
+<h1 th:text="${content.getTitle()}"></h1>
+<br>
+<span th:text="${content.getContent()}"></span>
+<br>
+<br>
+<br>
+<a th:href="@{/update/__${content.getId()}__}">Update content</a>
+<br>
+<a th:href="@{/delete/__${content.getId()}__}">Delete content</a>
+</body>
+</html>

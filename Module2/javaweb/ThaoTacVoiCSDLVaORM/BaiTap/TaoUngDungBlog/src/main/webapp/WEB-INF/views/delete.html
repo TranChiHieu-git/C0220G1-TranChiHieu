@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Content</title>
+</head>
+<body>
+<a th:href="@{/}">Back to index</a>
+<br>
+<a th:href="@{/show}">Back to list</a>
+<br>
+Ban co chac muon xoa bai viet :
+<p th:text="${content.getTitle()}"></p>
+<br>
+<form method="post" action="/deleted">
+    <input type="hidden" th:name="id" th:value="${content.getId()}">
+    <br><input type="submit" value="delete">
+</form>
+</body>
+</html>
