@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head><title>show information product</title></head>
+<body>
+<a th:href="@{/}">
+    Back to list
+</a>
+<form method="post" action="/created">
+    <br><input type="text" th:name="id" placeholder="ma san pham">
+    <br><input type="text" th:name="name" placeholder="ten san pham">
+    <br><input type="text" th:name="price" placeholder="gia san pham">
+    <br><input type="text" th:name="photo" placeholder="hinh anh san pham">
+    <br><input type="submit" value="save">
+</form>
+</body>
+</html>

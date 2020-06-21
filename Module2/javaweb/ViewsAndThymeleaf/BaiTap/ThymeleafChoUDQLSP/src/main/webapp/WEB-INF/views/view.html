@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>View Product</title>
+</head>
+<body>
+<a th:href="@{/}">
+    Back to list
+</a>
+<table border="2" cellpadding="2" cellspacing="0">
+    <tr>
+        <td width="200">Ma San Pham</td>
+        <td width="200">Ten San Pham</td>
+        <td width="100">Gia</td>
+        <th width="100">Hinh Anh</th>
+    </tr>
+    <tr>
+        <td th:text="${product.getMaSanPham()}"></td>
+        <td th:text="${product.getTenSanPham()}"></td>
+        <td th:text="${product.getGiaSanPham()}"></td>
+        <th><img th:src="${product.getHinhAnh()}" width="50" height="60"/></th>
+    </tr>
+</table>
+</body>
+</html>
