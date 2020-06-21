@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="#{edit.title}"></title>
+</head>
+<body>
+Language: <a href="?lang=en">English</a> | <a href="?lang=vi">Viet Nam</a>
+<h1 th:text="#{edit.title}"></h1>
+<p>
+    <a href="/" th:text="#{edit.index}"></a>
+</p>
+<form th:action="@{/edited}" th:object="${customer}" method="post">
+    <input th:type="hidden" name="id" th:field="*{id}">
+    <table>
+        <tr>
+            <td th:text="#{index.fname}">First name:</td>
+            <td><input type="text" th:field="*{firstName}"/></td>
+        </tr>
+        <tr>
+            <td th:text="#{index.lname}"></td>
+            <td><input type="text" th:field="*{lastName}"/></td>
+        </tr>
+        <tr>
+            <td th:text="#{index.province}"></td>
+            <td>
+                <select name="province">
+                    <option th:each="p : ${provinces}"
+                            th:value="${p.id}"
+                            th:text="${p.name}"
+                            th:selected="(${p.id} == *{getProvince().getId()})"></option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" th:value="#{edit.update}"></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

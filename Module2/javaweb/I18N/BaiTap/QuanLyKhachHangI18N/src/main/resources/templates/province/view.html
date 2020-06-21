@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="#{view.title}"></title>
+</head>
+<body>
+Language: <a href="?lang=en">English</a> | <a href="?lang=vi">Viet Nam</a>
+<br>
+<h1 th:text="#{view.title}"><span th:text="${province.name}"></span></h1>
+<a href="/provinces" th:text="#{edit.list}"></a>
+<table border="1">
+    <tr>
+        <th th:text="#{index.fname}"></th>
+        <th th:text="#{index.lname}"></th>
+    </tr>
+    <th:block th:each="customer : ${customers}">
+        <tr>
+            <td th:text="${customer.firstName}"></td>
+            <td th:text="${customer.lastName}"></td>
+        </tr>
+    </th:block>
+</table>
+</body>
+</html>
