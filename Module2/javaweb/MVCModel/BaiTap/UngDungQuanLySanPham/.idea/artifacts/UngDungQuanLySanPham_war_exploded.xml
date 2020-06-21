@@ -1,0 +1,19 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="UngDungQuanLySanPham:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/UngDungQuanLySanPham_war_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="UngDungQuanLySanPham/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="UngDungQuanLySanPham" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="file-copy" path="$PROJECT_DIR$/../../../apache-tomcat-9.0.34/webapps/examples/WEB-INF/lib/taglibs-standard-impl-1.2.5.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/../../../apache-tomcat-9.0.34/webapps/examples/WEB-INF/lib/taglibs-standard-spec-1.2.5.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/../../../../../../../../Program Files/Apache Software Foundation/Tomcat 9.0/webapps/examples/WEB-INF/lib/taglibs-standard-impl-1.2.5.jar" />
+          <element id="file-copy" path="$PROJECT_DIR$/../../../../../../../../Program Files/Apache Software Foundation/Tomcat 9.0/webapps/examples/WEB-INF/lib/taglibs-standard-spec-1.2.5.jar" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>
