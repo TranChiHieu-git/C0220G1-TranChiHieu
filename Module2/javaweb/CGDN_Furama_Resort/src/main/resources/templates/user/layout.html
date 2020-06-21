@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>layout</title>
+</head>
+<header th:fragment="header">
+    <div style="padding-bottom: 130px ;background-color: mediumseagreen">
+        <a href="/"><img src="https://furamavietnam.com/wp-content/uploads/2018/10/logo.png" width="80" height="80"
+                         style="position: absolute ;left: 60px;top: 40px"></a>
+        <a th:if="${staff.getStaff() ==null && usernormal.getAccountUserNormal()==null}" href="/signup"
+           style="position: absolute;right: 120px;top: 5px; color: white"><h4>Đăng ký</h4></a>
+        <a th:if="${staff.getStaff() ==null && usernormal.getAccountUserNormal()==null}" href="/login"
+           style="position: absolute;right: 20px;top: 5px; color: white"><h4>Đăng Nhập</h4></a>
+        <a th:if="${staff.getStaff() !=null && usernormal.getAccountUserNormal()==null}"
+           style="position: absolute;right: 110px;top: 27px; color: white"
+           th:text="${staff.getStaff().name}"></a>
+        <a th:if="${staff.getStaff() ==null && usernormal.getAccountUserNormal()!=null }"
+           style="position: absolute;right: 110px;top: 27px; color: white"
+           th:text="${usernormal.getAccountUserNormal().name}"></a>
+        <a th:if="${staff.getStaff() !=null||usernormal.getAccountUserNormal()!=null}" href="/logout"
+           style="position: absolute;right: 20px;top: 5px; color: white"><h4>(Đăng xuất)</h4></a>
+        <h1 style="position: absolute;left: 40%;top: 5%;color: white">Furama Resort Đà Nẵng</h1>
+    </div>
+    <br>
+    <div style="padding-bottom: 30px;padding-top:10px;background-color: mediumseagreen">
+        <div style="position: absolute;left: 21%">
+            <table>
+                <th width="200"><a href="/" style="color: white">Trang chủ</a></th>
+                <th width="200"><a href="/hinhanh" style="color: white">Hình ảnh</a></th>
+                <th width="200"><a href="/khuyenmai" style="color: white">Khuyến mãi</a></th>
+                <th width="200"><a href="/HocVien" style="color: white">DanhSachHocVien</a></th>
+            </table>
+        </div>
+    </div>
+    <br>
+    <div style="position: absolute;right: 10px;top: 233px;">
+        <table border="1" cellpadding="10" cellspacing="0" style="background-color: mediumseagreen" width="200">
+            <tr>
+                <th><a href="/" style="color: white">Tin Tức</a></th>
+            </tr>
+            <tr>
+                <th><a href="/" style="color: white">Thông báo</a></th>
+            </tr>
+            <tr>
+                <th><a href="/" style="color: white">Liên hệ</a></th>
+            </tr>
+            <tr>
+                <th><a href="/" style="color: white">Tuyển Dụng</a></th>
+            </tr>
+        </table>
+    </div>
+    <div style="position: absolute;left: 10px;top: 233px">
+        <table border="1" cellpadding="10" cellspacing="0" style="background-color: mediumseagreen" width="200">
+            <tr>
+                <th><a href="/" style="color: white">Dịch vụ thuê Villa</a></th>
+            </tr>
+            <tr>
+                <th><a href="/" style="color: white">Dịch Vụ thuê nhà</a></th>
+            </tr>
+            <tr>
+                <th><a href="/" style="color: white">Dịch vụ thuê phòng</a></th>
+            </tr>
+            <tr>
+                <th><a href="/" style="color: white">Dịch vụ Massage</a></th>
+            </tr>
+            <tr>
+                <th><a href="/" style="color: white">Dịch vụ Karaoke</a></th>
+            </tr>
+            <tr>
+                <th><a href="/" style="color: white">Dịch vụ thức ăn</a></th>
+            </tr>
+            <tr>
+                <th><a href="/" style="color: white">Dịch vụ đồ uống</a></th>
+            </tr>
+            <tr>
+                <th><a href="/" style="color: white">Dịch vụ thuê xe tham quan</a></th>
+            </tr>
+        </table>
+    </div>
+    <br>
+</header>
+<body>
+
+
+<footer th:fragment="footer"
+        style="background-color: silver; padding: 15px">
+    <div style="text-align: center">Trần Chí Hiếu C0220G1</div>
+    <div style="text-align: center">&copy; 2020 CodeGym Đà Nẵng</div>
+</footer>
+</body>
+</html>

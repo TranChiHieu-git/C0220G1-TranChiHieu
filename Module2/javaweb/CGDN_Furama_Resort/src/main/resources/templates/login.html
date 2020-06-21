@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body style="background-image: url('https://phuongviethcm.com/wp-content/uploads/2019/07/FURAMA.png')">
+
+<fieldset
+        style="width: 400px;height:550px;background-color:snow;
+            position: absolute;left: 35%;top: 5%">
+    <h1 style="position: absolute;left: 30%">Đăng Nhập</h1></th>
+    <table style="position: absolute;top: 80px">
+        <form action="/logined" method="post" th:object="${accountLogin}">
+            <tr>
+                <td><h4>Tài khoản:</h4></td>
+            </tr>
+            <tr>
+                <td><input style="width: 390px;height: 30px;font-size: larger" th:field="*{acc}"></td>
+            </tr>
+            <tr>
+                <td style="color: red" th:if="${#fields.hasErrors('acc')}" th:errors="*{acc}"></td>
+            </tr>
+            <tr>
+                <td><h4>Mật khẩu:</h4></td>
+            </tr>
+            <tr>
+                <td><input checked style="width: 390px;height: 30px;font-size: larger" type="password"
+                           th:field="*{pass}"></td>
+            </tr>
+            <tr>
+                <td style="color: red" th:if="${#fields.hasErrors('pass')}" th:errors="*{pass}"></td>
+            </tr>
+            <tr style="height: 30px"></tr>
+            <tr>
+                <th colspan="2"><input style="width:200px;height: 40px;background-color:mediumseagreen;
+                color: white;font-size: larger" type="submit" value="Đăng nhập">
+                    <hr>
+                </th>
+            </tr>
+        </form>
+        <tr></tr>
+        <tr></tr>
+        <tr></tr>
+        <tr></tr>
+        <tr></tr>
+        <tr>
+            <td>Chưa có tài khoản? <a href="/">Tạo tài khoản</a></td>
+        </tr>
+    </table>
+</fieldset>
+
+</body>
+</html>

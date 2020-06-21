@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body style="background-image: url('https://phuongviethcm.com/wp-content/uploads/2019/07/FURAMA.png')">
+<fieldset
+        style="width: 400px;height:auto;background-color:snow;
+            position: absolute;left: 35%;top: 5%">
+    <h1 style="position: absolute;left: 30%"></h1>
+    <table style="position: absolute;top: 80px">
+        <form th:object="${contractByid}" th:action="@{/admin/hopdong/edited}" method="post">
+            <a th:href="@{/admin/hopdong}"> < Trở về trang hợp đồng </a>
+            <input th:type="hidden" name="id" th:field="*{id}">
+            <table>
+                <tr>
+                    <th colspan="2"><h2>Thêm mới hợp đồng</h2></th>
+                </tr>
+                <tr>
+                    <td>Khách hàng làm hợp đồng:</td>
+                    <td>
+                        <select th:field="*{user.id}">
+                            <option th:each="p : ${user}" th:value="${p.id}"
+                                    th:text="${p.name}"></option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Nhân viên làm hợp đồng:</td>
+                    <td>
+                        <label th:field="*{staff.id}" th:value="${staff.getStaff().id}" th:text="${staff.getStaff().name}"></label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Dịch vụ sử dụng:</td>
+                    <td>
+                        <select th:field="*{service.id}">
+                            <option th:each="p : ${service}" th:value="${p.id}"
+                                    th:text="${p.name}"></option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Ngày làm hợp đồng:</td>
+                    <td><input type="date" style="width: 292px" th:field="*{contractDate}"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td style="color: red" th:if="${#fields.hasErrors('contractDate')}"
+                        th:errors="*{contractDate}"></td>
+                </tr>
+                <tr>
+                    <td>Ngày kết thúc hợp đồng:</td>
+                    <td><input type="date" style="width: 292px" th:field="*{endContractDate}"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td style="color: red" th:if="${#fields.hasErrors('endContractDate')}"
+                        th:errors="*{endContractDate}"></td>
+                </tr>
+                <tr>
+                    <td>Tiền đặt cọc:</td>
+                    <td><input style="width: 292px" th:field="*{deposit}"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td style="color: red" th:if="${#fields.hasErrors('deposit')}"
+                        th:errors="*{deposit}"></td>
+                </tr>
+                <tr></tr>
+                <tr></tr>
+                <tr>
+                    <th colspan="2">
+                        <input type="submit" value="Chỉnh sửa"></input>
+                    </th>
+                </tr>
+            </table>
+        </form>
+        <tr></tr>
+    </table>
+</fieldset>
+</body>
+</html>

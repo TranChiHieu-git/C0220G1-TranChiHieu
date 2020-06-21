@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body style="background-image: url('https://phuongviethcm.com/wp-content/uploads/2019/07/FURAMA.png')">
+<fieldset
+        style="width: 280px;height:auto;background-color:snow;
+            position: absolute;left: 40%;top: 22%">
+    <h1 style="position: absolute;left: 30%"></h1>
+    <table style="position: absolute;top: 80px">
+        <a th:href="@{/admin/nhanvien}"> < Trở về trang nhân viên</a>
+        <form id="deleteStaff" th:object="${staffByid}" method="post" th:action="@{/admin/nhanvien/deleted}">
+            <input th:type="hidden" name="id" th:field="*{id}">
+            <table>
+                <tr>
+                    <th colspan="2"><h2>Bạn muốn xóa nhân viên ?</h2></th>
+                </tr>
+                <tr>
+                    <td>Tên:</td>
+                    <td><label style="width: 292px" th:text="*{name}"/></td>
+                </tr>
+                <tr>
+                    <td>Ngày Sinh:</td>
+                    <td><label style="width: 292px" th:text="*{dayOfBirth}"/></td>
+                </tr>
+                <tr>
+                    <td>CMND:</td>
+                    <td><label style="width: 292px" th:text="*{numberOfCMND}"/></td>
+                </tr>
+                <tr>
+                    <td>Tài Khoản:</td>
+                    <td><label style="width: 292px" th:text="*{account}"/></td>
+                </tr>
+                <tr>
+                    <td>Bộ Phận:</td>
+                    <td><label style="width: 292px" th:text="*{part.namePart}"/></td>
+                </tr>
+                <tr>
+                    <td>Vị Trí:</td>
+                    <td><label style="width: 292px" th:text="*{position.namePosition}"/></td>
+                </tr>
+                <tr>
+                    <th colspan="2">
+                        <input type="button" value="Xóa nhân viên" onclick="comfirmdelete()">
+                    </th>
+                </tr>
+            </table>
+        </form>
+        <tr></tr>
+    </table>
+</fieldset>
+<script>
+    function comfirmdelete() {
+        if (confirm("Bạn muốn xóa nhân viên này?")) {
+            document.getElementById("deleteStaff").submit();
+        } else {
+
+        }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body style="background-image: url('https://phuongviethcm.com/wp-content/uploads/2019/07/FURAMA.png')">
+<fieldset
+        style="width: 320px;height:auto;background-color:snow;
+            position: absolute;left: 40%;top: 12%">
+    <h1 style="position: absolute;left: 30%"></h1>
+    <table style="position: absolute;top: 80px">
+        <a th:href="@{/admin/hopdong}"> < Trở về trang hợp đồng</a>
+        <form th:object="${contractByid}">
+            <table>
+                <tr>
+                    <th colspan="2"><h2>Thông Tin Hợp đồng</h2></th>
+                </tr>
+                <tr>
+                    <td>Tên Khách Hàng:</td>
+                    <td><label style="width: 292px" th:text="*{user.name}"/></td>
+                </tr>
+                <tr>
+                    <td>Tên Nhân Viên:</td>
+                    <td><label style="width: 292px" th:text="*{staff.name}"/></td>
+                </tr>
+                <tr>
+                    <td>Tên Dịch Vụ:</td>
+                    <td><label style="width: 292px" th:text="*{service.name}"/></td>
+                </tr>
+                <tr>
+                    <td>Ngày làm hợp đồng:</td>
+                    <td><label style="width: 292px" th:text="*{contractDate}"/></td>
+                </tr>
+                <tr>
+                    <td>Ngày kết thúc hợp đồng:</td>
+                    <td><label style="width: 292px" th:text="*{endContractDate}"/></td>
+                </tr>
+                <tr>
+                    <td>Tiền cọc:</td>
+                    <td><label style="width: 292px" th:text="*{deposit}"/></td>
+                </tr>
+                <tr>
+                    <td>Tổng tiền phải trả:</td>
+                    <td><label style="width: 292px" th:text="*{totalCost}"/></td>
+                </tr>
+                <tr>
+                    <td>Dịch vụ đi kèm:</td>
+                </tr>
+                <tr>
+                    <table colspan="2" border="4" cellspacing="0" cellpadding="3">
+                        <tr>
+                            <th style="width: 292px">tên loại dịch vụ đi kèm</th>
+                            <th style="width: 292px">Số lương</th>
+                            <th style="width: 292px">Giá</th>
+                        </tr>
+                        <tr th:each="a:*{contractDetails}">
+                            <th><label th:text="${a.getServiceFollow().nameServiceFollow}"></label></th>
+                            <th><label th:text="${a.amountContractDetails}"></label></th>
+                            <th><label th:text="${a.getServiceFollow().perServiceFollow}"></label></th>
+                        </tr>
+                    </table>
+                </tr>
+            </table>
+        </form>
+        <tr></tr>
+    </table>
+</fieldset>
+</body>
+</html>

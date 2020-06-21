@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body style="background-image: url('https://phuongviethcm.com/wp-content/uploads/2019/07/FURAMA.png')">
+<fieldset
+        style="width: 400px;height:auto;background-color:snow;
+            position: absolute;left: 35%;top: 5%">
+    <h1 style="position: absolute;left: 30%"></h1>
+    <table style="position: absolute;top: 80px">
+        <form th:object="${staffNew}" th:action="@{/admin/nhanvien/added}" method="post">
+            <a th:href="@{/admin/nhanvien}"> < Trở về trang nhân viên</a>
+            <table>
+                <tr>
+                    <th colspan="2"><h2>Thêm mới nhân viên</h2></th>
+                </tr>
+                <tr>
+                    <td>Tên:</td>
+                    <td><input style="width: 292px" th:field="*{name}"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td style="color: red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></td>
+                </tr>
+                <tr>
+                    <td>Ngày Sinh:</td>
+                    <td><input type="date" style="width: 292px" th:field="*{dayOfBirth}"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td style="color: red" th:if="${#fields.hasErrors('dayOfBirth')}" th:errors="*{dayOfBirth}"></td>
+                </tr>
+                <tr>
+                    <td>CMND:</td>
+                    <td><input style="width: 292px" th:field="*{numberOfCMND}"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td style="color: red" th:if="${#fields.hasErrors('numberOfCMND')}"
+                        th:errors="*{numberOfCMND}"></td>
+                </tr>
+                <tr>
+                    <td>Lương:</td>
+                    <td><input style="width: 292px" th:field="*{salary}"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td style="color: red" th:if="${#fields.hasErrors('salary')}" th:errors="*{salary}"></td>
+                </tr>
+                <tr>
+                    <td>Số điện thoại:</td>
+                    <td><input style="width: 292px" th:field="*{numberPhone}"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td style="color: red" th:if="${#fields.hasErrors('numberPhone')}" th:errors="*{numberPhone}"></td>
+                </tr>
+                <tr>
+                    <td>Email:</td>
+                    <td><input style="width: 292px" th:field="*{email}"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td style="color: red" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></td>
+                </tr>
+                <tr>
+                    <td>Address:</td>
+                    <td><input style="width: 292px" th:field="*{address}"></td>
+
+                </tr>
+                <tr>
+                    <td></td>
+                    <td style="color: red" th:if="${#fields.hasErrors('address')}" th:errors="*{address}"></td>
+                </tr>
+                <tr>
+                    <td>Tài Khoản:</td>
+                    <td><input style="width: 292px" th:field="*{account}"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td style="color: red" th:if="${#fields.hasErrors('account')}" th:errors="*{account}"></td>
+                </tr>
+                <tr>
+                    <td>Mật khẩu:</td>
+                    <td><input type="password" style="width: 292px" th:field="*{password}"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td style="color: red" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></td>
+                </tr>
+                <tr></tr>
+                <tr></tr>
+                <tr>
+                    <td>Trình độ:</td>
+                    <td>
+                        <select th:field="*{idLevel}">
+                            <option th:each="p : ${level}" th:value="${p.idLevel}" th:text="${p.nameLevel}"></option>
+                        </select>
+                    </td>
+                </tr>
+                <tr></tr>
+                <tr></tr>
+                <tr>
+                    <td>Bộ Phận:</td>
+                    <td>
+                        <select th:field="*{idPart}">
+                            <option th:each="p : ${part}" th:value="${p.idPart}" th:text="${p.namePart}"></option>
+                        </select>
+                    </td>
+                </tr>
+                <tr></tr>
+                <tr></tr>
+                <tr>
+                    <td>Vị Trí:</td>
+                    <td>
+                        <select th:field="*{idPosition}">
+                            <option th:each="p : ${pos}" th:value="${p.idPosition}"
+                                    th:text="${p.namePosition}"></option>
+                        </select>
+                    </td>
+                </tr>
+                <tr></tr>
+                <tr></tr>
+                <tr></tr>
+                <tr></tr>
+                <tr></tr>
+                <tr></tr>
+                <tr></tr>
+                <tr>
+                    <th colspan="2">
+                        <input type="submit" value="Đăng ký"></input>
+                    </th>
+                </tr>
+            </table>
+        </form>
+        <tr></tr>
+    </table>
+</fieldset>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body style="background-image: url('https://phuongviethcm.com/wp-content/uploads/2019/07/FURAMA.png')">
+<fieldset
+        style="width: 400px;height:auto;background-color:snow;
+            position: absolute;left: 35%;top: 5%">
+    <h1 style="position: absolute;left: 30%"></h1>
+    <table style="position: absolute;top: 80px">
+        <form th:object="${contractDetailsNew}" th:action="@{/admin/hopdong/addhopdongchitieted}" method="post">
+            <a th:href="@{/admin/hopdong}"> < Trở về trang hợp đồng </a>
+            <input th:type="hidden" name="id" th:field="*{contractId}">
+            <table>
+                <tr>
+                    <th colspan="2"><h2>Thêm mới hợp đồng chi tiết</h2></th>
+                </tr>
+                <tr>
+                    <td>Khách hàng:</td>
+                    <td>
+                        <label  th:text="${contractss.user.name}"></label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Người làm hợp đồng:</td>
+                    <td>
+                        <label  th:text="${contractss.staff.name}"></label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Dịch vụ đi kèm:</td>
+                    <td>
+                        <select th:field="*{servicefollowId}">
+                            <option th:each="p : ${servicefollow}" th:value="${p.idServiceFollow}"
+                                    th:text="${p.nameServiceFollow}"></option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Số lượng:</td>
+                    <td><input style="width: 292px" th:field="*{amountContractDetails}"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td style="color: red" th:if="${#fields.hasErrors('amountContractDetails')}"
+                        th:errors="*{amountContractDetails}"></td>
+                </tr>
+
+                <tr></tr>
+                <tr></tr>
+                <tr>
+                    <th colspan="2">
+                        <input type="submit" value="Đăng ký"></input>
+                    </th>
+                </tr>
+            </table>
+        </form>
+        <tr></tr>
+    </table>
+</fieldset>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body style="background-image: url('https://phuongviethcm.com/wp-content/uploads/2019/07/FURAMA.png')">
+<fieldset
+        style="width: 320px;height:auto;background-color:snow;
+            position: absolute;left: 40%;top: 22%">
+    <h1 style="position: absolute;left: 30%"></h1>
+    <table style="position: absolute;top: 80px">
+        <a th:href="@{/admin/khachhang}"> < Trở về trang khách hàng</a>
+        <form th:object="${userByid}">
+            <table>
+                <tr>
+                    <th colspan="2"><h2>Thông Tin Khách Hàng</h2></th>
+                </tr>
+                <tr>
+                    <td>Mã khách hàng:</td>
+                    <td><label style="width: 292px" th:text="*{id}"/></td>
+                </tr>
+                <tr>
+                    <td>Tên khách hàng:</td>
+                    <td><label style="width: 292px" th:text="*{name}"/></td>
+                </tr>
+                <tr>
+                    <td>Ngày sinh:</td>
+                    <td><label style="width: 292px" th:text="*{dayOfBirth}"/></td>
+                </tr>
+                <tr>
+                    <td>Số CMND:</td>
+                    <td><label style="width: 292px" th:text="*{numberOfCMND}"/></td>
+                </tr>
+                <tr>
+                    <td>Số điện thoại:</td>
+                    <td><label style="width: 292px" th:text="*{numberPhone}"/></td>
+                </tr>
+                <tr>
+                    <td>Email:</td>
+                    <td><label style="width: 292px" th:text="*{email}"/></td>
+                </tr>
+                <tr>
+                    <td>Địa chỉ:</td>
+                    <td><label style="width: 292px" th:text="*{address}"/></td>
+                </tr>
+                <tr>
+                    <td>Loại khách hàng:</td>
+                    <td><label style="width: 292px" th:text="*{getTypeUser().nameTypeUser}"/></td>
+                </tr>
+            </table>
+        </form>
+        <tr></tr>
+    </table>
+</fieldset>
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-2">
+            <div class="row">
+                <div class="col-md-6">
+                    <button type="button" class="btn btn-primary" onclick="render()" style="position: fixed">xmlhttp
+                    </button>
+                </div>
+                <div class="col-md-6">
+                    <button type="button" class="btn btn-primary" onclick="render2()" style="position: fixed">ajax
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-10">
+            <table class="table table-striped">
+                <tr>
+                    <td class="table-info">Id</td>
+                    <td class="table-primary">Họ Và Tên</td>
+                    <td class="table-dark">Giới Tính</td>
+                    <td class="table-success">Ngày Sinh</td>
+                    <td class="table-danger">Số điện thoại</td>
+                    <td class="table-warning">Địa chỉ</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+<script>
+    function ajax_get(url, callback) {
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function () {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                console.log('responseText:' + xmlhttp.responseText);
+                try {
+                    var data = JSON.parse(xmlhttp.responseText);
+                } catch (err) {
+                    console.log(err.message + " in " + xmlhttp.responseText);
+                    return;
+                }
+                callback(data);
+            }
+        };
+        xmlhttp.open("GET", url, true);
+        xmlhttp.send();
+    }
+
+    let i = 0;
+
+    function render() {
+        i++;
+        ajax_get('https://spring-student-api.herokuapp.com/info?apiKey=eaf118ab-babf-43ed-a788-b66d2f0ca00c', function (data) {
+            if (i < data.length) {
+                $("table").append('<tr>'
+                    + '<th>' + data[i]["id"] + '</th>'
+                    + '<th>' + data[i]["fullName"] + '</th>'
+                    + '<th>' + data[i]["gender"] + '</th>'
+                    + '<th>' + data[i]["birthDate"] + '</th>'
+                    + '<th>' + data[i]["phoneNumber"] + '</th>'
+                    + '<th>' + data[i]["address"] + '</th>'
+                    + '</tr>');
+            } else {
+                alert("đã in tất cả ra màn hình");
+            }
+        });
+    }
+
+    function render2() {
+        let data;
+        $.ajax({
+            type: 'GET',
+            url: "https://spring-student-api.herokuapp.com/info?apiKey=eaf118ab-babf-43ed-a788-b66d2f0ca00c",
+            data: data,
+            async: false,
+            beforeSend: function (xhr) {
+                if (xhr && xhr.overrideMimeType) {
+                    xhr.overrideMimeType('application/json;charset=utf-8');
+                }
+            },
+            dataType: 'json',
+            success: function (data) {
+                i++;
+                if (i < data.length) {
+                    for (let i=0;i < data.length;i++) {
+                        $("table").append('<tr>'
+                            + '<th>' + data[i]["id"] + '</th>'
+                            + '<th>' + data[i]["fullName"] + '</th>'
+                            + '<th>' + data[i]["gender"] + '</th>'
+                            + '<th>' + data[i]["birthDate"] + '</th>'
+                            + '<th>' + data[i]["phoneNumber"] + '</th>'
+                            + '<th>' + data[i]["address"] + '</th>'
+                            + '</tr>');
+                    }
+                } else {
+                    alert("đã in tất cả ra màn hình");
+                }
+            }
+        });
+    }
+
+</script>
+</html>

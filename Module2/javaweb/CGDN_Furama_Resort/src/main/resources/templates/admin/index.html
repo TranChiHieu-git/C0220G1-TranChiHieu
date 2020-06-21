@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Furama Resort Đà Nẵng - Admin site</title>
+</head>
+<header th:replace="admin/layout::header"></header>
+<body>
+<div style="width: 1100px;height: auto ;position: absolute;left: 260px; top:158px">
+    <fieldset style="height: 367px">
+        <table th:switch="${message}">
+            <!--**************************************show all user having contract**********************************-->
+            <td th:case="0">
+                <table border="1" cellspacing="0" cellpadding="3">
+                    <tr>
+                        <th width="200">Tên khách hàng</th>
+                        <th width="120">Số điện thoại</th>
+                        <th width="100">Số CMND</th>
+                        <th width="170">Email</th>
+                        <th width="100">Ngày Sinh</th>
+                        <th width="100">Địa chỉ</th>
+                        <th width="100">Loại dịch vụ đã sử dụng</th>
+                    </tr>
+                    <tr th:each="luhc:${listUserHaveContract}">
+                        <th width="130" th:text="${luhc.getUser().getName()}"></th>
+                        <th width="260" th:text="${luhc.getUser().getNumberPhone()}">></th>
+                        <th width="120" th:text="${luhc.getUser().getNumberOfCMND()}"></th>
+                        <th width="120" th:text="${luhc.getUser().getEmail()}"></th>
+                        <th width="120" th:text="${luhc.getUser().getDayOfBirth()}"></th>
+                        <th width="120" th:text="${luhc.getUser().getAddress()}"></th>
+                        <th width="120" th:text=" ${luhc.getService().getName()}"></th>
+                    </tr>
+                </table>
+                <div style="position: absolute;bottom: 10px;right: 20px">
+                    <a th:href="@{/logined/(page=${0})}"
+                       th:if="${listUserHaveContract.hasPrevious()}"> Trang Đầu | </a>
+                    <a th:href="@{/logined/(page=${listUserHaveContract.number - 1})}"
+                       th:if="${listUserHaveContract.hasPrevious()}"> Trang Trước |</a>
+                    <span th:text="${listUserHaveContract.number + 1}"></span> - <span
+                        th:text="${listUserHaveContract.totalPages}"></span>
+                    <a th:href="@{/logined/(page=${listUserHaveContract.number + 1})}"
+                       th:if="${listUserHaveContract.hasNext()}">| Trang sau </a>
+                    <a th:href="@{/logined/(page=${listUserHaveContract.totalPages - 1})}"
+                       th:if="${listUserHaveContract.hasNext()}">| Trang Cuối </a>
+                </div>
+            </td>
+            <!--**************************************************Staff**********************************************-->
+            <td th:case="1">
+                <form th:action="@{/admin/nhanvien}">
+                    <input th:name="keyword" placeholder="Tìm kiếm nhân viên"/>
+                    <input type="submit" value="Tìm kiếm"/>
+                </form>
+                <a style="position: absolute;right: 20px; top: 12px" href="/admin/nhanvien/add">Thêm Nhân Viên</a>
+                <br>
+                <table border="1" cellspacing="0" cellpadding="3">
+                    <tr>
+                        <th width="50">Mã số nhân viên</th>
+                        <th width="260">Họ Tên</th>
+                        <th width="150">Vị Trí</th>
+                        <th width="150">Bộ Phận</th>
+                        <th width="150">Ngày Sinh</th>
+                        <th width="100">CMND</th>
+                        <th width="100">Chỉnh Sửa</th>
+                        <th width="50">Xóa</th>
+                    </tr>
+                    <tr th:each="l:${listStaff}">
+                        <th width="130" th:text="${l.id}"></th>
+                        <th width="260"><a th:href="@{/admin/nhanvien/read/__${l.id}__}" th:text="${l.name}"></a></th>
+                        <th width="120" th:text="${l.getPosition().namePosition}"></th>
+                        <th width="120" th:text="${l.getPart().namePart}"></th>
+                        <th width="120" th:text="${l.dayOfBirth}"></th>
+                        <th width="100" th:text="${l.numberOfCMND}"></th>
+                        <th width="100"><a th:href="@{/admin/nhanvien/edit/__${l.id}__}">Chỉnh Sửa</a></th>
+                        <th width="50"><a th:href="@{/admin/nhanvien/delete/__${l.id}__}">Xóa</a></th>
+                    </tr>
+                </table>
+                <div style="position: absolute;bottom: 10px;right: 20px">
+                    <a th:href="@{/admin/nhanvien/(page=${0}, keyword=${keyword})}"
+                       th:if="${listStaff.hasPrevious()}"> Trang Đầu | </a>
+                    <a th:href="@{/admin/nhanvien/(page=${listStaff.number - 1}, keyword=${keyword})}"
+                       th:if="${listStaff.hasPrevious()}"> Trang Trước |</a>
+                    <span th:text="${listStaff.number + 1}"></span> - <span
+                        th:text="${listStaff.totalPages}"></span>
+                    <a th:href="@{/admin/nhanvien/(page=${listStaff.number + 1}, keyword=${keyword})}"
+                       th:if="${listStaff.hasNext()}">| Trang sau </a>
+                    <a th:href="@{/admin/nhanvien/(page=${listStaff.totalPages - 1}, keyword=${keyword})}"
+                       th:if="${listStaff.hasNext()}">| Trang Cuối </a>
+                </div>
+            </td>
+            <!--**************************************************Service********************************************-->
+            <td th:case="2">
+                <form th:action="@{/admin/dichvu}">
+                    <input th:name="keyword" placeholder="Tìm kiếm dịch vụ"/>
+                    <input type="submit" value="Tìm kiếm"/>
+                </form>
+                <a style="position: absolute;right: 20px; top: 12px" href="/admin/dichvu/add">Thêm Dịch Vụ</a>
+                <br>
+                <table border="1" cellspacing="0" cellpadding="3">
+                    <tr>
+                        <th width="150">Mã số dịch vụ</th>
+                        <th width="200">Tên Dịch vụ</th>
+                        <th width="110">Loại dịch vụ</th>
+                        <th width="110">Loại thuê</th>
+                        <th width="150">Diện tích sử dụng</th>
+                        <th width="140">Số người tối đa</th>
+                        <th width="100">Chỉnh Sửa</th>
+                        <th width="50">Xóa</th>
+                    </tr>
+                    <tr th:each="s:${listService}">
+                        <th width="130" th:text="${s.id}"></th>
+                        <th width="260"><a th:href="@{/admin/dichvu/read/__${s.id}__}" th:text="${s.name}"></a></th>
+                        <th width="120" th:text="${s.getTypeService().getNameTypeService()}"></th>
+                        <th width="120" th:text="${s.getTypeRent().getNameTypeRent()}"></th>
+                        <th width="120" th:text="${s.area}"></th>
+                        <th width="100" th:text="${s.numberOfMaxPeople}"></th>
+                        <th width="100"><a th:href="@{/admin/dichvu/edit/__${s.id}__}">Chỉnh Sửa</a></th>
+                        <th width="50"><a th:href="@{/admin/dichvu/delete/__${s.id}__}">Xóa</a></th>
+                    </tr>
+                </table>
+                <div style="position: absolute;bottom: 10px;right: 20px">
+                    <a th:href="@{/admin/dichvu/(page=${0}, keyword=${keyword})}"
+                       th:if="${listService.hasPrevious()}"> Trang Đầu | </a>
+                    <a th:href="@{/admin/dichvu/(page=${listService.number - 1}, keyword=${keyword})}"
+                       th:if="${listService.hasPrevious()}"> Trang Trước |</a>
+                    <span th:text="${listService.number + 1}"></span> - <span
+                        th:text="${listService.totalPages}"></span>
+                    <a th:href="@{/admin/dichvu/(page=${listService.number + 1}, keyword=${keyword})}"
+                       th:if="${listService.hasNext()}">| Trang sau </a>
+                    <a th:href="@{/admin/dichvu/(page=${listService.totalPages - 1}, keyword=${keyword})}"
+                       th:if="${listService.hasNext()}">| Trang Cuối </a>
+                </div>
+            </td>
+            <!--**************************************************User***********************************************-->
+            <td th:case="3">
+                <form th:action="@{/admin/khachhang}">
+                    <input th:name="keyword" placeholder="Tìm kiếm khách hàng"/>
+                    <input type="submit" value="Tìm kiếm"/>
+                </form>
+                <a style="position: absolute;right: 20px; top: 12px" href="/admin/khachhang/add">Thêm Khách Hàng</a>
+                <br>
+                <table border="1" cellspacing="0" cellpadding="3">
+                    <tr>
+                        <th width="120">Mã khách hàng</th>
+                        <th width="170">Tên khách hàng</th>
+                        <th width="140">Loại khách hàng</th>
+                        <th width="110">Số điện thoại</th>
+                        <th width="200">Email</th>
+                        <th width="140">Số CMND</th>
+                        <th width="80">Chỉnh Sửa</th>
+                        <th width="40">Xóa</th>
+                    </tr>
+                    <tr th:each="u:${listUser}">
+                        <th width="120" th:text="${u.id}"></th>
+                        <th width="170"><a th:href="@{/admin/khachhang/read/__${u.id}__}" th:text="${u.name}"></a></th>
+                        <th width="140" th:text="${u.getTypeUser().getNameTypeUser()}"></th>
+                        <th width="110" th:text="${u.getNumberPhone()}"></th>
+                        <th width="200" th:text="${u.email}"></th>
+                        <th width="140" th:text="${u.numberOfCMND}"></th>
+                        <th width="80"><a th:href="@{/admin/khachhang/edit/__${u.id}__}">Chỉnh Sửa</a></th>
+                        <th width="40"><a th:href="@{/admin/khachhang/delete/__${u.id}__}">Xóa</a></th>
+                    </tr>
+                </table>
+                <div style="position: absolute;bottom: 10px;right: 20px">
+                    <a th:href="@{/admin/khachhang/(page=${0}, keyword=${keyword})}"
+                       th:if="${listUser.hasPrevious()}"> Trang Đầu | </a>
+                    <a th:href="@{/admin/khachhang/(page=${listUser.number - 1}, keyword=${keyword})}"
+                       th:if="${listUser.hasPrevious()}"> Trang Trước |</a>
+                    <span th:text="${listUser.number + 1}"></span> - <span
+                        th:text="${listUser.totalPages}"></span>
+                    <a th:href="@{/admin/khachhang/(page=${listUser.number + 1}, keyword=${keyword})}"
+                       th:if="${listUser.hasNext()}">| Trang sau </a>
+                    <a th:href="@{/admin/khachhang/(page=${listUser.totalPages - 1}, keyword=${keyword})}"
+                       th:if="${listUser.hasNext()}">| Trang Cuối </a>
+                </div>
+            </td>
+            <!--**************************************************Contract***********************************************-->
+            <td th:case="4">
+                <form th:action="@{/admin/hopdong}">
+                    <input th:name="keyword" placeholder="Tìm kiếm hợp đồng"/>
+                    <input type="submit" value="Tìm kiếm"/>
+                </form>
+                <a style="position: absolute;right: 20px; top: 12px" href="/admin/hopdong/add">Thêm Hợp Đồng</a>
+                <br>
+                <table border="1" cellspacing="0" cellpadding="3">
+                    <tr>
+                        <th width="40">Mã Hợp đồng</th>
+                        <th width="170">Tên khách hàng</th>
+                        <th width="200">Nhân viên tạo hợp đồng</th>
+                        <th width="130">Dịch vụ sử dụng</th>
+                        <th width="130">Số tiền đặt cọc</th>
+                        <th width="100">Tổng tiền phải trả</th>
+                        <th width="160">Thêm hợp đồng chi tiết</th>
+                        <th width="80">Chỉnh Sửa</th>
+                        <th width="40">Xóa</th>
+                    </tr>
+                    <tr th:each="c:${listContract}">
+                        <th width="120"><a th:href="@{/admin/hopdong/read/__${c.id}__}"
+                                           th:text="${c.id}"></a></th>
+                        <th width="170" th:text="${c.getUser().name}"></th>
+                        <th width="200" th:text="${c.getStaff().name}"></th>
+                        <th width="130" th:text="${c.getService().name}"></th>
+                        <th width="100" th:text="${c.deposit}"></th>
+                        <th width="100" th:text="${c.getTotalCost()}"></th>
+                        <th width="160"><a th:href="@{/admin/hopdong/addhopdongchitiet/__${c.id}__}">Thêm</a></th>
+                        <th width="80"><a th:href="@{/admin/hopdong/edit/__${c.id}__}">Chỉnh Sửa</a></th>
+                        <th width="40"><a th:href="@{/admin/hopdong/delete/__${c.id}__}">Xóa</a></th>
+                    </tr>
+                </table>
+                <div style="position: absolute;bottom: 10px;right: 20px">
+                    <a th:href="@{/admin/hopdong/(page=${0}, keyword=${keyword})}"
+                       th:if="${listContract.hasPrevious()}"> Trang Đầu | </a>
+                    <a th:href="@{/admin/hopdong/(page=${listContract.number - 1}, keyword=${keyword})}"
+                       th:if="${listContract.hasPrevious()}"> Trang Trước |</a>
+                    <span th:text="${listContract.number + 1}"></span> - <span
+                        th:text="${listContract.totalPages}"></span>
+                    <a th:href="@{/admin/hopdong/(page=${listContract.number + 1}, keyword=${keyword})}"
+                       th:if="${listContract.hasNext()}">| Trang sau </a>
+                    <a th:href="@{/admin/hopdong/(page=${listContract.totalPages - 1}, keyword=${keyword})}"
+                       th:if="${listContract.hasNext()}">| Trang Cuối </a>
+                </div>
+            </td>
+        </table>
+    </fieldset>
+</div>
+<footer th:replace="admin/layout::footer"></footer>
+</body>
+</html>

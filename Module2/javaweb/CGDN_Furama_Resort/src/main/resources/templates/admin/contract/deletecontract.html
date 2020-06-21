@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body style="background-image: url('https://phuongviethcm.com/wp-content/uploads/2019/07/FURAMA.png')">
+<fieldset
+        style="width: 320px;height:auto;background-color:snow;
+            position: absolute;left: 40%;top: 22%">
+    <h1 style="position: absolute;left: 30%"></h1>
+    <table style="position: absolute;top: 80px">
+        <a th:href="@{/admin/hopdong}"> < Trở về trang hợp đồng</a>
+        <form id="deleteContract" th:object="${contractByid}" method="post" th:action="@{/admin/hopdong/deleted}">
+            <input th:type="hidden" name="id" th:field="*{id}">
+            <table>
+                <tr>
+                    <th colspan="2"><h2>Bạn muốn xóa hợp đồng?</h2></th>
+                </tr>
+                <tr>
+                    <td>Tên Khách hàng:</td>
+                    <td><label style="width: 292px" th:text="*{user.name}"/></td>
+                </tr>
+                <tr>
+                    <td>Dịch vụ :</td>
+                    <td><label style="width: 292px" th:text="*{service.name}"/></td>
+                </tr>
+                <tr>
+                    <td>Nhân viên tạo hợp đồng:</td>
+                    <td><label style="width: 292px" th:text="*{staff.name}"/></td>
+                </tr>
+                <tr>
+                    <th colspan="2">
+                        <input type="button" onclick="comfirmdelete()" value="Xóa hợp đồng">
+                    </th>
+                </tr>
+            </table>
+        </form>
+        <tr></tr>
+    </table>
+</fieldset>
+<script>
+    function comfirmdelete() {
+        if (confirm("Bạn muốn xóa hợp đồng này?")) {
+            document.getElementById("deleteContract").submit();
+        } else {
+
+        }
+    }
+</script>
+</body>
+</html>

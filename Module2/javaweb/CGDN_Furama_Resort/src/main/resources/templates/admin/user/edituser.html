@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body style="background-image: url('https://phuongviethcm.com/wp-content/uploads/2019/07/FURAMA.png')">
+<fieldset
+        style="width: 400px;height:auto;background-color:snow;
+            position: absolute;left: 35%;top: 5%">
+    <h1 style="position: absolute;left: 30%"></h1>
+    <table style="position: absolute;top: 80px">
+        <form th:object="${userByid}" th:action="@{/admin/khachhang/edited}" method="post">
+            <a th:href="@{/admin/khachhang}"> < Trở về trang khách hàng </a>
+            <input th:type="hidden" name="id" th:field="*{id}">
+            <table>
+                <tr>
+                    <th colspan="2"><h2>Chỉnh sửa khách hàng</h2></th>
+                </tr>
+                <tr>
+                    <td>Tên khách hàng:</td>
+                    <td><input style="width: 292px" th:field="*{name}"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td style="color: red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></td>
+                </tr>
+                <tr>
+                    <td>Ngày sinh:</td>
+                    <td><input type="date" style="width: 292px" th:field="*{dayOfBirth}"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td style="color: red" th:if="${#fields.hasErrors('dayOfBirth')}" th:errors="*{dayOfBirth}"></td>
+                </tr>
+                <tr>
+                    <td>Số CMND:</td>
+                    <td><input style="width: 292px" th:field="*{numberOfCMND}"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td style="color: red" th:if="${#fields.hasErrors('numberOfCMND')}"
+                        th:errors="*{numberOfCMND}"></td>
+                </tr>
+                <tr>
+                    <td>Số điện thoại:</td>
+                    <td><input style="width: 292px" th:field="*{numberPhone}"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td style="color: red" th:if="${#fields.hasErrors('numberPhone')}"
+                        th:errors="*{numberPhone}"></td>
+                </tr>
+                <tr>
+                    <td>Email:</td>
+                    <td><input style="width: 292px" th:field="*{email}"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td style="color: red" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></td>
+                </tr>
+                <tr>
+                    <td>Địa chỉ:</td>
+                    <td><input style="width: 292px" th:field="*{address}"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td style="color: red" th:if="${#fields.hasErrors('address')}" th:errors="*{address}"></td>
+                </tr>
+                <tr></tr>
+                <tr></tr>
+                <tr>
+                    <td>Loại khách hàng:</td>
+                    <td>
+                        <select th:field="*{typeUser.idTypeUser}">
+                            <option th:each="p : ${typeuser}" th:value="${p.idTypeUser}"
+                                    th:text="${p.nameTypeUser}"></option>
+                        </select>
+                    </td>
+                </tr>
+                <tr></tr>
+                <tr></tr>
+                <tr></tr>
+                <tr>
+                    <th colspan="2">
+                        <input type="submit" value="Chỉnh sửa"></input>
+                    </th>
+                </tr>
+            </table>
+        </form>
+        <tr></tr>
+    </table>
+</fieldset>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body style="background-image: url('https://phuongviethcm.com/wp-content/uploads/2019/07/FURAMA.png')">
+<fieldset
+        style="width: 320px;height:auto;background-color:snow;
+            position: absolute;left: 40%;top: 22%">
+    <h1 style="position: absolute;left: 30%"></h1>
+    <table style="position: absolute;top: 80px">
+        <a th:href="@{/admin/khachhang}"> < Trở về trang khách hàng</a>
+        <form id="deleteUser" th:object="${userByid}" method="post" th:action="@{/admin/khachhang/deleted}">
+            <input th:type="hidden" name="id" th:field="*{id}">
+            <table>
+                <tr>
+                    <th colspan="2"><h2>Bạn muốn xóa khách hàng?</h2></th>
+                </tr>
+                <tr>
+                    <td>Mã khách hàng:</td>
+                    <td><label style="width: 292px" th:text="*{id}"/></td>
+                </tr>
+                <tr>
+                    <td>Tên khách hàng:</td>
+                    <td><label style="width: 292px" th:text="*{name}"/></td>
+                </tr>
+                <tr>
+                    <td>Số CMND:</td>
+                    <td><label style="width: 292px" th:text="*{numberOfCMND}"/></td>
+                </tr>
+                <tr>
+                    <td>Số điện thoại:</td>
+                    <td><label style="width: 292px" th:text="*{numberPhone}"/></td>
+                </tr>
+                <tr>
+                    <td>Địa chỉ:</td>
+                    <td><label style="width: 292px" th:text="*{address}"/></td>
+                </tr>
+                <tr>
+                    <td>email:</td>
+                    <td><label style="width: 292px" th:text="*{email}"/></td>
+                </tr>
+                <tr>
+                    <th colspan="2">
+                        <input type="button" onclick="comfirmdelete()" value="Xóa khách hàng">
+                    </th>
+                </tr>
+            </table>
+        </form>
+        <tr></tr>
+    </table>
+</fieldset>
+<script>
+    function comfirmdelete() {
+        if (confirm("Bạn muốn xóa khách hàng này?")) {
+            document.getElementById("deleteUser").submit();
+        } else {
+
+        }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>layout admin</title>
+</head>
+<header th:fragment="header">
+    <div style="padding-bottom: 130px ;background-color: mediumseagreen">
+        <a href="/"><img  src="https://furamavietnam.com/wp-content/uploads/2018/10/logo.png" width="80" height="80"
+                          style="position: absolute ;left: 60px;top: 40px"></a>
+        <h1 style="position: absolute;left: 33%;top: 5%;color: white">Furama Resort Đà Nẵng - Admin site</h1>
+        <a style="color: white;font-size: larger ;position: absolute;top: 15px;right: 15px" href="/logout">(Đăng xuất)</a>
+    </div>
+    <br>
+    <div style="height: 387px">
+        <form>
+            <table cellpadding="10" cellspacing="0" style="background-color: mediumseagreen"
+                   width="220" height="388">
+                <tr>
+                    <td><label style="color:white ">Xin chào </label><span style="color: white"
+                                                                           th:text="${staff.getStaff().name}"></span>
+                    </td>
+                </tr>
+                <tr></tr>
+                <tr>
+                    <td><a href="/admin/nhanvien" style="color: white">Nhân Viên</a></td>
+                </tr>
+                <tr>
+                    <td><a href="/admin/dichvu" style="color: white">Dịch Vụ</a></td>
+                </tr>
+                <tr>
+                    <td><a href="/admin/khachhang" style="color: white">Khách Hàng</a></td>
+                </tr>
+                <tr>
+                    <td><a href="/admin/hopdong" style="color: white">Hợp Đồng</a></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+    <br>
+</header>
+<body>
+<footer th:fragment="footer"
+        style="background-color: silver; padding: 15px">
+    <div style="text-align: center">Trần Chí Hiếu C0220G1</div>
+    <div style="text-align: center">&copy; 2020 CodeGym Đà Nẵng</div>
+</footer>
+</body>
+</html>

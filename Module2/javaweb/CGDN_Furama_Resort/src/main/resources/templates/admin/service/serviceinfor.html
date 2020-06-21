@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body style="background-image: url('https://phuongviethcm.com/wp-content/uploads/2019/07/FURAMA.png')">
+<fieldset
+        style="width: 320px;height:auto;background-color:snow;
+            position: absolute;left: 40%;top: 22%">
+    <h1 style="position: absolute;left: 30%"></h1>
+    <table style="position: absolute;top: 80px">
+        <a th:href="@{/admin/dichvu}"> < Trở về trang dịch vụ</a>
+        <form th:object="${serviceByid}">
+            <table>
+                <tr>
+                    <th colspan="2"><h2>Thông Tin Dịch Vụ</h2></th>
+                </tr>
+                <tr>
+                    <td>Mã dịch vụ:</td>
+                    <td><label style="width: 292px" th:text="*{id}"/></td>
+                </tr>
+                <tr>
+                    <td>Tên:</td>
+                    <td><label style="width: 292px" th:text="*{name}"/></td>
+                </tr>
+                <tr>
+                    <td>Diện tích sử dụng:</td>
+                    <td><label style="width: 292px" th:text="*{area}"/></td>
+                </tr>
+                <tr>
+                    <td>Số tầng:</td>
+                    <td><label style="width: 292px" th:text="*{numberOfFloor}"/></td>
+                </tr>
+                <tr>
+                    <td>Số người tối đa:</td>
+                    <td><label style="width: 292px" th:text="*{numberOfMaxPeople}"/></td>
+                </tr>
+                <tr>
+                    <td>Giá thuê:</td>
+                    <td><label style="width: 292px" th:text="*{priceOfRent}"/></td>
+                </tr>
+                <tr>
+                    <td>Trạng thái:</td>
+                    <td><label style="width: 292px" th:text="*{status}"/></td>
+                </tr>
+                <tr>
+                    <td>Loại dịch vụ:</td>
+                    <td><label style="width: 292px" th:text="*{typeService.nameTypeService}"/></td>
+                </tr>
+                <tr>
+                    <td>Kiểu thuê:</td>
+                    <td><label style="width: 292px" th:text="*{typeRent.nameTypeRent}"/></td>
+                </tr>
+            </table>
+        </form>
+        <tr></tr>
+    </table>
+</fieldset>
+</body>
+</html>
