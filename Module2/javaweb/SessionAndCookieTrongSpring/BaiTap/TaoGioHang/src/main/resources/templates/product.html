@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Product</title>
+</head>
+<body>
+<a href="/">Trở về</a><label> </label> <a href="/cart">Giỏ hàng(<label th:text="${cart.getCount()+' sản phẩm'}"></label>)</a>
+<table>
+    <tr>
+        <th>
+            <p th:text="${aproduct.get().name}"></p>
+        </th>
+    </tr>
+    <tr>
+        <th>
+            <p th:text="${aproduct.get().price}"></p>
+        </th>
+    </tr>
+    <tr>
+        <th>
+            <img th:src="${aproduct.get().imgUrl}" width="100" height="100"/>
+        </th>
+    </tr>
+    <tr>
+        <th>
+            <form th:action="@{/buy/__${aproduct.get().id}__}">
+                <input type="submit" value="Mua">
+            </form>
+        </th>
+
+    </tr>
+</table>
+</body>
+</html>
