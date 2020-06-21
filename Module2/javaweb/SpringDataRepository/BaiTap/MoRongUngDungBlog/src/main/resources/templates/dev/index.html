@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Developer of Kenh Truyen</title>
+</head>
+<body>
+<a href="/">Trở về trang chủ</a><br><br>
+<fieldset>
+    <legend>Tìm kiếm truyện</legend>
+    <form th:action="@{/dev/find}">
+        <input type="text" th:name="keyword"/>
+        <input type="submit" value="Tìm Kiếm"/>
+    </form>
+</fieldset>
+<br><br>
+<a th:href="@{/dev/create}">Viết truyện mới</a><br><br>
+</body>
+</html>

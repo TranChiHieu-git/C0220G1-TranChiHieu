@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Post</title>
+</head>
+<body>
+<a href="/dev/index">Trở về trang chủ</a>
+<br><br>
+<form th:action="@{/dev/created}" th:object="${post}" method="post">
+    <input th:type="hidden" name="id" th:field="*{id}">
+    <table>
+        <tr>
+            <td><label>Tên Truyện: </label></td>
+            <td><input type="text" th:field="*{title}" placeholder="Tên Truyện"></td>
+        </tr>
+        <tr>
+            <td>
+                <label>Thể loại: </label>
+            </td>
+            <td>
+                <select th:field="*{category}">
+                    <option th:each="p : ${categorys}" th:value="${p.id}" th:text="${p.name}"></option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td><label>Tác Giả: </label></td>
+            <td><input type="text" th:field="*{author}" placeholder="Tác giả"></td>
+        </tr>
+        <tr>
+            <td><label>Nội dung: </label></td>
+        </tr>
+        <tr></tr>
+        <td></td>
+        <td><textarea th:field="*{content}" rows="20" cols="100"></textarea></td>
+        <tr></tr>
+        <tr>
+            <th colspan="2"><input type="submit" value="Chỉnh sửa"></th>
+        </tr>
+    </table>
+
+</form>
+</body>
+</html>

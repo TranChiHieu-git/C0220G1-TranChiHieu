@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Read post</title>
+</head>
+<body>
+<a href="/">Trở về trang chủ</a>
+<h2 style="text-align: center" th:text="${readpost.title}"></h2>
+Thể loại: <label th:text="${readpost.category.name}"></label>
+<br>
+Tác giả: <label th:text="${readpost.author}"></label>
+<th><h3 th:text="${readpost.getContent()}"></h3></th>
+</body>
+</html>

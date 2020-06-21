@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Trang Chu</title>
+</head>
+<body>
+<fieldset>
+    <legend>Đăng nhập</legend>
+    <form th:action="@{/developer}">
+        <table>
+            <td><input type="text" th:name="account" placeholder="Nhập vào tài khoản"></td>
+            <td><input type="password" th:name="password" placeholder="Nhập vào mật khẩu"></td>
+            <td><input type="submit" value="Đăng nhập"></td>
+        </table>
+    </form>
+</fieldset>
+<h1 style="text-align: center">Kênh Truyện</h1>
+<fieldset>
+    <legend>Danh Mục</legend>
+    <table>
+        <td width="210"><a th:href="@{/tienhiep}">Tiên hiệp</a></td>
+        <td width="210"><a th:href="@{/trinhtham}">Trinh Thám</a></td>
+        <td width="210"><a th:href="@{/lichsu}">Lịch Sử</a></td>
+        <td width="300"><a th:href="@{/khvt}">Khoa Học Viễn Tưởng</a></td>
+        <td width="210"><a th:href="@{/thieunhi}">Thiếu Nhi</a></td>
+        <td width="210"><a th:href="@{/truyencuoi}">Truyện Cười</a></td>
+        <td width="210"><a th:href="@{/truyenma}">Truyện Ma</a></td>
+        <td width="210"><a th:href="@{/truyenvohiep}">Truyện Võ Hiệp</a></td>
+    </table>
+</fieldset>
+<br>
+<fieldset>
+    <legend>Tìm kiếm truyện</legend>
+    <form th:action="@{/user/find}">
+        <input type="text" th:name="keyword"/>
+        <input type="submit" value="Tìm Kiếm"/>
+    </form>
+</fieldset>
+<br>
+<fieldset>
+    <legend>Truyện mới cập nhật</legend>
+    <table>
+        <th:block th:each="slt : ${select}">
+            <tr>
+                <td width="700"><a th:href="@{/read/__${slt.id}__ }">
+                    <p th:text="${slt.title}"></p>
+                </a></td>
+                <td width="200" th:text="${slt.author}"></td>
+                <td width="200" th:text="${slt.category.name}"></td>
+                <td width="200" th:text="${slt.dateCreate}"></td>
+            </tr>
+        </th:block>
+    </table>
+</fieldset>
+</body>
+</html>
