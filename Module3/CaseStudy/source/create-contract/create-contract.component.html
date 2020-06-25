@@ -1,0 +1,79 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12 col-lg-12 col-sm-12">
+      <h1 class="title">Thêm Mới Khách Hàng</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12 col-lg-12 col-sm-12">
+      <form [formGroup]="createContractForm" (ngSubmit)="onSubmit()" class="col-md-6 offset-md-3">
+        <div class="form-group row">
+          <label class="col">
+            Mã hợp đồng
+            <input class="form-control" formControlName="id">
+          </label>
+        </div>
+        <div class="alert alert-danger" role="alert"
+             *ngIf="createContractForm.get('id').invalid && createContractForm.get('id').touched">
+          <span *ngIf="createContractForm.get('id').hasError('required')">mã hợp đồng không được để trống</span>
+          <span *ngIf="createContractForm.get('id').hasError('pattern')">mã hợp đồng có dạng CO-XXXX</span>
+          <span *ngIf="createContractForm.get('id').hasError('existid')">mã hợp đồng đã tồn tại</span>
+        </div>
+
+
+        <fieldset formGroupName="daycontractGroup">
+          <div class="form-group row">
+            <label class="col">
+              Ngày làm hợp đồng
+              <input class="form-control" type="date" formControlName="daymakecontract">
+            </label>
+          </div>
+          <div class="alert alert-danger" role="alert"
+               *ngIf="createContractForm.get('daycontractGroup').get('daymakecontract').invalid && createContractForm.get('daycontractGroup').get('daymakecontract').touched">
+          <span *ngIf="createContractForm.get('daycontractGroup').get('daymakecontract').hasError('required')">
+            ngày làm hợp đồng phải đúng với số ngày trong tháng hoặc số tháng trong năm và không được để trống</span>
+            <span *ngIf="createContractForm.get('daycontractGroup').get('daymakecontract').hasError('pattern')">
+            ngày làm hợp đồng không đúng định dạng dd/MM/yyyy</span>
+          </div>
+
+          <div class="form-group row">
+            <label class="col">
+              Ngày kết thúc hợp đồng
+              <input class="form-control" type="date" formControlName="dayendcontract">
+            </label>
+          </div>
+          <div class="alert alert-danger" role="alert"
+               *ngIf="createContractForm.get('daycontractGroup').get('dayendcontract').invalid && createContractForm.get('daycontractGroup').get('dayendcontract').touched">
+          <span *ngIf="createContractForm.get('daycontractGroup').get('dayendcontract').hasError('required')">
+            Ngày kết thúc hợp đồng phải đúng với số ngày trong tháng hoặc số tháng trong năm và không được để trống</span>
+            <span *ngIf="createContractForm.get('daycontractGroup').get('dayendcontract').hasError('pattern')">
+            Ngày kết thúc hợp đồng không đúng định dạng dd/MM/yyyy</span>
+          </div>
+        </fieldset>
+        <div class="alert alert-danger" role="alert" *ngIf="createContractForm.hasError('daycontractmatch', ['daycontractGroup']) &&
+      createContractForm.get('daycontractGroup').touched">
+          Ngày kết thúc hợp đồng phải lớn hơn hoặc bằng ngày làm hợp đồng
+        </div>
+
+        <div class="form-group row">
+          <label class="col">
+            Tiền đặt cọc
+            <input class="form-control" formControlName="deposit">
+          </label>
+        </div>
+        <div class="alert alert-danger" role="alert"
+             *ngIf="createContractForm.get('deposit').invalid && createContractForm.get('deposit').touched">
+          <span *ngIf="createContractForm.get('deposit').hasError('required')">
+            tiền cọc không được để trống</span>
+          <span *ngIf="createContractForm.get('deposit').hasError('pattern')">
+           tiền cọc phải là số dương</span>
+        </div>
+
+
+        <div class="form-group">
+          <button class="btn btn-info" [disabled]="createContractForm.invalid" type="submit">Thêm Mới</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

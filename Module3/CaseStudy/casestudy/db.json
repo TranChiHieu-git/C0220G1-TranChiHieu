@@ -1,0 +1,200 @@
+{
+  "typeCustomer": [
+    {
+      "id": 1,
+      "nameTypeId": "VIP"
+    },
+    {
+      "id": 2,
+      "nameTypeId": "Diamond"
+    },
+    {
+      "id": 3,
+      "nameTypeId": "Gold"
+    },
+    {
+      "id": 4,
+      "nameTypeId": "Member"
+    },
+    {
+      "id": 5,
+      "nameTypeId": "Normal"
+    }
+  ],
+  "position": [
+    {
+      "id": 1,
+      "namePosition": "Lễ tân"
+    },
+    {
+      "id": 2,
+      "namePosition": "Phục vụ"
+    },
+    {
+      "id": 3,
+      "namePosition": "Chuyên viên"
+    },
+    {
+      "id": 4,
+      "namePosition": "Giám sát"
+    },
+    {
+      "id": 5,
+      "namePosition": "Quản lý"
+    },
+    {
+      "id": 6,
+      "namePosition": "Giám đốc"
+    }
+  ],
+  "part": [
+    {
+      "id": 1,
+      "namePart": "Sale – Marketing"
+    },
+    {
+      "id": 2,
+      "namePart": "Hành Chính"
+    },
+    {
+      "id": 3,
+      "namePart": "Phục vụ"
+    },
+    {
+      "id": 4,
+      "namePart": "Quản lý"
+    }
+  ],
+  "level": [
+    {
+      "id": 1,
+      "nameLevel": "Trung cấp"
+    },
+    {
+      "id": 2,
+      "nameLevel": "Cao đẳng"
+    },
+    {
+      "id": 3,
+      "nameLevel": "Đại học"
+    },
+    {
+      "id": 4,
+      "nameLevel": "Sau đại học"
+    }
+  ],
+  "typeRent": [
+    {
+      "id": 1,
+      "nameTypeRent": "Thuê theo ngày"
+    },
+    {
+      "id": 2,
+      "nameTypeRent": "Thuê theo tuần"
+    },
+    {
+      "id": 3,
+      "nameTypeRent": "Thuê theo tháng"
+    },
+    {
+      "id": 4,
+      "nameTypeRent": "Thuê theo năm"
+    }
+  ],
+  "typeService": [
+    {
+      "id": 1,
+      "nameTypeService": "Villa"
+    },
+    {
+      "id": 2,
+      "nameTypeService": "House"
+    },
+    {
+      "id": 3,
+      "nameTypeService": "Room"
+    }
+  ],
+  "accompaniedService": [
+    {
+      "id": 1,
+      "nameAccompaniedService": "Massage",
+      "cost": "300000",
+      "turn": "1 lượt",
+      "status": "Có thể sử dụng"
+    },
+    {
+      "id": 2,
+      "nameAccompaniedService": "Karaoke",
+      "cost": "60000",
+      "turn": "1 giờ",
+      "status": "Có thể sử dụng"
+    },
+    {
+      "id": 3,
+      "nameAccompaniedService": "Thức ăn",
+      "cost": "100000",
+      "turn": "1 phần",
+      "status": "Có thể sử dụng"
+    },
+    {
+      "id": 4,
+      "nameAccompaniedService": "Nước uống",
+      "cost": "40000",
+      "turn": "1 phần",
+      "status": "Có thể sử dụng"
+    },
+    {
+      "id": 5,
+      "nameAccompaniedService": "Thuê xe tham quan",
+      "cost": "200000",
+      "turn": "1 lượt",
+      "status": "Có thể sử dụng"
+    }
+  ],
+  "statusService": [
+    {
+      "id": 1,
+      "nameStatusService": "Còn trống"
+    },
+    {
+      "id": 2,
+      "nameStatusService": "Hết phòng"
+    }
+  ],
+  "service": [
+    {
+      "id": "VL-0000",
+      "name": "Villa thuê theo ngày",
+      "area": "1000.0",
+      "numberOfFloor": "4",
+      "numberMaxOfPeople": "10",
+      "rent": "1000000",
+      "idTypeRent": "1",
+      "idTypeService": "1",
+      "status": "1"
+    },
+    {
+      "id": "HO-0000",
+      "name": "House thuê theo ngày",
+      "area": "500.0",
+      "numberOfFloor": "2",
+      "numberMaxOfPeople": "10",
+      "rent": "500000",
+      "idTypeRent": "1",
+      "idTypeService": "2",
+      "status": "1"
+    },
+    {
+      "id": "HO-0001",
+      "name": "House thuê theo tháng",
+      "area": "500.0",
+      "numberOfFloor": "2",
+      "numberMaxOfPeople": "10",
+      "rent": "500000",
+      "idTypeRent": "2",
+      "idTypeService": "2",
+      "status": "1"
+    }
+  ]
+}

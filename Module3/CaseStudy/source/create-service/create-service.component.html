@@ -1,0 +1,148 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12 col-lg-12 col-sm-12">
+      <h1 class="title">Thêm Mới Dịch Vụ</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12 col-lg-12 col-sm-12">
+      <form [formGroup]="createServiceForm" (ngSubmit)="onSubmit()" class="col-md-6 offset-md-3">
+        <fieldset formGroupName="idGroup">
+          <div class="form-group row">
+            <label class="col">
+              Loại dịch vụ
+              <select formControlName="typeservice" class="form-control">
+                <option value="">Chọn</option>
+                <option value="1">Villa</option>
+                <option value="2">House</option>
+                <option value="3">Room</option>
+              </select>
+            </label>
+          </div>
+          <div class="alert alert-danger" role="alert"
+               *ngIf="createServiceForm.get('idGroup').get('typeservice').invalid && createServiceForm.get('idGroup').get('typeservice').touched">
+            Loại dịch vụ không được để trống
+          </div>
+          <div class="form-group row">
+            <label class="col">
+              Mã dịch vụ
+              <input class="form-control" formControlName="id">
+            </label>
+          </div>
+          <div class="alert alert-danger" role="alert"
+               *ngIf="createServiceForm.get('idGroup').get('id').invalid && createServiceForm.get('idGroup').get('id').touched">
+            <span
+              *ngIf="createServiceForm.get('idGroup').get('id').hasError('required')">mã dịch vụ không được để trống</span>
+            <span
+              *ngIf="createServiceForm.get('idGroup').get('id').hasError('pattern')">mã dịch vụ phải có dạng SV-XXXX</span>
+          </div>
+        </fieldset>
+        <div class="alert alert-danger" role="alert" *ngIf="createServiceForm.hasError('idmatchtypeservice', ['idGroup']) &&
+      createServiceForm.get('idGroup').touched">
+          Mã dịch vụ không trùng khớp với loại dịch vụ
+        </div>
+        <div class="form-group row">
+          <label class="col">
+            Tên dịch vụ
+            <input class="form-control" formControlName="name">
+          </label>
+        </div>
+        <div class="alert alert-danger" role="alert"
+             *ngIf="createServiceForm.get('name').invalid && createServiceForm.get('name').touched">
+          <span *ngIf="createServiceForm.get('name').hasError('required')">tên dịch vụ không được để trống</span>
+          <span *ngIf="createServiceForm.get('name').hasError('pattern')">tên khách hàng chỉ bao gồm chữ, số và khoảng trống</span>
+          <span
+            *ngIf="createServiceForm.get('name').hasError('maxlength')">tên dịch vụ có không quá 100 số kí tự</span>
+        </div>
+        <div class="form-group row">
+          <label class="col">
+            Diện tích sử dụng
+            <input class="form-control" formControlName="area">
+          </label>
+        </div>
+        <div class="alert alert-danger" role="alert"
+             *ngIf="createServiceForm.get('area').invalid && createServiceForm.get('area').touched">
+          <span *ngIf="createServiceForm.get('area').hasError('required')">
+            diện tích sử dụng không được để trống</span>
+          <span *ngIf="createServiceForm.get('area').hasError('pattern')">
+            diện tích sử dụng phải là số dương và có dạng X.X</span>
+        </div>
+        <div class="form-group row">
+          <label class="col">
+            Số tầng
+            <input class="form-control" formControlName="numberoffloor">
+          </label>
+        </div>
+        <div class="alert alert-danger" role="alert"
+             *ngIf="createServiceForm.get('numberoffloor').invalid && createServiceForm.get('numberoffloor').touched">
+          <span *ngIf="createServiceForm.get('numberoffloor').hasError('required')">
+            số tầng không được để trống</span>
+          <span *ngIf="createServiceForm.get('numberoffloor').hasError('pattern')">
+            số tầng phải là số dương và lớn hơn 0</span>
+        </div>
+        <div class="form-group row">
+          <label class="col">
+            Số người ở tối đa
+            <input class="form-control" formControlName="numbermaxofpeople">
+          </label>
+        </div>
+        <div class="alert alert-danger" role="alert"
+             *ngIf="createServiceForm.get('numbermaxofpeople').invalid && createServiceForm.get('numbermaxofpeople').touched">
+          <span *ngIf="createServiceForm.get('numbermaxofpeople').hasError('required')">
+            số người tối đa không được để trống</span>
+          <span *ngIf="createServiceForm.get('numbermaxofpeople').hasError('pattern')">
+            số người tối đa phải là số dương và lớn hơn 0</span>
+        </div>
+        <div class="form-group row">
+          <label class="col">
+            Chi phí thuê
+            <input class="form-control" formControlName="rent">
+          </label>
+        </div>
+        <div class="alert alert-danger" role="alert"
+             *ngIf="createServiceForm.get('rent').invalid && createServiceForm.get('rent').touched">
+          <span *ngIf="createServiceForm.get('rent').hasError('required')">
+            chi phí thuê không được để trống</span>
+          <span *ngIf="createServiceForm.get('rent').hasError('pattern')">
+            chi phí thuê phải là số dương và lớn hơn 100000</span>
+        </div>
+
+        <div class="form-group row">
+          <label class="col">
+            Kiểu thuê
+            <select formControlName="typerent" class="form-control">
+              <option value="">Chọn</option>
+              <option value="1">Thuê theo ngày</option>
+              <option value="2">Thuê theo tuần</option>
+              <option value="3">Thuê theo tháng</option>
+              <option value="4">Thuê theo năm</option>
+            </select>
+          </label>
+        </div>
+        <div class="alert alert-danger" role="alert"
+             *ngIf="createServiceForm.get('typerent').invalid && createServiceForm.get('typerent').touched">
+          Kiểu thuê không được để trống
+        </div>
+
+        <div class="form-group row">
+          <label class="col">
+            Trạng thái
+            <select formControlName="status" class="form-control">
+              <option value="">Chọn</option>
+              <option value="Còn trống">Còn trống</option>
+              <option value="Hết phòng">Hết phòng</option>
+            </select>
+          </label>
+        </div>
+        <div class="alert alert-danger" role="alert"
+             *ngIf="createServiceForm.get('status').invalid && createServiceForm.get('status').touched">
+          Trạng thái không được để trống
+        </div>
+
+        <div class="form-group">
+          <button class="btn btn-info" [disabled]="createServiceForm.invalid" type="submit">Thêm Mới</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

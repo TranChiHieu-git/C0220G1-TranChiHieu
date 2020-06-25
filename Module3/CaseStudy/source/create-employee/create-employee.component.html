@@ -1,0 +1,169 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12 col-lg-12 col-sm-12">
+      <h1 class="title">Thêm Mới Nhân Viên</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12 col-lg-12 col-sm-12">
+      <form [formGroup]="createEmployeeForm" (ngSubmit)="onSubmit()" class="col-md-6 offset-md-3">
+        <div class="form-group row">
+          <label class="col">
+            Mã nhân viên
+            <input class="form-control" formControlName="id">
+          </label>
+        </div>
+        <div class="alert alert-danger" role="alert"
+             *ngIf="createEmployeeForm.get('id').invalid && createEmployeeForm.get('id').touched">
+          <span *ngIf="createEmployeeForm.get('id').hasError('required')">mã nhân viên không được để trống</span>
+          <span *ngIf="createEmployeeForm.get('id').hasError('pattern')">mã nhân viên có dạng NV-XXXX</span>
+        </div>
+        <div class="form-group row">
+          <label class="col">
+            Tên nhân viên
+            <input class="form-control" formControlName="name">
+          </label>
+        </div>
+        <div class="alert alert-danger" role="alert"
+             *ngIf="createEmployeeForm.get('name').invalid && createEmployeeForm.get('name').touched">
+          <span *ngIf="createEmployeeForm.get('name').hasError('required')">tên nhân viên không được để trống</span>
+          <span *ngIf="createEmployeeForm.get('name').hasError('pattern')">tên nhân viên chỉ bào gồm chữ, số và khoảng trống</span>
+          <span
+            *ngIf="createEmployeeForm.get('name').hasError('maxlength')">tên nhân viên có không quá 100 số kí tự</span>
+        </div>
+        <div class="form-group row">
+          <label class="col">
+            Ngày sinh
+            <input class="form-control" type="date" formControlName="birthday">
+          </label>
+        </div>
+        <div class="alert alert-danger" role="alert"
+             *ngIf="createEmployeeForm.get('birthday').invalid && createEmployeeForm.get('birthday').touched">
+          <span *ngIf="createEmployeeForm.get('birthday').hasError('required')">
+            ngày sinh phải đúng với số ngày trong tháng hoặc số tháng trong năm và không được để trống</span>
+          <span *ngIf="createEmployeeForm.get('birthday').hasError('pattern')">
+            ngày sinh khách hàng không đúng định dạng dd/MM/yyyy</span>
+        </div>
+        <div class="form-group row">
+          <label class="col">
+            Số chứng minh nhân dân
+            <input class="form-control" formControlName="numberofpassport">
+          </label>
+        </div>
+        <div class="alert alert-danger" role="alert"
+             *ngIf="createEmployeeForm.get('numberofpassport').invalid && createEmployeeForm.get('numberofpassport').touched">
+          <span *ngIf="createEmployeeForm.get('numberofpassport').hasError('required')">
+            số chứng minh nhân dân không được để trống</span>
+          <span *ngIf="createEmployeeForm.get('numberofpassport').hasError('pattern')">
+            số chứng minh nhân dân chỉ bao gồm số và có 9 hoặc 12 ký tự</span>
+        </div>
+        <div class="form-group row">
+          <label class="col">
+            Số điện thoại
+            <input class="form-control" formControlName="numberphone">
+          </label>
+        </div>
+        <div class="alert alert-danger" role="alert"
+             *ngIf="createEmployeeForm.get('numberphone').invalid && createEmployeeForm.get('numberphone').touched">
+          <span *ngIf="createEmployeeForm.get('numberphone').hasError('required')">
+            số điện thoại không được để trống</span>
+          <span *ngIf="createEmployeeForm.get('numberphone').hasError('pattern')">
+            số điện thoại phải đúng định dạng 090xxxxxxx hoặc 091xxxxxxx hoặc (84)+90xxxxxxx hoặc (84)+91xxxxxxx</span>
+        </div>
+        <div class="form-group row">
+          <label class="col">
+            Địa chỉ email
+            <input class="form-control" formControlName="email">
+          </label>
+        </div>
+        <div class="alert alert-danger" role="alert"
+             *ngIf="createEmployeeForm.get('email').invalid && createEmployeeForm.get('email').touched">
+          <span *ngIf="createEmployeeForm.get('email').hasError('required')">
+            email không được để trống</span>
+          <span *ngIf="createEmployeeForm.get('email').hasError('pattern')">
+            email không đúng định dạng</span>
+        </div>
+        <div class="form-group row">
+          <label class="col">
+            Địa chỉ
+            <input class="form-control" formControlName="address">
+          </label>
+        </div>
+        <div class="alert alert-danger" role="alert"
+             *ngIf="createEmployeeForm.get('address').invalid && createEmployeeForm.get('address').touched">
+          <span *ngIf="createEmployeeForm.get('address').hasError('required')">
+            địa chỉ không được để trống</span>
+          <span *ngIf="createEmployeeForm.get('address').hasError('pattern')">
+            địa chỉ bao gồm chữ, số, khoảng trống, kí tự / và -</span>
+        </div>
+        <div class="form-group row">
+          <label class="col">
+            Lương
+            <input class="form-control" formControlName="salary">
+          </label>
+        </div>
+        <div class="alert alert-danger" role="alert"
+             *ngIf="createEmployeeForm.get('salary').invalid && createEmployeeForm.get('salary').touched">
+          <span *ngIf="createEmployeeForm.get('salary').hasError('required')">
+            lương không được để trống</span>
+          <span *ngIf="createEmployeeForm.get('salary').hasError('pattern')">
+            lương là số dương</span>
+        </div>
+        <div class="form-group row">
+          <label class="col">
+            Vị trí
+            <select formControlName="position" class="form-control">
+              <option value="">Chọn</option>
+              <option value="1">Lễ tân</option>
+              <option value="2">Phục vụ</option>
+              <option value="3">Chuyên viên</option>
+              <option value="4">Giám sát</option>
+              <option value="5">Quản lý</option>
+              <option value="6">Giám đốc</option>
+            </select>
+          </label>
+        </div>
+        <div class="alert alert-danger" role="alert"
+             *ngIf="createEmployeeForm.get('position').invalid && createEmployeeForm.get('position').touched">
+          Vị trí không được để trống
+        </div>
+        <div class="form-group row">
+          <label class="col">
+            Trình độ
+            <select formControlName="level" class="form-control">
+              <option value="">Chọn</option>
+              <option value="1">Trung cấp</option>
+              <option value="2">Cao đẳng</option>
+              <option value="3">Đại học</option>
+              <option value="4">Sau đại học</option>
+            </select>
+          </label>
+        </div>
+        <div class="alert alert-danger" role="alert"
+             *ngIf="createEmployeeForm.get('level').invalid && createEmployeeForm.get('level').touched">
+          trình độ không được để trống
+        </div>
+        <div class="form-group row">
+          <label class="col">
+            Bộ phận làm việc
+            <select formControlName="part" class="form-control">
+              <option value="">Chọn</option>
+              <option value="1">Sale – Marketing</option>
+              <option value="2">Hành Chính</option>
+              <option value="3">Phục vụ</option>
+              <option value="4">Quản lý</option>
+            </select>
+          </label>
+        </div>
+        <div class="alert alert-danger" role="alert"
+             *ngIf="createEmployeeForm.get('part').invalid && createEmployeeForm.get('part').touched">
+          Bộ phận làm việc không được để trống
+        </div>
+        <div class="form-group">
+          <button class="btn btn-info" [disabled]="createEmployeeForm.invalid" type="submit">Thêm Mới</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
