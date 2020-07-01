@@ -4,10 +4,11 @@
     <div>
       <nav class="navbar navbar-light px-0">
         <a class="btn btn-primary" [routerLink]="'/service/create'" role="button">Thêm mới dịch vụ</a>
-        <form class="form-inline">
-          <input class="form-control mr-sm-2 search" type="search" placeholder="Nhập mã dịch vụ hoặc tên dịch vụ"
-                 aria-label="Search">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Tìm kiếm</button>
+        <form class="form-inline" [formGroup]="searchServiceForm" (ngSubmit)="onSearch()">
+          <input class="form-control mr-sm-2 search" type="search"
+                 placeholder="Nhập mã dịch vụ hoặc tên dịch vụ"
+                 aria-label="Search" formControlName="key">
+          <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Tìm kiếm</button>
         </form>
       </nav>
     </div>
@@ -28,17 +29,18 @@
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let service of serviceList, index as i">
-      <td class="content" scope="row" (click)="abc()">{{i + 1}}</td>
-      <td class="content" (click)="abc()"><a>{{service.id}}</a></td>
-      <td class="content" (click)="abc()">{{service.name}}</td>
-      <td class="content" (click)="abc()">{{service.area}}</td>
-      <td class="content" (click)="abc()">{{service.numberOfFloor}}</td>
-      <td class="content" (click)="abc()">{{service.numberMaxOfPeople}}</td>
-      <td class="content" (click)="abc()">{{service.rent}}</td>
-      <td class="content" (click)="abc()">{{service.status}}</td>
+    <tr *ngFor="let service of serviceList| paginate: { itemsPerPage: 6, currentPage: p }; let i = index">
+      <td class="content" scope="row"
+          (click)="showDetailsInfor(service.id)">{{serviceList.length - (serviceList.length - (i + 1))}}</td>
+      <td class="content" (click)="showDetailsInfor(service.id)"><a>{{service.id}}</a></td>
+      <td class="content" (click)="showDetailsInfor(service.id)">{{service.name}}</td>
+      <td class="content" (click)="showDetailsInfor(service.id)">{{service.area}}</td>
+      <td class="content" (click)="showDetailsInfor(service.id)">{{service.numberOfFloor}}</td>
+      <td class="content" (click)="showDetailsInfor(service.id)">{{service.numberMaxOfPeople}}</td>
+      <td class="content" (click)="showDetailsInfor(service.id)">{{service.rent}}</td>
+      <td class="content" (click)="showDetailsInfor(service.id)">{{service.status}}</td>
       <td class="edit px-0">
-        <a class="btn btn-primary" [routerLink]="['service/edit',service.id]" role="button">Chỉnh sửa</a>
+        <a class="btn btn-primary" [routerLink]="['/service/update',service.id]" role="button">Chỉnh sửa</a>
       </td>
       <td class="delete px-0">
         <button class="btn btn-danger" (click)="deleteServiceById(service.id)" role="button">Xóa</button>
@@ -46,6 +48,63 @@
     </tr>
     </tbody>
   </table>
+  <div>
+    <pagination-controls (pageChange)="p = $event" class="paging"></pagination-controls>
+  </div>
+  <!-- dialog -->
+  <div *ngIf="serviceInfor">
+    <div class="modal" tabindex="-1" role="dialog" id="myModal">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-body inforpage">
+            <button type="button" class="close" data-dismiss="modal" id="close" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <h1 class="title">Thông tin chi tiết dịch vụ</h1>
+            <table class="infortable">
+              <tr>
+                <td>Loại dịch vụ:</td>
+                <th>{{serviceInfor.idTypeService}}</th>
+              </tr>
+              <tr>
+                <td>Mã dịch vụ:</td>
+                <th>{{serviceInfor.id}}</th>
+              </tr>
+              <tr>
+                <td>Tên dịch vụ:</td>
+                <th>{{serviceInfor.name}}</th>
+              </tr>
+              <tr>
+                <td>Diện tích sử dụng:</td>
+                <th>{{serviceInfor.area}} m2</th>
+              </tr>
+              <tr>
+                <td>Số tầng:</td>
+                <th>{{serviceInfor.numberOfFloor}} tầng</th>
+              </tr>
+              <tr>
+                <td>Số người sử dụng tối đa:</td>
+                <th>{{serviceInfor.numberMaxOfPeople}} người</th>
+              </tr>
+              <tr>
+                <td>Chi phí thuê:</td>
+                <th>{{serviceInfor.rent}} vnd</th>
+              </tr>
+              <tr>
+                <td>Kiểu thuê:</td>
+                <th>{{serviceInfor.idTypeRent}}</th>
+              </tr>
+              <tr>
+                <td>Trạng thái:</td>
+                <th>{{serviceInfor.status}}</th>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
+
 
 

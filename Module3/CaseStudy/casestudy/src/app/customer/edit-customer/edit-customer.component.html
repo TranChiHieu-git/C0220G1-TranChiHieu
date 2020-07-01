@@ -1,0 +1,133 @@
+<div class="container">
+  <div class="row">
+    <div class="col-4 mt-2">
+      <a [routerLink]="'/customer/list'" class="btn btn-primary">
+        <span class="badge badge-light">< </span> Trở về trang danh sách
+      </a>
+    </div>
+    <div class="col-8">
+      <div class="col-md-12 col-lg-12 col-sm-12">
+        <h1 class="title">Thêm Mới Khách Hàng</h1>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12 col-lg-12 col-sm-12">
+      <form [formGroup]="editCustomerForm" (ngSubmit)="onSubmit()" class="col-md-6 offset-md-3">
+        <div class="form-group row" disabled hidden>
+          <label class="col">
+            Mã khách hàng
+            <input class="form-control" formControlName="id">
+          </label>
+        </div>
+        <div class="alert alert-danger" role="alert"
+             *ngIf="editCustomerForm.get('id').invalid && editCustomerForm.get('id').touched">
+          <span *ngIf="editCustomerForm.get('id').hasError('required')">mã khách hàng không được để trống</span>
+          <span *ngIf="editCustomerForm.get('id').hasError('pattern')">mã khách hàng có dạng KH-XXXX</span>
+          <span *ngIf="editCustomerForm.get('id').hasError('idExist')">mã khách hàng đã tồn tại</span>
+        </div>
+        <div class="form-group row">
+          <label class="col">
+            Tên khách hàng
+            <input class="form-control" formControlName="name">
+          </label>
+        </div>
+        <div class="alert alert-danger" role="alert"
+             *ngIf="editCustomerForm.get('name').invalid && editCustomerForm.get('name').touched">
+          <span *ngIf="editCustomerForm.get('name').hasError('required')">tên khách hàng không được để trống</span>
+          <span *ngIf="editCustomerForm.get('name').hasError('pattern')">tên khách hàng chỉ bào gồm chữ, số và khoảng trống</span>
+          <span
+            *ngIf="editCustomerForm.get('name').hasError('maxlength')">tên khách hàng có không quá 100 số kí tự</span>
+        </div>
+        <div class="form-group row">
+          <label class="col">
+            Ngày sinh
+            <input class="form-control" type="date" formControlName="birthday">
+          </label>
+        </div>
+        <div class="alert alert-danger" role="alert"
+             *ngIf="editCustomerForm.get('birthday').invalid && editCustomerForm.get('birthday').touched">
+          <span *ngIf="editCustomerForm.get('birthday').hasError('required')">
+            ngày sinh phải đúng với số ngày trong tháng hoặc số tháng trong năm và không được để trống</span>
+          <span *ngIf="editCustomerForm.get('birthday').hasError('pattern')">
+            ngày sinh khách hàng không đúng định dạng dd/MM/yyyy</span>
+        </div>
+        <div class="form-group row">
+          <label class="col">
+            Số chứng minh nhân dân
+            <input class="form-control" formControlName="identificationCard">
+          </label>
+        </div>
+        <div class="alert alert-danger" role="alert"
+             *ngIf="editCustomerForm.get('identificationCard').invalid && editCustomerForm.get('identificationCard').touched">
+          <span *ngIf="editCustomerForm.get('identificationCard').hasError('required')">
+            số chứng minh nhân dân không được để trống</span>
+          <span *ngIf="editCustomerForm.get('identificationCard').hasError('pattern')">
+            số chứng minh nhân dân chỉ bao gồm số và có 9 hoặc 12 ký tự</span>
+          <span *ngIf="editCustomerForm.get('identificationCard').hasError('identificationCardExist')">
+            số chứng minh nhân dân đã được sử dụng</span>
+        </div>
+        <div class="form-group row">
+          <label class="col">
+            Số điện thoại
+            <input class="form-control" formControlName="numberPhone">
+          </label>
+        </div>
+        <div class="alert alert-danger" role="alert"
+             *ngIf="editCustomerForm.get('numberPhone').invalid && editCustomerForm.get('numberPhone').touched">
+          <span *ngIf="editCustomerForm.get('numberPhone').hasError('required')">
+            số điện thoại không được để trống</span>
+          <span *ngIf="editCustomerForm.get('numberPhone').hasError('pattern')">
+            số điện thoại phải đúng định dạng 090xxxxxxx hoặc 091xxxxxxx hoặc (84)+90xxxxxxx hoặc (84)+91xxxxxxx</span>
+        </div>
+        <div class="form-group row">
+          <label class="col">
+            Địa chỉ email
+            <input class="form-control" formControlName="email">
+          </label>
+        </div>
+        <div class="alert alert-danger" role="alert"
+             *ngIf="editCustomerForm.get('email').invalid && editCustomerForm.get('email').touched">
+          <span *ngIf="editCustomerForm.get('email').hasError('required')">
+            email không được để trống</span>
+          <span *ngIf="editCustomerForm.get('email').hasError('pattern')">
+            email không đúng định dạng</span>
+          <span *ngIf="editCustomerForm.get('email').hasError('emailExist')">
+            email đã được sử dụng</span>
+        </div>
+        <div class="form-group row">
+          <label class="col">
+            Địa chỉ
+            <input class="form-control" formControlName="address">
+          </label>
+        </div>
+        <div class="alert alert-danger" role="alert"
+             *ngIf="editCustomerForm.get('address').invalid && editCustomerForm.get('address').touched">
+          <span *ngIf="editCustomerForm.get('address').hasError('required')">
+            địa chỉ không được để trống</span>
+          <span *ngIf="editCustomerForm.get('address').hasError('pattern')">
+            địa chỉ bao gồm chữ, số, khoảng trống, kí tự / và -</span>
+        </div>
+        <div class="form-group row">
+          <label class="col">
+            Loại khách hàng
+            <select formControlName="idtypecustomer" class="form-control">
+              <option value="">Chọn</option>
+              <ng-container *ngFor="let typecustomer of TypeCustomerList">
+                <option value="{{typecustomer.id}}">{{typecustomer.nameTypeId}}</option>
+              </ng-container>
+            </select>
+          </label>
+        </div>
+        <div class="alert alert-danger" role="alert"
+             *ngIf="editCustomerForm.get('idtypecustomer').invalid && editCustomerForm.get('idtypecustomer').touched">
+          Loại khách hàng không được để trống
+        </div>
+        <div class="form-group">
+          <button class="btn btn-info" [disabled]="editCustomerForm.invalid" type="submit">Chỉnh sửa</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+

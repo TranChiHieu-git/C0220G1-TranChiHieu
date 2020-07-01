@@ -1,0 +1,115 @@
+<div class="container">
+  <h1 class="title">Danh sách nhân viên</h1>
+  <div>
+    <div>
+      <nav class="navbar navbar-light px-0">
+        <a class="btn btn-primary" [routerLink]="'/employee/create'" role="button">Thêm mới nhân viên</a>
+        <form class="form-inline" [formGroup]="searchEmployeeForm" (ngSubmit)="onSearch()">
+          <input class="form-control mr-sm-2 search" type="search"
+                 placeholder="Nhập tên nhân viên"
+                 aria-label="Search" formControlName="key">
+          <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Tìm kiếm</button>
+        </form>
+      </nav>
+    </div>
+  </div>
+  <table class="table">
+    <thead class="thead-light">
+    <tr>
+      <th scope="col">STT</th>
+      <th scope="col">Mã nhân viên</th>
+      <th scope="col">Tên nhân viên</th>
+      <th scope="col">Số chứng minh thư</th>
+      <th scope="col">Số điện thoại</th>
+      <th scope="col">Địa chỉ</th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let employee of employeeList| paginate: { itemsPerPage: 6, currentPage: p }; let i = index">
+      <td class="content" scope="row"
+          (click)="showDetailsInfor(employee.id)">{{employeeList.length - (employeeList.length - (i + 1))}}</td>
+      <td class="content" (click)="showDetailsInfor(employee.id)"><a>{{employee.id}}</a></td>
+      <td class="content" (click)="showDetailsInfor(employee.id)">{{employee.name}}</td>
+      <td class="content" (click)="showDetailsInfor(employee.id)">{{employee.identificationCard}}</td>
+      <td class="content" (click)="showDetailsInfor(employee.id)">{{employee.numberPhone}}</td>
+      <td class="content" (click)="showDetailsInfor(employee.id)">{{employee.address}}</td>
+      <td class="edit px-0">
+        <a class="btn btn-primary" [routerLink]="['/employee/update',employee.id]" role="button">Chỉnh sửa</a>
+      </td>
+      <td class="delete px-0">
+        <button class="btn btn-danger" (click)="deleteEmployeeById(employee.id)" role="button">Xóa</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <div>
+    <pagination-controls (pageChange)="p = $event" class="paging"></pagination-controls>
+  </div>
+  <!-- dialog -->
+  <div *ngIf="employeeInfor">
+    <div class="modal" tabindex="-1" role="dialog" id="myModal">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-body inforpage">
+            <button type="button" class="close" data-dismiss="modal" id="close" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <h1 class="title">Thông tin chi tiết nhân viên</h1>
+            <table class="infortable">
+              <tr>
+                <td>Mã nhân viên:</td>
+                <th>{{employeeInfor.id}}</th>
+              </tr>
+              <tr>
+                <td>Tên nhân viên:</td>
+                <th>{{employeeInfor.name}}</th>
+              </tr>
+              <tr>
+                <td>Ngày sinh:</td>
+                <th>{{employeeInfor.birthday}}</th>
+              </tr>
+              <tr>
+                <td>Số CMND:</td>
+                <th>{{employeeInfor.identificationCard}}</th>
+              </tr>
+              <tr>
+                <td>Email:</td>
+                <th>{{employeeInfor.email}}</th>
+              </tr>
+              <tr>
+                <td>Lương:</td>
+                <th>{{employeeInfor.salary}} VND</th>
+              </tr>
+              <tr>
+                <td>Số điện thoại:</td>
+                <th>{{employeeInfor.numberPhone}}</th>
+              </tr>
+              <tr>
+                <td>Địa chỉ:</td>
+                <th>{{employeeInfor.address}}</th>
+              </tr>
+              <tr>
+                <td>Vị trí:</td>
+                <th>{{employeeInfor.idPos}}</th>
+              </tr>
+              <tr>
+                <td>Trình độ:</td>
+                <th>{{employeeInfor.idLevel}}</th>
+              </tr>
+              <tr>
+                <td>Bộ phận:</td>
+                <th>{{employeeInfor.idPart}}</th>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+

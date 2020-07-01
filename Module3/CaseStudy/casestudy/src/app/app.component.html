@@ -1,17 +1,20 @@
 <div class="container-fluid">
   <div class="row outborder">
     <div class="col-2 leftshape px-0 pt-3 bg-light fixed-top">
-      <div class="borderimg">
-        <img src="https://static.ybox.vn/2018/1/9/24c429e0-f4e8-11e7-91b5-2e995a9a3302.jpg"
-             class="rounded-circle logo" alt="Cinque Terre">
-        <h2 class="pt-1 font-weight-bold">Codegym Đà Nẵng</h2>
-      </div>
+      <button [routerLink]="'/'" class="btn">
+        <div class="borderimg">
+          <img src="https://static.ybox.vn/2018/1/9/24c429e0-f4e8-11e7-91b5-2e995a9a3302.jpg"
+               class="rounded-circle logo" alt="Cinque Terre">
+          <h2 class="pt-1 font-weight-bold">Codegym Đà Nẵng</h2>
+        </div>
+      </button>
       <div class="list-group mt-5 ">
         <a [routerLink]="'/service/list'" class="pt-3 pb-3 listQL list-group-item-action bg-light">Quản lý dịch vụ</a>
-        <a href="#" class="pt-3 pb-3 listQL list-group-item-action bg-light">Quản lý nhân viên</a>
-        <a href="#" class="pt-3 pb-3 listQL list-group-item-action bg-light">Quản lý khách hàng</a>
-        <a href="#" class="pt-3 pb-3 listQL list-group-item-action bg-light">Quản lý hợp đồng</a>
-        <a href="#" class="pt-3 pb-3 listQL list-group-item-action bg-light">Quản lý hợp đồng chi tiết</a>
+        <a [routerLink]="'/employee/list'" class="pt-3 pb-3 listQL list-group-item-action bg-light">Quản lý nhân
+          viên</a>
+        <a [routerLink]="'/customer/list'" class="pt-3 pb-3 listQL list-group-item-action bg-light">Quản lý khách
+          hàng</a>
+        <a [routerLink]="'/contract/list'" class="pt-3 pb-3 listQL list-group-item-action bg-light">Quản lý hợp đồng</a>
       </div>
     </div>
     <div class="col-10 rightshape px-0 ">

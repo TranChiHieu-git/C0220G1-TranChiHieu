@@ -1,0 +1,109 @@
+<div class="container">
+  <h1 class="title">Danh sách hợp đồng</h1>
+  <div>
+    <div>
+      <nav class="navbar navbar-light px-0">
+        <a class="btn btn-primary" [routerLink]="'/contract/create'" role="button">Thêm mới hợp đồng</a>
+        <form class="form-inline" [formGroup]="searchContractForm" (ngSubmit)="onSearch()">
+          <input class="form-control mr-sm-2 search" type="search"
+                 placeholder="Nhập tên khách hàng"
+                 aria-label="Search" formControlName="key">
+          <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Tìm kiếm</button>
+        </form>
+      </nav>
+    </div>
+  </div>
+  <table class="table">
+    <thead class="thead-light">
+    <tr>
+      <th scope="col">STT</th>
+      <th scope="col">Mã hợp đồng</th>
+      <th scope="col">Tên nhân viên</th>
+      <th scope="col">Tên khách hàng</th>
+      <th scope="col">Tên dịch vụ sử dụng</th>
+      <th scope="col">Tổng tiền</th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let contract of contractList| paginate: { itemsPerPage: 6, currentPage: p }; let i = index">
+      <td class="content" scope="row"
+          (click)="showDetailsInfor(contract.id)">{{contractList.length - (contractList.length - (i + 1))}}</td>
+      <td class="content" (click)="showDetailsInfor(contract.id)"><a>{{contract.id}}</a></td>
+      <td class="content" (click)="showDetailsInfor(contract.id)">{{contract.idEmployee}}</td>
+      <td class="content" (click)="showDetailsInfor(contract.id)">{{contract.idCustomer}}</td>
+      <td class="content" (click)="showDetailsInfor(contract.id)">{{contract.idService}}</td>
+      <td class="content" (click)="showDetailsInfor(contract.id)">{{contract.totalAmount}}</td>
+      <td class="addcontractdetail px-0">
+        <a class="btn btn-success" [routerLink]="['/contract/contractdetails/create',contract.id]" role="button">
+          Thêm/xem hợp đồng chi tiết
+        </a>
+      </td>
+      <td class="edit px-0">
+        <a class="btn btn-primary" [routerLink]="['/contract/update',contract.id]" role="button">Chỉnh sửa</a>
+      </td>
+      <td class="delete px-0">
+        <button class="btn btn-danger" (click)="deleteCustomerById(contract.id)" role="button">Xóa</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <div>
+    <pagination-controls (pageChange)="p = $event" class="paging"></pagination-controls>
+  </div>
+  <!-- dialog -->
+  <div *ngIf="contractInfor">
+    <div class="modal" tabindex="-1" role="dialog" id="myModal">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-body inforpage">
+            <button type="button" class="close" data-dismiss="modal" id="close" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <h1 class="title">Thông tin chi tiết khách hàng</h1>
+            <table class="infortable">
+              <tr>
+                <td>Mã hợp đồng:</td>
+                <th>{{contractInfor.id}}</th>
+              </tr>
+              <tr>
+                <td>Tên nhân viên làm hợp đồng:</td>
+                <th>{{contractInfor.idEmployee}}</th>
+              </tr>
+              <tr>
+                <td>Tên khách hàng:</td>
+                <th>{{contractInfor.idCustomer}}</th>
+              </tr>
+              <tr>
+                <td>Tên dịch vụ sử dụng:</td>
+                <th>{{contractInfor.idService}}</th>
+              </tr>
+              <tr>
+                <td>Ngày làm hợp đồng:</td>
+                <th>{{contractInfor.dateMakeContract}}</th>
+              </tr>
+              <tr>
+                <td>Ngày kết thúc hợp đồng:</td>
+                <th>{{contractInfor.dateEndContract}}</th>
+              </tr>
+              <tr>
+                <td>Tiền đặt cọc:</td>
+                <th>{{contractInfor.deposit}}</th>
+              </tr>
+              <tr>
+                <td>Tổng tiền:</td>
+                <th>{{contractInfor.totalAmount}}</th>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+

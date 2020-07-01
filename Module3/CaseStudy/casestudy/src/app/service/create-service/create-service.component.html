@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container">
   <div class="row">
     <div class="col-4 mt-2">
       <a [routerLink]="'/service/list'" class="btn btn-primary">
@@ -10,7 +10,6 @@
         <h1 class="title">Thêm Mới Dịch Vụ</h1>
       </div>
     </div>
-
   </div>
   <div class="row">
     <div class="col-md-12 col-lg-12 col-sm-12">
@@ -43,6 +42,8 @@
               *ngIf="createServiceForm.get('idGroup').get('id').hasError('required')">mã dịch vụ không được để trống</span>
             <span
               *ngIf="createServiceForm.get('idGroup').get('id').hasError('pattern')">mã dịch vụ phải có dạng SV-XXXX</span>
+            <span
+              *ngIf="createServiceForm.get('idGroup').get('id').hasError('idExist')">mã dịch vụ đã tồn tại</span>
           </div>
         </fieldset>
         <div class="alert alert-danger" role="alert" *ngIf="createServiceForm.hasError('idmatchtypeservice', ['idGroup']) &&

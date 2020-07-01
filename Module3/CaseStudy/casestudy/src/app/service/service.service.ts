@@ -47,6 +47,22 @@ export class ServiceService {
     return this.httpClient.get<Service[]>(this.API_SERVICE_URL);
   }
 
+  findAllServiceById(key: string): Observable<Service[]> {
+    return this.httpClient.get<Service[]>(this.API_SERVICE_URL + '?id_like=' + key);
+  }
+
+  findAllServiceByName(key: string): Observable<Service[]> {
+    return this.httpClient.get<Service[]>(this.API_SERVICE_URL + '?name_like=' + key);
+  }
+
+  findServiceById(id: string): Observable<Service> {
+    return this.httpClient.get<Service>(this.API_SERVICE_URL + '/' + id);
+  }
+
+  update(service: Partial<Service>): Observable<Service> {
+    return this.httpClient.put<Service>(this.API_SERVICE_URL + '/' + service.id, service);
+  }
+
   create(service: Partial<Service>): Observable<Service> {
     return this.httpClient.post<Service>(this.API_SERVICE_URL, service);
   }

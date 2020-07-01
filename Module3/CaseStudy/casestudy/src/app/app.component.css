@@ -4,6 +4,7 @@
 
 .leftshape {
   height: 100%;
+  width: 36vh;
   border-right: 2px solid #394984;
 }
 
@@ -20,10 +21,14 @@
   width: 100%;
   height: auto;
   text-align: center;
+  color: black;
+  cursor: pointer;
+  text-decoration: none;
 }
 
 .logo {
   width: 60%;
   height: auto;
 }
+
 

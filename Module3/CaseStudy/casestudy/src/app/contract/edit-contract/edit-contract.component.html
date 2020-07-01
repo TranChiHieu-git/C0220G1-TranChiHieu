@@ -1,0 +1,135 @@
+<div class="container">
+  <div class="row">
+    <div class="col-4 mt-2">
+      <a [routerLink]="'/contract/list'" class="btn btn-primary">
+        <span class="badge badge-light">< </span> Trở về trang danh sách
+      </a>
+    </div>
+    <div class="col-8">
+      <div class="col-md-12 col-lg-12 col-sm-12">
+        <h1 class="title">Chỉnh Sửa Hợp Đồng</h1>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12 col-lg-12 col-sm-12">
+      <form [formGroup]="editContractForm" (ngSubmit)="onSubmit()" class="col-md-6 offset-md-3">
+        <div class="form-group row" hidden disabled>
+          <label class="col">
+            Mã hợp đồng
+            <input class="form-control" formControlName="id">
+          </label>
+        </div>
+        <div class="alert alert-danger" role="alert"
+             *ngIf="editContractForm.get('id').invalid && editContractForm.get('id').touched">
+          <span *ngIf="editContractForm.get('id').hasError('required')">mã hợp đồng không được để trống</span>
+          <span *ngIf="editContractForm.get('id').hasError('pattern')">mã hợp đồng có dạng HD-XXXX</span>
+          <span *ngIf="editContractForm.get('id').hasError('idExist')">mã hợp đồng đã tồn tại</span>
+        </div>
+        <div class="form-group row">
+          <label class="col">
+            Nhân viên tạo hợp đồng
+            <select formControlName="idEmployee" class="form-control">
+              <option value="">Chọn</option>
+              <ng-container *ngFor="let employee of EmployeeList">
+                <option value="{{employee.id}}">{{employee.name}}</option>
+              </ng-container>
+            </select>
+          </label>
+        </div>
+        <div class="alert alert-danger" role="alert"
+             *ngIf="editContractForm.get('idEmployee').invalid && editContractForm.get('idEmployee').touched">
+          Nhân viên tạo hợp đồng không được để trống
+        </div>
+        <div class="form-group row">
+          <label class="col">
+            Khách hàng sử dụng dịch vụ
+            <select formControlName="idCustomer" class="form-control">
+              <option value="">Chọn</option>
+              <ng-container *ngFor="let customer of CustomerList">
+                <option value="{{customer.id}}">{{customer.name}}</option>
+              </ng-container>
+            </select>
+          </label>
+        </div>
+        <div class="alert alert-danger" role="alert"
+             *ngIf="editContractForm.get('idCustomer').invalid && editContractForm.get('idCustomer').touched">
+          Khách hàng sử dụng dịch vụ không được để trống
+        </div>
+        <div class="form-group row">
+          <label class="col">
+            Dịch vụ sử dụng
+            <select formControlName="idService" class="form-control">
+              <option value="">Chọn</option>
+              <ng-container *ngFor="let service of ServiceList">
+                <option value="{{service.id}}">{{service.name}}</option>
+              </ng-container>
+            </select>
+          </label>
+        </div>
+        <div class="alert alert-danger" role="alert"
+             *ngIf="editContractForm.get('idService').invalid && editContractForm.get('idService').touched">
+          Dịch vụ sử dụng không được để trống
+        </div>
+
+        <fieldset formGroupName="dayContractGroup">
+          <div class="form-group row">
+            <label class="col">
+              Ngày làm hợp đồng
+              <input class="form-control" type="date" formControlName="dateMakeContract">
+            </label>
+          </div>
+          <div class="alert alert-danger" role="alert"
+               *ngIf="editContractForm.get('dayContractGroup').get('dateMakeContract').invalid && editContractForm.get('dayContractGroup').get('dateMakeContract').touched">
+          <span *ngIf="editContractForm.get('dayContractGroup').get('dateMakeContract').hasError('required')">
+            ngày làm hợp đồng phải đúng với số ngày trong tháng hoặc số tháng trong năm và không được để trống</span>
+            <span *ngIf="editContractForm.get('dayContractGroup').get('dateMakeContract').hasError('pattern')">
+            ngày làm hợp đồng không đúng định dạng dd/MM/yyyy</span>
+            <span *ngIf="editContractForm.get('dayContractGroup').get('dateMakeContract').hasError('compareDayNow')">
+            ngày làm hợp đồng phải lớn hơn hoặc bằng ngày hiện tại</span>
+          </div>
+          <div class="form-group row">
+            <label class="col">
+              Ngày kết thúc hợp đồng
+              <input class="form-control" type="date" formControlName="dateEndContract">
+            </label>
+          </div>
+          <div class="alert alert-danger" role="alert"
+               *ngIf="editContractForm.get('dayContractGroup').get('dateEndContract').invalid && editContractForm.get('dayContractGroup').get('dateEndContract').touched">
+          <span *ngIf="editContractForm.get('dayContractGroup').get('dateEndContract').hasError('required')">
+            Ngày kết thúc hợp đồng phải đúng với số ngày trong tháng hoặc số tháng trong năm và không được để trống</span>
+            <span *ngIf="editContractForm.get('dayContractGroup').get('dateEndContract').hasError('pattern')">
+            Ngày kết thúc hợp đồng không đúng định dạng dd/MM/yyyy</span>
+          </div>
+        </fieldset>
+        <div class="alert alert-danger" role="alert" *ngIf="editContractForm.hasError('daycontractmatch', ['dayContractGroup']) &&
+      editContractForm.get('dayContractGroup').touched">
+          Ngày kết thúc hợp đồng phải lớn hơn hoặc bằng ngày làm hợp đồng
+        </div>
+        <div class="form-group row">
+          <label class="col">
+            Tiền đặt cọc
+            <input class="form-control" formControlName="deposit">
+          </label>
+        </div>
+        <div class="alert alert-danger" role="alert"
+             *ngIf="editContractForm.get('deposit').invalid && editContractForm.get('deposit').touched">
+          <span *ngIf="editContractForm.get('deposit').hasError('required')">
+            tiền cọc không được để trống</span>
+          <span *ngIf="editContractForm.get('deposit').hasError('pattern')">
+           tiền cọc phải là số dương</span>
+        </div>
+        <div class="form-group row" hidden disabled>
+          <label class="col">
+            Tổng tiền phải trả
+            <input class="form-control" formControlName="totalAmount">
+          </label>
+        </div>
+        <div class="form-group">
+          <button class="btn btn-info" [disabled]="editContractForm.invalid" type="submit">Chỉnh sửa</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+

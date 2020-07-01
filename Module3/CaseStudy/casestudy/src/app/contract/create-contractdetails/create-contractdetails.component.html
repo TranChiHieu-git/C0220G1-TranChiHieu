@@ -1,0 +1,94 @@
+<div class="container">
+  <div class="row">
+    <div class="col-4 mt-2">
+      <a [routerLink]="'/contract/list'" class="btn btn-primary">
+        <span class="badge badge-light">< </span> Trở về trang danh sách
+      </a>
+    </div>
+    <div class="col-8">
+      <div class="col-md-12 col-lg-12 col-sm-12">
+        <h1 class="title">Thêm Hợp đồng chi tiết</h1>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12 col-lg-12 col-sm-12">
+      <form [formGroup]="createContractDetailForm" (ngSubmit)="onSubmit()" class="col-md-6 offset-md-3">
+        <div class="form-group row" hidden disabled>
+          <label class="col">
+            Mã hợp đồng
+            <input class="form-control" formControlName="id">
+          </label>
+        </div>
+        <div class="form-group row" hidden disabled>
+          <label class="col">
+            Mã hợp đồng
+            <input class="form-control" formControlName="idContract">
+          </label>
+        </div>
+        <div class="alert alert-danger" role="alert"
+             *ngIf="createContractDetailForm.get('idContract').invalid && createContractDetailForm.get('idContract').touched">
+          <span
+            *ngIf="createContractDetailForm.get('idContract').hasError('required')">mã hợp đồng không được để trống</span>
+          <span
+            *ngIf="createContractDetailForm.get('idContract').hasError('pattern')">mã hợp đồng có dạng HD-XXXX</span>
+        </div>
+        <div class="form-group row">
+          <label class="col">
+            Dịch vụ đi kèm
+            <select formControlName="accompaniedService" class="form-control">
+              <option value="">Chọn</option>
+              <ng-container *ngFor="let accompaniedService of AccompaniedServiceList">
+                <option value="{{accompaniedService.id}}">{{accompaniedService.nameAccompaniedService}}</option>
+              </ng-container>
+            </select>
+          </label>
+        </div>
+        <div class="alert alert-danger" role="alert"
+             *ngIf="createContractDetailForm.get('accompaniedService').invalid && createContractDetailForm.get('accompaniedService').touched">
+          dịch vụ đi kèm không được bỏ trống
+        </div>
+        <div class="form-group row">
+          <label class="col">
+            Số lượng
+            <input class="form-control" type="number" formControlName="amount">
+          </label>
+        </div>
+        <div class="alert alert-danger" role="alert"
+             *ngIf="createContractDetailForm.get('amount').invalid && createContractDetailForm.get('amount').touched">
+          <span
+            *ngIf="createContractDetailForm.get('amount').hasError('required')">số lượng không được để trống</span>
+          <span
+            *ngIf="createContractDetailForm.get('amount').hasError('pattern')">số lượng phải lớn hơn hoặc bằng 0</span>
+        </div>
+
+        <div class="form-group">
+          <button class="btn btn-info" [disabled]="createContractDetailForm.invalid" type="submit">Thêm dịch vụ đi kèm
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="row-12">
+    <table class="table table-hover">
+      <tr>
+        <td scope="col">Tên dịch vụ đi kèm</td>
+        <td scope="col">Giá</td>
+        <td scope="col">Đơn vị</td>
+        <td scope="col">Trạng thái</td>
+        <td scope="col"></td>
+      </tr>
+      <tr *ngFor="let contractdetails of ContractDetailsList">
+        <td>{{contractdetails.nameAccompaniedService}}</td>
+        <td>{{contractdetails.cost}}</td>
+        <td>{{contractdetails.turn}}</td>
+        <td>{{contractdetails.status}}</td>
+        <td>
+          <button class="btn btn-success pt-0 pb-0 pl-1 pr-1" (click)="delteContractDetails(contractdetails.id)">x
+          </button>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+

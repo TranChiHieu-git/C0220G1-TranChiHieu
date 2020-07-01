@@ -5,7 +5,6 @@ import {Typeservice} from '../typeservice';
 import {Typerent} from '../typerent';
 import {Statusservice} from '../statusservice';
 import {Service} from '../service';
-import compile = WebAssembly.compile;
 import {Router} from '@angular/router';
 
 function compareID(c: AbstractControl) {
@@ -43,13 +42,19 @@ function compareID(c: AbstractControl) {
 })
 export class CreateServiceComponent implements OnInit {
   createServiceForm: FormGroup;
-  TypeServiceList: Typeservice[];
-  TypeRentList: Typerent[];
-  StatusList: Statusservice[];
+  TypeServiceList: Typeservice[] = [];
+  TypeRentList: Typerent[] = [];
+  StatusList: Statusservice[] = [];
+  ServiceList: Service[] = [];
   private resultForm: any;
   private serviceForm: Service;
 
   constructor(private fb: FormBuilder, private serviceService: ServiceService, private router: Router) {
+    this.serviceService.findAllService().subscribe(next => {
+      console.log(next);
+      this.ServiceList = next;
+    });
+
   }
 
   ngOnInit(): void {
@@ -71,7 +76,7 @@ export class CreateServiceComponent implements OnInit {
     this.createServiceForm = this.fb.group({
       idGroup: this.fb.group({
         idTypeService: ['', Validators.required],
-        id: ['', [Validators.required, Validators.pattern('^(RO|HO|VL)\\-+[0-9]{4}$')]],
+        id: ['', [Validators.required, Validators.pattern('^(RO|HO|VL)\\-+[0-9]{4}$'), this.existID.bind(this)]],
       }, {validator: compareID}),
       name: ['', [Validators.required,
         Validators.pattern('^[a-zA-Z0-9\\_\\-\\sÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹế]+$'),
@@ -89,6 +94,17 @@ export class CreateServiceComponent implements OnInit {
     });
   }
 
+  existID(c: AbstractControl) {
+    const v = c.value;
+    console.log(this.ServiceList);
+    for (const service of this.ServiceList) {
+      if (service.id === v) {
+        return {idExist: true};
+      }
+    }
+    return null;
+  }
+
   onSubmit() {
     this.resultForm = this.createServiceForm.value;
     this.serviceForm = new Service(this.resultForm.idGroup.id, this.resultForm.name, this.resultForm.area, this.resultForm.numberOfFloor
@@ -101,6 +117,5 @@ export class CreateServiceComponent implements OnInit {
       },
       error => alert('Thêm mới dịch vụ không thành công hãy kiểm tra lại.'),
     );
-
   }
 }

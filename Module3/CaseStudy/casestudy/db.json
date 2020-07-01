@@ -165,36 +165,142 @@
   "service": [
     {
       "id": "VL-0000",
-      "name": "Villa thuê theo ngày",
+      "name": "Villa thuê theo tháng",
       "area": "1000.0",
       "numberOfFloor": "4",
       "numberMaxOfPeople": "10",
-      "rent": "1000000",
-      "idTypeRent": "1",
+      "rent": "10000000",
+      "idTypeRent": "3",
       "idTypeService": "1",
       "status": "1"
     },
     {
       "id": "HO-0000",
-      "name": "House thuê theo ngày",
+      "name": "House thuê theo tháng",
       "area": "500.0",
+      "numberOfFloor": "3",
+      "numberMaxOfPeople": "5",
+      "rent": "8000000",
+      "idTypeRent": "3",
+      "idTypeService": "2",
+      "status": "1"
+    },
+    {
+      "id": "VL-0007",
+      "name": "Villa thuê theo tháng",
+      "area": "400.0",
       "numberOfFloor": "2",
       "numberMaxOfPeople": "10",
-      "rent": "500000",
+      "rent": "800000",
       "idTypeRent": "1",
       "idTypeService": "2",
       "status": "1"
     },
     {
-      "id": "HO-0001",
-      "name": "House thuê theo tháng",
-      "area": "500.0",
+      "id": "RO-0008",
+      "name": "Room thuê theo ngày",
+      "area": "400.0",
       "numberOfFloor": "2",
       "numberMaxOfPeople": "10",
-      "rent": "500000",
-      "idTypeRent": "2",
+      "rent": "800000",
+      "idTypeRent": "1",
       "idTypeService": "2",
       "status": "1"
+    },
+    {
+      "id": "HO-0010",
+      "name": "House thuê theo ngày",
+      "area": "400.0",
+      "numberOfFloor": "2",
+      "numberMaxOfPeople": "10",
+      "rent": "800000",
+      "idTypeRent": "1",
+      "idTypeService": "2",
+      "status": "1"
+    }
+  ],
+  "employee": [
+    {
+      "id": "NV-0001",
+      "name": "Lê Ngọc Huy",
+      "birthday": "1998-07-14",
+      "identificationCard": "743691057",
+      "salary": "10000000",
+      "numberPhone": "0904587632",
+      "email": "huyngoc111@gmail.com",
+      "address": "Đà Nẵng",
+      "idPos": "2",
+      "idLevel": "4",
+      "idPart": "2"
+    },
+    {
+      "id": "NV-0123",
+      "name": "Van NHan",
+      "birthday": "2020-06-20",
+      "identificationCard": "123456789",
+      "salary": "10000000",
+      "numberPhone": "0901234567",
+      "email": "sdfg@tyhuji.drfg",
+      "address": "fghjdfgh",
+      "idPos": "1",
+      "idLevel": "1",
+      "idPart": "1"
+    }
+  ],
+  "customer": [
+    {
+      "id": "KH-0001",
+      "name": "Trương Tấn Hải",
+      "birthday": "2000-01-01",
+      "identificationCard": "147536982",
+      "numberPhone": "0900000009",
+      "email": "htt@gmail.com",
+      "address": "Quảng Nam",
+      "idTypeCustomer": "3"
+    }
+  ],
+  "contract": [
+    {
+      "id": "HD-0000",
+      "idEmployee": "NV-0001",
+      "idCustomer": "KH-0001",
+      "idService": "VL-0000",
+      "dateMakeContract": "2020-07-01",
+      "dateEndContract": "2020-07-09",
+      "deposit": "2000000",
+      "totalAmount": "78000000"
+    }
+  ],
+  "contractdetails": [
+    {
+      "id": 1,
+      "idContract": "HD-0000",
+      "accompaniedService": "2",
+      "amount": 4
+    },
+    {
+      "id": 2,
+      "idContract": "HD-0000",
+      "accompaniedService": "1",
+      "amount": 3
+    },
+    {
+      "id": 3,
+      "idContract": "HD-0000",
+      "accompaniedService": "3",
+      "amount": 1
+    },
+    {
+      "id": 4,
+      "idContract": "HD-0000",
+      "accompaniedService": "4",
+      "amount": 1
+    },
+    {
+      "id": 5,
+      "idContract": "HD-0000",
+      "accompaniedService": "5",
+      "amount": 1
     }
   ]
 }
