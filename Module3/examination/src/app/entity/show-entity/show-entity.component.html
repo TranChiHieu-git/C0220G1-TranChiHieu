@@ -1,0 +1,50 @@
+<div class="container-fluid">
+  <div class="row-12">
+    <div class="col-12">
+      <br>
+      <h3 class="title">Danh sách sinh viên</h3>
+    </div>
+  </div>
+  <div class="row-12 bg-transparent">
+    <div>
+      <nav class="navbar navbar-light px-0">
+        <form class="form-inline " [formGroup]="searchEntityForm" (ngSubmit)="onSearch()">
+          <input class="form-control mr-sm-2 search" type="search"
+                 placeholder="nhập từ khóa"
+                 aria-label="Search" formControlName="keyword">
+          <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Tìm kiếm</button>
+        </form>
+      </nav>
+    </div>
+  </div>
+  <div class="row">
+    <table class="table thead-light">
+      <tr>
+        <th scope="col">Stt</th>
+        <th scope="col">Mã sinh viên</th>
+        <th scope="col">Tên sinh viên</th>
+        <th scope="col">Tên Nhóm</th>
+        <th scope="col">Tên đề tài</th>
+        <th scope="col" width="200px">GV hướng dẫn</th>
+        <th scope="col">Email</th>
+        <th scope="col">SDT</th>
+        <th scope="col" width="178px">Chức năng</th>
+      </tr>
+      <tr *ngFor="let entity of entityList | paginate: { itemsPerPage: 4, currentPage: p }, let i = index ">
+        <td scope="row" class="buton">{{i + 1}}</td>
+        <td scope="row" class="buton">{{entity.id}}</td>
+        <td scope="row" class="buton">{{entity.tenSinhVien}}</td>
+        <td scope="row" class="buton">{{entity.tenNhom}}</td>
+        <td scope="row" class="buton">{{entity.tenDeTai}}</td>
+        <td scope="row" class="buton">{{entity.giaoVienHuongDan}}</td>
+        <td scope="row" class="buton">{{entity.email}}</td>
+        <td scope="row" class="buton">{{entity.soDienThoai}}</td>
+        <td scope="row"><a [routerLink]="['/entity/update',entity.id]" class="btn btn-outline-success">Chỉnh sửa</a>
+          <a (click)="delete(entity.id)" class="btn btn-outline-danger">Xóa</a></td>
+      </tr>
+    </table>
+  </div>
+  <div>
+    <pagination-controls (pageChange)="p = $event" class="paging"></pagination-controls>
+  </div>
+</div>

@@ -1,0 +1,114 @@
+<div class="container">
+  <div class="row">
+    <div class="col-2"></div>
+    <div class="col-8">
+      <div class="col-md-12 col-lg-12 col-sm-12">
+        <h1 class="title">Chỉnh Sửa Thông Tin Sinh Viên</h1>
+      </div>
+    </div>
+    <div class="col-2"></div>
+  </div>
+  <div class="row">
+    <div class="col-md-12 col-lg-12 col-sm-12">
+      <form [formGroup]="editStudentForm" (ngSubmit)="onSubmit()" class="col-md-6 offset-md-3">
+        <div class="form-group row">
+          <label class="col">
+            Mã sinh viên
+            <input class="form-control" formControlName="id" disabled>
+          </label>
+        </div>
+        <div class="alert alert-danger" role="alert"
+             *ngIf="editStudentForm.get('id').invalid && editStudentForm.get('id').touched">
+          <span *ngIf="editStudentForm.get('id').hasError('required')">không được để trống</span>
+          <span
+            *ngIf="editStudentForm.get('id').hasError('notChangeID')">không được thay đổi</span>
+        </div>
+        <div class="form-group row">
+          <label class="col">
+            Tên sinh viên
+            <input class="form-control" formControlName="tenSinhVien">
+          </label>
+        </div>
+        <div class="alert alert-danger" role="alert"
+             *ngIf="editStudentForm.get('tenSinhVien').invalid && editStudentForm.get('tenSinhVien').touched">
+          <span *ngIf="editStudentForm.get('tenSinhVien').hasError('required')">không được để trống</span>
+          <span
+            *ngIf="editStudentForm.get('tenSinhVien').hasError('pattern')">chỉ bao gồm chữ và khoảng trống</span>
+        </div>
+        <div class="form-group row">
+          <label class="col">
+            Tên nhóm
+            <select formControlName="tenNhom" class="form-control">
+              <option value="">Chọn</option>
+              <option value="nhóm 1">Nhóm 1</option>
+              <option value="nhóm 2">Nhóm 2</option>
+              <option value="nhóm 3">Nhóm 3</option>
+            </select>
+          </label>
+        </div>
+        <div class="alert alert-danger" role="alert"
+             *ngIf="editStudentForm.get('tenNhom').invalid && editStudentForm.get('tenNhom').touched">
+          <span *ngIf="editStudentForm.get('tenNhom').hasError('required')">không được để trống</span>
+          <span
+            *ngIf="editStudentForm.get('tenNhom').hasError('pattern')">chỉ bao gồm Nhóm 1, Nhóm 2, Nhóm 3</span>
+        </div>
+        <div class="form-group row">
+          <label class="col">
+            Tên đề tài
+            <input class="form-control" formControlName="tenDeTai">
+          </label>
+        </div>
+        <div class="alert alert-danger" role="alert"
+             *ngIf="editStudentForm.get('tenDeTai').invalid && editStudentForm.get('tenDeTai').touched">
+          <span *ngIf="editStudentForm.get('tenDeTai').hasError('required')">không được để trống</span>
+        </div>
+        <div class="form-group row">
+          <label class="col">
+            Giáo viên hướng dẫn
+            <select formControlName="giaoVienHuongDan" class="form-control">
+              <option value="">Chọn</option>
+              <option value="Trần Hoàng Nam">Trần Hoàng Nam</option>
+              <option value="Doãn Bá Hùng">Doãn Bá Hùng</option>
+              <option value="Hoàng Thanh Sơn">Hoàng Thanh Sơn</option>
+            </select>
+          </label>
+        </div>
+        <div class="alert alert-danger" role="alert"
+             *ngIf="editStudentForm.get('giaoVienHuongDan').invalid && editStudentForm.get('giaoVienHuongDan').touched">
+          <span *ngIf="editStudentForm.get('giaoVienHuongDan').hasError('required')">không được để trống</span>
+        </div>
+
+        <div class="form-group row">
+          <label class="col">
+            Email
+            <input class="form-control" formControlName="email">
+          </label>
+        </div>
+        <div class="alert alert-danger" role="alert"
+             *ngIf="editStudentForm.get('email').invalid && editStudentForm.get('email').touched">
+          <span *ngIf="editStudentForm.get('email').hasError('required')">không được để trống</span>
+          <span
+            *ngIf="editStudentForm.get('email').hasError('pattern')">phải theo định dạng abc@def.com</span>
+        </div>
+        <div class="form-group row">
+          <label class="col">
+            Số điện thoại
+            <input class="form-control" formControlName="soDienThoai">
+          </label>
+        </div>
+        <div class="alert alert-danger" role="alert"
+             *ngIf="editStudentForm.get('soDienThoai').invalid && editStudentForm.get('soDienThoai').touched">
+          <span *ngIf="editStudentForm.get('soDienThoai').hasError('required')">không được để trống</span>
+          <span
+            *ngIf="editStudentForm.get('soDienThoai').hasError('pattern')">bao gồm 10 đến 12 số</span>
+        </div>
+        <div class="form-group">
+          <button class="btn btn-success" [disabled]="editStudentForm.invalid" type="submit">Lưu</button>
+          <button class="btn btn-danger" (click)="onExit()" type="submit">Thoát</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+

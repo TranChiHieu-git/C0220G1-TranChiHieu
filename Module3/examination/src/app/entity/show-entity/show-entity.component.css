@@ -1,0 +1,13 @@
+.title {
+  text-align: center;
+  font-weight: bolder;
+}
+
+.paging {
+  position: relative;
+  right: 4%;
+}
+
+.buton {
+  cursor: pointer;
+}

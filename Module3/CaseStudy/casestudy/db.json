@@ -261,46 +261,28 @@
   ],
   "contract": [
     {
-      "id": "HD-0000",
+      "id": "HD-0001",
       "idEmployee": "NV-0001",
       "idCustomer": "KH-0001",
-      "idService": "VL-0000",
-      "dateMakeContract": "2020-07-01",
-      "dateEndContract": "2020-07-09",
-      "deposit": "2000000",
-      "totalAmount": "78000000"
+      "idService": "RO-0008",
+      "dateMakeContract": "2020-07-02",
+      "dateEndContract": "2020-07-17",
+      "deposit": "11111111",
+      "totalAmount": "888889"
     }
   ],
   "contractdetails": [
     {
       "id": 1,
-      "idContract": "HD-0000",
-      "accompaniedService": "2",
+      "idContract": "HD-0001",
+      "accompaniedService": "1",
       "amount": 4
     },
     {
       "id": 2,
-      "idContract": "HD-0000",
-      "accompaniedService": "1",
-      "amount": 3
-    },
-    {
-      "id": 3,
-      "idContract": "HD-0000",
-      "accompaniedService": "3",
-      "amount": 1
-    },
-    {
-      "id": 4,
-      "idContract": "HD-0000",
-      "accompaniedService": "4",
-      "amount": 1
-    },
-    {
-      "id": 5,
-      "idContract": "HD-0000",
-      "accompaniedService": "5",
-      "amount": 1
+      "idContract": "HD-0001",
+      "accompaniedService": "2",
+      "amount": 2
     }
   ]
 }

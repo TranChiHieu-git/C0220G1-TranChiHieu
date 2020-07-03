@@ -9,12 +9,11 @@ import {RouterModule} from '@angular/router';
 import {NgxPaginationModule} from 'ngx-pagination';
 import {Ng2SearchPipeModule} from 'ng2-search-filter';
 import {EmployeeModule} from './employee/employee.module';
-import {CustomerComponent} from './customer/customer.component';
 import {CustomerModule} from './customer/customer.module';
 import {ContractComponent} from './contract/contract.component';
-import {ContractModule} from './contract/contract.module';
 import {IndexComponent} from './index/index.component';
 import {IndexModule} from './index/index.module';
+import {ContractModule} from './contract/contract.module';
 
 @NgModule({
   declarations: [

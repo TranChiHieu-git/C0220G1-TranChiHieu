@@ -53,7 +53,7 @@
         <div class="form-group row">
           <label class="col">
             Tên dịch vụ
-            <input class="form-control" formControlName="name">
+            <input class="form-control" formControlName="name" (change)="notSpace($event.target.value)">
           </label>
         </div>
         <div class="alert alert-danger" role="alert"

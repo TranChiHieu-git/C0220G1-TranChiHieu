@@ -51,10 +51,21 @@ export class CreateServiceComponent implements OnInit {
 
   constructor(private fb: FormBuilder, private serviceService: ServiceService, private router: Router) {
     this.serviceService.findAllService().subscribe(next => {
-      console.log(next);
       this.ServiceList = next;
     });
-
+    this.createServiceForm = this.fb.group({
+      idGroup: this.fb.group({
+        idTypeService: [''],
+        id: [''],
+      }),
+      name: [''],
+      area: [''],
+      numberOfFloor: [''],
+      numberMaxOfPeople: [''],
+      rent: [''],
+      idTypeRent: [''],
+      status: [''],
+    });
   }
 
   ngOnInit(): void {
@@ -94,9 +105,26 @@ export class CreateServiceComponent implements OnInit {
     });
   }
 
+  notSpace(value: string) {
+    let inputKey = '';
+    value = value.toLowerCase().trim();
+    for (let i = 0; i < value.length; i++) {
+      if ((value.charAt(i) !== ' ' || (value.charAt(i) === ' ' && value.charAt(i + 1) !== ' '))) {
+        inputKey += value.charAt(i);
+      }
+    }
+    let toUpperCase: string[] = [];
+    toUpperCase = inputKey.split(' ');
+    for (let i = 0; i < toUpperCase.length; i++) {
+      toUpperCase[i] = toUpperCase[i].charAt(0).toUpperCase() + toUpperCase[i].substring(1, toUpperCase[i].length);
+    }
+    this.createServiceForm.patchValue({
+      name: toUpperCase.join(' ')
+    });
+  }
+
   existID(c: AbstractControl) {
     const v = c.value;
-    console.log(this.ServiceList);
     for (const service of this.ServiceList) {
       if (service.id === v) {
         return {idExist: true};

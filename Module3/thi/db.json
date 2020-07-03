@@ -1,0 +1,11 @@
+{
+  "product": [
+    {
+      "id": 1,
+      "name": "xiaomi redmi 4x",
+      "description": "ram 3gb rom 32gb",
+      "cost": "3500000",
+      "typeProduct": "Điện thoại"
+    }
+  ]
+}

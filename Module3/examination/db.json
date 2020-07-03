@@ -1,0 +1,76 @@
+{
+  "students": [
+    {
+      "id": 1001,
+      "tenSinhVien": "Nguyễn Thế Hùng",
+      "tenNhom": "nhóm 1",
+      "tenDeTai": "xây dựng website bằng spring mvc",
+      "giaoVienHuongDan": "Trần Hoàng Nam",
+      "email": "thehung@gmail.com",
+      "soDienThoai": "0903836283"
+    },
+    {
+      "id": 1002,
+      "tenSinhVien": "Trần Hoàng Tuấn Kiệt",
+      "tenNhom": "nhóm 2",
+      "tenDeTai": "bảo mật website bằng Laravel",
+      "giaoVienHuongDan": "Doãn Bá Hùng",
+      "email": "tuankiet@gmail.com",
+      "soDienThoai": "0935774834"
+    },
+    {
+      "id": 1003,
+      "tenSinhVien": "Lương Mạnh Quân",
+      "tenNhom": "nhóm 3",
+      "tenDeTai": "Sử dụng Azure Microsoft để xây dựng webservice ",
+      "giaoVienHuongDan": "Hoàng Thanh Sơn",
+      "email": "manhquan@gmail.com",
+      "soDienThoai": "0122343453"
+    },
+    {
+      "id": 1004,
+      "tenSinhVien": "Nguyễn Phi Sơn",
+      "tenNhom": "nhóm 2",
+      "tenDeTai": "bảo mật website bằng Laravel",
+      "giaoVienHuongDan": "Doãn Bá Hùng",
+      "email": "phison@gmail.com",
+      "soDienThoai": "0903994332"
+    },
+    {
+      "id": 1005,
+      "tenSinhVien": "Lê Hoàng Quốc Anh",
+      "tenNhom": "nhóm 3",
+      "tenDeTai": "Sử dụng Azure Microsoft để xây dựng webservice ",
+      "giaoVienHuongDan": "Hoàng Thanh Sơn",
+      "email": "quocanh@gmail.com",
+      "soDienThoai": "0934456024"
+    },
+    {
+      "id": 1006,
+      "tenSinhVien": "Nguyễn Lê Trần Nam",
+      "tenNhom": "nhóm 1",
+      "tenDeTai": "xây dựng website bằng spring mvc",
+      "giaoVienHuongDan": "Trần Hoàng Nam",
+      "email": "trannam@gmail.com",
+      "soDienThoai": "0977893022"
+    },
+    {
+      "id": 1007,
+      "tenSinhVien": "Nguyễn Lê Hoài An",
+      "tenNhom": "nhóm 2",
+      "tenDeTai": "bảo mật website bằng Laravel",
+      "giaoVienHuongDan": "Doãn Bá Hùng",
+      "email": "hoaian@gmail.com",
+      "soDienThoai": "0935889203"
+    },
+    {
+      "id": 1008,
+      "tenSinhVien": "Đoàn Thanh Diệu Phúc",
+      "tenNhom": "nhóm 1",
+      "tenDeTai": "xây dựng website bằng spring mvc",
+      "giaoVienHuongDan": "Trần Hoàng Nam",
+      "email": "dieuphuc@gmail.com",
+      "soDienThoai": "0963848394"
+    }
+  ]
+}

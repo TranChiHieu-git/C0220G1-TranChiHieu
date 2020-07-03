@@ -1,0 +1,42 @@
+<div class="container-fluid">
+  <div class="row-12">
+    <div class="col-12">
+      <h1 class="title">Danh sách sản phẩm</h1>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-8"></div>
+    <div class="col-4">
+    </div>
+  </div>
+
+  <div class="row">
+    <table class="table thead-light">
+      <tr>
+        <th scope="col">Mã sản phẩm</th>
+        <th scope="col">Tên sản phẩm</th>
+        <th scope="col">Loại sản phẩm</th>
+        <th scope="col">Mô tả</th>
+        <th scope="col">Giá</th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+      </tr>
+      <tr *ngFor="let product of productList">
+        <th scope="row">{{product.id}}</th>
+        <th scope="row">{{product.name}}</th>
+        <th scope="row">{{product.typeProduct}}</th>
+        <th scope="row">{{product.description}}</th>
+        <th scope="row">{{product.cost}}</th>
+        <th scope="row"><a class="btn-success">Chỉnh sửa</a></th>
+        <th scope="row"><a class="btn-danger">Xóa</a></th>
+      </tr>
+
+    </table>
+  </div>
+</div>
+
+
+
+
+
